@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -14,11 +15,9 @@
                         <viewControllerLayoutGuide type="bottom" id="aEI-yg-n45"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xrj-pi-NB4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yosemite" translatesAutoresizingMaskIntoConstraints="NO" id="WkA-4k-RI2">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5m-Sv-fuv">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.38823529410000002" green="0.70980392160000005" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,38 +114,50 @@
                                     <action selector="clickForDetail:" destination="MTh-A3-5Gf" eventType="touchUpInside" id="jbW-ng-ycu"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yosemite" translatesAutoresizingMaskIntoConstraints="NO" id="yoj-cA-ekb">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="u7I-WR-yOz"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="u7I-WR-yOz"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="u7I-WR-yOz"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Egk-TQ-yZM" secondAttribute="trailing" constant="31" id="0wk-Fd-Wls"/>
                             <constraint firstItem="bK4-yd-khu" firstAttribute="leading" secondItem="Xrj-pi-NB4" secondAttribute="leadingMargin" constant="32" id="1lj-uX-NhS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WkA-4k-RI2" secondAttribute="trailing" constant="-16" id="6oW-00-XAY"/>
                             <constraint firstItem="2vs-dp-mzN" firstAttribute="top" secondItem="bK4-yd-khu" secondAttribute="bottom" constant="15" id="BPw-hU-pHA"/>
                             <constraint firstItem="Egk-TQ-yZM" firstAttribute="top" secondItem="P5m-Sv-fuv" secondAttribute="bottom" constant="15" id="FFp-Oe-5Nx"/>
-                            <constraint firstItem="WkA-4k-RI2" firstAttribute="top" secondItem="Xrj-pi-NB4" secondAttribute="topMargin" id="Q5b-as-ahI"/>
                             <constraint firstItem="P5m-Sv-fuv" firstAttribute="top" secondItem="C3h-xt-ZWh" secondAttribute="bottom" constant="16" id="S3I-kK-w9v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bK4-yd-khu" secondAttribute="trailing" constant="31" id="Sd9-39-Mo8"/>
+                            <constraint firstItem="aEI-yg-n45" firstAttribute="top" secondItem="yoj-cA-ekb" secondAttribute="bottom" id="Xw0-dB-sZy"/>
                             <constraint firstItem="P5m-Sv-fuv" firstAttribute="leading" secondItem="Xrj-pi-NB4" secondAttribute="leadingMargin" constant="35" id="Yaq-ZM-g2V"/>
+                            <constraint firstItem="yoj-cA-ekb" firstAttribute="leading" secondItem="Xrj-pi-NB4" secondAttribute="leadingMargin" constant="53" id="bVp-W3-Rnm"/>
                             <constraint firstItem="2vs-dp-mzN" firstAttribute="leading" secondItem="Xrj-pi-NB4" secondAttribute="leadingMargin" constant="32" id="fLW-Dt-xSg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yoj-cA-ekb" secondAttribute="trailing" constant="75" id="hr7-la-thl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="P5m-Sv-fuv" secondAttribute="trailing" constant="28" id="lsw-cu-YQv"/>
-                            <constraint firstItem="WkA-4k-RI2" firstAttribute="leading" secondItem="Xrj-pi-NB4" secondAttribute="leadingMargin" constant="-16" id="nGV-SC-HOj"/>
                             <constraint firstItem="bK4-yd-khu" firstAttribute="top" secondItem="Egk-TQ-yZM" secondAttribute="bottom" constant="13" id="tUS-1d-zYl"/>
-                            <constraint firstItem="aEI-yg-n45" firstAttribute="top" secondItem="WkA-4k-RI2" secondAttribute="bottom" id="uIx-i4-j5Q"/>
                             <constraint firstItem="Egk-TQ-yZM" firstAttribute="leading" secondItem="Xrj-pi-NB4" secondAttribute="leadingMargin" constant="32" id="yOG-UA-V2f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2vs-dp-mzN" secondAttribute="trailing" constant="31" id="zlC-aI-bnR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="WkA-4k-RI2"/>
                                 <exclude reference="P5m-Sv-fuv"/>
                                 <exclude reference="Egk-TQ-yZM"/>
                                 <exclude reference="bK4-yd-khu"/>
                                 <exclude reference="2vs-dp-mzN"/>
+                                <exclude reference="yoj-cA-ekb"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6oW-00-XAY"/>
-                                <exclude reference="Q5b-as-ahI"/>
-                                <exclude reference="nGV-SC-HOj"/>
                                 <exclude reference="S3I-kK-w9v"/>
                                 <exclude reference="Yaq-ZM-g2V"/>
                                 <exclude reference="lsw-cu-YQv"/>
@@ -159,21 +170,20 @@
                                 <exclude reference="BPw-hU-pHA"/>
                                 <exclude reference="fLW-Dt-xSg"/>
                                 <exclude reference="zlC-aI-bnR"/>
-                                <exclude reference="uIx-i4-j5Q"/>
+                                <exclude reference="bVp-W3-Rnm"/>
+                                <exclude reference="hr7-la-thl"/>
+                                <exclude reference="Xw0-dB-sZy"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="WkA-4k-RI2"/>
                                 <include reference="P5m-Sv-fuv"/>
                                 <include reference="Egk-TQ-yZM"/>
                                 <include reference="bK4-yd-khu"/>
                                 <include reference="2vs-dp-mzN"/>
+                                <include reference="yoj-cA-ekb"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6oW-00-XAY"/>
-                                <include reference="Q5b-as-ahI"/>
-                                <include reference="nGV-SC-HOj"/>
                                 <include reference="S3I-kK-w9v"/>
                                 <include reference="Yaq-ZM-g2V"/>
                                 <include reference="lsw-cu-YQv"/>
@@ -186,7 +196,9 @@
                                 <include reference="BPw-hU-pHA"/>
                                 <include reference="fLW-Dt-xSg"/>
                                 <include reference="zlC-aI-bnR"/>
-                                <include reference="uIx-i4-j5Q"/>
+                                <include reference="bVp-W3-Rnm"/>
+                                <include reference="hr7-la-thl"/>
+                                <include reference="Xw0-dB-sZy"/>
                             </mask>
                         </variation>
                     </view>
@@ -204,6 +216,7 @@
                         <viewControllerLayoutGuide type="bottom" id="y4P-Uw-b69"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Wf9-rr-H5j">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -221,6 +234,7 @@
                         <viewControllerLayoutGuide type="bottom" id="7a1-gy-9da"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Tja-vp-ety">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -238,6 +252,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NAT-Kn-K6O"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8hR-MX-0wR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -255,6 +270,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1n9-F2-sqJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="p0F-IC-s8w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"测白" onViewController:self];
+    self.navigationItem.leftBarButtonItem = nil;
 
 }
 

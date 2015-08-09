@@ -30,6 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"我" onViewController:self];
+    self.navigationItem.leftBarButtonItem = nil;
+    
     self.items = @[@"个人信息",@"使用记录",@"测白记录",@"美白计划",@"牙齿状况",@"消息推送"];
     
     
@@ -77,8 +79,55 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+    switch (indexPath.row) {
+        case 0:
+        {
+            PersonalInfoViewController *infoVC = [sb instantiateViewControllerWithIdentifier:@"PersonalInfoViewController"];
+            infoVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:infoVC animated:YES];
+        }
+            break;
+        case 1:
+        {
+            UseHistoryViewController *useVC = [sb instantiateViewControllerWithIdentifier:@"UseHistoryViewController"];
+            useVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:useVC animated:YES];
+        }
+            break;
+        case 2:
+        {
+            CeBaiHistoryViewController *cebaiVC =[sb instantiateViewControllerWithIdentifier:@"CeBaiHistoryViewController"];
+            cebaiVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:cebaiVC animated:YES];
+
+        }
+            break;
+        case 3:
+        {
+            MeiBaiProjectViewController *cebaiVC =[sb instantiateViewControllerWithIdentifier:@"MeiBaiProjectViewController"];
+            cebaiVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:cebaiVC animated:YES];
+        }
+            break;
+        case 4:
+        {
+            TeethStateViewController *cebaiVC =[sb instantiateViewControllerWithIdentifier:@"TeethStateViewController"];
+            cebaiVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:cebaiVC animated:YES];
+        }
+            break;
+        case 5:
+        {
+            MessageNotificationController *cebaiVC =[sb instantiateViewControllerWithIdentifier:@"MessageNotificationController"];
+            cebaiVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:cebaiVC animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
     
 }
 
