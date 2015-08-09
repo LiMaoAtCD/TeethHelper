@@ -8,6 +8,13 @@
 
 #import "ProductIntroduceViewController.h"
 #import "Utils.h"
+
+#import "ProductDetailViewController.h"
+#import "ProductCompositionViewController.h"
+#import "NewGuideViewController.h"
+#import "NoticeViewController.h"
+
+
 @interface ProductIntroduceViewController ()
 
 @end
@@ -23,6 +30,56 @@
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.view layoutIfNeeded];
+}
+
+- (IBAction)clickForDetail:(id)sender {
+    
+    UIButton *button  = sender;
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
+    switch (button.tag) {
+        case 0:
+        {
+        //产品介绍
+            
+            ProductDetailViewController *detailVC  =[sb instantiateViewControllerWithIdentifier:@"ProductDetailViewController"];
+            [self.navigationController showViewController:detailVC sender:self];
+        }
+            break;
+        case 1:
+        {
+        //产品组成
+            ProductCompositionViewController *compositionVC  =[sb instantiateViewControllerWithIdentifier:@"ProductCompositionViewController"];
+            [self.navigationController showViewController:compositionVC sender:self];
+        }
+            break;
+        case 2:
+        {
+        //新手指南
+            NewGuideViewController *newVC  =[sb instantiateViewControllerWithIdentifier:@"NewGuideViewController"];
+            [self.navigationController showViewController:newVC sender:self];
+        }
+            break;
+        case 3:
+        {
+        //注意事项
+            NoticeViewController *noticeVC  =[sb instantiateViewControllerWithIdentifier:@"NoticeViewController"];
+            [self.navigationController showViewController:noticeVC sender:self];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

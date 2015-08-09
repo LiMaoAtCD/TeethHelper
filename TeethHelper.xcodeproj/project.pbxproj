@@ -31,6 +31,10 @@
 		873B75CA1B77407A002D7871 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75C91B77407A002D7871 /* PersonalViewController.m */; };
 		873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75CC1B7742EF002D7871 /* ProductIntroduceViewController.m */; };
 		873B75D01B774338002D7871 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B75CF1B774338002D7871 /* Product.storyboard */; };
+		873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75D21B774C8A002D7871 /* ProductDetailViewController.m */; };
+		873B75D61B774CB5002D7871 /* ProductCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75D51B774CB5002D7871 /* ProductCompositionViewController.m */; };
+		873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75D81B774CC9002D7871 /* NewGuideViewController.m */; };
+		873B75DC1B774CEA002D7871 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75DB1B774CEA002D7871 /* NoticeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +94,14 @@
 		873B75CB1B7742EF002D7871 /* ProductIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductIntroduceViewController.h; sourceTree = "<group>"; };
 		873B75CC1B7742EF002D7871 /* ProductIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductIntroduceViewController.m; sourceTree = "<group>"; };
 		873B75CF1B774338002D7871 /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
+		873B75D11B774C8A002D7871 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		873B75D21B774C8A002D7871 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		873B75D41B774CB5002D7871 /* ProductCompositionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCompositionViewController.h; sourceTree = "<group>"; };
+		873B75D51B774CB5002D7871 /* ProductCompositionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCompositionViewController.m; sourceTree = "<group>"; };
+		873B75D71B774CC9002D7871 /* NewGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGuideViewController.h; sourceTree = "<group>"; };
+		873B75D81B774CC9002D7871 /* NewGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGuideViewController.m; sourceTree = "<group>"; };
+		873B75DA1B774CEA002D7871 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
+		873B75DB1B774CEA002D7871 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +290,14 @@
 				873B75CB1B7742EF002D7871 /* ProductIntroduceViewController.h */,
 				873B75CC1B7742EF002D7871 /* ProductIntroduceViewController.m */,
 				873B75CF1B774338002D7871 /* Product.storyboard */,
+				873B75D11B774C8A002D7871 /* ProductDetailViewController.h */,
+				873B75D21B774C8A002D7871 /* ProductDetailViewController.m */,
+				873B75D41B774CB5002D7871 /* ProductCompositionViewController.h */,
+				873B75D51B774CB5002D7871 /* ProductCompositionViewController.m */,
+				873B75D71B774CC9002D7871 /* NewGuideViewController.h */,
+				873B75D81B774CC9002D7871 /* NewGuideViewController.m */,
+				873B75DA1B774CEA002D7871 /* NoticeViewController.h */,
+				873B75DB1B774CEA002D7871 /* NoticeViewController.m */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -431,15 +451,19 @@
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
 				873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
+				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
+				873B75DC1B774CEA002D7871 /* NoticeViewController.m in Sources */,
 				873B75B71B773E42002D7871 /* NetworkManager.m in Sources */,
+				873B75D61B774CB5002D7871 /* ProductCompositionViewController.m in Sources */,
 				873B75CA1B77407A002D7871 /* PersonalViewController.m in Sources */,
 				870A65DA1B77227100A51B26 /* main.m in Sources */,
 				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
 				873B75B11B773984002D7871 /* RegisterViewController.m in Sources */,
 				870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */,
+				873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
