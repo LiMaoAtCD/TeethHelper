@@ -35,6 +35,14 @@
 		873B75D61B774CB5002D7871 /* ProductCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75D51B774CB5002D7871 /* ProductCompositionViewController.m */; };
 		873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75D81B774CC9002D7871 /* NewGuideViewController.m */; };
 		873B75DC1B774CEA002D7871 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75DB1B774CEA002D7871 /* NoticeViewController.m */; };
+		873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75DE1B775155002D7871 /* PersonalTableViewCell.m */; };
+		87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB341B77578A001ED07F /* MessageNotificationController.m */; };
+		87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB371B775796001ED07F /* TeethStateViewController.m */; };
+		87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */; };
+		87E2AB3E1B7757B0001ED07F /* CeBaiHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB3D1B7757B0001ED07F /* CeBaiHistoryViewController.m */; };
+		87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB401B7757BA001ED07F /* UseHistoryViewController.m */; };
+		87E2AB441B7757C6001ED07F /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB431B7757C6001ED07F /* PersonalInfoViewController.m */; };
+		87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AB451B77585B001ED07F /* Setting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +110,21 @@
 		873B75D81B774CC9002D7871 /* NewGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGuideViewController.m; sourceTree = "<group>"; };
 		873B75DA1B774CEA002D7871 /* NoticeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeViewController.h; sourceTree = "<group>"; };
 		873B75DB1B774CEA002D7871 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
+		873B75DD1B775155002D7871 /* PersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
+		873B75DE1B775155002D7871 /* PersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
+		87E2AB331B77578A001ED07F /* MessageNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNotificationController.h; sourceTree = "<group>"; };
+		87E2AB341B77578A001ED07F /* MessageNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNotificationController.m; sourceTree = "<group>"; };
+		87E2AB361B775796001ED07F /* TeethStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethStateViewController.h; sourceTree = "<group>"; };
+		87E2AB371B775796001ED07F /* TeethStateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeethStateViewController.m; sourceTree = "<group>"; };
+		87E2AB391B7757A2001ED07F /* MeiBaiProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiProjectViewController.h; sourceTree = "<group>"; };
+		87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiProjectViewController.m; sourceTree = "<group>"; };
+		87E2AB3C1B7757B0001ED07F /* CeBaiHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeBaiHistoryViewController.h; sourceTree = "<group>"; };
+		87E2AB3D1B7757B0001ED07F /* CeBaiHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiHistoryViewController.m; sourceTree = "<group>"; };
+		87E2AB3F1B7757BA001ED07F /* UseHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseHistoryViewController.h; sourceTree = "<group>"; };
+		87E2AB401B7757BA001ED07F /* UseHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseHistoryViewController.m; sourceTree = "<group>"; };
+		87E2AB421B7757C6001ED07F /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoViewController.h; sourceTree = "<group>"; };
+		87E2AB431B7757C6001ED07F /* PersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoViewController.m; sourceTree = "<group>"; };
+		87E2AB451B77585B001ED07F /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,8 +301,17 @@
 		873B75BB1B773FF4002D7871 /* FourthTab */ = {
 			isa = PBXGroup;
 			children = (
+				87E2AB321B775637001ED07F /* MessageNotification */,
+				87E2AB311B775628001ED07F /* Teethstate */,
+				87E2AB301B77561A001ED07F /* MeiBaiProject */,
+				87E2AB2F1B77560A001ED07F /* CebaiHistory */,
+				87E2AB2E1B7755FA001ED07F /* UseHistory */,
+				87E2AB2D1B7755F2001ED07F /* personalInfo */,
 				873B75C81B77407A002D7871 /* PersonalViewController.h */,
 				873B75C91B77407A002D7871 /* PersonalViewController.m */,
+				873B75DD1B775155002D7871 /* PersonalTableViewCell.h */,
+				873B75DE1B775155002D7871 /* PersonalTableViewCell.m */,
+				87E2AB451B77585B001ED07F /* Setting.storyboard */,
 			);
 			name = FourthTab;
 			sourceTree = "<group>";
@@ -300,6 +332,60 @@
 				873B75DB1B774CEA002D7871 /* NoticeViewController.m */,
 			);
 			name = Product;
+			sourceTree = "<group>";
+		};
+		87E2AB2D1B7755F2001ED07F /* personalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB421B7757C6001ED07F /* PersonalInfoViewController.h */,
+				87E2AB431B7757C6001ED07F /* PersonalInfoViewController.m */,
+			);
+			name = personalInfo;
+			sourceTree = "<group>";
+		};
+		87E2AB2E1B7755FA001ED07F /* UseHistory */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB3F1B7757BA001ED07F /* UseHistoryViewController.h */,
+				87E2AB401B7757BA001ED07F /* UseHistoryViewController.m */,
+			);
+			name = UseHistory;
+			sourceTree = "<group>";
+		};
+		87E2AB2F1B77560A001ED07F /* CebaiHistory */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB3C1B7757B0001ED07F /* CeBaiHistoryViewController.h */,
+				87E2AB3D1B7757B0001ED07F /* CeBaiHistoryViewController.m */,
+			);
+			name = CebaiHistory;
+			sourceTree = "<group>";
+		};
+		87E2AB301B77561A001ED07F /* MeiBaiProject */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB391B7757A2001ED07F /* MeiBaiProjectViewController.h */,
+				87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */,
+			);
+			name = MeiBaiProject;
+			sourceTree = "<group>";
+		};
+		87E2AB311B775628001ED07F /* Teethstate */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB361B775796001ED07F /* TeethStateViewController.h */,
+				87E2AB371B775796001ED07F /* TeethStateViewController.m */,
+			);
+			name = Teethstate;
+			sourceTree = "<group>";
+		};
+		87E2AB321B775637001ED07F /* MessageNotification */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB331B77578A001ED07F /* MessageNotificationController.h */,
+				87E2AB341B77578A001ED07F /* MessageNotificationController.m */,
+			);
+			name = MessageNotification;
 			sourceTree = "<group>";
 		};
 		92FECA73543D42FCD690DBEE /* Pods */ = {
@@ -398,6 +484,7 @@
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
+				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,11 +535,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */,
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
+				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
 				873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */,
+				87E2AB3E1B7757B0001ED07F /* CeBaiHistoryViewController.m in Sources */,
+				87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
+				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
+				87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
 				873B75DC1B774CEA002D7871 /* NoticeViewController.m in Sources */,
@@ -460,6 +553,7 @@
 				873B75D61B774CB5002D7871 /* ProductCompositionViewController.m in Sources */,
 				873B75CA1B77407A002D7871 /* PersonalViewController.m in Sources */,
 				870A65DA1B77227100A51B26 /* main.m in Sources */,
+				87E2AB441B7757C6001ED07F /* PersonalInfoViewController.m in Sources */,
 				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
 				873B75B11B773984002D7871 /* RegisterViewController.m in Sources */,
 				870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */,

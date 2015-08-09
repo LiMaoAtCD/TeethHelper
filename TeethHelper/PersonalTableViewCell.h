@@ -10,4 +10,6 @@
 
 @interface PersonalTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end
