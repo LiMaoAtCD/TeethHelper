@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginNavigationController.h"
+#import "MainTabBarController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) MainTabBarController *tabarController;
+@property (nonatomic, strong) LoginNavigationController *loginVC;
 
 @end
 
@@ -17,6 +22,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    
+    
     return YES;
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C42B4A7085D0D96715AF090 /* libPods-TeethHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56779700444A6622AC945D58 /* libPods-TeethHelper.a */; };
 		870A65DA1B77227100A51B26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A65D91B77227100A51B26 /* main.m */; };
 		870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A65DC1B77227100A51B26 /* AppDelegate.m */; };
 		870A65E01B77227100A51B26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A65DF1B77227100A51B26 /* ViewController.m */; };
@@ -14,6 +15,13 @@
 		870A65E51B77227100A51B26 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870A65E41B77227100A51B26 /* Images.xcassets */; };
 		870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 870A65E61B77227100A51B26 /* LaunchScreen.xib */; };
 		870A65F41B77227100A51B26 /* TeethHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A65F31B77227100A51B26 /* TeethHelperTests.m */; };
+		870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A65FF1B7722A500A51B26 /* LoginNavigationController.m */; };
+		870A66031B7722B500A51B26 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66021B7722B500A51B26 /* LoginViewController.m */; };
+		870A66071B7722D600A51B26 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870A66061B7722D600A51B26 /* Login.storyboard */; };
+		870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A660A1B7724B400A51B26 /* MainTabBarController.m */; };
+		870A660F1B772FEB00A51B26 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A660E1B772FEB00A51B26 /* Utils.m */; };
+		870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */; };
+		870A66161B77321900A51B26 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66151B77321900A51B26 /* AccountManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1008C8556ADB9E5C2501287F /* Pods-TeethHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeethHelper.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeethHelper/Pods-TeethHelper.release.xcconfig"; sourceTree = "<group>"; };
+		4615863A8894CAC0E83A0F95 /* Pods-TeethHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeethHelper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeethHelper/Pods-TeethHelper.debug.xcconfig"; sourceTree = "<group>"; };
+		56779700444A6622AC945D58 /* libPods-TeethHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TeethHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		870A65D41B77227100A51B26 /* TeethHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeethHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		870A65D81B77227100A51B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		870A65D91B77227100A51B26 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +51,19 @@
 		870A65ED1B77227100A51B26 /* TeethHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeethHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		870A65F21B77227100A51B26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		870A65F31B77227100A51B26 /* TeethHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeethHelperTests.m; sourceTree = "<group>"; };
+		870A65FE1B7722A500A51B26 /* LoginNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNavigationController.h; sourceTree = "<group>"; };
+		870A65FF1B7722A500A51B26 /* LoginNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginNavigationController.m; sourceTree = "<group>"; };
+		870A66011B7722B500A51B26 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		870A66021B7722B500A51B26 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		870A66061B7722D600A51B26 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		870A66091B7724B400A51B26 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		870A660A1B7724B400A51B26 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		870A660D1B772FEB00A51B26 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		870A660E1B772FEB00A51B26 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		870A66111B7730CD00A51B26 /* UIColor+HexRGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRGB.h"; sourceTree = "<group>"; };
+		870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRGB.m"; sourceTree = "<group>"; };
+		870A66141B77321900A51B26 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
+		870A66151B77321900A51B26 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C42B4A7085D0D96715AF090 /* libPods-TeethHelper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D1C4AF922FF62D94542F7C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56779700444A6622AC945D58 /* libPods-TeethHelper.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		870A65CB1B77227100A51B26 = {
 			isa = PBXGroup;
 			children = (
 				870A65D61B77227100A51B26 /* TeethHelper */,
 				870A65F01B77227100A51B26 /* TeethHelperTests */,
 				870A65D51B77227100A51B26 /* Products */,
+				92FECA73543D42FCD690DBEE /* Pods */,
+				1D1C4AF922FF62D94542F7C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +116,9 @@
 		870A65D61B77227100A51B26 /* TeethHelper */ = {
 			isa = PBXGroup;
 			children = (
+				870A660C1B772FDA00A51B26 /* Utils */,
+				870A66081B77248D00A51B26 /* Main */,
+				870A65FD1B77227F00A51B26 /* Login */,
 				870A65DB1B77227100A51B26 /* AppDelegate.h */,
 				870A65DC1B77227100A51B26 /* AppDelegate.m */,
 				870A65DE1B77227100A51B26 /* ViewController.h */,
@@ -119,6 +157,57 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		870A65FD1B77227F00A51B26 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				870A65FE1B7722A500A51B26 /* LoginNavigationController.h */,
+				870A65FF1B7722A500A51B26 /* LoginNavigationController.m */,
+				870A66011B7722B500A51B26 /* LoginViewController.h */,
+				870A66021B7722B500A51B26 /* LoginViewController.m */,
+				870A66061B7722D600A51B26 /* Login.storyboard */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		870A66081B77248D00A51B26 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				870A66091B7724B400A51B26 /* MainTabBarController.h */,
+				870A660A1B7724B400A51B26 /* MainTabBarController.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		870A660C1B772FDA00A51B26 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				870A66101B7730BE00A51B26 /* HexToRGB */,
+				870A660D1B772FEB00A51B26 /* Utils.h */,
+				870A660E1B772FEB00A51B26 /* Utils.m */,
+				870A66141B77321900A51B26 /* AccountManager.h */,
+				870A66151B77321900A51B26 /* AccountManager.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		870A66101B7730BE00A51B26 /* HexToRGB */ = {
+			isa = PBXGroup;
+			children = (
+				870A66111B7730CD00A51B26 /* UIColor+HexRGB.h */,
+				870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */,
+			);
+			name = HexToRGB;
+			sourceTree = "<group>";
+		};
+		92FECA73543D42FCD690DBEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4615863A8894CAC0E83A0F95 /* Pods-TeethHelper.debug.xcconfig */,
+				1008C8556ADB9E5C2501287F /* Pods-TeethHelper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 870A65F71B77227100A51B26 /* Build configuration list for PBXNativeTarget "TeethHelper" */;
 			buildPhases = (
+				DEF27FD28FDFC45EF3B6138A /* Check Pods Manifest.lock */,
 				870A65D01B77227100A51B26 /* Sources */,
 				870A65D11B77227100A51B26 /* Frameworks */,
 				870A65D21B77227100A51B26 /* Resources */,
+				EA9755B5E3CB0FA7C4C8DCF8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				870A66071B7722D600A51B26 /* Login.storyboard in Resources */,
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
@@ -214,6 +306,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DEF27FD28FDFC45EF3B6138A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EA9755B5E3CB0FA7C4C8DCF8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TeethHelper/Pods-TeethHelper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		870A65D01B77227100A51B26 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -221,7 +346,13 @@
 			files = (
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
+				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
+				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
 				870A65DA1B77227100A51B26 /* main.m in Sources */,
+				870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */,
+				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
+				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
+				870A66161B77321900A51B26 /* AccountManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +476,7 @@
 		};
 		870A65F81B77227100A51B26 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4615863A8894CAC0E83A0F95 /* Pods-TeethHelper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TeethHelper/Info.plist;
@@ -355,6 +487,7 @@
 		};
 		870A65F91B77227100A51B26 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1008C8556ADB9E5C2501287F /* Pods-TeethHelper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TeethHelper/Info.plist;
@@ -416,6 +549,7 @@
 				870A65F91B77227100A51B26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		870A65FA1B77227100A51B26 /* Build configuration list for PBXNativeTarget "TeethHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +558,7 @@
 				870A65FC1B77227100A51B26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
