@@ -16,12 +16,10 @@
     [viewController.navigationController.navigationBar setBarTintColor:[UIColor colorWithHex:@"f8f8f8" alpha:1.0]];
     
     [viewController.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBar"] forBarMetrics:UIBarMetricsDefault];
-//    [viewController.navigationController.navigationBar setShadowImage:[UIImage imageNamed:@"fengexian_chang"]];
     [viewController.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    UIImage *image = [UIImage imageNamed:@"fanhuijian"];
-
-    UIButton *popButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 11,18)];
+    UIImage *image = [UIImage imageNamed:@"fanhui"];
+    UIButton *popButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
     
     [popButton setImage:image forState:UIControlStateNormal];
     [popButton addTarget:viewController action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];

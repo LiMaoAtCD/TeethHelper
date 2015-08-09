@@ -122,14 +122,11 @@
 		870A65D61B77227100A51B26 /* TeethHelper */ = {
 			isa = PBXGroup;
 			children = (
+				870A65DB1B77227100A51B26 /* AppDelegate.h */,
+				870A65DC1B77227100A51B26 /* AppDelegate.m */,
 				870A660C1B772FDA00A51B26 /* Utils */,
 				870A66081B77248D00A51B26 /* Main */,
 				870A65FD1B77227F00A51B26 /* Login */,
-				870A65DB1B77227100A51B26 /* AppDelegate.h */,
-				870A65DC1B77227100A51B26 /* AppDelegate.m */,
-				870A65DE1B77227100A51B26 /* ViewController.h */,
-				870A65DF1B77227100A51B26 /* ViewController.m */,
-				870A65E11B77227100A51B26 /* Main.storyboard */,
 				870A65E41B77227100A51B26 /* Images.xcassets */,
 				870A65E61B77227100A51B26 /* LaunchScreen.xib */,
 				870A65D71B77227100A51B26 /* Supporting Files */,
@@ -140,6 +137,8 @@
 		870A65D71B77227100A51B26 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				870A65DE1B77227100A51B26 /* ViewController.h */,
+				870A65DF1B77227100A51B26 /* ViewController.m */,
 				870A65D81B77227100A51B26 /* Info.plist */,
 				870A65D91B77227100A51B26 /* main.m */,
 			);
@@ -182,6 +181,7 @@
 		870A66081B77248D00A51B26 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				870A65E11B77227100A51B26 /* Main.storyboard */,
 				870A66091B7724B400A51B26 /* MainTabBarController.h */,
 				870A660A1B7724B400A51B26 /* MainTabBarController.m */,
 			);

@@ -7,7 +7,7 @@
 //
 
 #import "ForgetPasswordViewController.h"
-
+#import "Utils.h"
 @interface ForgetPasswordViewController ()
 
 @end
@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [Utils ConfigNavigationBarWithTitle:@"忘记密码" onViewController:self];
+}
+
+-(void)pop{
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
