@@ -24,6 +24,13 @@
 		870A66161B77321900A51B26 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66151B77321900A51B26 /* AccountManager.m */; };
 		873B75B11B773984002D7871 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B01B773984002D7871 /* RegisterViewController.m */; };
 		873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B31B7739B8002D7871 /* ForgetPasswordViewController.m */; };
+		873B75B71B773E42002D7871 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B61B773E42002D7871 /* NetworkManager.m */; };
+		873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75BD1B77400D002D7871 /* MeiBaiViewController.m */; };
+		873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75C01B774020002D7871 /* CeBaiViewController.m */; };
+		873B75C41B774029002D7871 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75C31B774029002D7871 /* SocialViewController.m */; };
+		873B75CA1B77407A002D7871 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75C91B77407A002D7871 /* PersonalViewController.m */; };
+		873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75CC1B7742EF002D7871 /* ProductIntroduceViewController.m */; };
+		873B75D01B774338002D7871 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B75CF1B774338002D7871 /* Product.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +77,19 @@
 		873B75B01B773984002D7871 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		873B75B21B7739B8002D7871 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		873B75B31B7739B8002D7871 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		873B75B51B773E42002D7871 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		873B75B61B773E42002D7871 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		873B75BC1B77400D002D7871 /* MeiBaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiViewController.h; sourceTree = "<group>"; };
+		873B75BD1B77400D002D7871 /* MeiBaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiViewController.m; sourceTree = "<group>"; };
+		873B75BF1B774020002D7871 /* CeBaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeBaiViewController.h; sourceTree = "<group>"; };
+		873B75C01B774020002D7871 /* CeBaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiViewController.m; sourceTree = "<group>"; };
+		873B75C21B774029002D7871 /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
+		873B75C31B774029002D7871 /* SocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
+		873B75C81B77407A002D7871 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		873B75C91B77407A002D7871 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		873B75CB1B7742EF002D7871 /* ProductIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductIntroduceViewController.h; sourceTree = "<group>"; };
+		873B75CC1B7742EF002D7871 /* ProductIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductIntroduceViewController.m; sourceTree = "<group>"; };
+		873B75CF1B774338002D7871 /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,11 +185,11 @@
 		870A65FD1B77227F00A51B26 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				870A66061B7722D600A51B26 /* Login.storyboard */,
 				870A65FE1B7722A500A51B26 /* LoginNavigationController.h */,
 				870A65FF1B7722A500A51B26 /* LoginNavigationController.m */,
 				870A66011B7722B500A51B26 /* LoginViewController.h */,
 				870A66021B7722B500A51B26 /* LoginViewController.m */,
-				870A66061B7722D600A51B26 /* Login.storyboard */,
 				873B75AF1B773984002D7871 /* RegisterViewController.h */,
 				873B75B01B773984002D7871 /* RegisterViewController.m */,
 				873B75B21B7739B8002D7871 /* ForgetPasswordViewController.h */,
@@ -184,6 +204,10 @@
 				870A65E11B77227100A51B26 /* Main.storyboard */,
 				870A66091B7724B400A51B26 /* MainTabBarController.h */,
 				870A660A1B7724B400A51B26 /* MainTabBarController.m */,
+				873B75BB1B773FF4002D7871 /* FourthTab */,
+				873B75BA1B773FEE002D7871 /* ThirdTab */,
+				873B75B91B773FE4002D7871 /* SecondTab */,
+				873B75B81B773F7D002D7871 /* FirstTab */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -196,6 +220,8 @@
 				870A660E1B772FEB00A51B26 /* Utils.m */,
 				870A66141B77321900A51B26 /* AccountManager.h */,
 				870A66151B77321900A51B26 /* AccountManager.m */,
+				873B75B51B773E42002D7871 /* NetworkManager.h */,
+				873B75B61B773E42002D7871 /* NetworkManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -207,6 +233,53 @@
 				870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */,
 			);
 			name = HexToRGB;
+			sourceTree = "<group>";
+		};
+		873B75B81B773F7D002D7871 /* FirstTab */ = {
+			isa = PBXGroup;
+			children = (
+				873B75CE1B774315002D7871 /* Product */,
+				873B75BC1B77400D002D7871 /* MeiBaiViewController.h */,
+				873B75BD1B77400D002D7871 /* MeiBaiViewController.m */,
+			);
+			name = FirstTab;
+			sourceTree = "<group>";
+		};
+		873B75B91B773FE4002D7871 /* SecondTab */ = {
+			isa = PBXGroup;
+			children = (
+				873B75BF1B774020002D7871 /* CeBaiViewController.h */,
+				873B75C01B774020002D7871 /* CeBaiViewController.m */,
+			);
+			name = SecondTab;
+			sourceTree = "<group>";
+		};
+		873B75BA1B773FEE002D7871 /* ThirdTab */ = {
+			isa = PBXGroup;
+			children = (
+				873B75C21B774029002D7871 /* SocialViewController.h */,
+				873B75C31B774029002D7871 /* SocialViewController.m */,
+			);
+			name = ThirdTab;
+			sourceTree = "<group>";
+		};
+		873B75BB1B773FF4002D7871 /* FourthTab */ = {
+			isa = PBXGroup;
+			children = (
+				873B75C81B77407A002D7871 /* PersonalViewController.h */,
+				873B75C91B77407A002D7871 /* PersonalViewController.m */,
+			);
+			name = FourthTab;
+			sourceTree = "<group>";
+		};
+		873B75CE1B774315002D7871 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				873B75CB1B7742EF002D7871 /* ProductIntroduceViewController.h */,
+				873B75CC1B7742EF002D7871 /* ProductIntroduceViewController.m */,
+				873B75CF1B774338002D7871 /* Product.storyboard */,
+			);
+			name = Product;
 			sourceTree = "<group>";
 		};
 		92FECA73543D42FCD690DBEE /* Pods */ = {
@@ -301,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				870A66071B7722D600A51B26 /* Login.storyboard in Resources */,
+				873B75D01B774338002D7871 /* Product.storyboard in Resources */,
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
@@ -355,14 +429,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
+				873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
+				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
+				873B75B71B773E42002D7871 /* NetworkManager.m in Sources */,
+				873B75CA1B77407A002D7871 /* PersonalViewController.m in Sources */,
 				870A65DA1B77227100A51B26 /* main.m in Sources */,
+				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
 				873B75B11B773984002D7871 /* RegisterViewController.m in Sources */,
 				870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
+				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
 				873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */,
 				870A66161B77321900A51B26 /* AccountManager.m in Sources */,
 			);
