@@ -1,30 +1,22 @@
 //
-//  LoginViewController.m
+//  ForgetPasswordViewController.m
 //  TeethHelper
 //
 //  Created by AlienLi on 15/8/9.
 //  Copyright (c) 2015年 MarcoLi. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "Utils.h"
+#import "ForgetPasswordViewController.h"
 
-@interface LoginViewController ()
+@interface ForgetPasswordViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation ForgetPasswordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [Utils ConfigNavigationBarWithTitle:@"登录" onViewController:self];
-    self.navigationItem.leftBarButtonItem = nil;
-    
-}
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

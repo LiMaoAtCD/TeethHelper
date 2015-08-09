@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LoginNavigationController.h"
 #import "MainTabBarController.h"
-
+#import "AccountManager.h"
 @interface AppDelegate ()
 
 @property (nonatomic, strong) MainTabBarController *tabarController;
@@ -23,8 +23,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
-    
+    BOOL isLogin = [AccountManager isLogin];
+    if (!isLogin) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+        
+        _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+        
+        self.window.rootViewController = _loginVC;
+        [self.window makeKeyAndVisible];
+        
+    } else {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        
+        _tabarController = [sb instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+        
+        self.window.rootViewController = _tabarController;
+        [self.window makeKeyAndVisible];
+    }
     
     return YES;
 }
