@@ -46,6 +46,9 @@
 		87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */; };
 		87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */; };
 		87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB501B78786C001ED07F /* CompositionCell.m */; };
+		87E2AB581B787FB9001ED07F /* CompositionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB571B787FB9001ED07F /* CompositionDetailViewController.m */; };
+		87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB5A1B7884CF001ED07F /* QRCodeAnimator.m */; };
+		87E2AB5E1B7884CF001ED07F /* QRCodeDismissAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB5C1B7884CF001ED07F /* QRCodeDismissAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +137,12 @@
 		87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeTableViewCell.m; sourceTree = "<group>"; };
 		87E2AB4F1B78786C001ED07F /* CompositionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositionCell.h; sourceTree = "<group>"; };
 		87E2AB501B78786C001ED07F /* CompositionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositionCell.m; sourceTree = "<group>"; };
+		87E2AB561B787FB9001ED07F /* CompositionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositionDetailViewController.h; sourceTree = "<group>"; };
+		87E2AB571B787FB9001ED07F /* CompositionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositionDetailViewController.m; sourceTree = "<group>"; };
+		87E2AB591B7884CF001ED07F /* QRCodeAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeAnimator.h; sourceTree = "<group>"; };
+		87E2AB5A1B7884CF001ED07F /* QRCodeAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeAnimator.m; sourceTree = "<group>"; };
+		87E2AB5B1B7884CF001ED07F /* QRCodeDismissAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeDismissAnimator.h; sourceTree = "<group>"; };
+		87E2AB5C1B7884CF001ED07F /* QRCodeDismissAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeDismissAnimator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,9 +291,9 @@
 		873B75B81B773F7D002D7871 /* FirstTab */ = {
 			isa = PBXGroup;
 			children = (
-				873B75CE1B774315002D7871 /* Product */,
 				873B75BC1B77400D002D7871 /* MeiBaiViewController.h */,
 				873B75BD1B77400D002D7871 /* MeiBaiViewController.m */,
+				873B75CE1B774315002D7871 /* Product */,
 			);
 			name = FirstTab;
 			sourceTree = "<group>";
@@ -328,21 +337,13 @@
 		873B75CE1B774315002D7871 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				87E2AB551B787F7B001ED07F /* Notice */,
+				87E2AB541B787F6E001ED07F /* NewGuide */,
+				87E2AB521B787F3C001ED07F /* ProductDetail */,
+				87E2AB531B787F4F001ED07F /* ProductCompostion */,
 				873B75CB1B7742EF002D7871 /* ProductIntroduceViewController.h */,
 				873B75CC1B7742EF002D7871 /* ProductIntroduceViewController.m */,
 				873B75CF1B774338002D7871 /* Product.storyboard */,
-				873B75D11B774C8A002D7871 /* ProductDetailViewController.h */,
-				873B75D21B774C8A002D7871 /* ProductDetailViewController.m */,
-				873B75D41B774CB5002D7871 /* ProductCompositionViewController.h */,
-				873B75D51B774CB5002D7871 /* ProductCompositionViewController.m */,
-				87E2AB4F1B78786C001ED07F /* CompositionCell.h */,
-				87E2AB501B78786C001ED07F /* CompositionCell.m */,
-				873B75D71B774CC9002D7871 /* NewGuideViewController.h */,
-				873B75D81B774CC9002D7871 /* NewGuideViewController.m */,
-				873B75DA1B774CEA002D7871 /* NoticeViewController.h */,
-				873B75DB1B774CEA002D7871 /* NoticeViewController.m */,
-				87E2AB4C1B7856B7001ED07F /* NoticeTableViewCell.h */,
-				87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -401,6 +402,60 @@
 				87E2AB341B77578A001ED07F /* MessageNotificationController.m */,
 			);
 			name = MessageNotification;
+			sourceTree = "<group>";
+		};
+		87E2AB521B787F3C001ED07F /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				873B75D11B774C8A002D7871 /* ProductDetailViewController.h */,
+				873B75D21B774C8A002D7871 /* ProductDetailViewController.m */,
+			);
+			name = ProductDetail;
+			sourceTree = "<group>";
+		};
+		87E2AB531B787F4F001ED07F /* ProductCompostion */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB5F1B788548001ED07F /* Animator */,
+				87E2AB561B787FB9001ED07F /* CompositionDetailViewController.h */,
+				87E2AB571B787FB9001ED07F /* CompositionDetailViewController.m */,
+				873B75D41B774CB5002D7871 /* ProductCompositionViewController.h */,
+				873B75D51B774CB5002D7871 /* ProductCompositionViewController.m */,
+				87E2AB4F1B78786C001ED07F /* CompositionCell.h */,
+				87E2AB501B78786C001ED07F /* CompositionCell.m */,
+			);
+			name = ProductCompostion;
+			sourceTree = "<group>";
+		};
+		87E2AB541B787F6E001ED07F /* NewGuide */ = {
+			isa = PBXGroup;
+			children = (
+				873B75D71B774CC9002D7871 /* NewGuideViewController.h */,
+				873B75D81B774CC9002D7871 /* NewGuideViewController.m */,
+			);
+			name = NewGuide;
+			sourceTree = "<group>";
+		};
+		87E2AB551B787F7B001ED07F /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				873B75DA1B774CEA002D7871 /* NoticeViewController.h */,
+				873B75DB1B774CEA002D7871 /* NoticeViewController.m */,
+				87E2AB4C1B7856B7001ED07F /* NoticeTableViewCell.h */,
+				87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */,
+			);
+			name = Notice;
+			sourceTree = "<group>";
+		};
+		87E2AB5F1B788548001ED07F /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB591B7884CF001ED07F /* QRCodeAnimator.h */,
+				87E2AB5A1B7884CF001ED07F /* QRCodeAnimator.m */,
+				87E2AB5B1B7884CF001ED07F /* QRCodeDismissAnimator.h */,
+				87E2AB5C1B7884CF001ED07F /* QRCodeDismissAnimator.m */,
+			);
+			name = Animator;
 			sourceTree = "<group>";
 		};
 		92FECA73543D42FCD690DBEE /* Pods */ = {
@@ -556,8 +611,10 @@
 				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,
 				873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */,
 				87E2AB3E1B7757B0001ED07F /* CeBaiHistoryViewController.m in Sources */,
+				87E2AB581B787FB9001ED07F /* CompositionDetailViewController.m in Sources */,
 				87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
+				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
 				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
@@ -569,6 +626,7 @@
 				873B75B71B773E42002D7871 /* NetworkManager.m in Sources */,
 				873B75D61B774CB5002D7871 /* ProductCompositionViewController.m in Sources */,
 				873B75CA1B77407A002D7871 /* PersonalViewController.m in Sources */,
+				87E2AB5E1B7884CF001ED07F /* QRCodeDismissAnimator.m in Sources */,
 				870A65DA1B77227100A51B26 /* main.m in Sources */,
 				87E2AB441B7757C6001ED07F /* PersonalInfoViewController.m in Sources */,
 				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
