@@ -49,6 +49,11 @@
 		87E2AB581B787FB9001ED07F /* CompositionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB571B787FB9001ED07F /* CompositionDetailViewController.m */; };
 		87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB5A1B7884CF001ED07F /* QRCodeAnimator.m */; };
 		87E2AB5E1B7884CF001ED07F /* QRCodeDismissAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB5C1B7884CF001ED07F /* QRCodeDismissAnimator.m */; };
+		87E2AB621B78AFA3001ED07F /* AvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB611B78AFA3001ED07F /* AvatarCell.m */; };
+		87E2AB651B78AFB9001ED07F /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB641B78AFB9001ED07F /* InfoCell.m */; };
+		87E2AB691B78B8D5001ED07F /* AvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB681B78B8D5001ED07F /* AvatarViewController.m */; };
+		87E2AB6D1B78B8E9001ED07F /* BirthDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB6C1B78B8E9001ED07F /* BirthDayViewController.m */; };
+		87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB701B78B91A001ED07F /* GenderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +148,16 @@
 		87E2AB5A1B7884CF001ED07F /* QRCodeAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeAnimator.m; sourceTree = "<group>"; };
 		87E2AB5B1B7884CF001ED07F /* QRCodeDismissAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeDismissAnimator.h; sourceTree = "<group>"; };
 		87E2AB5C1B7884CF001ED07F /* QRCodeDismissAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeDismissAnimator.m; sourceTree = "<group>"; };
+		87E2AB601B78AFA3001ED07F /* AvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarCell.h; sourceTree = "<group>"; };
+		87E2AB611B78AFA3001ED07F /* AvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarCell.m; sourceTree = "<group>"; };
+		87E2AB631B78AFB9001ED07F /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = "<group>"; };
+		87E2AB641B78AFB9001ED07F /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = "<group>"; };
+		87E2AB671B78B8D5001ED07F /* AvatarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarViewController.h; sourceTree = "<group>"; };
+		87E2AB681B78B8D5001ED07F /* AvatarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarViewController.m; sourceTree = "<group>"; };
+		87E2AB6B1B78B8E9001ED07F /* BirthDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BirthDayViewController.h; sourceTree = "<group>"; };
+		87E2AB6C1B78B8E9001ED07F /* BirthDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthDayViewController.m; sourceTree = "<group>"; };
+		87E2AB6F1B78B91A001ED07F /* GenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenderViewController.h; sourceTree = "<group>"; };
+		87E2AB701B78B91A001ED07F /* GenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,8 +366,15 @@
 		87E2AB2D1B7755F2001ED07F /* personalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				87E2AB6E1B78B8FF001ED07F /* gender */,
+				87E2AB6A1B78B8DB001ED07F /* BirthDay */,
+				87E2AB661B78B8BF001ED07F /* Avator */,
 				87E2AB421B7757C6001ED07F /* PersonalInfoViewController.h */,
 				87E2AB431B7757C6001ED07F /* PersonalInfoViewController.m */,
+				87E2AB601B78AFA3001ED07F /* AvatarCell.h */,
+				87E2AB611B78AFA3001ED07F /* AvatarCell.m */,
+				87E2AB631B78AFB9001ED07F /* InfoCell.h */,
+				87E2AB641B78AFB9001ED07F /* InfoCell.m */,
 			);
 			name = personalInfo;
 			sourceTree = "<group>";
@@ -456,6 +478,33 @@
 				87E2AB5C1B7884CF001ED07F /* QRCodeDismissAnimator.m */,
 			);
 			name = Animator;
+			sourceTree = "<group>";
+		};
+		87E2AB661B78B8BF001ED07F /* Avator */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB671B78B8D5001ED07F /* AvatarViewController.h */,
+				87E2AB681B78B8D5001ED07F /* AvatarViewController.m */,
+			);
+			name = Avator;
+			sourceTree = "<group>";
+		};
+		87E2AB6A1B78B8DB001ED07F /* BirthDay */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB6B1B78B8E9001ED07F /* BirthDayViewController.h */,
+				87E2AB6C1B78B8E9001ED07F /* BirthDayViewController.m */,
+			);
+			name = BirthDay;
+			sourceTree = "<group>";
+		};
+		87E2AB6E1B78B8FF001ED07F /* gender */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AB6F1B78B91A001ED07F /* GenderViewController.h */,
+				87E2AB701B78B91A001ED07F /* GenderViewController.m */,
+			);
+			name = gender;
 			sourceTree = "<group>";
 		};
 		92FECA73543D42FCD690DBEE /* Pods */ = {
@@ -606,6 +655,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */,
+				87E2AB6D1B78B8E9001ED07F /* BirthDayViewController.m in Sources */,
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
 				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,
@@ -613,6 +663,7 @@
 				87E2AB3E1B7757B0001ED07F /* CeBaiHistoryViewController.m in Sources */,
 				87E2AB581B787FB9001ED07F /* CompositionDetailViewController.m in Sources */,
 				87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */,
+				87E2AB621B78AFA3001ED07F /* AvatarCell.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
 				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
@@ -620,12 +671,14 @@
 				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
 				87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */,
 				87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */,
+				87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
 				873B75DC1B774CEA002D7871 /* NoticeViewController.m in Sources */,
 				873B75B71B773E42002D7871 /* NetworkManager.m in Sources */,
 				873B75D61B774CB5002D7871 /* ProductCompositionViewController.m in Sources */,
 				873B75CA1B77407A002D7871 /* PersonalViewController.m in Sources */,
+				87E2AB691B78B8D5001ED07F /* AvatarViewController.m in Sources */,
 				87E2AB5E1B7884CF001ED07F /* QRCodeDismissAnimator.m in Sources */,
 				870A65DA1B77227100A51B26 /* main.m in Sources */,
 				87E2AB441B7757C6001ED07F /* PersonalInfoViewController.m in Sources */,
@@ -633,6 +686,7 @@
 				873B75B11B773984002D7871 /* RegisterViewController.m in Sources */,
 				870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */,
 				873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */,
+				87E2AB651B78AFB9001ED07F /* InfoCell.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
