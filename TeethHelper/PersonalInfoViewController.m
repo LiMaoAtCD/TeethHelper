@@ -10,7 +10,13 @@
 #import "AvatarCell.h"
 #import "InfoCell.h"
 
-@interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource>
+#import "GenderViewController.h"
+#import "AvatarViewController.h"
+#import "BirthDayViewController.h"
+
+#import "Utils.h"
+
+@interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource,BirthDaySelectionDelegate,GenderSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *item;
@@ -23,7 +29,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.item =@[@"头像",@"姓名",@"性别",@"出生年月",@"手机号",@"通讯地址"];
+    [Utils ConfigNavigationBarWithTitle:@"个人信息" onViewController:self];
     
+}
+-(void)pop{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,6 +41,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.view layoutIfNeeded];
+}
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -44,17 +58,77 @@
     if (indexPath.row == 0) {
         AvatarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AvatarCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"头像";
-        cell.avatarImageView.image = [UIImage imageNamed:@""];
+//        cell.avatarImageView.image = [UIImage imageNamed:@""];
+        
+        
         return cell;
     } else{
         InfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
         cell.titleLabel.text =self.item[indexPath.row];
-    
         
         return cell;
     }
     
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+            //
+            AvatarViewController *avatar = [sb instantiateViewControllerWithIdentifier:@"AvatarViewController"];
+            
+            [self showDetailViewController:avatar sender:self];
+        }
+            break;
+        case 1:{
+            //姓名
+        }
+            break;
+        case 2:{
+            //性别
+            GenderViewController *genderVC = [sb instantiateViewControllerWithIdentifier:@"GenderViewController"];
+            genderVC.delegate = self;
+            [self showDetailViewController:genderVC sender:self];
+
+        }
+            break;
+        case 3:{
+            //出生年月
+            
+            BirthDayViewController *bVC = [sb instantiateViewControllerWithIdentifier:@"BirthDayViewController"];
+            bVC.delegate = self;
+            [self showDetailViewController:bVC sender:self];
+
+        }
+            break;
+        case 4:{
+            //手机号
+        }
+            break;
+        case 5:{
+            //地址
+        }
+            break;
+
+            
+        default:
+            break;
+    }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
 }
 
 /*

@@ -9,6 +9,7 @@
 #import "GenderViewController.h"
 
 @interface GenderViewController ()
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 
 @end
 
@@ -17,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.bgView.alpha = 0.0;
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.bgView.alpha = 0.2;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +41,22 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)man:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didSelectGenderType:)]) {
+        [self.delegate didSelectGenderType:MALE];
+        [self dismissViewControllerAnimated:YES completion:nil];
+
+    }
+}
+- (IBAction)female:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didSelectGenderType:)]) {
+        [self.delegate didSelectGenderType:FEMALE];
+        [self dismissViewControllerAnimated:YES completion:nil];
+
+    }
+}
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

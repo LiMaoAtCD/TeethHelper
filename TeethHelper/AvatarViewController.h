@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    Camera,
+    Album,
+} PhotoType;
+
+@protocol AvatarSelectionDelegate <NSObject>
+
+-(void)didSelected:(PhotoType)type;
+
+@end
+
 @interface AvatarViewController : UIViewController
+
+
 
 @end

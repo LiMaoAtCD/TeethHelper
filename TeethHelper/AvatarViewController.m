@@ -10,6 +10,7 @@
 
 @interface AvatarViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 @end
 
 @implementation AvatarViewController
@@ -17,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.bgView.alpha = 0.0;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.bgView.alpha = 0.2;
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +42,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)clickAlbum:(id)sender {
+    self.bgView.alpha = 0.0;
+
+    if ([self.delegate respondsToSelector:@selector(didSelected:)]) {
+        [self.delegate didSelected:Album];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+
+    }
+}
+- (IBAction)clickCamera:(id)sender {
+    self.bgView.alpha = 0.0;
+
+    if ([self.delegate respondsToSelector:@selector(didSelected:)]) {
+        [self.delegate didSelected:Camera];
+        [self dismissViewControllerAnimated:YES completion:nil];
+
+    }
+}
+- (IBAction)cancel:(id)sender {
+    self.bgView.alpha = 0.0;
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

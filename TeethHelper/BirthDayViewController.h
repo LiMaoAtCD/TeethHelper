@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol BirthDaySelectionDelegate <NSObject>
+
+
+-(void)didSelectedBirthDay:(NSString *)birthday;
+@end
+
 @interface BirthDayViewController : UIViewController
+
+@property (weak, nonatomic) id<BirthDaySelectionDelegate>  delegate;
 
 @end
