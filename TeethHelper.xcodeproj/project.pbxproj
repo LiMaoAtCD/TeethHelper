@@ -44,6 +44,7 @@
 		87E2AB441B7757C6001ED07F /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB431B7757C6001ED07F /* PersonalInfoViewController.m */; };
 		87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AB451B77585B001ED07F /* Setting.storyboard */; };
 		87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */; };
+		87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,8 @@
 		87E2AB451B77585B001ED07F /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		87E2AB471B7796D8001ED07F /* CeBaiHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeBaiHistoryCell.h; sourceTree = "<group>"; };
 		87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiHistoryCell.m; sourceTree = "<group>"; };
+		87E2AB4C1B7856B7001ED07F /* NoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeTableViewCell.h; sourceTree = "<group>"; };
+		87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +336,8 @@
 				873B75D81B774CC9002D7871 /* NewGuideViewController.m */,
 				873B75DA1B774CEA002D7871 /* NoticeViewController.h */,
 				873B75DB1B774CEA002D7871 /* NoticeViewController.m */,
+				87E2AB4C1B7856B7001ED07F /* NoticeTableViewCell.h */,
+				87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -543,6 +548,7 @@
 				87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */,
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
+				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,
 				873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */,
 				87E2AB3E1B7757B0001ED07F /* CeBaiHistoryViewController.m in Sources */,
 				87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */,
