@@ -1290,16 +1290,20 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="200" id="EXT-jg-zlu">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="300"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="200"/>
                                     </constraint>
-                                    <constraint firstItem="Ha6-wD-HtT" firstAttribute="top" secondItem="4JS-rh-Rbc" secondAttribute="bottom" constant="14" id="EhS-Ny-qJX"/>
+                                    <constraint firstItem="Ha6-wD-HtT" firstAttribute="top" secondItem="4JS-rh-Rbc" secondAttribute="bottom" constant="14" id="EhS-Ny-qJX">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="4JS-rh-Rbc" firstAttribute="top" secondItem="eLq-69-3Au" secondAttribute="bottom" constant="8" id="Fpp-Nn-eaH"/>
                                     <constraint firstAttribute="trailing" secondItem="ckT-tV-jAj" secondAttribute="trailing" id="GRu-U9-dUe"/>
                                     <constraint firstItem="ckT-tV-jAj" firstAttribute="top" secondItem="sEb-NM-feu" secondAttribute="bottom" constant="2" id="MFA-PE-uiJ"/>
                                     <constraint firstItem="Ha6-wD-HtT" firstAttribute="leading" secondItem="gfV-v3-8CZ" secondAttribute="leading" constant="8" id="W14-eQ-iWf"/>
                                     <constraint firstAttribute="trailing" secondItem="4JS-rh-Rbc" secondAttribute="trailing" id="fPq-MK-AQz"/>
                                     <constraint firstItem="sEb-NM-feu" firstAttribute="leading" secondItem="gfV-v3-8CZ" secondAttribute="leading" constant="8" id="wbR-9O-ZcF"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ha6-wD-HtT" secondAttribute="bottom" constant="8" id="ytc-W6-fGe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ha6-wD-HtT" secondAttribute="bottom" constant="8" id="ytc-W6-fGe">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="200" id="zkF-mc-wB8"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -1421,6 +1425,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="MainView" destination="gfV-v3-8CZ" id="Xba-WP-hEj"/>
                         <outlet property="contentLabel" destination="Ha6-wD-HtT" id="AYB-00-zU6"/>
                         <outlet property="grayView" destination="qZx-Tk-wKA" id="Ykv-SM-Cno"/>
                         <outlet property="imageView" destination="eLq-69-3Au" id="bcX-65-IIx"/>
