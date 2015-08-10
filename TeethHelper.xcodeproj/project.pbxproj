@@ -43,6 +43,7 @@
 		87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB401B7757BA001ED07F /* UseHistoryViewController.m */; };
 		87E2AB441B7757C6001ED07F /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB431B7757C6001ED07F /* PersonalInfoViewController.m */; };
 		87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AB451B77585B001ED07F /* Setting.storyboard */; };
+		87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,8 @@
 		87E2AB421B7757C6001ED07F /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoViewController.h; sourceTree = "<group>"; };
 		87E2AB431B7757C6001ED07F /* PersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoViewController.m; sourceTree = "<group>"; };
 		87E2AB451B77585B001ED07F /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		87E2AB471B7796D8001ED07F /* CeBaiHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeBaiHistoryCell.h; sourceTree = "<group>"; };
+		87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiHistoryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -357,6 +360,8 @@
 			children = (
 				87E2AB3C1B7757B0001ED07F /* CeBaiHistoryViewController.h */,
 				87E2AB3D1B7757B0001ED07F /* CeBaiHistoryViewController.m */,
+				87E2AB471B7796D8001ED07F /* CeBaiHistoryCell.h */,
+				87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */,
 			);
 			name = CebaiHistory;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
+				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
 				873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */,
 				870A66161B77321900A51B26 /* AccountManager.m in Sources */,

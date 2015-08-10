@@ -7,7 +7,7 @@
 //
 
 #import "ProductDetailViewController.h"
-
+#import "Utils.h"
 @interface ProductDetailViewController ()
 
 @end
@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [Utils ConfigNavigationBarWithTitle:@"产品介绍" onViewController:self];
+}
+
+-(void)pop{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

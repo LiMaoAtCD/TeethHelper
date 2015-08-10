@@ -25,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"产品介绍" onViewController:self];
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 -(void)pop{
@@ -32,8 +33,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+
     [super viewWillAppear:animated];
-    [self.view layoutIfNeeded];
 }
 
 - (IBAction)clickForDetail:(id)sender {
