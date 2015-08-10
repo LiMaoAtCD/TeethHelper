@@ -45,6 +45,7 @@
 		87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AB451B77585B001ED07F /* Setting.storyboard */; };
 		87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */; };
 		87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */; };
+		87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB501B78786C001ED07F /* CompositionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,8 @@
 		87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiHistoryCell.m; sourceTree = "<group>"; };
 		87E2AB4C1B7856B7001ED07F /* NoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeTableViewCell.h; sourceTree = "<group>"; };
 		87E2AB4D1B7856B7001ED07F /* NoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeTableViewCell.m; sourceTree = "<group>"; };
+		87E2AB4F1B78786C001ED07F /* CompositionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositionCell.h; sourceTree = "<group>"; };
+		87E2AB501B78786C001ED07F /* CompositionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +335,8 @@
 				873B75D21B774C8A002D7871 /* ProductDetailViewController.m */,
 				873B75D41B774CB5002D7871 /* ProductCompositionViewController.h */,
 				873B75D51B774CB5002D7871 /* ProductCompositionViewController.m */,
+				87E2AB4F1B78786C001ED07F /* CompositionCell.h */,
+				87E2AB501B78786C001ED07F /* CompositionCell.m */,
 				873B75D71B774CC9002D7871 /* NewGuideViewController.h */,
 				873B75D81B774CC9002D7871 /* NewGuideViewController.m */,
 				873B75DA1B774CEA002D7871 /* NoticeViewController.h */,
@@ -556,6 +561,7 @@
 				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
+				87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */,
 				87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,

@@ -15,10 +15,10 @@
     viewController.title = title;
     [viewController.navigationController.navigationBar setBarTintColor:[UIColor colorWithHex:@"f8f8f8" alpha:1.0]];
     
-    [viewController.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBar"] forBarMetrics:UIBarMetricsDefault];
+    [viewController.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"title"] forBarMetrics:UIBarMetricsDefault];
     [viewController.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
-    UIImage *image = [UIImage imageNamed:@"fanhui"];
+    UIImage *image = [UIImage imageNamed:@"navigationBar"];
     UIButton *popButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
     
     [popButton setImage:image forState:UIControlStateNormal];

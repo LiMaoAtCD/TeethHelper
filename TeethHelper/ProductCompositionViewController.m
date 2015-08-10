@@ -8,7 +8,11 @@
 
 #import "ProductCompositionViewController.h"
 #import "Utils.h"
-@interface ProductCompositionViewController ()
+#import "CompositionCell.h"
+@interface ProductCompositionViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *items;
 
 @end
 
@@ -18,10 +22,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"产品组成" onViewController:self];
+    self.items = @[@"冷光牙托",@"电源控制器",@"存放基座",@"充电线",@"美白胶",@"测白标尺",@"刷头",@"挂绳",@"旅行包"];
 }
 
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 9;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CompositionCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CompositionCell" forIndexPath:indexPath];
+    cell.titleLabel.text = self.items[indexPath.row];
+    cell.contentImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"pdc_%ld",indexPath.row]];
+
+    
+    
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning {
