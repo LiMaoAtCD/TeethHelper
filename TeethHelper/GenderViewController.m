@@ -42,6 +42,7 @@
 }
 */
 - (IBAction)man:(id)sender {
+    self.bgView.alpha = 0.0;
     if ([self.delegate respondsToSelector:@selector(didSelectGenderType:)]) {
         [self.delegate didSelectGenderType:MALE];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -49,6 +50,8 @@
     }
 }
 - (IBAction)female:(id)sender {
+    self.bgView.alpha = 0.0;
+
     if ([self.delegate respondsToSelector:@selector(didSelectGenderType:)]) {
         [self.delegate didSelectGenderType:FEMALE];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -56,6 +59,8 @@
     }
 }
 - (IBAction)cancel:(id)sender {
+    self.bgView.alpha = 0.0;
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

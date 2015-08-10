@@ -16,7 +16,7 @@
 
 #import "Utils.h"
 
-@interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource,BirthDaySelectionDelegate,GenderSelectionDelegate>
+@interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource,BirthDaySelectionDelegate,GenderSelectionDelegate,AvatarSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *item;
@@ -83,7 +83,7 @@
         {
             //
             AvatarViewController *avatar = [sb instantiateViewControllerWithIdentifier:@"AvatarViewController"];
-            
+            avatar.delegate = self;
             [self showDetailViewController:avatar sender:self];
         }
             break;
@@ -140,5 +140,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)didSelectedBirthDay:(NSString *)birthday{
+    
+}
+-(void)didSelectGenderType:(GenderType)type{
+    
+}
+
+-(void)didSelectedPhoto:(PhotoType)type{
+    
+}
 
 @end

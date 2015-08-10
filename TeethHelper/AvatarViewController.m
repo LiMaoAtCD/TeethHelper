@@ -45,8 +45,8 @@
 - (IBAction)clickAlbum:(id)sender {
     self.bgView.alpha = 0.0;
 
-    if ([self.delegate respondsToSelector:@selector(didSelected:)]) {
-        [self.delegate didSelected:Album];
+    if ([self.delegate respondsToSelector:@selector(didSelectedPhoto:)]) {
+        [self.delegate didSelectedPhoto:Album];
         
         [self dismissViewControllerAnimated:YES completion:nil];
 
@@ -55,8 +55,8 @@
 - (IBAction)clickCamera:(id)sender {
     self.bgView.alpha = 0.0;
 
-    if ([self.delegate respondsToSelector:@selector(didSelected:)]) {
-        [self.delegate didSelected:Camera];
+    if ([self.delegate respondsToSelector:@selector(didSelectedPhoto:)]) {
+        [self.delegate didSelectedPhoto:Camera];
         [self dismissViewControllerAnimated:YES completion:nil];
 
     }

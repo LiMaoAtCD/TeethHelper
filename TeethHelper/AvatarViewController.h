@@ -15,12 +15,12 @@ typedef enum : NSUInteger {
 
 @protocol AvatarSelectionDelegate <NSObject>
 
--(void)didSelected:(PhotoType)type;
+-(void)didSelectedPhoto:(PhotoType)type;
 
 @end
 
 @interface AvatarViewController : UIViewController
 
-
+@property (weak,nonatomic) id<AvatarSelectionDelegate> delegate;
 
 @end
