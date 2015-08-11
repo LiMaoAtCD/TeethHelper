@@ -22,7 +22,14 @@
     // Do any additional setup after loading the view.
     
     [Utils ConfigNavigationBarWithTitle:@"修改密码" onViewController:self];
+    [self configTextFields];
 }
+
+-(void)configTextFields{
+    self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请输入密码" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]}];
+    self.confirmTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请再次输入密码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]}];
+}
+
 
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
