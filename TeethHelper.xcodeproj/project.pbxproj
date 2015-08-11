@@ -47,6 +47,7 @@
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
 		87D533EC1B79CA6C00F3D6BE /* MessageTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EB1B79CA6C00F3D6BE /* MessageTwoCell.m */; };
 		87D533EF1B79D52C00F3D6BE /* MessageConfigureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EE1B79D52C00F3D6BE /* MessageConfigureFile.m */; };
+		87D533F21B79EC9F00F3D6BE /* MessageTimeChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533F11B79EC9F00F3D6BE /* MessageTimeChooseController.m */; };
 		87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB341B77578A001ED07F /* MessageNotificationController.m */; };
 		87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB371B775796001ED07F /* TeethStateViewController.m */; };
 		87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */; };
@@ -156,6 +157,8 @@
 		87D533EB1B79CA6C00F3D6BE /* MessageTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTwoCell.m; sourceTree = "<group>"; };
 		87D533ED1B79D52C00F3D6BE /* MessageConfigureFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageConfigureFile.h; sourceTree = "<group>"; };
 		87D533EE1B79D52C00F3D6BE /* MessageConfigureFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageConfigureFile.m; sourceTree = "<group>"; };
+		87D533F01B79EC9F00F3D6BE /* MessageTimeChooseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTimeChooseController.h; sourceTree = "<group>"; };
+		87D533F11B79EC9F00F3D6BE /* MessageTimeChooseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTimeChooseController.m; sourceTree = "<group>"; };
 		87E2AB331B77578A001ED07F /* MessageNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNotificationController.h; sourceTree = "<group>"; };
 		87E2AB341B77578A001ED07F /* MessageNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNotificationController.m; sourceTree = "<group>"; };
 		87E2AB361B775796001ED07F /* TeethStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethStateViewController.h; sourceTree = "<group>"; };
@@ -509,6 +512,8 @@
 				87D533EB1B79CA6C00F3D6BE /* MessageTwoCell.m */,
 				87D533ED1B79D52C00F3D6BE /* MessageConfigureFile.h */,
 				87D533EE1B79D52C00F3D6BE /* MessageConfigureFile.m */,
+				87D533F01B79EC9F00F3D6BE /* MessageTimeChooseController.h */,
+				87D533F11B79EC9F00F3D6BE /* MessageTimeChooseController.m */,
 			);
 			name = MessageNotification;
 			sourceTree = "<group>";
@@ -745,6 +750,7 @@
 				8742497D1B78E72500F6DB69 /* PhoneInfoViewController.m in Sources */,
 				87E2AB6D1B78B8E9001ED07F /* BirthDayViewController.m in Sources */,
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
+				87D533F21B79EC9F00F3D6BE /* MessageTimeChooseController.m in Sources */,
 				8742498C1B798CE600F6DB69 /* TeethDetailOneController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
 				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,

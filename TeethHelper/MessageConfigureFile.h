@@ -7,15 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface MessageConfigureFile : NSObject
 
-
+// 是否开启本地美白通知
 +(BOOL)isOpenLocalNotification;
 +(void)setOpenLocalNotification:(BOOL)open;
 
+
+// 是否开启本地问卷通知
 +(BOOL)isQuestionaireOpen;
 +(void)setQuestionaireOpenLocalNotification:(BOOL)open;
+
+// 设置本地美白通知
++(void)setNotificationAtHour:(NSString*)hour minute:(NSString *)minute;
+
++(void)setAlertNotificationTime:(NSString *)hour andMinute:(NSString *)minute;
+
++(NSString *)hourForAlertNotification;
++(NSString *)minuteForAlertNotification;
+
+
++(void)cancelAlertNotification;
+
+
+
++(void)setQuestionOpenLocalNotification;
++(void)cancelQuestionNotification;
+
 
 
 @end

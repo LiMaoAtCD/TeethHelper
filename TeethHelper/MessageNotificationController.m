@@ -12,7 +12,9 @@
 #import "Utils.h"
 #import "MessageConfigureFile.h"
 
-@interface MessageNotificationController ()<UITableViewDelegate, UITableViewDataSource>
+#import "MessageTimeChooseController.h"
+
+@interface MessageNotificationController ()<UITableViewDelegate, UITableViewDataSource,TimeSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -61,7 +63,8 @@
     if (indexPath.row == 0 && indexPath.section == 0) {
         MessageOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageOneCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"问卷提醒";
-        
+        [cell.switcher addTarget:self action:@selector(changeQustionNotification:) forControlEvents:UIControlEventValueChanged];
+
         if ([MessageConfigureFile isQuestionaireOpen]) {
             cell.switcher.on = YES;
         } else{
@@ -73,6 +76,8 @@
     } else if(indexPath.row == 0 && indexPath.section == 1){
         MessageOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageOneCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"每日美白提醒";
+        [cell.switcher addTarget:self action:@selector(changeAlertNotification:) forControlEvents:UIControlEventValueChanged];
+
         if ([MessageConfigureFile isOpenLocalNotification]) {
             cell.switcher.on = YES;
         } else{
@@ -84,9 +89,45 @@
     } else{
         MessageTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageTwoCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"美白时间";
+        
+        NSString *hour = [MessageConfigureFile hourForAlertNotification];
+        NSString *minute = [MessageConfigureFile minuteForAlertNotification];
+        cell.timeNoticeLabel.text = [NSString stringWithFormat:@"%@:%@",hour,minute];
+        if ([MessageConfigureFile isOpenLocalNotification]) {
+            cell.timeNoticeLabel.textColor = [UIColor blackColor];
+        } else{
+            cell.timeNoticeLabel.textColor = [UIColor lightGrayColor];
+
+        }
+
 
         return cell;
     }
+}
+
+-(void)changeAlertNotification:(UISwitch *)switcher{
+    if (switcher.isOn) {
+        // 开启美白提醒
+        [MessageConfigureFile setOpenLocalNotification:YES];
+    } else {
+        //关闭美白提醒
+        [MessageConfigureFile setOpenLocalNotification:NO];
+
+    }
+    [self.tableView reloadData];
+}
+
+-(void)changeQustionNotification:(UISwitch *)switcher{
+    if (switcher.isOn) {
+        // 开启问卷提醒
+        [MessageConfigureFile setQuestionaireOpenLocalNotification:YES];
+    } else {
+        //关闭问卷提醒
+        [MessageConfigureFile setQuestionaireOpenLocalNotification:NO];
+
+    }
+    [self.tableView reloadData];
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -115,6 +156,30 @@
     [temp addSubview:messageLabel];
     
     return temp;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 1 && [MessageConfigureFile isOpenLocalNotification]) {
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+        MessageTimeChooseController *timerVC = [sb instantiateViewControllerWithIdentifier:@"MessageTimeChooseController"];
+        timerVC.delegate = self;
+        [self presentViewController:timerVC animated:YES completion:nil];
+    }
+}
+
+-(void)didSelectTime:(NSDate *)date{
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH"];
+    NSString *hour = [formatter stringFromDate:date];
+    NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+    [formatter1 setDateFormat:@"mm"];
+    NSString *minute = [formatter1 stringFromDate:date];
+    
+    [MessageConfigureFile setAlertNotificationTime:hour andMinute:minute];
+    [self.tableView reloadData];
 }
 
 /*

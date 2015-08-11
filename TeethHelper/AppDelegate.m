@@ -11,6 +11,8 @@
 #import "MainTabBarController.h"
 #import "AccountManager.h"
 #import <SVProgressHUD.h>
+#import "MessageConfigureFile.h"
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) MainTabBarController *tabarController;
@@ -23,6 +25,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound) categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    else // iOS 7 or earlier
+    {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
     
     BOOL isLogin = [AccountManager isLogin];
     if (isLogin) {
@@ -45,7 +58,9 @@
     [self configureTabBarAppearance];
     [self configSVProgressHUD];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    
+  
+    [self configFirstLaunchOptions];
     return YES;
 }
 
@@ -65,13 +80,18 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0] ;
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+
 -(void)configureTabBarAppearance{
+    
     UIColor *backgroundColor = [UIColor colorWithRed:188./255 green:189./255 blue:190./255 alpha:1.0];
     [[UITabBar appearance] setBackgroundImage:[AppDelegate imageFromColor:backgroundColor forSize:CGSizeMake(320, 44) withCornerRadius:0]];
 //    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:234./255 green:13./255 blue:125./255 alpha:1.0]} forState:UIControlStateSelected];
@@ -88,7 +108,7 @@
     
     
 }
-+ (UIImage *)imageFromColor:(UIColor *)color forSize:(CGSize)size withCornerRadius:(CGFloat)radius
++(UIImage *)imageFromColor:(UIColor *)color forSize:(CGSize)size withCornerRadius:(CGFloat)radius
 {
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
     UIGraphicsBeginImageContext(rect.size);
@@ -117,8 +137,37 @@
     
     return image;
 }
+
 -(void)configSVProgressHUD{
     [SVProgressHUD setForegroundColor:[UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]];
+}
+
+-(void)configFirstLaunchOptions{
+    
+    BOOL isFirstLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:@"FirstLaunch"];
+    if (!isFirstLaunch) {
+        //初次启动,开启本地通知
+//        [[UIApplication sharedApplication] cancelAllLocalNotifications] ;
+
+        [MessageConfigureFile setOpenLocalNotification:YES];
+        [MessageConfigureFile setQuestionaireOpenLocalNotification:YES];
+        
+        [MessageConfigureFile setAlertNotificationTime:@"20" andMinute:@"0"];
+        NSString *hour = [MessageConfigureFile hourForAlertNotification];
+        NSString *minute = [MessageConfigureFile minuteForAlertNotification];
+        
+        [MessageConfigureFile setNotificationAtHour:hour minute:minute];
+  
+       
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FirstLaunch"];
+        
+    } else {
+        
+    }
+    
+    
+    
 }
 
 @end

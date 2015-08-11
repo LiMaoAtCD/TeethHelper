@@ -29,6 +29,113 @@
 
 }
 
++(void)setNotificationAtHour:(NSString*)hour minute:(NSString *)minute{
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSDate *now = [NSDate date];
+    // Break the date up into components
+    NSDateComponents *dateComponents = [calendar components:( NSCalendarUnitYear |       NSCalendarUnitMonth |  NSCalendarUnitDay )
+                                                   fromDate:now];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay: [dateComponents day]];
+    [components setMonth: [dateComponents month]];
+    [components setYear: [dateComponents year]];
+    
+    [components setHour: [hour integerValue]];
+    [components setMinute: [minute integerValue]];
+    [components setSecond: 0];
+    
+    [calendar setTimeZone: [NSTimeZone defaultTimeZone]];
+    NSDate *dateToFire = [calendar dateFromComponents:components];
+    
+    UILocalNotification *alarm = [[UILocalNotification alloc] init];
+    if (alarm) {
+        alarm.fireDate = dateToFire;
+        alarm.timeZone = [NSTimeZone defaultTimeZone];
+        alarm.repeatInterval = kCFCalendarUnitDay;
+        alarm.alertBody = @"美白时间到了,开始美白计划吧";
+        alarm.alertAction = @"开始美白吧";
+        alarm.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] +1;
+    }
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:alarm];
+}
+
++(void)cancelAlertNotification{
+    NSArray *notificationArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for(UILocalNotification *notification in notificationArray){
+        if ([notification.alertBody isEqualToString:@"美白时间到了,开始美白计划吧"]) {
+            // delete this notification
+            [[UIApplication sharedApplication] cancelLocalNotification:notification] ;
+        }
+    }
+}
+
+
++(void)setQuestionOpenLocalNotification{
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSDate *now = [NSDate date];
+    // Break the date up into components
+    NSDateComponents *dateComponents = [calendar components:( NSCalendarUnitYear |       NSCalendarUnitMonth |  NSCalendarUnitDay )
+                                                   fromDate:now];
+    NSDateComponents *timeComponents = [calendar components:( NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond)
+                                                   fromDate:now];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay: [dateComponents day]];
+    [components setMonth: [dateComponents month]];
+    [components setYear: [dateComponents year]];
+    
+    [components setHour: [timeComponents hour]];
+    [components setMinute: [timeComponents minute] + 10];
+    [components setSecond: [timeComponents second]];
+    
+    [calendar setTimeZone: [NSTimeZone defaultTimeZone]];
+    NSDate *dateToFire = [calendar dateFromComponents:components];
+    
+    UILocalNotification *alarm = [[UILocalNotification alloc] init];
+    if (alarm) {
+        alarm.fireDate = dateToFire;
+        alarm.timeZone = [NSTimeZone defaultTimeZone];
+        alarm.repeatInterval = kCFCalendarUnitDay;
+        alarm.alertBody = @"开启问卷调查";
+        alarm.alertAction = @"";
+        alarm.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] +1;
+    }
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:alarm];
+
+}
++(void)cancelQuestionNotification{
+    NSArray *notificationArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for(UILocalNotification *notification in notificationArray){
+        if ([notification.alertBody isEqualToString:@"开启问卷调查"]) {
+            // delete this notification
+            [[UIApplication sharedApplication] cancelLocalNotification:notification] ;
+        }
+    }
+}
+
++(void)setAlertNotificationTime:(NSString *)hour andMinute:(NSString *)minute{
+    
+    [[NSUserDefaults standardUserDefaults] setObject:hour forKey:@"local_notification_hour"];
+    [[NSUserDefaults standardUserDefaults] setObject:minute forKey:@"local_notification_minute"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSString *)hourForAlertNotification{
+    
+    NSString *hour = [[NSUserDefaults standardUserDefaults] objectForKey:@"local_notification_hour"];
+    return hour;
+    
+}
++(NSString *)minuteForAlertNotification{
+    
+    NSString *minute = [[NSUserDefaults standardUserDefaults] objectForKey:@"local_notification_minute"];
+    return minute;
+}
+
+
+
+
+
 
 
 
