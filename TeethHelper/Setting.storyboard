@@ -1250,7 +1250,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="6A9-Mo-VAL">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                                     </constraint>
                                     <constraint firstItem="HQo-Vm-lV8" firstAttribute="leading" secondItem="DPI-et-hog" secondAttribute="leading" constant="19" id="giq-xk-R58">
                                         <variation key="heightClass=regular-widthClass=compact" constant="10"/>
@@ -1361,7 +1361,7 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="80" id="yGy-Yb-azf">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                                     </constraint>
                                 </constraints>
                                 <variation key="default">
@@ -1458,7 +1458,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Mwy-pH-o8a">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="5Jm-em-x0T" secondAttribute="trailing" constant="8" id="lxd-e1-43m">
                                         <variation key="heightClass=regular-widthClass=compact" constant="10"/>
