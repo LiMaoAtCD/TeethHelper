@@ -321,14 +321,19 @@
                                                         <constraint firstAttribute="height" constant="40" id="8vt-J9-4c3"/>
                                                         <constraint firstAttribute="width" constant="40" id="naO-Lp-DLW"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="8vt-J9-4c3"/>
                                                             <exclude reference="naO-Lp-DLW"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="231" y="12" width="40" height="40"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="8vt-J9-4c3"/>
                                                             <include reference="naO-Lp-DLW"/>
@@ -338,7 +343,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="1EI-Gy-h04" secondAttribute="centerY" id="Mjg-iE-Jjf"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="1EI-Gy-h04" secondAttribute="trailing" constant="8" id="V8r-DU-f6G"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1EI-Gy-h04" secondAttribute="trailing" constant="8" id="V8r-DU-f6G">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                                </constraint>
                                                 <constraint firstAttribute="centerY" secondItem="pMU-hr-FyT" secondAttribute="centerY" constant="0.25" id="f1H-K1-b8U"/>
                                                 <constraint firstItem="pMU-hr-FyT" firstAttribute="leading" secondItem="yxr-ii-0sf" secondAttribute="leadingMargin" constant="15" id="iZa-ro-LS4"/>
                                             </constraints>
@@ -419,8 +426,7 @@
                                                             <exclude reference="Dnl-0d-2rI"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="100" y="16" width="173" height="21"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="Dnl-0d-2rI"/>
                                                         </mask>
@@ -429,7 +435,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="CfK-Zw-E8t" firstAttribute="leading" secondItem="zKb-tQ-FFZ" secondAttribute="leadingMargin" constant="16" id="48O-b9-lsJ"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Jdc-uI-7ec" secondAttribute="trailing" constant="6" id="dBF-e7-4dh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Jdc-uI-7ec" secondAttribute="trailing" constant="6" id="dBF-e7-4dh">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                                </constraint>
                                                 <constraint firstItem="Jdc-uI-7ec" firstAttribute="leading" secondItem="CfK-Zw-E8t" secondAttribute="trailing" constant="8" id="dXi-FD-MEZ"/>
                                                 <constraint firstAttribute="centerY" secondItem="Jdc-uI-7ec" secondAttribute="centerY" id="h8s-Ae-ADz"/>
                                                 <constraint firstAttribute="centerY" secondItem="CfK-Zw-E8t" secondAttribute="centerY" id="nOw-Pq-ASC"/>

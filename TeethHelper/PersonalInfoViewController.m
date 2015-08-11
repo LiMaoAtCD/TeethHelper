@@ -20,7 +20,7 @@
 
 #import "Utils.h"
 
-@interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource,BirthDaySelectionDelegate,GenderSelectionDelegate,AvatarSelectionDelegate>
+@interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource,BirthDaySelectionDelegate,GenderSelectionDelegate,AvatarSelectionDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *item;
@@ -62,7 +62,6 @@
     if (indexPath.row == 0) {
         AvatarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AvatarCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"头像";
-//        cell.avatarImageView.image = [UIImage imageNamed:@""];
         
         
         return cell;
@@ -159,8 +158,48 @@
     
 }
 
+#pragma mark - 头像选择
 -(void)didSelectedPhoto:(PhotoType)type{
     
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    if (type == Camera) {
+        //调用系统相机
+        if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear] ) {
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }
+        
+        
+    } else {
+        //调用相册
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    picker.delegate = self;
+    
+    picker.allowsEditing = YES;
+    
+    [self showDetailViewController:picker sender:self];
+    
 }
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    @autoreleasepool {
+        
+        UIImage *tempImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateAvatar" object:@{@"avatar": tempImage}];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+
+    }
+    
+}
+
 
 @end
