@@ -38,7 +38,7 @@
     }
     
     BOOL isLogin = [AccountManager isLogin];
-    if (isLogin) {
+    if (!isLogin) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
         
         _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
