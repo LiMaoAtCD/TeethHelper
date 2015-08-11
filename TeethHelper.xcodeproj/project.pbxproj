@@ -39,6 +39,11 @@
 		8742497D1B78E72500F6DB69 /* PhoneInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8742497C1B78E72500F6DB69 /* PhoneInfoViewController.m */; };
 		874249811B78E73500F6DB69 /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249801B78E73500F6DB69 /* AddressViewController.m */; };
 		874249851B78E74400F6DB69 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249841B78E74400F6DB69 /* NameInfoViewController.m */; };
+		874249881B7989C600F6DB69 /* TeethStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249871B7989C600F6DB69 /* TeethStateCell.m */; };
+		8742498C1B798CE600F6DB69 /* TeethDetailOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8742498B1B798CE600F6DB69 /* TeethDetailOneController.m */; };
+		8742498F1B798CF700F6DB69 /* TeethDetailTwoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8742498E1B798CF700F6DB69 /* TeethDetailTwoController.m */; };
+		874249921B798D0600F6DB69 /* TeethDetailThreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249911B798D0600F6DB69 /* TeethDetailThreeController.m */; };
+		874249951B798EF100F6DB69 /* TeethChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249941B798EF100F6DB69 /* TeethChooseView.m */; };
 		87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB341B77578A001ED07F /* MessageNotificationController.m */; };
 		87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB371B775796001ED07F /* TeethStateViewController.m */; };
 		87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */; };
@@ -132,6 +137,16 @@
 		874249801B78E73500F6DB69 /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
 		874249831B78E74400F6DB69 /* NameInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameInfoViewController.h; sourceTree = "<group>"; };
 		874249841B78E74400F6DB69 /* NameInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameInfoViewController.m; sourceTree = "<group>"; };
+		874249861B7989C600F6DB69 /* TeethStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethStateCell.h; sourceTree = "<group>"; };
+		874249871B7989C600F6DB69 /* TeethStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeethStateCell.m; sourceTree = "<group>"; };
+		8742498A1B798CE600F6DB69 /* TeethDetailOneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethDetailOneController.h; sourceTree = "<group>"; };
+		8742498B1B798CE600F6DB69 /* TeethDetailOneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeethDetailOneController.m; sourceTree = "<group>"; };
+		8742498D1B798CF700F6DB69 /* TeethDetailTwoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethDetailTwoController.h; sourceTree = "<group>"; };
+		8742498E1B798CF700F6DB69 /* TeethDetailTwoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeethDetailTwoController.m; sourceTree = "<group>"; };
+		874249901B798D0600F6DB69 /* TeethDetailThreeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethDetailThreeController.h; sourceTree = "<group>"; };
+		874249911B798D0600F6DB69 /* TeethDetailThreeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeethDetailThreeController.m; sourceTree = "<group>"; };
+		874249931B798EF100F6DB69 /* TeethChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethChooseView.h; sourceTree = "<group>"; };
+		874249941B798EF100F6DB69 /* TeethChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeethChooseView.m; sourceTree = "<group>"; };
 		87E2AB331B77578A001ED07F /* MessageNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNotificationController.h; sourceTree = "<group>"; };
 		87E2AB341B77578A001ED07F /* MessageNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNotificationController.m; sourceTree = "<group>"; };
 		87E2AB361B775796001ED07F /* TeethStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethStateViewController.h; sourceTree = "<group>"; };
@@ -399,6 +414,21 @@
 			name = Name;
 			sourceTree = "<group>";
 		};
+		874249891B798CA300F6DB69 /* StateDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8742498A1B798CE600F6DB69 /* TeethDetailOneController.h */,
+				8742498B1B798CE600F6DB69 /* TeethDetailOneController.m */,
+				8742498D1B798CF700F6DB69 /* TeethDetailTwoController.h */,
+				8742498E1B798CF700F6DB69 /* TeethDetailTwoController.m */,
+				874249901B798D0600F6DB69 /* TeethDetailThreeController.h */,
+				874249911B798D0600F6DB69 /* TeethDetailThreeController.m */,
+				874249931B798EF100F6DB69 /* TeethChooseView.h */,
+				874249941B798EF100F6DB69 /* TeethChooseView.m */,
+			);
+			name = StateDetail;
+			sourceTree = "<group>";
+		};
 		87E2AB2D1B7755F2001ED07F /* personalInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,8 +480,11 @@
 		87E2AB311B775628001ED07F /* Teethstate */ = {
 			isa = PBXGroup;
 			children = (
+				874249891B798CA300F6DB69 /* StateDetail */,
 				87E2AB361B775796001ED07F /* TeethStateViewController.h */,
 				87E2AB371B775796001ED07F /* TeethStateViewController.m */,
+				874249861B7989C600F6DB69 /* TeethStateCell.h */,
+				874249871B7989C600F6DB69 /* TeethStateCell.m */,
 			);
 			name = Teethstate;
 			sourceTree = "<group>";
@@ -697,6 +730,7 @@
 				8742497D1B78E72500F6DB69 /* PhoneInfoViewController.m in Sources */,
 				87E2AB6D1B78B8E9001ED07F /* BirthDayViewController.m in Sources */,
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
+				8742498C1B798CE600F6DB69 /* TeethDetailOneController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
 				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,
 				873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */,
@@ -704,8 +738,10 @@
 				87E2AB581B787FB9001ED07F /* CompositionDetailViewController.m in Sources */,
 				87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */,
 				87E2AB621B78AFA3001ED07F /* AvatarCell.m in Sources */,
+				874249921B798D0600F6DB69 /* TeethDetailThreeController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
+				874249881B7989C600F6DB69 /* TeethStateCell.m in Sources */,
 				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
@@ -723,6 +759,7 @@
 				87E2AB5E1B7884CF001ED07F /* QRCodeDismissAnimator.m in Sources */,
 				870A65DA1B77227100A51B26 /* main.m in Sources */,
 				87E2AB441B7757C6001ED07F /* PersonalInfoViewController.m in Sources */,
+				874249951B798EF100F6DB69 /* TeethChooseView.m in Sources */,
 				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
 				874249811B78E73500F6DB69 /* AddressViewController.m in Sources */,
 				873B75B11B773984002D7871 /* RegisterViewController.m in Sources */,
@@ -730,6 +767,7 @@
 				873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */,
 				87E2AB651B78AFB9001ED07F /* InfoCell.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
+				8742498F1B798CF700F6DB69 /* TeethDetailTwoController.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
