@@ -100,7 +100,8 @@
                                                             <exclude reference="niC-RH-NdB"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="160" y="0.0" width="1" height="44"/>
                                                         <mask key="constraints">
                                                             <include reference="FVk-0p-nz7"/>
                                                             <exclude reference="niC-RH-NdB"/>
@@ -120,7 +121,8 @@
                                                             <exclude reference="iyc-QI-Uij"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
                                                         <mask key="constraints">
                                                             <include reference="iyc-QI-Uij"/>
                                                         </mask>
@@ -137,7 +139,8 @@
                                                             <exclude reference="gqB-KQ-AGJ"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
                                                         <mask key="constraints">
                                                             <include reference="gqB-KQ-AGJ"/>
                                                         </mask>
@@ -282,7 +285,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="KPI-Vh-B6P">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AvatarCell" rowHeight="64" id="1x9-1p-Oz2" customClass="AvatarCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -409,7 +412,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="Dnl-0d-2rI"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -534,7 +537,7 @@
                                             <constraint firstAttribute="width" constant="42" id="p78-rz-hx2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -770,7 +773,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="or4-M7-t4Z"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -1009,7 +1012,7 @@
                                             <constraint firstAttribute="width" constant="42" id="cav-Ca-6Vm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -1210,6 +1213,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H5y-Fx-AaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5458.5" y="69.75"/>
+        </scene>
+        <!--Name Info View Controller-->
+        <scene sceneID="1ve-4h-IOG">
+            <objects>
+                <viewController id="xZy-8Q-NkM" customClass="NameInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9SO-KS-eQk"/>
+                        <viewControllerLayoutGuide type="bottom" id="y6g-gx-044"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X4Q-aZ-jfI">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Peh-Id-Bnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6117" y="125.25"/>
+        </scene>
+        <!--Address View Controller-->
+        <scene sceneID="fGL-Bf-bmt">
+            <objects>
+                <viewController id="9gD-nk-3jd" customClass="AddressViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DaJ-MX-Q3K"/>
+                        <viewControllerLayoutGuide type="bottom" id="NGX-5F-K7W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N5q-19-Slz">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zw1-Fi-MCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6726" y="170.25"/>
+        </scene>
+        <!--Phone Info View Controller-->
+        <scene sceneID="QFL-Y2-Kcx">
+            <objects>
+                <viewController id="iHw-AQ-1Iz" customClass="PhoneInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2sX-qG-BXT"/>
+                        <viewControllerLayoutGuide type="bottom" id="xAa-ik-rip"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zlQ-6F-X1D">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JEb-G6-Gr7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7345.5" y="206.25"/>
         </scene>
     </scenes>
 </document>

@@ -4,6 +4,8 @@
 target 'TeethHelper' do
 	pod "AFNetworking"
 	pod "SVProgressHUD"
+	pod 'Masonry'
+	pod 'SDWebImage', '~>3.7'
 end
 
 target 'TeethHelperTests' do
