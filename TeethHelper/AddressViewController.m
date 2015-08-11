@@ -18,12 +18,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"编辑" onViewController:self];
+    [self configRightNavigationItem];
 }
 
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
 }
+-(void)save:(UIButton *)button{
+    
+}
 
+-(void)configRightNavigationItem{
+    UIButton *popButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
+    
+    [popButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"保存" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:14.0]}] forState:UIControlStateNormal];
+    [popButton addTarget:self action:@selector(save:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:popButton];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.view layoutIfNeeded];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
