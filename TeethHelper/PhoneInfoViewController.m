@@ -8,6 +8,7 @@
 
 #import "PhoneInfoViewController.h"
 #import "Utils.h"
+#import <SVProgressHUD.h>
 @interface PhoneInfoViewController ()
 
 @end
@@ -25,7 +26,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)save:(UIButton *)button{
-    
+
 }
 
 -(void)configRightNavigationItem{
@@ -37,7 +38,6 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:popButton];
 }
-
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

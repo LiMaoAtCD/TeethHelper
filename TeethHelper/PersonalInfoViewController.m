@@ -35,6 +35,8 @@
     self.item =@[@"头像",@"姓名",@"性别",@"出生年月",@"手机号",@"通讯地址"];
     [Utils ConfigNavigationBarWithTitle:@"个人信息" onViewController:self];
     
+    self.tableView.backgroundView = [UIView new];
+    
 }
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];

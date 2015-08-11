@@ -7,7 +7,7 @@
 //
 
 #import "TeethChooseView.h"
-
+#import <Masonry.h>
 @implementation TeethChooseView
 
 /*
@@ -22,7 +22,10 @@
     self = [super init];
     if (self) {
         
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+//        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+
+        
         self.titleLabel.text = title;
         self.titleLabel.textColor = [UIColor lightGrayColor];
 
@@ -34,10 +37,31 @@
         self.bgImageView.image = [UIImage imageNamed:@""];
         [self addSubview:self.bgImageView];
         
-        self.selectedImageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 0, 40, 40)];
-        self.bgImageView.image = [UIImage imageNamed:@""];
+        self.selectedImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        self.selectedImageView.image = [UIImage imageNamed:@"temp1"];
         [self addSubview:self.selectedImageView];
         
+        
+        [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).offset(0);
+            make.left.equalTo(self).offset(0);
+            make.height.equalTo(@20);
+            make.width.equalTo(@200);
+        }];
+        [self.bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).offset(0);
+            make.left.equalTo(self).offset(0);
+            make.bottom.equalTo(self).offset(0);
+            make.right.equalTo(self).offset(0);
+        }];
+        
+        
+        [self.selectedImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(self.mas_centerY).offset(0);
+
+            make.right.equalTo(self.mas_right).offset(10);
+            make.size.mas_equalTo(CGSizeMake(20, 20));
+        }];
         
     }
     

@@ -41,8 +41,8 @@
         [self.view addSubview:self.views[i]];
         [self.views[i] mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.view).offset(64 + 20 +  70 * i);
-            make.left.equalTo(self.view).offset(20);
-            make.right.equalTo(self.view).offset(20);
+            make.left.equalTo(self.view).offset(0);
+            make.right.equalTo(self.view).offset(0);
             make.height.equalTo(@50);
             
         }];

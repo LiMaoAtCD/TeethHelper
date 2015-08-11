@@ -10,6 +10,7 @@
 #import "LoginNavigationController.h"
 #import "MainTabBarController.h"
 #import "AccountManager.h"
+#import <SVProgressHUD.h>
 @interface AppDelegate ()
 
 @property (nonatomic, strong) MainTabBarController *tabarController;
@@ -42,6 +43,7 @@
         [self.window makeKeyAndVisible];
     }
     [self configureTabBarAppearance];
+    [self configSVProgressHUD];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     return YES;
@@ -114,6 +116,9 @@
     UIGraphicsEndImageContext();
     
     return image;
+}
+-(void)configSVProgressHUD{
+    [SVProgressHUD setForegroundColor:[UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]];
 }
 
 @end

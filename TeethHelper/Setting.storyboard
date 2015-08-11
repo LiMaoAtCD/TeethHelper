@@ -91,7 +91,8 @@
                                                             <exclude reference="rLV-nQ-9Bc"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="244" y="21" width="42" height="17"/>
                                                         <mask key="constraints">
                                                             <include reference="Ws7-AS-Z0q"/>
                                                             <include reference="rLV-nQ-9Bc"/>
@@ -154,10 +155,10 @@
                                 <exclude reference="OuW-gN-JTZ"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="S8a-Um-3sb"/>
                                 <exclude reference="Gif-hY-4id"/>
                                 <exclude reference="VHq-s4-pm8"/>
                                 <exclude reference="tlF-Ux-0VA"/>
-                                <exclude reference="S8a-Um-3sb"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -165,10 +166,10 @@
                                 <include reference="OuW-gN-JTZ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="S8a-Um-3sb"/>
                                 <include reference="Gif-hY-4id"/>
                                 <include reference="VHq-s4-pm8"/>
                                 <include reference="tlF-Ux-0VA"/>
-                                <include reference="S8a-Um-3sb"/>
                             </mask>
                         </variation>
                     </view>
@@ -189,6 +190,7 @@
                         <viewControllerLayoutGuide type="bottom" id="nLg-y4-gsA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SsZ-WY-KQk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -206,6 +208,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ma1-LE-Ahi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oxT-5v-frg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -223,6 +226,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ItK-g4-Rh4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="16a-Ow-ZqI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -474,7 +478,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="KPI-Vh-B6P">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AvatarCell" rowHeight="64" id="1x9-1p-Oz2" customClass="AvatarCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1420,6 +1424,7 @@
                         <viewControllerLayoutGuide type="bottom" id="y6g-gx-044"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X4Q-aZ-jfI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPI-et-hog">
@@ -1524,6 +1529,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NGX-5F-K7W"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="N5q-19-Slz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEW-u5-XGE">
@@ -1628,6 +1634,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xAa-ik-rip"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zlQ-6F-X1D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpR-Nb-JvS">
