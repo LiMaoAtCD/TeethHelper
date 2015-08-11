@@ -14,6 +14,10 @@
 #import "AvatarViewController.h"
 #import "BirthDayViewController.h"
 
+#import "NameInfoViewController.h"
+#import "PhoneInfoViewController.h"
+#import "AddressViewController.h"
+
 #import "Utils.h"
 
 @interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource,BirthDaySelectionDelegate,GenderSelectionDelegate,AvatarSelectionDelegate>
@@ -89,6 +93,8 @@
             break;
         case 1:{
             //姓名
+            NameInfoViewController *nameVC = [sb instantiateViewControllerWithIdentifier:@"NameInfoViewController"];
+            [self.navigationController pushViewController:nameVC animated:YES];
         }
             break;
         case 2:{
@@ -110,10 +116,15 @@
             break;
         case 4:{
             //手机号
+            PhoneInfoViewController *phoneVC = [sb instantiateViewControllerWithIdentifier:@"PhoneInfoViewController"];
+            [self.navigationController pushViewController:phoneVC animated:YES];
         }
             break;
         case 5:{
             //地址
+            AddressViewController *addressVC = [sb instantiateViewControllerWithIdentifier:@"AddressViewController"];
+            [self.navigationController pushViewController:addressVC animated:YES];
+
         }
             break;
 

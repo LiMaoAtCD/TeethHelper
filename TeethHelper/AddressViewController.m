@@ -7,7 +7,7 @@
 //
 
 #import "AddressViewController.h"
-
+#import "Utils.h"
 @interface AddressViewController ()
 
 @end
@@ -17,7 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [Utils ConfigNavigationBarWithTitle:@"编辑" onViewController:self];
 }
+
+-(void)pop{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

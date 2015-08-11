@@ -7,6 +7,7 @@
 //
 
 #import "NameInfoViewController.h"
+#import "Utils.h"
 
 @interface NameInfoViewController ()
 
@@ -17,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [Utils ConfigNavigationBarWithTitle:@"编辑" onViewController:self];
+}
+
+-(void)pop{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
