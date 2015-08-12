@@ -169,6 +169,7 @@
     }
 }
 
+//选择推送时间以后，设置
 -(void)didSelectTime:(NSDate *)date{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -179,6 +180,7 @@
     NSString *minute = [formatter1 stringFromDate:date];
     
     [MessageConfigureFile setAlertNotificationTime:hour andMinute:minute];
+    [MessageConfigureFile setNotificationAtHour:hour minute:minute];
     [self.tableView reloadData];
 }
 
