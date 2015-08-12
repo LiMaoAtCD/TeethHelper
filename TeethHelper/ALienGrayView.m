@@ -7,7 +7,7 @@
 //
 
 #import "ALienGrayView.h"
-
+#import <Masonry.h>
 @implementation ALienGrayView
 
 /*
@@ -26,6 +26,7 @@
         self.daysLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)days];
         self.daysLabel.textColor = [UIColor whiteColor];
+        self.daysLabel.font = [UIFont systemFontOfSize:40];
         [self addSubview:self.daysLabel];
         
         self.typeLabel = [[UILabel alloc]  initWithFrame:CGRectZero];
@@ -38,6 +39,20 @@
     return self;
 }
 
-
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    [self.daysLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top).offset(5);
+        make.centerX.equalTo(self.mas_centerX);
+        make.height.equalTo(self.mas_height).multipliedBy(2./3);
+    }];
+    
+    [self.typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.daysLabel.mas_bottomMargin).offset(5);
+        make.centerX.equalTo(self.mas_centerX);
+        make.height.equalTo(self.mas_height).multipliedBy(1./3);
+    }];
+}
 
 @end

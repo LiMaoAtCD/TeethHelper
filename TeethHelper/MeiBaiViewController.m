@@ -122,15 +122,59 @@
         make.top.equalTo(completedLabel.mas_top);
     }];
    
-    ALienGrayView *grayView = [[ALienGrayView alloc] initWithDays:0 forType:@"次/天"];
+    //左 - 治疗
+    ALienGrayView *gray1View = [[ALienGrayView alloc] initWithDays:0 forType:@"治疗"];
     
-    [self.view addSubview:grayView];
+    [self.view addSubview:gray1View];
     
-    [grayView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(currentProjectLabel.mas_centerX).offset(8);
-        make.width.equalTo(@40);
-        make.top.equalTo(currentProjectLabel.mas_bottom).offset(8);
-        make.height.equalTo(@100);
+    [gray1View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(completedLabel.mas_centerX).offset(-4);
+        make.width.equalTo(@50);
+        make.top.equalTo(completedLabel.mas_bottom).offset(4);
+        make.height.equalTo(@80);
+        
+    }];
+    
+    //左 - 保持
+    ALienGrayView *gray2View = [[ALienGrayView alloc] initWithDays:0 forType:@"保持"];
+    
+    [self.view addSubview:gray2View];
+    
+    [gray2View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(completedLabel.mas_centerX).offset(4);
+        make.width.equalTo(@50);
+        make.top.equalTo(completedLabel.mas_bottom).offset(4);
+        make.height.equalTo(@80);
+        
+    }];
+    
+    //右 -
+    ALienGrayView *gray3View = [[ALienGrayView alloc] initWithDays:0 forType:@"天"];
+    
+    [self.view addSubview:gray3View];
+    
+    [gray3View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(currentProjectLabel.mas_centerX).offset(-4);
+        make.width.equalTo(@50);
+        make.top.equalTo(currentProjectLabel.mas_bottom).offset(4);
+        make.height.equalTo(@80);
+        
+    }];
+
+
+
+    
+    
+    //保持天数
+    ALienGrayView *gray4View = [[ALienGrayView alloc] initWithDays:99 forType:@"次/天"];
+    
+    [self.view addSubview:gray4View];
+    
+    [gray4View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(currentProjectLabel.mas_centerX).offset(4);
+        make.width.equalTo(@50);
+        make.top.equalTo(currentProjectLabel.mas_bottom).offset(4);
+        make.height.equalTo(@80);
         
     }];
 }
