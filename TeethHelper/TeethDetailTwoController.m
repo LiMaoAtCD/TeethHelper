@@ -10,7 +10,7 @@
 #import "TeethChooseView.h"
 #import <Masonry.h>
 #import "Utils.h"
-
+#import "TeethStateConfigureFile.h"
 @interface TeethDetailTwoController ()
 
 @property (nonatomic, strong) NSMutableArray *views;
@@ -49,6 +49,16 @@
         }];
         
     }
+    [self.views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        TeethChooseView *view = obj;
+        if (idx == _currentIndex) {
+            [view didCHangeColorType:Selected];
+            
+        } else{
+            [view didCHangeColorType:Normal];
+            
+        }
+    }];
 }
 
 -(void)selectIndex:(id)sender{
@@ -59,6 +69,13 @@
         if (idx == tap.view.tag) {
             
             [view didCHangeColorType:Selected];
+            if (idx == 0) {
+                
+                [TeethStateConfigureFile setSensitive:YES];
+            } else{
+                [TeethStateConfigureFile setSensitive:NO];
+            }
+
         } else{
             [view didCHangeColorType:Normal];
         }

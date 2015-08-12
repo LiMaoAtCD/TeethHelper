@@ -11,6 +11,8 @@
 #import <Masonry.h>
 #import "Utils.h"
 
+#import "TeethStateConfigureFile.h"
+
 @interface TeethDetailThreeController ()
 
 @property (nonatomic, strong) NSMutableArray *views;
@@ -49,6 +51,23 @@
         }];
         
     }
+    
+    [self.views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        TeethChooseView *view = obj;
+        if (idx == _currentIndex) {
+            [view didCHangeColorType:Selected];
+            if (idx == 0) {
+                
+                [TeethStateConfigureFile WillStrong:YES];
+            } else{
+                [TeethStateConfigureFile WillStrong:NO];
+            }
+            
+        } else{
+            [view didCHangeColorType:Normal];
+            
+        }
+    }];
 }
 
 -(void)selectIndex:(id)sender{

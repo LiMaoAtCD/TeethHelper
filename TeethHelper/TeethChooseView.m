@@ -67,6 +67,7 @@
     return self;
 }
 
+
 -(void)didCHangeColorType:(ColorType)type{
     if (type == Selected) {
         self.titleLabel.textColor = [UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0];

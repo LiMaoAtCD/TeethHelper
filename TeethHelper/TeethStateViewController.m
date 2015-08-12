@@ -108,9 +108,6 @@
         }
     }
     
-    
-    
-    
     return cell;
 }
 
@@ -130,12 +127,30 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Setting" bundle:nil];
     if (indexPath.row == 0) {
         TeethDetailOneController *oneVC = [sb instantiateViewControllerWithIdentifier:@"TeethDetailOneController"];
+        oneVC.currentIndex = [TeethStateConfigureFile teethLevel];
         [self.navigationController pushViewController:oneVC animated:YES];
     } else if(indexPath.row == 1){
         TeethDetailTwoController *twoVC = [sb instantiateViewControllerWithIdentifier:@"TeethDetailTwoController"];
+        BOOL sensitive = [TeethStateConfigureFile isSensitive];
+        
+        if (sensitive) {
+            twoVC.currentIndex = 0;
+        } else{
+            twoVC.currentIndex = 1;
+            
+        }
         [self.navigationController pushViewController:twoVC animated:YES];
     } else{
         TeethDetailThreeController *threeVC = [sb instantiateViewControllerWithIdentifier:@"TeethDetailThreeController"];
+        BOOL strong = [TeethStateConfigureFile isWillStrong];
+        
+        if (strong) {
+            threeVC.currentIndex = 0;
+        } else{
+            threeVC.currentIndex = 1;
+            
+        }
+
         [self.navigationController pushViewController:threeVC animated:YES];
 
     }

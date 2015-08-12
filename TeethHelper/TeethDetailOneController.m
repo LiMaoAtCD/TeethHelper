@@ -10,6 +10,7 @@
 #import "TeethChooseView.h"
 #import <Masonry.h>
 #import "Utils.h"
+#import "TeethStateConfigureFile.h"
 @interface TeethDetailOneController ()
 
 @property (nonatomic, strong) NSMutableArray *views;
@@ -36,7 +37,6 @@
         [view addGestureRecognizer:tap];
         
         
-        
         [self.views addObject:view];
         [self.view addSubview:self.views[i]];
         [self.views[i] mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -46,8 +46,21 @@
             make.height.equalTo(@50);
             
         }];
+        
 
     }
+    
+    [self.views enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        TeethChooseView *view = obj;
+        if (idx == _currentIndex) {
+            [view didCHangeColorType:Selected];
+
+        } else{
+            [view didCHangeColorType:Normal];
+
+        }
+    }];
+
 
 }
 
@@ -59,6 +72,7 @@
         if (idx == tap.view.tag) {
             
             [view didCHangeColorType:Selected];
+            [TeethStateConfigureFile setTeethStateLevel:idx];
         } else{
             [view didCHangeColorType:Normal];
         }

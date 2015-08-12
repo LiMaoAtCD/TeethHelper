@@ -10,4 +10,6 @@
 
 @interface TeethDetailOneController : UIViewController
 
+@property (nonatomic, assign) NSInteger currentIndex;
+
 @end

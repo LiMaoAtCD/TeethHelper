@@ -12,6 +12,7 @@
 #import "AccountManager.h"
 #import <SVProgressHUD.h>
 #import "MessageConfigureFile.h"
+#import "TeethStateConfigureFile.h"
 
 @interface AppDelegate ()
 
@@ -157,12 +158,17 @@
         [MessageConfigureFile setAlertNotificationTime:@"20" andMinute:@"0"];
         NSString *hour = [MessageConfigureFile hourForAlertNotification];
         NSString *minute = [MessageConfigureFile minuteForAlertNotification];
-        
         [MessageConfigureFile setNotificationAtHour:hour minute:minute];
   
        
         
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FirstLaunch"];
+        
+        //牙齿状况初始设置
+        [TeethStateConfigureFile setSensitive:NO];
+        [TeethStateConfigureFile WillStrong:YES];
+        [TeethStateConfigureFile setTeethStateLevel:0];
+        
         
     } else {
         

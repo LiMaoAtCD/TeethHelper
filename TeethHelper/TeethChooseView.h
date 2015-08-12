@@ -21,7 +21,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) UIImageView *bgImageView;
 
 
-
 -(instancetype)initWithTitle:(NSString *)title;
 
 -(void)didCHangeColorType:(ColorType)type;
