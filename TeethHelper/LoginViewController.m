@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "Utils.h"
+#import "AccountManager.h"
 
 @interface LoginViewController ()
 
@@ -65,7 +66,15 @@
 
 - (IBAction)login:(id)sender {
     
+    [self dismissViewControllerAnimated:YES completion:nil];
     
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        self.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];}
+    }];
 }
 
 -(void)textFieldEditChanged:(UITextField *)textField{

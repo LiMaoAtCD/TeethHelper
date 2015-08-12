@@ -25,43 +25,45 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //推送配置
+    [self configNotificationSettings:application];
+    //第一次启动的推送配置
+    [self configFirstLaunchOptions];
+    //tabbar 外观配置
+    [self configureTabBarAppearance];
+    //HUD外观配置
+    [self configSVProgressHUD];
+    //status bar 外观配置
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
-    {
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound) categories:nil];
-        [application registerUserNotificationSettings:settings];
-    }
-    else // iOS 7 or earlier
-    {
-        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
-        [application registerForRemoteNotificationTypes:myTypes];
-    }
     
+    
+    //初始化
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    _tabarController = [sb instantiateViewControllerWithIdentifier:@"MainTabBarController"];
+
+    //检查是否登录
     BOOL isLogin = [AccountManager isLogin];
     if (!isLogin) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-        
         _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"LoginSuccess" object:nil];
         self.window.rootViewController = _loginVC;
         [self.window makeKeyAndVisible];
         
     } else {
-        
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        
-        _tabarController = [sb instantiateViewControllerWithIdentifier:@"MainTabBarController"];
-        
         self.window.rootViewController = _tabarController;
         [self.window makeKeyAndVisible];
     }
-    [self configureTabBarAppearance];
-    [self configSVProgressHUD];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-  
-    [self configFirstLaunchOptions];
+   
     return YES;
+}
+
+
+
+-(void)loginSuccess:(id)sender{
+    [AccountManager setLogin:YES];
+    self.window.rootViewController = self.tabarController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -170,4 +172,17 @@
     
 }
 
+-(void)configNotificationSettings:(UIApplication *)application{
+    //推送设置
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound) categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    else // iOS 7 or earlier
+    {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
+}
 @end
