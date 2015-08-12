@@ -10,6 +10,7 @@
 
 @interface MeiBaiConfigFile : NSObject
 
-
++(void)setCurrentProject:(NSString *)type;
++(NSString *)getCurrentProject;
 
 @end

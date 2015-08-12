@@ -10,4 +10,15 @@
 
 @implementation MeiBaiConfigFile
 
+
++(void)setCurrentProject:(NSString *)type{
+    [[NSUserDefaults standardUserDefaults] setObject:type forKey:@"current_project"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSString *)getCurrentProject{
+    
+    NSString *cur = [[NSUserDefaults standardUserDefaults] objectForKey:@"current_project"];
+    
+    return cur;
+}
 @end

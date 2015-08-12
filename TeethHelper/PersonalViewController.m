@@ -17,6 +17,11 @@
 #import "UseHistoryViewController.h"
 #import "PersonalInfoViewController.h"
 
+#import "AccountManager.h"
+
+#import "LoginNavigationController.h"
+
+
 @interface PersonalViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -43,7 +48,7 @@
     [logoutButton setTitle:@"退出账号" forState:UIControlStateNormal];
     
     logoutButton.frame = CGRectMake(20, 20, [UIScreen mainScreen].bounds.size.width - 40, 40);
-    
+    [logoutButton addTarget:self action:@selector(logout:) forControlEvents:UIControlEventTouchUpInside];
     [footerView addSubview:logoutButton];
     
     self.tableView.tableFooterView = footerView;
@@ -128,6 +133,21 @@
         default:
             break;
     }
+    
+}
+
+-(void)logout:(UIButton *)button{
+    [AccountManager setLogin:NO];
+    
+    
+
+    
+    UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    LoginNavigationController *loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+    
+    [self showDetailViewController:loginVC sender:self];
+    [self.tabBarController setSelectedIndex:0];
+
     
 }
 

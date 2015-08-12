@@ -13,4 +13,6 @@
 
 +(void)ConfigNavigationBarWithTitle:(NSString*)title onViewController:(UIViewController *)viewController;
 
++(UIColor *)commonColor;
+
 @end

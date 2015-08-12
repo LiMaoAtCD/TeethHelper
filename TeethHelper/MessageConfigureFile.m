@@ -54,7 +54,8 @@
         alarm.repeatInterval = kCFCalendarUnitDay;
         alarm.alertBody = @"美白时间到了,开始美白计划吧";
         alarm.alertAction = @"开始美白吧";
-        alarm.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] +1;
+        alarm.soundName = UILocalNotificationDefaultSoundName;
+        alarm.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     }
     
     [[UIApplication sharedApplication] scheduleLocalNotification:alarm];
