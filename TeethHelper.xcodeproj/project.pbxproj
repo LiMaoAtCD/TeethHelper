@@ -50,6 +50,9 @@
 		87D533F21B79EC9F00F3D6BE /* MessageTimeChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533F11B79EC9F00F3D6BE /* MessageTimeChooseController.m */; };
 		87D533F51B7A1F9400F3D6BE /* ModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533F41B7A1F9400F3D6BE /* ModifyViewController.m */; };
 		87D533F81B7ACF7E00F3D6BE /* TeethStateConfigureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533F71B7ACF7E00F3D6BE /* TeethStateConfigureFile.m */; };
+		87D533FB1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533FA1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m */; };
+		87D533FE1B7ADF5600F3D6BE /* MeiBaiOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */; };
+		87D534011B7ADF6300F3D6BE /* MeiBaiTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */; };
 		87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB341B77578A001ED07F /* MessageNotificationController.m */; };
 		87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB371B775796001ED07F /* TeethStateViewController.m */; };
 		87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */; };
@@ -165,6 +168,12 @@
 		87D533F41B7A1F9400F3D6BE /* ModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyViewController.m; sourceTree = "<group>"; };
 		87D533F61B7ACF7E00F3D6BE /* TeethStateConfigureFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethStateConfigureFile.h; sourceTree = "<group>"; };
 		87D533F71B7ACF7E00F3D6BE /* TeethStateConfigureFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeethStateConfigureFile.m; sourceTree = "<group>"; };
+		87D533F91B7ADF3E00F3D6BE /* MeiBaiConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiConfigFile.h; sourceTree = "<group>"; };
+		87D533FA1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiConfigFile.m; sourceTree = "<group>"; };
+		87D533FC1B7ADF5600F3D6BE /* MeiBaiOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiOneCell.h; sourceTree = "<group>"; };
+		87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiOneCell.m; sourceTree = "<group>"; };
+		87D533FF1B7ADF6300F3D6BE /* MeiBaiTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiTwoCell.h; sourceTree = "<group>"; };
+		87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiTwoCell.m; sourceTree = "<group>"; };
 		87E2AB331B77578A001ED07F /* MessageNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNotificationController.h; sourceTree = "<group>"; };
 		87E2AB341B77578A001ED07F /* MessageNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNotificationController.m; sourceTree = "<group>"; };
 		87E2AB361B775796001ED07F /* TeethStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethStateViewController.h; sourceTree = "<group>"; };
@@ -493,6 +502,12 @@
 			children = (
 				87E2AB391B7757A2001ED07F /* MeiBaiProjectViewController.h */,
 				87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */,
+				87D533FC1B7ADF5600F3D6BE /* MeiBaiOneCell.h */,
+				87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */,
+				87D533FF1B7ADF6300F3D6BE /* MeiBaiTwoCell.h */,
+				87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */,
+				87D533F91B7ADF3E00F3D6BE /* MeiBaiConfigFile.h */,
+				87D533FA1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m */,
 			);
 			name = MeiBaiProject;
 			sourceTree = "<group>";
@@ -775,12 +790,15 @@
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
 				874249881B7989C600F6DB69 /* TeethStateCell.m in Sources */,
+				87D533FE1B7ADF5600F3D6BE /* MeiBaiOneCell.m in Sources */,
 				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
+				87D533FB1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
 				87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */,
 				87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */,
 				87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */,
+				87D534011B7ADF6300F3D6BE /* MeiBaiTwoCell.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
 				874249851B78E74400F6DB69 /* NameInfoViewController.m in Sources */,
