@@ -1409,7 +1409,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="KaA-IN-46R"/>
                                         </constraints>
-                                        <state key="normal" title="从相册选择">
+                                        <state key="normal" title="从相册选择" backgroundImage="btn_white">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1458,7 +1458,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="wI3-je-hCA"/>
                                         </constraints>
-                                        <state key="normal" title="拍照">
+                                        <state key="normal" title="拍照" backgroundImage="btn_white">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1650,7 +1650,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="4Gn-4f-rHn"/>
                                             <constraint firstAttribute="height" constant="40" id="nsq-8d-bP3"/>
                                         </constraints>
-                                        <state key="normal" title="男">
+                                        <state key="normal" title="男" backgroundImage="btn_white">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1676,7 +1676,7 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="E3H-QD-p6R"/>
                                             <constraint firstAttribute="height" constant="40" id="VL1-fg-Wtp"/>
                                         </constraints>
-                                        <state key="normal" title="女">
+                                        <state key="normal" title="女" backgroundImage="btn_white">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -2382,4 +2382,7 @@
             <point key="canvasLocation" x="7345.5" y="206.25"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn_white" width="290" height="35"/>
+    </resources>
 </document>

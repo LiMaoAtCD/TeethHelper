@@ -42,5 +42,9 @@
 +(NSString*)getAvatarUrlString;
 +(void)setAvatarUrlString:(NSString*)url;
 
+//生日
++(NSString*)getBirthday;
++(void)setBirthDay:(NSString*)birthday;
+
 
 @end

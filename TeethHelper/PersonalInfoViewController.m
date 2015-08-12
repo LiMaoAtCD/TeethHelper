@@ -19,6 +19,7 @@
 #import "AddressViewController.h"
 
 #import "Utils.h"
+#import "AccountManager.h"
 
 @interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource,BirthDaySelectionDelegate,GenderSelectionDelegate,AvatarSelectionDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -65,11 +66,48 @@
         AvatarCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AvatarCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"头像";
         
-        
+        if ([AccountManager getAvatarUrlString]) {
+            cell.avatarImageView.image = [UIImage imageNamed:@""];
+        } else{
+            cell.avatarImageView.image = [UIImage imageNamed:@""];
+        }
         return cell;
+        
     } else{
         InfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
         cell.titleLabel.text =self.item[indexPath.row];
+        
+        if (indexPath.row == 1) {
+            //姓名
+            cell.contentLabel.text = [AccountManager getName];
+        } else if (indexPath.row == 2){
+            //性别
+            NSInteger gender = [AccountManager getGender];
+            if (gender == 0) {
+                cell.contentLabel.text = @"男";
+            } else {
+                cell.contentLabel.text = @"女";
+            }
+
+        } else if (indexPath.row == 3){
+            //出生年月
+            NSString *birthday = [AccountManager getBirthday];
+            
+            cell.contentLabel.text = birthday;
+            
+        } else if (indexPath.row == 4){
+//            手机号
+            NSString *phone = [AccountManager getCellphoneNumber];
+            
+            cell.contentLabel.text = phone;
+            
+        } else if (indexPath.row == 5){
+//            地址
+            NSString *address = [AccountManager getAddress];
+            
+            cell.contentLabel.text = address;
+
+        }
         
         return cell;
     }
