@@ -726,7 +726,8 @@
                                                             <exclude reference="eP6-jR-70A"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="263" y="14" width="51" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="FEU-UD-OhA"/>
                                                             <include reference="eP6-jR-70A"/>
@@ -813,7 +814,8 @@
                                                             <exclude reference="dUE-dg-uhd"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="217" y="19" width="67" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="ULp-LE-cTv"/>
                                                             <include reference="dUE-dg-uhd"/>
@@ -876,10 +878,10 @@
                                 <exclude reference="1XS-fj-NSX"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Ue7-yH-4df"/>
                                 <exclude reference="NsO-i3-Ma3"/>
                                 <exclude reference="fq5-Ux-0By"/>
                                 <exclude reference="sb9-pE-6yn"/>
-                                <exclude reference="Ue7-yH-4df"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -887,10 +889,10 @@
                                 <include reference="1XS-fj-NSX"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Ue7-yH-4df"/>
                                 <include reference="NsO-i3-Ma3"/>
                                 <include reference="fq5-Ux-0By"/>
                                 <include reference="sb9-pE-6yn"/>
-                                <include reference="Ue7-yH-4df"/>
                             </mask>
                         </variation>
                     </view>

@@ -233,7 +233,7 @@
         <scene sceneID="wfC-hQ-RzV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D09-ba-hZF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="美白" id="CjO-QP-F1w"/>
+                    <tabBarItem key="tabBarItem" title="美白" image="icon_meibai" id="CjO-QP-F1w"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Il-Gw-ERJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -252,7 +252,7 @@
         <scene sceneID="PzY-Uq-vgd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="git-Kr-u9R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="测白" id="QKB-wH-NBU"/>
+                    <tabBarItem key="tabBarItem" title="测白" image="icon_cebai" id="QKB-wH-NBU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qBo-JW-RAF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -271,7 +271,7 @@
         <scene sceneID="SvZ-Dv-WCk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zkO-mI-YHB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="社区" id="mYI-5r-fix"/>
+                    <tabBarItem key="tabBarItem" title="社区" image="icon_shequ" id="mYI-5r-fix"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6to-BE-zWC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -290,7 +290,7 @@
         <scene sceneID="GcG-Fs-Itc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DPd-fd-QYQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我" id="IN3-RP-EPC"/>
+                    <tabBarItem key="tabBarItem" title="我" image="icon_wo" id="IN3-RP-EPC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4P9-Za-HTZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -306,4 +306,10 @@
             <point key="canvasLocation" x="1954.5" y="1527.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_cebai" width="18" height="18"/>
+        <image name="icon_meibai" width="16" height="18"/>
+        <image name="icon_shequ" width="20" height="19"/>
+        <image name="icon_wo" width="17" height="19"/>
+    </resources>
 </document>
