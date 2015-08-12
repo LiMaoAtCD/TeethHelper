@@ -56,12 +56,7 @@
         TeethChooseView *view = obj;
         if (idx == _currentIndex) {
             [view didCHangeColorType:Selected];
-            if (idx == 0) {
-                
-                [TeethStateConfigureFile WillStrong:YES];
-            } else{
-                [TeethStateConfigureFile WillStrong:NO];
-            }
+         
             
         } else{
             [view didCHangeColorType:Normal];
@@ -78,6 +73,12 @@
         if (idx == tap.view.tag) {
             
             [view didCHangeColorType:Selected];
+            if (idx == 0) {
+                
+                [TeethStateConfigureFile WillStrong:YES];
+            } else{
+                [TeethStateConfigureFile WillStrong:NO];
+            }
         } else{
             [view didCHangeColorType:Normal];
         }

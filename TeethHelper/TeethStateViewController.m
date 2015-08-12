@@ -42,6 +42,7 @@
     [super viewWillAppear:animated];
     
     [self.view layoutIfNeeded];
+    [self.tableVIew reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
