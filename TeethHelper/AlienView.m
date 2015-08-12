@@ -8,7 +8,7 @@
 
 #import "AlienView.h"
 #import <Masonry.h>
-
+#import "UIColor+HexRGB.h"
 @interface AlienView()
 
 @property (nonatomic, strong)  UIBezierPath *foreGroundPath;
@@ -39,7 +39,7 @@
         lightGrayLayer.path = backPath.CGPath;
         lightGrayLayer.lineWidth = 4.0;
         lightGrayLayer.fillColor = [UIColor clearColor].CGColor;
-        lightGrayLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+        lightGrayLayer.strokeColor = [UIColor colorWithHex:@"f1f1f1"].CGColor;
         
         
         [self.layer addSublayer:lightGrayLayer];

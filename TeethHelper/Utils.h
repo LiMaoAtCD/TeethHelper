@@ -15,4 +15,6 @@
 
 +(UIColor *)commonColor;
 
++(BOOL)isiPhone4;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "ALienGrayView.h"
 #import <Masonry.h>
+#import "UIColor+HexRGB.h"
 @implementation ALienGrayView
 
 /*
@@ -22,7 +23,7 @@
     self = [super init];
     
     if (self) {
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor colorWithHex:@"c1c1c1"];
         self.daysLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)days];
         self.daysLabel.textColor = [UIColor whiteColor];

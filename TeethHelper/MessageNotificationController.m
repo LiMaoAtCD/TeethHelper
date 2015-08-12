@@ -109,9 +109,14 @@
     if (switcher.isOn) {
         // 开启美白提醒
         [MessageConfigureFile setOpenLocalNotification:YES];
+        NSString *hour = [MessageConfigureFile hourForAlertNotification];
+        NSString *miniute =[MessageConfigureFile minuteForAlertNotification];
+        [MessageConfigureFile setAlertNotificationTime:hour andMinute:miniute];
+        
     } else {
         //关闭美白提醒
         [MessageConfigureFile setOpenLocalNotification:NO];
+        [MessageConfigureFile cancelAlertNotification];
 
     }
     [self.tableView reloadData];

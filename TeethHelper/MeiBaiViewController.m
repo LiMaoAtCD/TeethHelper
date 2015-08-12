@@ -68,6 +68,13 @@
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat CircleMargin = 70;
     self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 130, width - CircleMargin * 2, width - CircleMargin * 2)];
+    if ([Utils isiPhone4]) {
+        CGFloat CircleMargin = 90;
+         self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 110, width - CircleMargin * 2, width - CircleMargin * 2)];
+        self.alienView.dayLabel.font = [UIFont systemFontOfSize:80];
+
+    }
+//    self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 130, width - CircleMargin * 2, width - CircleMargin * 2)];
     self.alienView.day = @"10";
     
     [self.view addSubview:_alienView];
@@ -80,6 +87,8 @@
     [beginProjectButton setBackgroundImage:[UIImage imageNamed:@"btn_start_normal"] forState:UIControlStateNormal];
     [beginProjectButton setBackgroundImage:[UIImage imageNamed:@"btn_start_normal"] forState:UIControlStateHighlighted];
     [beginProjectButton setTitle:@"开始美白程序" forState:UIControlStateNormal];
+    [beginProjectButton addTarget:self action:@selector(beginMeibaiProject:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:beginProjectButton];
     
     [beginProjectButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -193,6 +202,10 @@
 }
 
 -(void)share:(UIButton*)button{
+    
+}
+
+-(void)beginMeibaiProject{
     
 }
 
