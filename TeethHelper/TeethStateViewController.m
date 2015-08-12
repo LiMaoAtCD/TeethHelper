@@ -14,6 +14,8 @@
 #import "TeethDetailTwoController.h"
 #import "TeethDetailThreeController.h"
 
+#import "TeethStateConfigureFile.h"
+
 @interface TeethStateViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableVIew;
 
@@ -58,7 +60,56 @@
     
     TeethStateCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeethStateCell" forIndexPath:indexPath];
     cell.titleLabel.text = self.items[indexPath.row];
-//    cell.contentLabel.text = 
+//    cell.contentLabel.text =
+    
+    if (indexPath.row == 0) {
+        //Teeth health state
+        NSInteger level = [TeethStateConfigureFile teethLevel];
+        switch (level) {
+            case 0:
+            {
+                cell.contentLabel.text = @"好";
+            }
+                break;
+            case 1:
+            {
+                cell.contentLabel.text = @"一般";
+            }
+                break;
+
+            case 2:
+            {
+                cell.contentLabel.text = @"不好";
+            }
+                break;
+
+            case 3:
+            {
+                cell.contentLabel.text = @"不知道";
+            }
+                break;
+            default:
+                break;
+        }
+    } else if(indexPath.row == 1){
+        BOOL sensitive = [TeethStateConfigureFile isSensitive];
+        
+        if (sensitive) {
+            cell.contentLabel.text = @"是";
+        } else{
+            cell.contentLabel.text = @"否";
+        }
+    } else{
+        BOOL strongWill = [TeethStateConfigureFile isWillStrong];
+        if (strongWill) {
+            cell.contentLabel.text = @"很强";
+        } else{
+            cell.contentLabel.text = @"还好";
+        }
+    }
+    
+    
+    
     
     return cell;
 }
