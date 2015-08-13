@@ -8,7 +8,13 @@
 
 #import "QuestionOneViewController.h"
 #import "Utils.h"
+#import "QuestionOneView.h"
+#import <Masonry.h>
+
 @interface QuestionOneViewController ()
+
+@property (nonatomic,strong) NSMutableArray *oneViewArrays;
+@property (weak, nonatomic) IBOutlet UILabel *quesitonLabel;
 
 @end
 
@@ -20,6 +26,47 @@
     [Utils ConfigNavigationBarWithTitle:@"问卷" onViewController:self];
     self.navigationItem.leftBarButtonItem = nil;
 
+    NSArray *labels = @[@"20岁以下",@"20岁-25岁",@"25岁-30岁",@"30岁-35岁",@"35岁-40岁",@"40岁以上"];
+    self.oneViewArrays = [NSMutableArray array];
+    
+    for (int i = 0 ; i < labels.count; i++) {
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex:)];
+        QuestionOneView *view = [[QuestionOneView alloc] initWithLabel:labels[i]];
+//        view.backgroundColor = [UIColor redColor];
+        view.tag = i;
+        [view addGestureRecognizer:tap];
+        [self.view addSubview:view];
+        [self.oneViewArrays addObject:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view).offset(240 + i * 40);
+            make.width.equalTo(@200);
+            make.height.equalTo(@30);
+            make.left.equalTo(self.view.mas_left).offset(50);
+        }];
+    }
+    
+    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == 0) {
+            [view didSelectionAtIndex:Selected];
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
+    
+}
+
+-(void)selectIndex:(UITapGestureRecognizer *)tap{
+    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == tap.view.tag) {
+            [view didSelectionAtIndex:Selected];
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
 }
 
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Question One View Controller-->
@@ -173,13 +174,37 @@
                                     <segue destination="XFw-iL-q5d" kind="show" id="W9U-wg-6ah"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q1:请问您目前是哪个年龄段?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI0-EK-O7F">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="P94-fF-Q7x"/>
+                                    <constraint firstAttribute="height" constant="21" id="rVM-b8-Plm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="P94-fF-Q7x"/>
+                                        <exclude reference="rVM-b8-Plm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="P94-fF-Q7x"/>
+                                        <include reference="rVM-b8-Plm"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tia-qP-YQe" firstAttribute="top" secondItem="Qfi-Gx-Saw" secondAttribute="bottom" id="0bf-gj-ALE"/>
                             <constraint firstAttribute="trailing" secondItem="Qfi-Gx-Saw" secondAttribute="trailing" id="8KF-DF-D3I"/>
                             <constraint firstItem="Qfi-Gx-Saw" firstAttribute="leading" secondItem="bKI-re-X17" secondAttribute="leading" id="Kz7-MX-5k9"/>
+                            <constraint firstItem="vI0-EK-O7F" firstAttribute="top" secondItem="9M7-0S-2Js" secondAttribute="bottom" constant="28" id="O5O-Aj-d8Q"/>
                             <constraint firstItem="9M7-0S-2Js" firstAttribute="top" secondItem="KLR-Xi-ngf" secondAttribute="bottom" id="gK7-mz-6rR"/>
+                            <constraint firstItem="vI0-EK-O7F" firstAttribute="leading" secondItem="bKI-re-X17" secondAttribute="leadingMargin" constant="7" id="giG-Md-kcd"/>
                             <constraint firstItem="9M7-0S-2Js" firstAttribute="leading" secondItem="bKI-re-X17" secondAttribute="leading" id="s51-Kz-GwH"/>
                             <constraint firstAttribute="trailing" secondItem="9M7-0S-2Js" secondAttribute="trailing" id="umo-R1-Sam"/>
                         </constraints>
@@ -187,11 +212,14 @@
                             <mask key="subviews">
                                 <exclude reference="9M7-0S-2Js"/>
                                 <exclude reference="Qfi-Gx-Saw"/>
+                                <exclude reference="vI0-EK-O7F"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="gK7-mz-6rR"/>
                                 <exclude reference="s51-Kz-GwH"/>
                                 <exclude reference="umo-R1-Sam"/>
+                                <exclude reference="O5O-Aj-d8Q"/>
+                                <exclude reference="giG-Md-kcd"/>
                                 <exclude reference="8KF-DF-D3I"/>
                                 <exclude reference="Kz7-MX-5k9"/>
                                 <exclude reference="0bf-gj-ALE"/>
@@ -201,11 +229,14 @@
                             <mask key="subviews">
                                 <include reference="9M7-0S-2Js"/>
                                 <include reference="Qfi-Gx-Saw"/>
+                                <include reference="vI0-EK-O7F"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="gK7-mz-6rR"/>
                                 <include reference="s51-Kz-GwH"/>
                                 <include reference="umo-R1-Sam"/>
+                                <include reference="O5O-Aj-d8Q"/>
+                                <include reference="giG-Md-kcd"/>
                                 <include reference="8KF-DF-D3I"/>
                                 <include reference="Kz7-MX-5k9"/>
                                 <include reference="0bf-gj-ALE"/>
@@ -213,6 +244,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="7sN-m0-wO1"/>
+                    <connections>
+                        <outlet property="quesitonLabel" destination="vI0-EK-O7F" id="eof-jC-Gtj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75T-gs-zXu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
