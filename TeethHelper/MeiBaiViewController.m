@@ -46,7 +46,11 @@
     [self configMainView];
 
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
 
+}
 -(void)configMainView{
     
     //计划进程
