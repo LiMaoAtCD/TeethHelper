@@ -448,9 +448,45 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osc-Lr-whQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="240" width="368" height="25"/>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q2:您的性别是?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4B-IH-gH1">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="4Op-Nx-IDb"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="Glb-N4-6Pf"/>
+                                    <constraint firstAttribute="width" constant="224" id="Oz5-Zd-EZt"/>
+                                    <constraint firstAttribute="height" constant="21" id="biC-Vo-fuY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4Op-Nx-IDb"/>
+                                        <exclude reference="Glb-N4-6Pf"/>
+                                        <exclude reference="Oz5-Zd-EZt"/>
+                                        <exclude reference="biC-Vo-fuY"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="4Op-Nx-IDb"/>
+                                        <include reference="Glb-N4-6Pf"/>
+                                        <include reference="Oz5-Zd-EZt"/>
+                                        <include reference="biC-Vo-fuY"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="o4B-IH-gH1" firstAttribute="leading" secondItem="nQ9-i1-YwM" secondAttribute="leadingMargin" constant="7" id="GCd-WX-eqa"/>
                             <constraint firstItem="QDJ-ef-rO4" firstAttribute="leading" secondItem="tOK-Nq-iWs" secondAttribute="trailing" constant="8" id="IZD-bQ-az6"/>
                             <constraint firstAttribute="trailing" secondItem="QDJ-ef-rO4" secondAttribute="trailing" id="KEI-f3-SPg"/>
                             <constraint firstItem="tOK-Nq-iWs" firstAttribute="leading" secondItem="nQ9-i1-YwM" secondAttribute="leading" id="RP9-nN-gOi"/>
@@ -459,6 +495,7 @@
                             <constraint firstItem="QDJ-ef-rO4" firstAttribute="width" secondItem="tOK-Nq-iWs" secondAttribute="width" id="qWu-gf-Hvy"/>
                             <constraint firstItem="Wup-yK-HEy" firstAttribute="top" secondItem="QDJ-ef-rO4" secondAttribute="bottom" id="tNK-r5-P3r"/>
                             <constraint firstAttribute="trailing" secondItem="Req-iX-Ir3" secondAttribute="trailing" id="ud8-y7-KAo"/>
+                            <constraint firstItem="o4B-IH-gH1" firstAttribute="top" secondItem="Req-iX-Ir3" secondAttribute="bottom" constant="27" id="z4V-Ko-cJk"/>
                             <constraint firstItem="Req-iX-Ir3" firstAttribute="top" secondItem="qsS-nL-Zcr" secondAttribute="bottom" id="zGU-p4-cfI"/>
                         </constraints>
                         <variation key="default">
@@ -466,11 +503,15 @@
                                 <exclude reference="QDJ-ef-rO4"/>
                                 <exclude reference="tOK-Nq-iWs"/>
                                 <exclude reference="Req-iX-Ir3"/>
+                                <exclude reference="Osc-Lr-whQ"/>
+                                <exclude reference="o4B-IH-gH1"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="mwU-7x-gAj"/>
                                 <exclude reference="ud8-y7-KAo"/>
                                 <exclude reference="zGU-p4-cfI"/>
+                                <exclude reference="GCd-WX-eqa"/>
+                                <exclude reference="z4V-Ko-cJk"/>
                                 <exclude reference="RP9-nN-gOi"/>
                                 <exclude reference="IZD-bQ-az6"/>
                                 <exclude reference="KEI-f3-SPg"/>
@@ -484,11 +525,15 @@
                                 <include reference="QDJ-ef-rO4"/>
                                 <include reference="tOK-Nq-iWs"/>
                                 <include reference="Req-iX-Ir3"/>
+                                <include reference="Osc-Lr-whQ"/>
+                                <include reference="o4B-IH-gH1"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="mwU-7x-gAj"/>
                                 <include reference="ud8-y7-KAo"/>
                                 <include reference="zGU-p4-cfI"/>
+                                <include reference="GCd-WX-eqa"/>
+                                <include reference="z4V-Ko-cJk"/>
                                 <include reference="RP9-nN-gOi"/>
                                 <include reference="IZD-bQ-az6"/>
                                 <include reference="KEI-f3-SPg"/>

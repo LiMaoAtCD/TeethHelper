@@ -58,6 +58,7 @@
 		8785F9011B7C497A0051B29B /* QuestionFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9001B7C497A0051B29B /* QuestionFiveViewController.m */; };
 		8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */; };
 		8785F9071B7C6D250051B29B /* QuestionOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9061B7C6D250051B29B /* QuestionOneView.m */; };
+		8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9091B7C7D210051B29B /* RS_SliderView.m */; };
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
 		87D533EC1B79CA6C00F3D6BE /* MessageTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EB1B79CA6C00F3D6BE /* MessageTwoCell.m */; };
 		87D533EF1B79D52C00F3D6BE /* MessageConfigureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EE1B79D52C00F3D6BE /* MessageConfigureFile.m */; };
@@ -196,6 +197,8 @@
 		8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsConfigFile.m; sourceTree = "<group>"; };
 		8785F9051B7C6D250051B29B /* QuestionOneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionOneView.h; sourceTree = "<group>"; };
 		8785F9061B7C6D250051B29B /* QuestionOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionOneView.m; sourceTree = "<group>"; };
+		8785F9081B7C7D210051B29B /* RS_SliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RS_SliderView.h; sourceTree = "<group>"; };
+		8785F9091B7C7D210051B29B /* RS_SliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RS_SliderView.m; sourceTree = "<group>"; };
 		87D533E71B79CA5F00F3D6BE /* MessageOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageOneCell.h; sourceTree = "<group>"; };
 		87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageOneCell.m; sourceTree = "<group>"; };
 		87D533EA1B79CA6C00F3D6BE /* MessageTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTwoCell.h; sourceTree = "<group>"; };
@@ -519,13 +522,15 @@
 		8785F8EA1B7C456F0051B29B /* InitialQuestions */ = {
 			isa = PBXGroup;
 			children = (
+				8785F9081B7C7D210051B29B /* RS_SliderView.h */,
+				8785F9091B7C7D210051B29B /* RS_SliderView.m */,
+				8785F9051B7C6D250051B29B /* QuestionOneView.h */,
+				8785F9061B7C6D250051B29B /* QuestionOneView.m */,
 				8785F8EE1B7C46840051B29B /* Questions.storyboard */,
 				8785F8F01B7C46B20051B29B /* InitialNavigationController.h */,
 				8785F8F11B7C46B20051B29B /* InitialNavigationController.m */,
 				8785F8F31B7C49560051B29B /* QuestionOneViewController.h */,
 				8785F8F41B7C49560051B29B /* QuestionOneViewController.m */,
-				8785F9051B7C6D250051B29B /* QuestionOneView.h */,
-				8785F9061B7C6D250051B29B /* QuestionOneView.m */,
 				8785F8F61B7C495F0051B29B /* QuestionTwoViewController.h */,
 				8785F8F71B7C495F0051B29B /* QuestionTwoViewController.m */,
 				8785F8F91B7C49690051B29B /* QuestionThreeViewController.h */,
@@ -916,6 +921,7 @@
 				87E2AB651B78AFB9001ED07F /* InfoCell.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
 				8742498F1B798CF700F6DB69 /* TeethDetailTwoController.m in Sources */,
+				8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
