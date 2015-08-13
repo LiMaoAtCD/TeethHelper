@@ -14,10 +14,13 @@
 #import "MessageConfigureFile.h"
 #import "TeethStateConfigureFile.h"
 
+#import "InitialNavigationController.h"
+#import "QuestionsConfigFile.h"
 @interface AppDelegate ()
 
 @property (nonatomic, strong) MainTabBarController *tabarController;
 @property (nonatomic, strong) LoginNavigationController *loginVC;
+@property (nonatomic, strong) InitialNavigationController *questionsVC;
 
 @end
 
@@ -63,8 +66,18 @@
 
 
 -(void)loginSuccess:(id)sender{
-    [AccountManager setLogin:YES];
-    self.window.rootViewController = self.tabarController;
+//    [AccountManager setLogin:YES];
+    
+    if (![QuestionsConfigFile isCompletedInitialQuestions]) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Questions" bundle:nil];
+        
+        self.questionsVC  = [sb instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
+        self.window.rootViewController = self.questionsVC;
+
+    } else{
+        self.window.rootViewController = self.tabarController;
+
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

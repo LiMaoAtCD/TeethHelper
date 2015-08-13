@@ -7,6 +7,7 @@
 //
 
 #import "QuestionFiveViewController.h"
+#import "Utils.h"
 
 @interface QuestionFiveViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [Utils ConfigNavigationBarWithTitle:@"问卷" onViewController:self];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +37,7 @@
 }
 */
 
+- (IBAction)pop:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

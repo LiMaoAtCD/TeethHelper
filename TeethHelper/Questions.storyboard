@@ -273,6 +273,9 @@
                                         <include reference="2By-vO-fdb"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="pop:" destination="XFw-iL-q5d" eventType="touchUpInside" id="yDN-ZA-bXO"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Req-iX-Ir3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -527,6 +530,9 @@
                                         <include reference="arL-YG-p2O"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="pop:" destination="mtV-9y-Ftk" eventType="touchUpInside" id="wAx-5Q-pPj"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iDl-gz-1az">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -927,6 +933,9 @@
                                         <include reference="nBP-kK-WJY"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="pop:" destination="CzJ-Xu-e3b" eventType="touchUpInside" id="7l1-TM-8g7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1187,6 +1196,9 @@
                                         <include reference="Xee-bv-kG0"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="pop:" destination="23b-q1-PAO" eventType="touchUpInside" id="p99-Sx-KVe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -7,6 +7,7 @@
 //
 
 #import "QuestionThreeViewController.h"
+#import "Utils.h"
 
 @interface QuestionThreeViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [Utils ConfigNavigationBarWithTitle:@"问卷" onViewController:self];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +36,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)pop:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
 
 @end

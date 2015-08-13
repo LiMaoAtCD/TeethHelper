@@ -56,6 +56,7 @@
 		8785F8FB1B7C49690051B29B /* QuestionThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8FA1B7C49690051B29B /* QuestionThreeViewController.m */; };
 		8785F8FE1B7C49720051B29B /* QuestionFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8FD1B7C49720051B29B /* QuestionFourViewController.m */; };
 		8785F9011B7C497A0051B29B /* QuestionFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9001B7C497A0051B29B /* QuestionFiveViewController.m */; };
+		8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */; };
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
 		87D533EC1B79CA6C00F3D6BE /* MessageTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EB1B79CA6C00F3D6BE /* MessageTwoCell.m */; };
 		87D533EF1B79D52C00F3D6BE /* MessageConfigureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EE1B79D52C00F3D6BE /* MessageConfigureFile.m */; };
@@ -190,6 +191,8 @@
 		8785F8FD1B7C49720051B29B /* QuestionFourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionFourViewController.m; sourceTree = "<group>"; };
 		8785F8FF1B7C497A0051B29B /* QuestionFiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionFiveViewController.h; sourceTree = "<group>"; };
 		8785F9001B7C497A0051B29B /* QuestionFiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionFiveViewController.m; sourceTree = "<group>"; };
+		8785F9021B7C64CB0051B29B /* QuestionsConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsConfigFile.h; sourceTree = "<group>"; };
+		8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsConfigFile.m; sourceTree = "<group>"; };
 		87D533E71B79CA5F00F3D6BE /* MessageOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageOneCell.h; sourceTree = "<group>"; };
 		87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageOneCell.m; sourceTree = "<group>"; };
 		87D533EA1B79CA6C00F3D6BE /* MessageTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTwoCell.h; sourceTree = "<group>"; };
@@ -295,7 +298,6 @@
 		870A65D61B77227100A51B26 /* TeethHelper */ = {
 			isa = PBXGroup;
 			children = (
-				8785F8EA1B7C456F0051B29B /* InitialQuestions */,
 				870A65DB1B77227100A51B26 /* AppDelegate.h */,
 				870A65DC1B77227100A51B26 /* AppDelegate.m */,
 				870A660C1B772FDA00A51B26 /* Utils */,
@@ -357,6 +359,7 @@
 		870A66081B77248D00A51B26 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8785F8EA1B7C456F0051B29B /* InitialQuestions */,
 				870A65E11B77227100A51B26 /* Main.storyboard */,
 				870A66091B7724B400A51B26 /* MainTabBarController.h */,
 				870A660A1B7724B400A51B26 /* MainTabBarController.m */,
@@ -526,6 +529,8 @@
 				8785F8FD1B7C49720051B29B /* QuestionFourViewController.m */,
 				8785F8FF1B7C497A0051B29B /* QuestionFiveViewController.h */,
 				8785F9001B7C497A0051B29B /* QuestionFiveViewController.m */,
+				8785F9021B7C64CB0051B29B /* QuestionsConfigFile.h */,
+				8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */,
 			);
 			name = InitialQuestions;
 			sourceTree = "<group>";
@@ -908,6 +913,7 @@
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
+				8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */,
 				873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */,
 				870A66161B77321900A51B26 /* AccountManager.m in Sources */,
 				8785F8B11B7C1DD20051B29B /* MeibaiProjectController.m in Sources */,
