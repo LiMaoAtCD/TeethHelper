@@ -40,10 +40,14 @@
         [self.oneViewArrays addObject:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view).offset(240 + i * 40);
             make.width.equalTo(@200);
-            make.height.equalTo(@30);
             make.left.equalTo(self.view.mas_left).offset(50);
+            make.height.equalTo(@30);
+            make.top.equalTo(self.view).offset(240 + i * 40);
+            if ([Utils isiPhone4]) {
+                make.height.equalTo(@25);
+                make.top.equalTo(self.view).offset(230 + i * 30);
+            }
         }];
     }
     
