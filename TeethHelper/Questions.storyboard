@@ -750,6 +750,37 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q3:请问您目前的牙齿健康状况如何?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVq-1p-4eY">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="224" id="Y8m-XQ-4nv"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="21" id="Z0U-z6-dnS"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="mc2-Ce-V8a"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="224" id="o3D-bh-IDD"/>
+                                    <constraint firstAttribute="height" constant="21" id="slo-H3-l9U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Y8m-XQ-4nv"/>
+                                        <exclude reference="Z0U-z6-dnS"/>
+                                        <exclude reference="mc2-Ce-V8a"/>
+                                        <exclude reference="o3D-bh-IDD"/>
+                                        <exclude reference="slo-H3-l9U"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="Y8m-XQ-4nv"/>
+                                        <include reference="Z0U-z6-dnS"/>
+                                        <include reference="mc2-Ce-V8a"/>
+                                        <exclude reference="o3D-bh-IDD"/>
+                                        <include reference="slo-H3-l9U"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -757,6 +788,11 @@
                             <constraint firstItem="ASh-0W-l1h" firstAttribute="leading" secondItem="aAz-UH-WXr" secondAttribute="trailing" constant="8" id="EOE-S9-jFe"/>
                             <constraint firstItem="iDl-gz-1az" firstAttribute="leading" secondItem="aAz-UH-WXr" secondAttribute="leading" id="J5K-7d-jHO"/>
                             <constraint firstItem="iDl-gz-1az" firstAttribute="trailing" secondItem="ASh-0W-l1h" secondAttribute="trailing" id="KOe-JB-2kK"/>
+                            <constraint firstItem="yVq-1p-4eY" firstAttribute="leading" secondItem="jfA-F3-oJn" secondAttribute="leadingMargin" constant="16" id="LeS-ZJ-pDN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yVq-1p-4eY" secondAttribute="trailing" constant="77" id="Scz-lQ-AOl">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="yVq-1p-4eY" firstAttribute="top" secondItem="iDl-gz-1az" secondAttribute="bottom" constant="29" id="Tvi-EO-Gqd"/>
                             <constraint firstItem="ASh-0W-l1h" firstAttribute="leading" secondItem="aAz-UH-WXr" secondAttribute="trailing" constant="8" id="bHO-Nf-8N8"/>
                             <constraint firstAttribute="trailing" secondItem="ASh-0W-l1h" secondAttribute="trailing" id="lz4-mP-5DK"/>
                             <constraint firstItem="om7-66-TNm" firstAttribute="top" secondItem="aAz-UH-WXr" secondAttribute="bottom" id="qT5-zo-BAu"/>
@@ -769,11 +805,15 @@
                                 <exclude reference="ASh-0W-l1h"/>
                                 <exclude reference="aAz-UH-WXr"/>
                                 <exclude reference="iDl-gz-1az"/>
+                                <exclude reference="yVq-1p-4eY"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="BvD-1e-bkb"/>
                                 <exclude reference="J5K-7d-jHO"/>
                                 <exclude reference="KOe-JB-2kK"/>
+                                <exclude reference="LeS-ZJ-pDN"/>
+                                <exclude reference="Scz-lQ-AOl"/>
+                                <exclude reference="Tvi-EO-Gqd"/>
                                 <exclude reference="quA-yk-Y5U"/>
                                 <exclude reference="EOE-S9-jFe"/>
                                 <exclude reference="bHO-Nf-8N8"/>
@@ -788,11 +828,15 @@
                                 <include reference="ASh-0W-l1h"/>
                                 <include reference="aAz-UH-WXr"/>
                                 <include reference="iDl-gz-1az"/>
+                                <include reference="yVq-1p-4eY"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="BvD-1e-bkb"/>
                                 <include reference="J5K-7d-jHO"/>
                                 <include reference="KOe-JB-2kK"/>
+                                <include reference="LeS-ZJ-pDN"/>
+                                <include reference="Scz-lQ-AOl"/>
+                                <include reference="Tvi-EO-Gqd"/>
                                 <include reference="quA-yk-Y5U"/>
                                 <include reference="EOE-S9-jFe"/>
                                 <include reference="bHO-Nf-8N8"/>

@@ -12,6 +12,15 @@
 #import <Masonry.h>
 @interface QuestionTwoViewController ()<RSliderViewDelegate>
 
+@property (nonatomic, strong) UILabel *maleLabel;
+
+@property (nonatomic, strong) UILabel *femaleLabel;
+
+@property (nonatomic, strong) RS_SliderView *horSlider;
+
+@property (nonatomic, assign) BOOL isMale;
+
+
 @end
 
 @implementation QuestionTwoViewController
@@ -25,29 +34,72 @@
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     
-    RS_SliderView *horSlider = [[RS_SliderView alloc] initWithFrame:CGRectMake(10, 240, width - 20, 25) andOrientation:Horizontal];
-    horSlider.delegate = self;
+    _horSlider = [[RS_SliderView alloc] initWithFrame:CGRectMake(10, 240, width - 20, 25) andOrientation:Horizontal];
+    _horSlider.delegate = self;
     
-    [horSlider setColorsForBackground:[UIColor colorWithRed:168.0/255.0 green:168.0/255.0 blue:168.0/255.0 alpha:1.0]
+    [_horSlider setColorsForBackground:[UIColor colorWithRed:168.0/255.0 green:168.0/255.0 blue:168.0/255.0 alpha:1.0]
                            foreground:[UIColor colorWithRed:68./255.0 green:164.0/255.0 blue:167.0/255.0 alpha:1.0]
                                handle:[UIColor colorWithRed:136.0/255.0 green:255.0/255.0 blue:254.0/255.0 alpha:1.0]
                                border:[UIColor colorWithRed:168.0/255.0 green:168.0/255.0 blue:168.0/255.0 alpha:1.0]];
-    [self.view addSubview:horSlider];
+    [self.view addSubview:_horSlider];
     
+    [_horSlider setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
+        
+    }];
+    [_horSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).offset(10);
+        make.top.equalTo(self.view.mas_top).offset(240);
+        make.right.equalTo(self.view.mas_right).offset(-10);
+        make.height.equalTo(@25);
+    }];
     
-//    [horSlider mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.
-//    }];
+    _maleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _maleLabel.textColor = [Utils commonColor];
+    _maleLabel.text = @"男";
+    
+    [self.view addSubview:_maleLabel];
+    
+    [_maleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.horSlider.mas_bottom).offset(8);
+        make.left.equalTo(self.horSlider.mas_left).offset(20);
+        make.width.equalTo(@40);
+        make.height.equalTo(@30);
+    }];
+    
+    _femaleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _femaleLabel.textColor = [UIColor lightGrayColor];
+    _femaleLabel.textAlignment = NSTextAlignmentRight;
+    _femaleLabel.text = @"女";
+    
+    [self.view addSubview:_femaleLabel];
+    
+    [_femaleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.horSlider.mas_bottom).offset(8);
+        make.right.equalTo(self.horSlider.mas_right).offset(-20);
+        make.width.equalTo(@40);
+        make.height.equalTo(@30);
+    }];
 
-
+    self.isMale = YES;
+    
 }
 
 -(void)sliderValueChanged:(RS_SliderView *)sender {
-    NSLog(@"Value Changed: %f", sender.value);
+    
+    if (sender.value < 0.5) {
+        self.maleLabel.textColor = [Utils commonColor];
+        self.femaleLabel.textColor = [UIColor lightGrayColor];
+        self.isMale = YES;
+
+    } else{
+        self.maleLabel.textColor = [UIColor lightGrayColor];
+        self.femaleLabel.textColor = [Utils commonColor];
+        self.isMale = NO;
+    }
 }
 
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
-    NSLog(@"Touсh ended: %f", sender.value);
+
 }
 
 
