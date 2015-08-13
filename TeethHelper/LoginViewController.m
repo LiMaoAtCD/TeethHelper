@@ -9,7 +9,8 @@
 #import "LoginViewController.h"
 #import "Utils.h"
 #import "AccountManager.h"
-
+#import <Masonry.h>
+#import "SplashViewController.h"
 @interface LoginViewController ()
 
 
@@ -18,6 +19,7 @@
 
 @property (nonatomic, copy) NSString *phone;
 @property (nonatomic, copy) NSString *password;
+
 
 @end
 
@@ -39,9 +41,23 @@
     
     
     [self configTextFields];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
 
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
+        //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"_first_launch"];
+        //        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        //
+        [self addSplashView];
+    }
+
+ 
+    
+    
     
 }
+
 -(void)configTextFields{
     
     
@@ -90,35 +106,17 @@
         NSLog(@"password: %@",_password);
 
     }
+
+}
+
+-(void)addSplashView{
     
-//    if (textField.tag == 0) {
-//        if (textField.text.length > 10) {
-//            textField.text = [textField.text substringToIndex:10];
-//        }
-//        self.name = textField.text;
-//        
-//    } else if(textField.tag == 1) {
-//        //电话
-//        if (textField.text.length > 11) {
-//            textField.text = [textField.text substringToIndex:11];
-//        }
-//        self.phone = textField.text;
-//        
-//    } else if(textField.tag == 2) {
-//        //地址
-//        if (textField.text.length > 60) {
-//            textField.text = [textField.text substringToIndex:60];
-//        }
-//        self.address = textField.text;
-//        
-//    } else if(textField.tag == 10) {
-//        //品牌
-//        if (textField.text.length > 6) {
-//            textField.text = [textField.text substringToIndex:6];
-//        }
-//        self.TV_brand = textField.text;
-//        
-//    }
+    SplashViewController *splashVC = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+    
+    [self presentViewController:splashVC animated:NO completion:^{
+        
+    }];
+
 }
 
 /*
