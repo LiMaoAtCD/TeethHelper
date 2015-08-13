@@ -42,13 +42,13 @@
     
     [self configTextFields];
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
 
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
-        //        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"_first_launch"];
-        //        [[NSUserDefaults standardUserDefaults] synchronize];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"_first_launch"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
         
-        //
+        
         [self addSplashView];
     }
 
