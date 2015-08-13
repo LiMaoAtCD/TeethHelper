@@ -101,7 +101,7 @@
     if(isAnimate) {
         __weak __typeof(self)weakSelf = self;
         
-        [UIView animateWithDuration:animationSpeed animations:^ {
+        [UIView animateWithDuration:0.3 animations:^ {
             [weakSelf changeStarForegroundViewWithPoint:point];
             
         } completion:^(BOOL finished) {

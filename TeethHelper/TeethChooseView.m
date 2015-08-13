@@ -28,7 +28,7 @@
         [self addSubview:self.bgImageView];
         //check
         self.selectedImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        self.selectedImageView.image = [UIImage imageNamed:@"icon_check"];
+        self.selectedImageView.image = [UIImage imageNamed:@"icon_check_1"];
         [self addSubview:self.selectedImageView];
         
         //Label

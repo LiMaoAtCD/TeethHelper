@@ -10,6 +10,7 @@
 #import "Utils.h"
 #import "RS_SliderView.h"
 #import <Masonry.h>
+#import "TeethStateConfigureFile.h"
 
 @interface QuestionFourViewController ()<RSliderViewDelegate>
 
@@ -46,7 +47,7 @@
     }];
     [_horSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(10);
-        make.top.equalTo(self.view.mas_top).offset(240);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-150);
         make.right.equalTo(self.view.mas_right).offset(-10);
         make.height.equalTo(@25);
     }];
@@ -97,6 +98,15 @@
 
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
     
+    if (sender.value < 0.5) {
+        [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile setSensitive:YES];
+        }];
+    } else{
+        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile setSensitive:NO];
+        }];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

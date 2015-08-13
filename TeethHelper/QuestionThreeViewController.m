@@ -10,6 +10,7 @@
 #import "Utils.h"
 #import "RS_SliderView.h"
 #import <Masonry.h>
+#import "TeethStateConfigureFile.h"
 
 
 @interface QuestionThreeViewController ()<RSliderViewDelegate>
@@ -48,7 +49,7 @@
     }];
     [_horSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(10);
-        make.top.equalTo(self.view.mas_top).offset(240);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-150);
         make.right.equalTo(self.view.mas_right).offset(-10);
         make.height.equalTo(@25);
     }];
@@ -116,6 +117,7 @@
         self.badLabel.textColor = [UIColor lightGrayColor];
         self.normalLabel.textColor = [UIColor lightGrayColor];
         self.unknownLabel.textColor = [UIColor lightGrayColor];
+        
     } else if (sender.value >= 0.25 && sender.value < 0.5){
         
         self.goodLabel.textColor =  [UIColor lightGrayColor];
@@ -138,6 +140,26 @@
 
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
     
+    if (sender.value >= 0.0 && sender.value < 0.25) {
+        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile setTeethStateLevel:0];
+        }];
+    } else if (sender.value >= 0.25 && sender.value < 0.5){
+        [sender setValue:0.33 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile setTeethStateLevel:1];
+
+        }];
+    }else if (sender.value >= 0.5 && sender.value < 0.75){
+        [sender setValue:0.66 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile setTeethStateLevel:2];
+
+        }];
+    }else{
+        [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile setTeethStateLevel:3];
+
+        }];
+    }
 }
 
 

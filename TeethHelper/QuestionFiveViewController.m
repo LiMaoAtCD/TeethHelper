@@ -10,6 +10,9 @@
 #import "Utils.h"
 #import "RS_SliderView.h"
 #import <Masonry.h>
+#import "TeethStateConfigureFile.h"
+#import "QuestionsConfigFile.h"
+
 @interface QuestionFiveViewController ()<RSliderViewDelegate>
 @property (nonatomic, strong) RS_SliderView *horSlider;
 @property (nonatomic, strong) UILabel *yesLabel;
@@ -43,35 +46,35 @@
     }];
     [_horSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(10);
-        make.top.equalTo(self.view.mas_top).offset(240);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-150);
         make.right.equalTo(self.view.mas_right).offset(-10);
         make.height.equalTo(@25);
     }];
     
     _yesLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _yesLabel.textColor = [Utils commonColor];
-    _yesLabel.text = @"是";
+    _yesLabel.text = @"很强,希望马上实现";
     
     [self.view addSubview:_yesLabel];
     
     [_yesLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.horSlider.mas_bottom).offset(8);
-        make.left.equalTo(self.horSlider.mas_left).offset(20);
-        make.width.equalTo(@40);
+        make.left.equalTo(self.horSlider.mas_left).offset(0);
+        make.right.equalTo(self.horSlider.mas_centerX).offset(0);
         make.height.equalTo(@30);
     }];
     
     _noLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _noLabel.textColor = [UIColor lightGrayColor];
     _noLabel.textAlignment = NSTextAlignmentRight;
-    _noLabel.text = @"否";
+    _noLabel.text = @"还好,等几天也可以";
     
     [self.view addSubview:_noLabel];
     
     [_noLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.horSlider.mas_bottom).offset(8);
-        make.right.equalTo(self.horSlider.mas_right).offset(-20);
-        make.width.equalTo(@40);
+        make.right.equalTo(self.horSlider.mas_right).offset(0);
+        make.left.equalTo(self.horSlider.mas_centerX).offset(0);
         make.height.equalTo(@30);
     }];
     
@@ -92,6 +95,16 @@
 
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
     
+    if (sender.value < 0.5) {
+        [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile WillStrong:YES];
+
+        }];
+    } else{
+        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile WillStrong:NO];
+        }];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -111,4 +124,11 @@
 - (IBAction)pop:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)completedQuestions:(id)sender {
+    [QuestionsConfigFile setCompletedInitialQuestions:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+
+}
+
+
 @end
