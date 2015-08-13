@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeibaiProjectController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_complete_narmal" translatesAutoresizingMaskIntoConstraints="NO" id="Mde-26-V38">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="132" id="UDn-w6-8Ht">
+                            <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                        </constraint>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="UDn-w6-8Ht"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="UDn-w6-8Ht"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_clock" translatesAutoresizingMaskIntoConstraints="NO" id="8JH-aN-Emc">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="E7E-x8-d7G">
+                            <variation key="heightClass=regular-widthClass=compact" constant="17"/>
+                        </constraint>
+                        <constraint firstAttribute="height" constant="20" id="OwT-Pu-6BN"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="E7E-x8-d7G"/>
+                            <exclude reference="OwT-Pu-6BN"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="E7E-x8-d7G"/>
+                            <include reference="OwT-Pu-6BN"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您当前已使用仪器5:00分钟" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPK-UP-6md">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="9f1-IL-QCQ"/>
+                        <constraint firstAttribute="width" constant="204" id="ThX-MS-xpS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="9f1-IL-QCQ"/>
+                            <exclude reference="ThX-MS-xpS"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="9f1-IL-QCQ"/>
+                            <include reference="ThX-MS-xpS"/>
+                        </mask>
+                    </variation>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1B-pn-Zs1">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Gy7-2D-mJc">
+                            <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                        </constraint>
+                    </constraints>
+                    <state key="normal" title="完成本次美白" backgroundImage="btn_complete_narmal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Gy7-2D-mJc"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Gy7-2D-mJc"/>
+                        </mask>
+                    </variation>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="s1B-pn-Zs1" secondAttribute="trailing" id="16x-Zt-Sel"/>
+                <constraint firstItem="Mde-26-V38" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1ZN-d7-eqx">
+                    <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                </constraint>
+                <constraint firstItem="Mde-26-V38" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6V1-n5-qRC"/>
+                <constraint firstItem="8JH-aN-Emc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="69" id="7ck-2F-COj"/>
+                <constraint firstItem="Mde-26-V38" firstAttribute="centerX" secondItem="FPK-UP-6md" secondAttribute="centerX" constant="1" id="Lgb-vf-Utu"/>
+                <constraint firstItem="s1B-pn-Zs1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PfK-PH-bNx"/>
+                <constraint firstItem="Mde-26-V38" firstAttribute="centerY" secondItem="FPK-UP-6md" secondAttribute="centerY" constant="0.5" id="Q43-KB-sbt"/>
+                <constraint firstAttribute="trailing" secondItem="Mde-26-V38" secondAttribute="trailing" id="Rzh-Hl-BmS"/>
+                <constraint firstAttribute="bottom" secondItem="s1B-pn-Zs1" secondAttribute="bottom" id="YrT-7V-UU4"/>
+                <constraint firstItem="8JH-aN-Emc" firstAttribute="centerY" secondItem="Mde-26-V38" secondAttribute="centerY" id="ZN6-0y-zRY"/>
+                <constraint firstItem="Mde-26-V38" firstAttribute="top" secondItem="FPK-UP-6md" secondAttribute="bottom" constant="-85" id="efa-Zh-Lpf"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Mde-26-V38"/>
+                    <exclude reference="8JH-aN-Emc"/>
+                    <exclude reference="FPK-UP-6md"/>
+                    <exclude reference="s1B-pn-Zs1"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="1ZN-d7-eqx"/>
+                    <exclude reference="6V1-n5-qRC"/>
+                    <exclude reference="Lgb-vf-Utu"/>
+                    <exclude reference="Q43-KB-sbt"/>
+                    <exclude reference="Rzh-Hl-BmS"/>
+                    <exclude reference="efa-Zh-Lpf"/>
+                    <exclude reference="7ck-2F-COj"/>
+                    <exclude reference="ZN6-0y-zRY"/>
+                    <exclude reference="16x-Zt-Sel"/>
+                    <exclude reference="PfK-PH-bNx"/>
+                    <exclude reference="YrT-7V-UU4"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Mde-26-V38"/>
+                    <include reference="8JH-aN-Emc"/>
+                    <include reference="FPK-UP-6md"/>
+                    <include reference="s1B-pn-Zs1"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="1ZN-d7-eqx"/>
+                    <include reference="6V1-n5-qRC"/>
+                    <include reference="Lgb-vf-Utu"/>
+                    <include reference="Q43-KB-sbt"/>
+                    <include reference="Rzh-Hl-BmS"/>
+                    <exclude reference="efa-Zh-Lpf"/>
+                    <include reference="7ck-2F-COj"/>
+                    <include reference="ZN6-0y-zRY"/>
+                    <include reference="16x-Zt-Sel"/>
+                    <include reference="PfK-PH-bNx"/>
+                    <include reference="YrT-7V-UU4"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_complete_narmal" width="320" height="48"/>
+        <image name="icon_clock" width="17" height="20"/>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 //
-//  MeibaiGogingController.h
+//  MeibaiProjectController.h
 //  TeethHelper
 //
 //  Created by AlienLi on 15/8/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeibaiGogingController : UIViewController
+@interface MeibaiProjectController : UIViewController
 
 @end

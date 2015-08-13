@@ -14,6 +14,8 @@
 #import <Masonry.h>
 #import "MeiBaiConfigFile.h"
 
+#import "MeibaiProjectController.h"
+
 @interface MeiBaiViewController ()
 
 @property (nonatomic, strong) AlienView *alienView;
@@ -205,8 +207,10 @@
     
 }
 
--(void)beginMeibaiProject{
-    
+-(void)beginMeibaiProject:(id)sender{
+    MeibaiProjectController * projectVC = [[MeibaiProjectController alloc] initWithNibName:@"MeibaiProjectController" bundle:nil];
+    projectVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:projectVC animated:YES];
 }
 
 
