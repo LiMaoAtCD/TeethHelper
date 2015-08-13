@@ -49,6 +49,13 @@
 		8785F8B11B7C1DD20051B29B /* MeibaiProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8AF1B7C1DD20051B29B /* MeibaiProjectController.m */; };
 		8785F8B21B7C1DD20051B29B /* MeibaiProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8785F8B01B7C1DD20051B29B /* MeibaiProjectController.xib */; };
 		8785F8B51B7C26F20051B29B /* AlienTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8B41B7C26F20051B29B /* AlienTimerView.m */; };
+		8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8785F8EE1B7C46840051B29B /* Questions.storyboard */; };
+		8785F8F21B7C46B20051B29B /* InitialNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8F11B7C46B20051B29B /* InitialNavigationController.m */; };
+		8785F8F51B7C49560051B29B /* QuestionOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8F41B7C49560051B29B /* QuestionOneViewController.m */; };
+		8785F8F81B7C495F0051B29B /* QuestionTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8F71B7C495F0051B29B /* QuestionTwoViewController.m */; };
+		8785F8FB1B7C49690051B29B /* QuestionThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8FA1B7C49690051B29B /* QuestionThreeViewController.m */; };
+		8785F8FE1B7C49720051B29B /* QuestionFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8FD1B7C49720051B29B /* QuestionFourViewController.m */; };
+		8785F9011B7C497A0051B29B /* QuestionFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9001B7C497A0051B29B /* QuestionFiveViewController.m */; };
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
 		87D533EC1B79CA6C00F3D6BE /* MessageTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EB1B79CA6C00F3D6BE /* MessageTwoCell.m */; };
 		87D533EF1B79D52C00F3D6BE /* MessageConfigureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EE1B79D52C00F3D6BE /* MessageConfigureFile.m */; };
@@ -170,6 +177,19 @@
 		8785F8B01B7C1DD20051B29B /* MeibaiProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeibaiProjectController.xib; sourceTree = "<group>"; };
 		8785F8B31B7C26F20051B29B /* AlienTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlienTimerView.h; sourceTree = "<group>"; };
 		8785F8B41B7C26F20051B29B /* AlienTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlienTimerView.m; sourceTree = "<group>"; };
+		8785F8EE1B7C46840051B29B /* Questions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
+		8785F8F01B7C46B20051B29B /* InitialNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialNavigationController.h; sourceTree = "<group>"; };
+		8785F8F11B7C46B20051B29B /* InitialNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialNavigationController.m; sourceTree = "<group>"; };
+		8785F8F31B7C49560051B29B /* QuestionOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionOneViewController.h; sourceTree = "<group>"; };
+		8785F8F41B7C49560051B29B /* QuestionOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionOneViewController.m; sourceTree = "<group>"; };
+		8785F8F61B7C495F0051B29B /* QuestionTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionTwoViewController.h; sourceTree = "<group>"; };
+		8785F8F71B7C495F0051B29B /* QuestionTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionTwoViewController.m; sourceTree = "<group>"; };
+		8785F8F91B7C49690051B29B /* QuestionThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionThreeViewController.h; sourceTree = "<group>"; };
+		8785F8FA1B7C49690051B29B /* QuestionThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionThreeViewController.m; sourceTree = "<group>"; };
+		8785F8FC1B7C49720051B29B /* QuestionFourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionFourViewController.h; sourceTree = "<group>"; };
+		8785F8FD1B7C49720051B29B /* QuestionFourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionFourViewController.m; sourceTree = "<group>"; };
+		8785F8FF1B7C497A0051B29B /* QuestionFiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionFiveViewController.h; sourceTree = "<group>"; };
+		8785F9001B7C497A0051B29B /* QuestionFiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionFiveViewController.m; sourceTree = "<group>"; };
 		87D533E71B79CA5F00F3D6BE /* MessageOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageOneCell.h; sourceTree = "<group>"; };
 		87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageOneCell.m; sourceTree = "<group>"; };
 		87D533EA1B79CA6C00F3D6BE /* MessageTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTwoCell.h; sourceTree = "<group>"; };
@@ -275,6 +295,7 @@
 		870A65D61B77227100A51B26 /* TeethHelper */ = {
 			isa = PBXGroup;
 			children = (
+				8785F8EA1B7C456F0051B29B /* InitialQuestions */,
 				870A65DB1B77227100A51B26 /* AppDelegate.h */,
 				870A65DC1B77227100A51B26 /* AppDelegate.m */,
 				870A660C1B772FDA00A51B26 /* Utils */,
@@ -487,6 +508,26 @@
 				8785F8B41B7C26F20051B29B /* AlienTimerView.m */,
 			);
 			name = MeiBaiProject;
+			sourceTree = "<group>";
+		};
+		8785F8EA1B7C456F0051B29B /* InitialQuestions */ = {
+			isa = PBXGroup;
+			children = (
+				8785F8EE1B7C46840051B29B /* Questions.storyboard */,
+				8785F8F01B7C46B20051B29B /* InitialNavigationController.h */,
+				8785F8F11B7C46B20051B29B /* InitialNavigationController.m */,
+				8785F8F31B7C49560051B29B /* QuestionOneViewController.h */,
+				8785F8F41B7C49560051B29B /* QuestionOneViewController.m */,
+				8785F8F61B7C495F0051B29B /* QuestionTwoViewController.h */,
+				8785F8F71B7C495F0051B29B /* QuestionTwoViewController.m */,
+				8785F8F91B7C49690051B29B /* QuestionThreeViewController.h */,
+				8785F8FA1B7C49690051B29B /* QuestionThreeViewController.m */,
+				8785F8FC1B7C49720051B29B /* QuestionFourViewController.h */,
+				8785F8FD1B7C49720051B29B /* QuestionFourViewController.m */,
+				8785F8FF1B7C497A0051B29B /* QuestionFiveViewController.h */,
+				8785F9001B7C497A0051B29B /* QuestionFiveViewController.m */,
+			);
+			name = InitialQuestions;
 			sourceTree = "<group>";
 		};
 		87E2AB2D1B7755F2001ED07F /* personalInfo */ = {
@@ -752,6 +793,7 @@
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
+				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +852,7 @@
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
 				87D533F21B79EC9F00F3D6BE /* MessageTimeChooseController.m in Sources */,
 				8742498C1B798CE600F6DB69 /* TeethDetailOneController.m in Sources */,
+				8785F8F81B7C495F0051B29B /* QuestionTwoViewController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
 				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,
 				878108C81B7B934A000A735F /* ALienGrayView.m in Sources */,
@@ -822,19 +865,23 @@
 				874249921B798D0600F6DB69 /* TeethDetailThreeController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
+				8785F8FB1B7C49690051B29B /* QuestionThreeViewController.m in Sources */,
 				874249881B7989C600F6DB69 /* TeethStateCell.m in Sources */,
 				87D533FE1B7ADF5600F3D6BE /* MeiBaiOneCell.m in Sources */,
 				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
+				8785F8FE1B7C49720051B29B /* QuestionFourViewController.m in Sources */,
 				87D533FB1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
 				87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */,
+				8785F8F51B7C49560051B29B /* QuestionOneViewController.m in Sources */,
 				87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */,
 				87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */,
 				87D534011B7ADF6300F3D6BE /* MeiBaiTwoCell.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
 				874249851B78E74400F6DB69 /* NameInfoViewController.m in Sources */,
+				8785F8F21B7C46B20051B29B /* InitialNavigationController.m in Sources */,
 				87D533EF1B79D52C00F3D6BE /* MessageConfigureFile.m in Sources */,
 				873B75DC1B774CEA002D7871 /* NoticeViewController.m in Sources */,
 				873B75B71B773E42002D7871 /* NetworkManager.m in Sources */,
@@ -847,6 +894,7 @@
 				874249951B798EF100F6DB69 /* TeethChooseView.m in Sources */,
 				87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */,
 				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
+				8785F9011B7C497A0051B29B /* QuestionFiveViewController.m in Sources */,
 				8785F8B51B7C26F20051B29B /* AlienTimerView.m in Sources */,
 				874249811B78E73500F6DB69 /* AddressViewController.m in Sources */,
 				873B75B11B773984002D7871 /* RegisterViewController.m in Sources */,
