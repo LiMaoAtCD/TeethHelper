@@ -61,6 +61,8 @@
 		8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */; };
 		8785F9071B7C6D250051B29B /* QuestionOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9061B7C6D250051B29B /* QuestionOneView.m */; };
 		8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9091B7C7D210051B29B /* RS_SliderView.m */; };
+		87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */; };
+		87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */; };
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
 		87D533EC1B79CA6C00F3D6BE /* MessageTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EB1B79CA6C00F3D6BE /* MessageTwoCell.m */; };
 		87D533EF1B79D52C00F3D6BE /* MessageConfigureFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533EE1B79D52C00F3D6BE /* MessageConfigureFile.m */; };
@@ -206,6 +208,9 @@
 		8785F9061B7C6D250051B29B /* QuestionOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionOneView.m; sourceTree = "<group>"; };
 		8785F9081B7C7D210051B29B /* RS_SliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RS_SliderView.h; sourceTree = "<group>"; };
 		8785F9091B7C7D210051B29B /* RS_SliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RS_SliderView.m; sourceTree = "<group>"; };
+		87D00AD51B7DCE3700C21378 /* QuestionNoProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionNoProjectController.h; sourceTree = "<group>"; };
+		87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionNoProjectController.m; sourceTree = "<group>"; };
+		87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionNoProjectController.xib; sourceTree = "<group>"; };
 		87D533E71B79CA5F00F3D6BE /* MessageOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageOneCell.h; sourceTree = "<group>"; };
 		87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageOneCell.m; sourceTree = "<group>"; };
 		87D533EA1B79CA6C00F3D6BE /* MessageTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTwoCell.h; sourceTree = "<group>"; };
@@ -565,6 +570,9 @@
 				87DABF4D1B7D801A0051DE31 /* QuestionAnalysizeController.h */,
 				87DABF4E1B7D801A0051DE31 /* QuestionAnalysizeController.m */,
 				87DABF4F1B7D801A0051DE31 /* QuestionAnalysizeController.xib */,
+				87D00AD51B7DCE3700C21378 /* QuestionNoProjectController.h */,
+				87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */,
+				87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */,
 			);
 			name = QuestionAnswers;
 			sourceTree = "<group>";
@@ -834,6 +842,7 @@
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
+				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
 			);
@@ -894,6 +903,7 @@
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
 				87D533F21B79EC9F00F3D6BE /* MessageTimeChooseController.m in Sources */,
 				8742498C1B798CE600F6DB69 /* TeethDetailOneController.m in Sources */,
+				87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */,
 				8785F8F81B7C495F0051B29B /* QuestionTwoViewController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
 				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,

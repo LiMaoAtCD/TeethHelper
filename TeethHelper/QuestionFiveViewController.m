@@ -13,6 +13,7 @@
 #import "TeethStateConfigureFile.h"
 #import "QuestionsConfigFile.h"
 #import "QuestionAnalysizeController.h"
+#import "QuestionNoProjectController.h"
 
 
 @interface QuestionFiveViewController ()<RSliderViewDelegate>
@@ -164,6 +165,9 @@
         
     } else if(answer1 == 2){
         //咨询牙医
+        QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
+        [self.navigationController pushViewController:noprojectVC animated:YES];
+
         
     } else if(answer1 != 2 && answer2 == 0 && answer3 == 1){
         //温柔计划
