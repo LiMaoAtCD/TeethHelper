@@ -29,6 +29,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)goCeBai:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+
 }
 
 /*
