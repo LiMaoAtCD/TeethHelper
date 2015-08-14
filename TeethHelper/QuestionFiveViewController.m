@@ -126,6 +126,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)completedQuestions:(id)sender {
+    
     [QuestionsConfigFile setCompletedInitialQuestions:YES];
     
     //牙齿等级

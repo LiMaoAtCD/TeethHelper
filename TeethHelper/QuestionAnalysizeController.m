@@ -54,6 +54,13 @@
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
     }
     
+    [_beginTimeButton addTarget:self action:@selector(goToCebai:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void)goToCebai:(id)sender{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
     
 }
 

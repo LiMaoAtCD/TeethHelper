@@ -52,31 +52,33 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
         _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"LoginSuccess" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(QuestionsCompleted:) name:@"QuestionsCompleted" object:nil];
+
         self.window.rootViewController = _loginVC;
         [self.window makeKeyAndVisible];
         
     } else {
-        self.window.rootViewController = _tabarController;
-        [self.window makeKeyAndVisible];
+        //登录成功了
+        [self loginSuccess:nil];
     }
    
     return YES;
 }
 
-
-
+-(void)QuestionsCompleted:(id)sender{
+    self.tabarController.selectedIndex = 1;
+    self.window.rootViewController = self.tabarController;
+}
 -(void)loginSuccess:(id)sender{
 //    [AccountManager setLogin:YES];
-    
-    if ([QuestionsConfigFile isCompletedInitialQuestions]) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Questions" bundle:nil];
+    //登录成功,检查是否初次问卷
+    if (![QuestionsConfigFile isCompletedInitialQuestions]) {
         
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Questions" bundle:nil];
         self.questionsVC  = [sb instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
         self.window.rootViewController = self.questionsVC;
-
     } else{
         self.window.rootViewController = self.tabarController;
-
     }
 }
 
@@ -102,6 +104,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
