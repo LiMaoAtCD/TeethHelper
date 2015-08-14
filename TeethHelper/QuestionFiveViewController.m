@@ -84,25 +84,23 @@
     if (sender.value < 0.5) {
         self.yesLabel.textColor = [Utils commonColor];
         self.noLabel.textColor = [UIColor lightGrayColor];
-        self.isStrongWill = YES;
+        [TeethStateConfigureFile WillStrong:YES];
         
     } else{
         self.yesLabel.textColor = [UIColor lightGrayColor];
         self.noLabel.textColor = [Utils commonColor];
-        self.isStrongWill = NO;
+        [TeethStateConfigureFile WillStrong:NO];
     }
 }
 
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
     
     if (sender.value < 0.5) {
-        [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
-            [TeethStateConfigureFile WillStrong:YES];
+        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
 
         }];
     } else{
-        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
-            [TeethStateConfigureFile WillStrong:NO];
+        [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
         }];
     }
 }

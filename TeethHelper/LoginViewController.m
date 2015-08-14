@@ -51,10 +51,6 @@
         
         [self addSplashView];
     }
-
- 
-    
-    
     
 }
 

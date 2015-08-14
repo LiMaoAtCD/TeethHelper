@@ -86,12 +86,12 @@
     if (sender.value < 0.5) {
         self.yesLabel.textColor = [Utils commonColor];
         self.noLabel.textColor = [UIColor lightGrayColor];
-        self.isSensitive = YES;
+        [TeethStateConfigureFile setSensitive:YES];
         
     } else{
         self.yesLabel.textColor = [UIColor lightGrayColor];
         self.noLabel.textColor = [Utils commonColor];
-        self.isSensitive = NO;
+        [TeethStateConfigureFile setSensitive:NO];
     }
 
 }
@@ -99,11 +99,11 @@
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
     
     if (sender.value < 0.5) {
-        [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
+        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
             [TeethStateConfigureFile setSensitive:YES];
         }];
     } else{
-        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
+        [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
             [TeethStateConfigureFile setSensitive:NO];
         }];
     }
