@@ -14,10 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *projectLabel;
 
-@property (weak, nonatomic) IBOutlet UIView *threeView;
-@property (weak, nonatomic) IBOutlet UIView *secondView;
-@property (weak, nonatomic) IBOutlet UIView *firstView;
-
 @property (weak, nonatomic) IBOutlet UILabel *timesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *perTimeMinutesLabel;
 @property (weak, nonatomic) IBOutlet UILabel *projectDayLabel;
@@ -37,42 +33,34 @@
     // Do any additional setup after loading the view from its nib.
     [Utils ConfigNavigationBarWithTitle:@"美白计划" onViewController:self];
     
-    _verticalMargin.constant = 30;
-//
-//    CGFloat height = [UIScreen mainScreen].bounds.size.height;
-//    
-//    CGFloat marginHeight = height - 120  - 50;
-//    
-//    
-//    CGFloat viewMargin =( marginHeight - 77 * 3 )/ 4;
-//    
-//    [_firstView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(@(120 + viewMargin));
-//        make.left.equalTo(self.view).offset(0);
-//        make.right.equalTo(self.view).offset(0);
-//        make.height.equalTo(@77);
-//        
-//    }];
-//    [_secondView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(@(120 + 2 * viewMargin + 77));
-//        make.left.equalTo(self.view).offset(0);
-//        make.right.equalTo(self.view).offset(0);
-//        make.height.equalTo(@77);
-//        
-//    }];
-//    [_threeView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(@(120 + 3 * viewMargin));
-//        make.left.equalTo(self.view).offset(0);
-//        make.right.equalTo(self.view).offset(0);
-//        make.height.equalTo(@77);
-//        
-//    }];
     
- 
+    if (self.type == Standard) {
+        self.projectLabel.text = @"标准计划";
+        self.timesLabel.text = @"4";
+        self.perTimeMinutesLabel.text = @"32";
+        self.projectDayLabel.text = @"5";
+        [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
+    } else if (self.type == Enhance){
+        self.projectLabel.text = @"加强计划";
+        self.timesLabel.text =@"7";
+        self.perTimeMinutesLabel.text =@"56";
+        self.projectDayLabel.text =@"3";
+        [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
+    } else{
+        self.projectLabel.text = @"温柔计划";
+        self.timesLabel.text =@"3";
+        self.perTimeMinutesLabel.text =@"24";
+        self.projectDayLabel.text =@"10";
+        [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
+    }
     
     
 }
 
+-(void)pop{
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 

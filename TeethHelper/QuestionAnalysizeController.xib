@@ -7,12 +7,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionAnalysizeController">
             <connections>
                 <outlet property="beginTimeButton" destination="CSY-BJ-oeO" id="4QU-jk-GrE"/>
-                <outlet property="firstView" destination="aby-85-csh" id="3GS-BU-OZA"/>
                 <outlet property="perTimeMinutesLabel" destination="eEN-lh-idd" id="fU6-Zi-NhZ"/>
                 <outlet property="projectDayLabel" destination="rPH-pT-p8H" id="brI-ky-zub"/>
                 <outlet property="projectLabel" destination="LIN-rU-Vvf" id="Ye9-fA-U7C"/>
-                <outlet property="secondView" destination="9s1-l1-vz4" id="daI-bz-pGg"/>
-                <outlet property="threeView" destination="GBQ-rn-4xX" id="2hp-5F-2Qv"/>
                 <outlet property="timesLabel" destination="mjy-BG-COG" id="hxP-dL-fcZ"/>
                 <outlet property="verticalMargin" destination="F6V-rt-EJk" id="hHs-4q-UO6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -201,7 +198,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjy-BG-COG">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjy-BG-COG">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="17" id="Pbk-ny-ktt"/>
@@ -229,7 +226,7 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEN-lh-idd">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEN-lh-idd">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="QLd-w3-c5l">
@@ -379,7 +376,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPH-pT-p8H">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPH-pT-p8H">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="XF6-AA-CiP">
@@ -531,7 +528,7 @@
                                 </mask>
                             </variation>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSY-BJ-oeO">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSY-BJ-oeO">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="AID-5Y-cDr">
@@ -565,7 +562,7 @@
                         <constraint firstItem="CSY-BJ-oeO" firstAttribute="leading" secondItem="8Bd-Dd-HE8" secondAttribute="trailing" constant="1" id="HSX-2i-XEg"/>
                         <constraint firstAttribute="height" constant="77" id="SYN-ne-IfS"/>
                         <constraint firstItem="8Bd-Dd-HE8" firstAttribute="centerY" secondItem="CSY-BJ-oeO" secondAttribute="centerY" constant="-0.5" id="V3a-4b-wmp">
-                            <variation key="heightClass=regular-widthClass=compact" constant="-5.5"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                         </constraint>
                         <constraint firstItem="8Bd-Dd-HE8" firstAttribute="leading" secondItem="GBQ-rn-4xX" secondAttribute="leading" constant="16" id="mUU-e7-H9K">
                             <variation key="heightClass=regular-widthClass=compact" constant="20"/>
