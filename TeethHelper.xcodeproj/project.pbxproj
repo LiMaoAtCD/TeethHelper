@@ -70,6 +70,8 @@
 		87D533FB1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533FA1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m */; };
 		87D533FE1B7ADF5600F3D6BE /* MeiBaiOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */; };
 		87D534011B7ADF6300F3D6BE /* MeiBaiTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */; };
+		87DABF501B7D801A0051DE31 /* QuestionAnalysizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DABF4E1B7D801A0051DE31 /* QuestionAnalysizeController.m */; };
+		87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87DABF4F1B7D801A0051DE31 /* QuestionAnalysizeController.xib */; };
 		87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB341B77578A001ED07F /* MessageNotificationController.m */; };
 		87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB371B775796001ED07F /* TeethStateViewController.m */; };
 		87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */; };
@@ -222,6 +224,9 @@
 		87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiOneCell.m; sourceTree = "<group>"; };
 		87D533FF1B7ADF6300F3D6BE /* MeiBaiTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiTwoCell.h; sourceTree = "<group>"; };
 		87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiTwoCell.m; sourceTree = "<group>"; };
+		87DABF4D1B7D801A0051DE31 /* QuestionAnalysizeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAnalysizeController.h; sourceTree = "<group>"; };
+		87DABF4E1B7D801A0051DE31 /* QuestionAnalysizeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnalysizeController.m; sourceTree = "<group>"; };
+		87DABF4F1B7D801A0051DE31 /* QuestionAnalysizeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionAnalysizeController.xib; sourceTree = "<group>"; };
 		87E2AB331B77578A001ED07F /* MessageNotificationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageNotificationController.h; sourceTree = "<group>"; };
 		87E2AB341B77578A001ED07F /* MessageNotificationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageNotificationController.m; sourceTree = "<group>"; };
 		87E2AB361B775796001ED07F /* TeethStateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeethStateViewController.h; sourceTree = "<group>"; };
@@ -352,6 +357,7 @@
 		870A65FD1B77227F00A51B26 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				8785F8EA1B7C456F0051B29B /* InitialQuestions */,
 				870A66061B7722D600A51B26 /* Login.storyboard */,
 				870A65FE1B7722A500A51B26 /* LoginNavigationController.h */,
 				870A65FF1B7722A500A51B26 /* LoginNavigationController.m */,
@@ -373,7 +379,6 @@
 		870A66081B77248D00A51B26 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8785F8EA1B7C456F0051B29B /* InitialQuestions */,
 				870A65E11B77227100A51B26 /* Main.storyboard */,
 				870A66091B7724B400A51B26 /* MainTabBarController.h */,
 				870A660A1B7724B400A51B26 /* MainTabBarController.m */,
@@ -530,6 +535,7 @@
 		8785F8EA1B7C456F0051B29B /* InitialQuestions */ = {
 			isa = PBXGroup;
 			children = (
+				87DABF4C1B7D7F610051DE31 /* QuestionAnswers */,
 				8785F9081B7C7D210051B29B /* RS_SliderView.h */,
 				8785F9091B7C7D210051B29B /* RS_SliderView.m */,
 				8785F9051B7C6D250051B29B /* QuestionOneView.h */,
@@ -551,6 +557,16 @@
 				8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */,
 			);
 			name = InitialQuestions;
+			sourceTree = "<group>";
+		};
+		87DABF4C1B7D7F610051DE31 /* QuestionAnswers */ = {
+			isa = PBXGroup;
+			children = (
+				87DABF4D1B7D801A0051DE31 /* QuestionAnalysizeController.h */,
+				87DABF4E1B7D801A0051DE31 /* QuestionAnalysizeController.m */,
+				87DABF4F1B7D801A0051DE31 /* QuestionAnalysizeController.xib */,
+			);
+			name = QuestionAnswers;
 			sourceTree = "<group>";
 		};
 		87E2AB2D1B7755F2001ED07F /* personalInfo */ = {
@@ -816,6 +832,7 @@
 				873B75D01B774338002D7871 /* Product.storyboard in Resources */,
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
+				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
@@ -869,6 +886,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87DABF501B7D801A0051DE31 /* QuestionAnalysizeController.m in Sources */,
 				87D533F51B7A1F9400F3D6BE /* ModifyViewController.m in Sources */,
 				87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */,
 				8742497D1B78E72500F6DB69 /* PhoneInfoViewController.m in Sources */,

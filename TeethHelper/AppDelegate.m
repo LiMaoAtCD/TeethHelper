@@ -68,7 +68,7 @@
 -(void)loginSuccess:(id)sender{
 //    [AccountManager setLogin:YES];
     
-    if (![QuestionsConfigFile isCompletedInitialQuestions]) {
+    if ([QuestionsConfigFile isCompletedInitialQuestions]) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Questions" bundle:nil];
         
         self.questionsVC  = [sb instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
@@ -198,10 +198,10 @@
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound) categories:nil];
         [application registerUserNotificationSettings:settings];
     }
-    else // iOS 7 or earlier
-    {
-        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
-        [application registerForRemoteNotificationTypes:myTypes];
-    }
+//    else // iOS 7 or earlier
+//    {
+//        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+//        [application registerForRemoteNotificationTypes:myTypes];
+//    }
 }
 @end

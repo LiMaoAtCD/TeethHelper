@@ -12,6 +12,8 @@
 #import <Masonry.h>
 #import "TeethStateConfigureFile.h"
 #import "QuestionsConfigFile.h"
+#import "QuestionAnalysizeController.h"
+
 
 @interface QuestionFiveViewController ()<RSliderViewDelegate>
 @property (nonatomic, strong) RS_SliderView *horSlider;
@@ -124,7 +126,71 @@
 }
 - (IBAction)completedQuestions:(id)sender {
     [QuestionsConfigFile setCompletedInitialQuestions:YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+    
+    //牙齿等级
+
+    NSInteger answer1 = [TeethStateConfigureFile teethLevel];
+    
+    
+    NSInteger answer2 = 0;
+    // 是否敏感
+    BOOL issensitive = [TeethStateConfigureFile isSensitive];
+    
+    if (issensitive) {
+        answer2 = 0;
+    } else{
+        answer2 = 1;
+
+    }
+    NSInteger answer3 = 0;
+    //是否意愿强烈
+    BOOL willstrong = [TeethStateConfigureFile isWillStrong];
+    
+    if (willstrong) {
+        answer3 = 0;
+    } else{
+        answer3 = 1;
+    }
+    
+    if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
+        //加强
+        
+        //分析结果跳转至相应界面
+        
+        QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+        analysizeVC.type = Enhance;
+        [self.navigationController pushViewController:analysizeVC animated:YES];
+
+        
+    } else if(answer1 == 2){
+        //咨询牙医
+        
+    } else if(answer1 != 2 && answer2 == 0 && answer3 == 1){
+        //温柔计划
+        //分析结果跳转至相应界面
+        
+        QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+        analysizeVC.type = Gentle;
+
+        [self.navigationController pushViewController:analysizeVC animated:YES];
+
+    } else{
+        //标准
+        //分析结果跳转至相应界面
+        
+        QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+        analysizeVC.type = Standard;
+
+        [self.navigationController pushViewController:analysizeVC animated:YES];
+
+    }
+    
+    
+    
+    
+    
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
 
 }
 
