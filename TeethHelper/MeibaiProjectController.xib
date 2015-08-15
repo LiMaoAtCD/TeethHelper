@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -110,6 +110,9 @@
                 <constraint firstItem="s1B-pn-Zs1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PfK-PH-bNx"/>
                 <constraint firstItem="Mde-26-V38" firstAttribute="centerY" secondItem="FPK-UP-6md" secondAttribute="centerY" constant="0.5" id="Q43-KB-sbt"/>
                 <constraint firstAttribute="trailing" secondItem="Mde-26-V38" secondAttribute="trailing" id="Rzh-Hl-BmS"/>
+                <constraint firstItem="FPK-UP-6md" firstAttribute="leading" secondItem="8JH-aN-Emc" secondAttribute="trailing" constant="11" id="Uyg-xf-r3O">
+                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                </constraint>
                 <constraint firstAttribute="bottom" secondItem="s1B-pn-Zs1" secondAttribute="bottom" id="YrT-7V-UU4"/>
                 <constraint firstItem="8JH-aN-Emc" firstAttribute="centerY" secondItem="Mde-26-V38" secondAttribute="centerY" id="ZN6-0y-zRY"/>
                 <constraint firstItem="Mde-26-V38" firstAttribute="top" secondItem="FPK-UP-6md" secondAttribute="bottom" constant="-85" id="efa-Zh-Lpf"/>
@@ -130,6 +133,7 @@
                     <exclude reference="efa-Zh-Lpf"/>
                     <exclude reference="7ck-2F-COj"/>
                     <exclude reference="ZN6-0y-zRY"/>
+                    <exclude reference="Uyg-xf-r3O"/>
                     <exclude reference="16x-Zt-Sel"/>
                     <exclude reference="PfK-PH-bNx"/>
                     <exclude reference="YrT-7V-UU4"/>
@@ -149,8 +153,9 @@
                     <include reference="Q43-KB-sbt"/>
                     <include reference="Rzh-Hl-BmS"/>
                     <exclude reference="efa-Zh-Lpf"/>
-                    <include reference="7ck-2F-COj"/>
+                    <exclude reference="7ck-2F-COj"/>
                     <include reference="ZN6-0y-zRY"/>
+                    <include reference="Uyg-xf-r3O"/>
                     <include reference="16x-Zt-Sel"/>
                     <include reference="PfK-PH-bNx"/>
                     <include reference="YrT-7V-UU4"/>

@@ -666,26 +666,26 @@
                     <exclude reference="rdG-Mx-5bv"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="2Xq-FY-GJM"/>
-                    <exclude reference="GP9-55-iVQ"/>
-                    <exclude reference="gfm-i4-iTa"/>
-                    <exclude reference="Bg8-zp-v5I"/>
-                    <exclude reference="F6V-rt-EJk"/>
-                    <exclude reference="Wd5-Qq-cjv"/>
+                    <exclude reference="6I5-Ux-Ssq"/>
+                    <exclude reference="8dn-99-FSc"/>
+                    <exclude reference="AbK-rf-dkV"/>
+                    <exclude reference="uW6-z0-yT8"/>
                     <exclude reference="5JN-dF-kPa"/>
                     <exclude reference="Jcg-wB-Zr8"/>
                     <exclude reference="N6M-WH-GTo"/>
                     <exclude reference="Rbh-v4-1v3"/>
                     <exclude reference="Zam-xj-LbJ"/>
+                    <exclude reference="2Xq-FY-GJM"/>
+                    <exclude reference="GP9-55-iVQ"/>
+                    <exclude reference="gfm-i4-iTa"/>
                     <exclude reference="9NJ-Mx-S6T"/>
                     <exclude reference="R5M-u6-qID"/>
                     <exclude reference="fAX-MM-NES"/>
                     <exclude reference="fnf-V4-1YY"/>
                     <exclude reference="tv0-wZ-xP7"/>
-                    <exclude reference="6I5-Ux-Ssq"/>
-                    <exclude reference="8dn-99-FSc"/>
-                    <exclude reference="AbK-rf-dkV"/>
-                    <exclude reference="uW6-z0-yT8"/>
+                    <exclude reference="Bg8-zp-v5I"/>
+                    <exclude reference="F6V-rt-EJk"/>
+                    <exclude reference="Wd5-Qq-cjv"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -697,26 +697,26 @@
                     <include reference="rdG-Mx-5bv"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="2Xq-FY-GJM"/>
-                    <include reference="GP9-55-iVQ"/>
-                    <include reference="gfm-i4-iTa"/>
-                    <include reference="Bg8-zp-v5I"/>
-                    <exclude reference="F6V-rt-EJk"/>
-                    <include reference="Wd5-Qq-cjv"/>
+                    <include reference="6I5-Ux-Ssq"/>
+                    <include reference="8dn-99-FSc"/>
+                    <include reference="AbK-rf-dkV"/>
+                    <exclude reference="uW6-z0-yT8"/>
                     <include reference="5JN-dF-kPa"/>
                     <include reference="Jcg-wB-Zr8"/>
                     <include reference="N6M-WH-GTo"/>
                     <exclude reference="Rbh-v4-1v3"/>
                     <include reference="Zam-xj-LbJ"/>
+                    <include reference="2Xq-FY-GJM"/>
+                    <include reference="GP9-55-iVQ"/>
+                    <include reference="gfm-i4-iTa"/>
                     <exclude reference="9NJ-Mx-S6T"/>
                     <exclude reference="R5M-u6-qID"/>
                     <include reference="fAX-MM-NES"/>
                     <include reference="fnf-V4-1YY"/>
                     <include reference="tv0-wZ-xP7"/>
-                    <include reference="6I5-Ux-Ssq"/>
-                    <include reference="8dn-99-FSc"/>
-                    <include reference="AbK-rf-dkV"/>
-                    <exclude reference="uW6-z0-yT8"/>
+                    <include reference="Bg8-zp-v5I"/>
+                    <exclude reference="F6V-rt-EJk"/>
+                    <include reference="Wd5-Qq-cjv"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="299" y="461"/>
