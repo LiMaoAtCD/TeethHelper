@@ -42,8 +42,11 @@
                     </subviews>
                     <color key="backgroundColor" red="0.38823529410000002" green="0.70980392160000005" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="centerY" secondItem="7Jy-2V-QTY" secondAttribute="centerY" constant="0.5" id="5A9-qa-C9a"/>
                         <constraint firstAttribute="centerX" secondItem="7Jy-2V-QTY" secondAttribute="centerX" constant="-0.5" id="5LJ-Rp-EbB"/>
-                        <constraint firstAttribute="height" constant="120" id="BiD-bf-PsX"/>
+                        <constraint firstAttribute="height" constant="120" id="BiD-bf-PsX">
+                            <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                        </constraint>
                         <constraint firstItem="7Jy-2V-QTY" firstAttribute="top" secondItem="1Zc-AP-57v" secondAttribute="top" constant="49" id="cbV-Iq-TpP"/>
                     </constraints>
                     <variation key="default">
@@ -52,6 +55,7 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="BiD-bf-PsX"/>
+                            <exclude reference="5A9-qa-C9a"/>
                             <exclude reference="5LJ-Rp-EbB"/>
                             <exclude reference="cbV-Iq-TpP"/>
                         </mask>
@@ -62,8 +66,9 @@
                         </mask>
                         <mask key="constraints">
                             <include reference="BiD-bf-PsX"/>
+                            <include reference="5A9-qa-C9a"/>
                             <include reference="5LJ-Rp-EbB"/>
-                            <include reference="cbV-Iq-TpP"/>
+                            <exclude reference="cbV-Iq-TpP"/>
                         </mask>
                     </variation>
                 </view>
@@ -98,13 +103,17 @@
                         <action selector="goCeBai:" destination="-1" eventType="touchUpInside" id="HJt-vX-M92"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咨询专业牙医后再决定是否使用" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-bx-ANt">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咨询专业牙医后再决定是否使用" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-bx-ANt">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="gNZ-Ar-92H"/>
-                        <constraint firstAttribute="width" constant="238" id="yW4-1i-ube"/>
+                        <constraint firstAttribute="height" constant="21" id="gNZ-Ar-92H">
+                            <variation key="heightClass=regular-widthClass=compact" constant="24"/>
+                        </constraint>
+                        <constraint firstAttribute="width" constant="238" id="yW4-1i-ube">
+                            <variation key="heightClass=regular-widthClass=compact" constant="280"/>
+                        </constraint>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -123,10 +132,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="1Zc-AP-57v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LVX-QW-J2j"/>
+                <constraint firstItem="1Zc-AP-57v" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LVX-QW-J2j">
+                    <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                </constraint>
                 <constraint firstAttribute="centerX" secondItem="WnC-bx-ANt" secondAttribute="centerX" id="LdK-0d-Nm2"/>
+                <constraint firstItem="8fI-n2-5SD" firstAttribute="top" secondItem="WnC-bx-ANt" secondAttribute="bottom" constant="240" id="LkL-an-j6f">
+                    <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="1Zc-AP-57v" secondAttribute="trailing" id="VmA-SM-fg0"/>
                 <constraint firstAttribute="centerX" secondItem="8fI-n2-5SD" secondAttribute="centerX" id="axJ-dT-Yvc"/>
+                <constraint firstItem="WnC-bx-ANt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1Zc-AP-57v" secondAttribute="bottom" constant="50" id="bdn-S6-1CN"/>
                 <constraint firstItem="1Zc-AP-57v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="d40-AZ-gMS"/>
                 <constraint firstItem="WnC-bx-ANt" firstAttribute="top" secondItem="1Zc-AP-57v" secondAttribute="bottom" constant="46" id="ow9-He-jmF"/>
                 <constraint firstAttribute="centerY" secondItem="8fI-n2-5SD" secondAttribute="centerY" constant="-59" id="ujo-iM-U8P">
@@ -144,7 +159,9 @@
                     <exclude reference="VmA-SM-fg0"/>
                     <exclude reference="d40-AZ-gMS"/>
                     <exclude reference="LdK-0d-Nm2"/>
+                    <exclude reference="bdn-S6-1CN"/>
                     <exclude reference="ow9-He-jmF"/>
+                    <exclude reference="LkL-an-j6f"/>
                     <exclude reference="axJ-dT-Yvc"/>
                     <exclude reference="ujo-iM-U8P"/>
                 </mask>
@@ -160,7 +177,9 @@
                     <include reference="VmA-SM-fg0"/>
                     <include reference="d40-AZ-gMS"/>
                     <include reference="LdK-0d-Nm2"/>
-                    <include reference="ow9-He-jmF"/>
+                    <include reference="bdn-S6-1CN"/>
+                    <exclude reference="ow9-He-jmF"/>
+                    <include reference="LkL-an-j6f"/>
                     <include reference="axJ-dT-Yvc"/>
                     <include reference="ujo-iM-U8P"/>
                 </mask>

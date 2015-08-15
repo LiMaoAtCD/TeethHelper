@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [Utils ConfigNavigationBarWithTitle:@"美白计划" onViewController:self];
-}
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];}
 -(void)pop{
     
     [self.navigationController popViewControllerAnimated:YES];

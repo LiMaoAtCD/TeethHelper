@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [Utils ConfigNavigationBarWithTitle:@"美白计划" onViewController:self];
-    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
     
     if (self.type == Standard) {
         self.projectLabel.text = @"标准计划";
