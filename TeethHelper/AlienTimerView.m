@@ -53,7 +53,7 @@
         //时间
         
         self.timerLabel= [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 90, self.bounds.size.height / 2 - 40, 180, 80)];
-        self.timerLabel.text = @"99'60''";
+        self.timerLabel.text = @"00'00\"";
         self.timerLabel.textAlignment = NSTextAlignmentCenter;
         self.timerLabel.textColor = [UIColor colorWithRed:99.0/255 green:181./255 blue:180./255 alpha:1.0];
         //        self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:100.0];

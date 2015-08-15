@@ -15,6 +15,9 @@
 
 @property (nonatomic, strong) AlienTimerView *alienView;
 
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) NSInteger totalCount;
+
 @end
 
 @implementation MeibaiProjectController
@@ -46,9 +49,9 @@
     
     [self.view addSubview:_alienView];
     
-    [self.alienView animateArcTo:0.7];
+//    [self.alienView animateArcTo:0.7];
     
-
+    self.totalCount = 0;
 }
 
 -(void)pop{
@@ -57,6 +60,42 @@
 
 -(void)share:(UIButton*)button{
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+}
+
+-(void)timerCount:(id)sender{
+    self.totalCount++;
+    
+//    NSNumber *time = [NSNumber numberWithDouble:[self.totalCount - 3600];
+//    NSTimeInterval interval = [time doubleValue];
+//    NSDate *online = [NSDate date];
+//    online = [NSDate dateWithTimeIntervalSince1970:interval];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"mm:ss"];
+//    
+//    NSLog(@"result: %@", [dateFormatter stringFromDate:online]);
+
+//    NSNumber *theDouble = [NSNumber numberWithInt:self.totalCount];
+//    
+//    int inputSeconds = [theDouble intValue];
+    int inputSeconds = (int)self.totalCount;
+//    int hours =  inputSeconds / 3600;
+    int minutes = inputSeconds / 60;
+    int seconds = inputSeconds  - minutes * 60;
+    
+    NSString *theTime = [NSString stringWithFormat:@"%.2d'%.2d\"", minutes, seconds];
+    NSLog(@"time %@",theTime);
+    
+    if (minutes == 99 && seconds == 59) {
+        [self.timer invalidate];
+    }
+    
+    self.alienView.timerLabel.text = theTime;
 }
 
 - (void)didReceiveMemoryWarning {
