@@ -20,6 +20,6 @@
 
 
 
--(void)animateArcTo:(CGFloat)angle;
+-(void)animateToSeconds:(NSInteger)seconds;
 
 @end

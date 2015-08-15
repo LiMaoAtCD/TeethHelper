@@ -96,6 +96,9 @@
                             <include reference="Gy7-2D-mJc"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="completeMeibai:" destination="-1" eventType="touchUpInside" id="Gia-oe-2ZH"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

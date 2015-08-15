@@ -46,7 +46,7 @@
         self.lightGrayLayer2.fillColor = [UIColor clearColor].CGColor;
         self.lightGrayLayer2.strokeColor = [UIColor colorWithRed:99.0/255 green:181./255 blue:180./255 alpha:1.0].CGColor;
         self.lightGrayLayer2.strokeStart = 0.0;
-        self.lightGrayLayer2.strokeEnd = 1.0;
+        self.lightGrayLayer2.strokeEnd = 0.0;
         
         [self.layer addSublayer:self.lightGrayLayer2];
         
@@ -66,23 +66,39 @@
     return self;
 }
 
--(void)animateArcTo:(CGFloat)strokeEnd{
-    if (strokeEnd >= 1.0 || strokeEnd < 0.0) {
-        self.foreGroundPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x, self.center.y) radius:(self.bounds.size.width / 2) startAngle:-0.5 * M_PI endAngle: M_PI clockwise:YES];
-        [self setNeedsDisplay];
-    } else{
-        self.foreGroundPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x, self.center.y) radius:(self.bounds.size.width / 2) startAngle:-0.5 * M_PI endAngle: M_PI clockwise:YES];
-        self.lightGrayLayer2.strokeEnd = strokeEnd;
+-(void)animateToSeconds:(NSInteger)seconds{
+    CGFloat maxSecond = 6000.0;
+    
+    if (seconds < maxSecond) {
         
-        CABasicAnimation * swipe = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        swipe.duration = 1.0;
-        swipe.fromValue=[NSNumber numberWithDouble:0];
-        swipe.toValue=  [NSNumber numberWithDouble:strokeEnd];
-        swipe.fillMode = kCAFillModeForwards;
-        swipe.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        swipe.removedOnCompletion = NO;
-        [self.lightGrayLayer2 addAnimation:swipe forKey:@"strokeEnd animation"];
-        
+        CGFloat rate =  (CGFloat)seconds / 6000;
+        self.lightGrayLayer2.strokeStart = 0;
+        self.lightGrayLayer2.strokeEnd = rate;
+        NSLog(@"%f",rate);
+
     }
+    
 }
+
+//-(void)animateArcFrom:(CGFloat)begin To:(CGFloat)End{
+//    if (End >= 1.0 || End < 0.0) {
+//        self.foreGroundPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x, self.center.y) radius:(self.bounds.size.width / 2) startAngle:-0.5 * M_PI endAngle: M_PI clockwise:YES];
+//        [self setNeedsDisplay];
+//    } else{
+//        self.foreGroundPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x, self.center.y) radius:(self.bounds.size.width / 2) startAngle:-0.5 * M_PI endAngle: M_PI clockwise:YES];
+//        
+//        self.lightGrayLayer2.strokeStart = start;
+//        self.lightGrayLayer2.strokeEnd = End;
+//        
+//        CABasicAnimation * swipe = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+//        swipe.duration = 1.0;
+//        swipe.fromValue=[NSNumber numberWithDouble:begin];
+//        swipe.toValue=  [NSNumber numberWithDouble:End];
+//        swipe.fillMode = kCAFillModeForwards;
+//        swipe.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//        swipe.removedOnCompletion = NO;
+//        [self.lightGrayLayer2 addAnimation:swipe forKey:@"strokeEnd animation"];
+        
+//    }
+//}
 @end

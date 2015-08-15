@@ -92,7 +92,7 @@
         
         NSString *hour = [MessageConfigureFile hourForAlertNotification];
         NSString *minute = [MessageConfigureFile minuteForAlertNotification];
-        cell.timeNoticeLabel.text = [NSString stringWithFormat:@"%@:%@",hour,minute];
+        cell.timeNoticeLabel.text = [NSString stringWithFormat:@"%@:%.2ld",hour,(long)[minute integerValue]];
         if ([MessageConfigureFile isOpenLocalNotification]) {
             cell.timeNoticeLabel.textColor = [UIColor blackColor];
         } else{

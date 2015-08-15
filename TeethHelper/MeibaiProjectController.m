@@ -49,7 +49,6 @@
     
     [self.view addSubview:_alienView];
     
-//    [self.alienView animateArcTo:0.7];
     
     self.totalCount = 0;
 }
@@ -65,7 +64,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
 }
 
 -(void)timerCount:(id)sender{
@@ -89,7 +88,9 @@
     int seconds = inputSeconds  - minutes * 60;
     
     NSString *theTime = [NSString stringWithFormat:@"%.2d'%.2d\"", minutes, seconds];
-    NSLog(@"time %@",theTime);
+//    NSLog(@"time %@",theTime);
+    
+    [self.alienView animateToSeconds:self.totalCount];
     
     if (minutes == 99 && seconds == 59) {
         [self.timer invalidate];
@@ -112,5 +113,14 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)dealloc{
+    [self.timer invalidate];
+    self.timer = nil;
+}
+- (IBAction)completeMeibai:(id)sender {
+    
+    [self.timer invalidate];
+}
 
 @end

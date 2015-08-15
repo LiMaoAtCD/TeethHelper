@@ -42,13 +42,15 @@
     [rightButton setImage:[UIImage imageNamed:@"icon_share_normal"] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-    
     [self configMainView];
+
 
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
+    [self.alienView animateArcTo:0.7];
+
 
 }
 -(void)configMainView{
@@ -85,7 +87,6 @@
     
     [self.view addSubview:_alienView];
     
-    [self.alienView animateArcTo:0.7];
     
     //
     UIButton *beginProjectButton = [UIButton buttonWithType:UIButtonTypeCustom];
