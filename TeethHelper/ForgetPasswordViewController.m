@@ -116,7 +116,7 @@
         
     } else {
         //TODO : 获取验证码
-        _count = 10;
+        _count = 60;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
         [self.timer fire];
         

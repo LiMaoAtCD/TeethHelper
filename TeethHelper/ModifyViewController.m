@@ -40,7 +40,7 @@
 
 
 -(void)pop{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (IBAction)submit:(id)sender {
     BOOL isvalid = [self validityCheck];

@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "Utils.h"
+#import <SVProgressHUD.h>
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nickNameTextField;
 
@@ -25,6 +26,21 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic, strong) UITextField *activeField;
+
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *phone;
+@property (nonatomic, copy) NSString *verifyCode;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic, copy) NSString *confirmPassword;
+
+
+@property (nonatomic, assign) NSInteger count;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) BOOL isAgreeProtocol;
+
+
+
 @end
 
 @implementation RegisterViewController
@@ -39,6 +55,15 @@
     
     [self.scrollView addGestureRecognizer:tap];
     [self configTextFields];
+    
+    //验证码按钮
+    [self.verifyCodeButton addTarget:self action:@selector(getVerifyCode:) forControlEvents:UIControlEventTouchUpInside];
+    [self.verifyCodeButton setBackgroundImage:[UIImage imageNamed:@"btn_code_normal"] forState:UIControlStateNormal];
+    
+    //同意协议按钮
+    [self.readButton addTarget:self action:@selector(agreeProtocol:) forControlEvents:UIControlEventTouchUpInside];
+    self.readButton.tag = 0;
+    self.isAgreeProtocol = YES;
 }
 
 -(void)configTextFields{
@@ -47,6 +72,13 @@
     self.nickNameTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请输入昵称" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]}];
      self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请输入密码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]}];
      self.confirmTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请再次输入密码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]}];
+    
+    
+   [self.nickNameTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+   [self.phoneTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+   [self.verifyCodeTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+   [self.passwordTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self.confirmTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
 }
 
 -(void)pop{
@@ -58,6 +90,23 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)registerUser:(id)sender {
+    BOOL isvalid = [self validityCheck];
+    if (isvalid) {
+        //TODO: 请求注册
+        
+        if (self.isAgreeProtocol) {
+            
+        } else{
+            //
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"请先同意xxx协议" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                
+            }];
+            [alert addAction:action];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }
 }
 
 
@@ -72,7 +121,7 @@
                                                  name:UIKeyboardWillHideNotification object:nil];
     
 }
-
+#pragma mark - 键盘相关处理
 - (void)keyboardWillShown:(NSNotification*)aNotification
 {
     
@@ -120,14 +169,130 @@
     
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - 获取验证码
+-(void)getVerifyCode:(id)sender{
+    if (![Utils isValidCellphoneNumber:self.phone]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        
+    } else {
+        _count = 60;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+        [self.timer fire];
+        
+        //TODO : 获取验证码
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    }
 }
-*/
 
+-(void)timerCount:(id)sender{
+    _count--;
+    
+    if (_count > 0) {
+        [self.verifyCodeButton setTitle:[NSString stringWithFormat:@"%ld S",self.count] forState:UIControlStateNormal];
+        //        [self.verifyCodeButton setBackgroundImage:[UIImage imageNamed:@"btn_code_pressed"] forState:UIControlStateNormal];
+        self.verifyCodeButton.userInteractionEnabled = NO;
+    } else{
+        
+        [self.verifyCodeButton setTitle:@"重发验证码" forState:UIControlStateNormal];
+        //        [self.verifyCodeButton setBackgroundImage:[UIImage imageNamed:@"btn_code_normal"] forState:UIControlStateNormal];
+        
+        self.verifyCodeButton.userInteractionEnabled = YES;
+        [self.timer invalidate];
+    }
+}
+
+#pragma mark - 注册合法性校验
+-(BOOL)validityCheck{
+    if (self.name == nil || [self.name isEqualToString:@""]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入昵称"];
+        return NO;
+    }
+    
+    if (![Utils isValidCellphoneNumber:self.phone]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        return NO;
+    }
+    
+    if (self.verifyCode == nil || [self.verifyCode isEqualToString:@""]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入验证码"];
+        return NO;
+    }
+    
+    if(![Utils isValidPassword:self.password]){
+        [SVProgressHUD showErrorWithStatus:@"密码为6-16位字母或数字"];
+        return NO;
+    }
+    
+    if(![Utils isValidPassword:self.confirmPassword]){
+        [SVProgressHUD showErrorWithStatus:@"确认密码为6-16位字母或数字"];
+        return NO;
+    }
+    
+    if (![self.password isEqualToString:self.confirmPassword]) {
+        [SVProgressHUD showErrorWithStatus:@"两次密码不一致,请重新输入"];
+        return NO;
+    }
+    
+    
+    return YES;
+}
+
+
+-(void)textFieldEditChanged:(UITextField *)textField{
+    
+    if (textField == self.nickNameTextField) {
+        //姓名
+        self.name = textField.text;
+        NSLog(@"name: %@",self.name);
+    } else if (textField == self.phoneTextField) {
+        //手机号码
+        if (textField.text.length > 11) {
+            textField.text = [textField.text substringToIndex:11];
+        }
+        self.phone = textField.text;
+        
+        NSLog(@"phone: %@",_phone);
+    } else if (textField == self.verifyCodeTextField) {
+        //验证码
+//        if (textField.text.length > 11) {
+//            textField.text = [textField.text substringToIndex:11];
+//        }
+        self.verifyCode = textField.text;
+        NSLog(@"verify code: %@",_verifyCode);
+        
+    } else if(textField == self.passwordTextField){
+        //密码
+        if (textField.text.length > 16) {
+            textField.text = [textField.text substringToIndex:16];
+        }
+        self.password = textField.text;
+        NSLog(@"password: %@",_password);
+
+    }else{
+        //再次输入密码
+        if (textField.text.length > 16) {
+            textField.text = [textField.text substringToIndex:16];
+        }
+        self.confirmPassword = textField.text;
+        NSLog(@"confirm password: %@",_confirmPassword);
+
+    }
+
+}
+
+-(void)agreeProtocol:(UIButton*)button{
+    if (button.tag == 0) {
+        
+        [self.readButton setBackgroundImage:[UIImage imageNamed:@"box_empty"] forState:UIControlStateNormal];
+        self.readButton.tag = 1;
+        self.isAgreeProtocol = NO;
+        
+    } else{
+        
+        [self.readButton setBackgroundImage:[UIImage imageNamed:@"box_Check"] forState:UIControlStateNormal];
+        self.readButton.tag = 0;
+        self.isAgreeProtocol = YES;
+
+    }
+}
 @end
