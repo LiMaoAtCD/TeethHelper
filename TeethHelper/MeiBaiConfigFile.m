@@ -69,4 +69,13 @@
     return day;
 }
 
++(void)setBeginKeepProject:(BOOL)keep{
+    [[NSUserDefaults standardUserDefaults] setBool:keep forKey:@"cure_keep_project"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(BOOL)isKeepProject{
+    BOOL iscure = [[NSUserDefaults standardUserDefaults] boolForKey:@"cure_keep_project"];
+    return iscure;
+}
+
 @end

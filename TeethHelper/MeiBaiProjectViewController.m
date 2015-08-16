@@ -9,6 +9,8 @@
 #import "MeiBaiProjectViewController.h"
 #import "MeiBaiOneCell.h"
 #import "MeiBaiTwoCell.h"
+#import "MeiBaiThreeCell.h"
+
 #import "MeiBaiConfigFile.h"
 #import "Utils.h"
 @interface MeiBaiProjectViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -59,30 +61,53 @@
     if (indexPath.section == 0) {
         MeiBaiOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiOneCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"启用保持计划";
+
+        BOOL isKeepMeiBaiProject = [MeiBaiConfigFile isKeepProject];
+        if (isKeepMeiBaiProject) {
+            cell.swither.on = YES;
+        } else{
+            cell.swither.on = NO;
+        }
+        [cell.swither addTarget:self action:@selector(changeKeepProject:) forControlEvents:UIControlEventValueChanged];
         
         return cell;
         
     } else{
-        MeiBaiTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiTwoCell" forIndexPath:indexPath];
         if (indexPath.section == 1 && indexPath.row == 0) {
+            MeiBaiTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiTwoCell" forIndexPath:indexPath];
             cell.titleLabel.text = @"每日美白时长";
             
             NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
             cell.contentLabel.text = [NSString stringWithFormat:@"%ld*8分钟",times];
             
-            
+            return cell;
+
         } else if(indexPath.section == 1&& indexPath.row ==1){
+            MeiBaiTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiTwoCell" forIndexPath:indexPath];
             cell.titleLabel.text = @"计划美白天数";
             
             NSInteger days = [MeiBaiConfigFile getNeedCureDays];
             cell.contentLabel.text = [NSString stringWithFormat:@"%ld天",days];
-            
+            return cell;
+
         } else{
+            MeiBaiThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiThreeCell" forIndexPath:indexPath];
             cell.titleLabel.text = @"每月保持时长";
-            cell.accessoryType = UITableViewCellAccessoryNone;
             cell.contentLabel.text = @"4*8分钟";
+            
+            if ([MeiBaiConfigFile isKeepProject]) {
+                cell.titleLabel.textColor = [Utils commonColor];
+                cell.contentLabel.textColor = [UIColor blackColor];
+            } else{
+                cell.titleLabel.textColor = [UIColor grayColor];
+                cell.contentLabel.textColor = [UIColor grayColor];
+
+            }
+            
+            
+            return cell;
+
         }
-        return cell;
     }
 }
 
@@ -110,9 +135,15 @@
         
         return view;
     } else if(section == 2){
+        
         UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 30)];
-        label.textColor = [UIColor blackColor];
+        if ([MeiBaiConfigFile isKeepProject]) {
+            label.textColor = [UIColor blackColor];
+        } else{
+            label.textColor = [UIColor grayColor];
+
+        }
         label.text = @"保持计划";
         [view addSubview:label];
 
@@ -120,6 +151,16 @@
     } else{
         return nil;
     }
+}
+
+-(void)changeKeepProject:(UISwitch*)switcher{
+    if (switcher.isOn) {
+        [MeiBaiConfigFile setBeginKeepProject:YES];
+    } else{
+        [MeiBaiConfigFile setBeginKeepProject:NO];
+
+    }
+    [self.tableView reloadData];
 }
 /*
  

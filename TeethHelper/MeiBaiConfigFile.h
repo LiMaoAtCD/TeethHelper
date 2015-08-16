@@ -41,4 +41,8 @@
 
 
 
+//是否保持美白计划
++(void)setBeginKeepProject:(BOOL)keep;
++(BOOL)isKeepProject;
+
 @end
