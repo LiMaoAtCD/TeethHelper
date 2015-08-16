@@ -41,4 +41,32 @@
         return NO;
     }
 }
+
++(BOOL)isValidCellphoneNumber:(NSString *)phoneNumber{
+    if ([phoneNumber length] == 0) {
+        return NO;
+    }
+    
+    //1[0-9]{10}
+    
+    //^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$
+    
+    //    NSString *regex = @"[0-9]{11}";
+    
+    NSString *regex = @"^((13[0-9])|(147)|(15[^4,\\D])|17[678]|(18[0-9]|14[57]))\\d{8}$";
+    
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    
+    BOOL isMatch = [pred evaluateWithObject:phoneNumber];
+    
+    return isMatch;
+}
+//#pragma 正则匹配用户密码6-16位数字或字母组合
++(BOOL)isValidPassword:(NSString*)password{
+    NSString *pattern = @"^[\\da-zA-Z]{6,16}$";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL isMatch = [pred evaluateWithObject:password];
+    return isMatch;
+    
+}
 @end

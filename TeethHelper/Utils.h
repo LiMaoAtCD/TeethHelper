@@ -16,5 +16,6 @@
 +(UIColor *)commonColor;
 
 +(BOOL)isiPhone4;
-
++(BOOL)isValidCellphoneNumber:(NSString *)phoneNumber;
++(BOOL)isValidPassword:(NSString*)password;
 @end

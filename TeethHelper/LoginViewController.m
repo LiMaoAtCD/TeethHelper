@@ -11,6 +11,8 @@
 #import "AccountManager.h"
 #import <Masonry.h>
 #import "SplashViewController.h"
+#import <SVProgressHUD.h>
+
 @interface LoginViewController ()
 
 
@@ -78,10 +80,19 @@
 
 - (IBAction)login:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    BOOL isValid = [self validityCheck];
     
- 
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+    if (isValid) {
+        [SVProgressHUD showWithStatus:@"登录中"];
+        
+        
+        
+        
+        //    [self dismissViewControllerAnimated:YES completion:nil];
+        //    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+    }
+    
+
 
 }
 
@@ -89,14 +100,14 @@
     
     if (textField == self.phoneTextField) {
         if (textField.text.length > 11) {
-            textField.text = [textField.text substringFromIndex:11];
+            textField.text = [textField.text substringToIndex:11];
         }
         self.phone = textField.text;
         
         NSLog(@"phone: %@",_phone);
     } else{
         if (textField.text.length > 16) {
-            textField.text = [textField.text substringFromIndex:16];
+            textField.text = [textField.text substringToIndex:16];
         }
         self.password = textField.text;
         NSLog(@"password: %@",_password);
@@ -115,14 +126,23 @@
 
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(BOOL)validityCheck{
+//    if (self.phone is) {
+//        <#statements#>
+//    }
+    
+    if (![Utils isValidCellphoneNumber:self.phone]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        return NO;
+    }
+    
+    if(![Utils isValidPassword:self.password]){
+        [SVProgressHUD showErrorWithStatus:@"密码为6-16位字母或数字"];
+        return NO;
+    }
+    
+    
+    return YES;
 }
-*/
 
 @end

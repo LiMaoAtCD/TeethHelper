@@ -128,18 +128,18 @@
                     <exclude reference="s1B-pn-Zs1"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="Uyg-xf-r3O"/>
+                    <exclude reference="16x-Zt-Sel"/>
+                    <exclude reference="PfK-PH-bNx"/>
+                    <exclude reference="YrT-7V-UU4"/>
+                    <exclude reference="7ck-2F-COj"/>
+                    <exclude reference="ZN6-0y-zRY"/>
                     <exclude reference="1ZN-d7-eqx"/>
                     <exclude reference="6V1-n5-qRC"/>
                     <exclude reference="Lgb-vf-Utu"/>
                     <exclude reference="Q43-KB-sbt"/>
                     <exclude reference="Rzh-Hl-BmS"/>
                     <exclude reference="efa-Zh-Lpf"/>
-                    <exclude reference="7ck-2F-COj"/>
-                    <exclude reference="ZN6-0y-zRY"/>
-                    <exclude reference="Uyg-xf-r3O"/>
-                    <exclude reference="16x-Zt-Sel"/>
-                    <exclude reference="PfK-PH-bNx"/>
-                    <exclude reference="YrT-7V-UU4"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -150,18 +150,18 @@
                     <include reference="s1B-pn-Zs1"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="Uyg-xf-r3O"/>
+                    <include reference="16x-Zt-Sel"/>
+                    <include reference="PfK-PH-bNx"/>
+                    <include reference="YrT-7V-UU4"/>
+                    <exclude reference="7ck-2F-COj"/>
+                    <include reference="ZN6-0y-zRY"/>
                     <include reference="1ZN-d7-eqx"/>
                     <include reference="6V1-n5-qRC"/>
                     <include reference="Lgb-vf-Utu"/>
                     <include reference="Q43-KB-sbt"/>
                     <include reference="Rzh-Hl-BmS"/>
                     <exclude reference="efa-Zh-Lpf"/>
-                    <exclude reference="7ck-2F-COj"/>
-                    <include reference="ZN6-0y-zRY"/>
-                    <include reference="Uyg-xf-r3O"/>
-                    <include reference="16x-Zt-Sel"/>
-                    <include reference="PfK-PH-bNx"/>
-                    <include reference="YrT-7V-UU4"/>
                 </mask>
             </variation>
         </view>

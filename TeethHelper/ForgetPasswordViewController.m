@@ -9,7 +9,7 @@
 #import "ForgetPasswordViewController.h"
 #import "Utils.h"
 #import "ModifyViewController.h"
-
+#import <SVProgressHUD.h>
 @interface ForgetPasswordViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
@@ -19,6 +19,8 @@
 
 @property (nonatomic, copy) NSString *phone;
 @property (nonatomic, copy) NSString *verifyCode;
+@property (nonatomic, assign) NSInteger count;
+@property (nonatomic, strong) NSTimer *timer;
 
 
 @end
@@ -30,10 +32,16 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"忘记密码" onViewController:self];
     
- [self.phoneTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self.phoneTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self.verifyTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
     [self configTextFields];
+    
+    [self.verifyCodeButton addTarget:self action:@selector(getVerifyCode:) forControlEvents:UIControlEventTouchUpInside];
+    [self.verifyCodeButton setBackgroundImage:[UIImage imageNamed:@"btn_code_normal"] forState:UIControlStateNormal];
+
 
 }
+
 -(void)configTextFields{
     self.phoneTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请输入手机号码" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]}];
     self.verifyTextField.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"请输入验证码" attributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:99./255 green:181./255 blue:185./255 alpha:1.0]}];
@@ -47,11 +55,18 @@
 
 - (IBAction)next:(id)sender {
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    BOOL isValid = [self validityCheck];
+
+    if (isValid) {
+        //TODO: 网络请求，修改密码
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+        ModifyViewController *modifyVC = [sb instantiateViewControllerWithIdentifier:@"ModifyViewController"];
+        
+        [self.navigationController pushViewController:modifyVC animated:YES];
+    }
     
-    ModifyViewController *modifyVC = [sb instantiateViewControllerWithIdentifier:@"ModifyViewController"];
-    
-    [self.navigationController pushViewController:modifyVC animated:YES];
+   
     
 }
 
@@ -59,14 +74,14 @@
     
     if (textField == self.phoneTextField) {
         if (textField.text.length > 11) {
-            textField.text = [textField.text substringFromIndex:11];
+            textField.text = [textField.text substringToIndex:11];
         }
         self.phone = textField.text;
         
         NSLog(@"phone: %@",_phone);
     } else{
         if (textField.text.length > 6) {
-            textField.text = [textField.text substringFromIndex:6];
+            textField.text = [textField.text substringToIndex:6];
         }
         self.verifyCode = textField.text;
         NSLog(@"password: %@",_verifyCode);
@@ -80,14 +95,50 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+-(BOOL)validityCheck{
+    
+    if (![Utils isValidCellphoneNumber:self.phone]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        return NO;
+    }
+    
+    if ([_verifyCode isEqualToString:@""]|| _verifyCode == nil) {
+        [SVProgressHUD showErrorWithStatus:@"请输入验证码"];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        return NO;
+    }
+    return YES;
 }
-*/
+
+-(void)getVerifyCode:(id)sender{
+    if (![Utils isValidCellphoneNumber:self.phone]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        
+    } else {
+        //TODO : 获取验证码
+        _count = 10;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+        [self.timer fire];
+        
+//        [SVProgressHUD showWithStatus:@"正在获取验证码"];
+    }
+}
+
+-(void)timerCount:(id)sender{
+    _count--;
+    
+    if (_count > 0) {
+        [self.verifyCodeButton setTitle:[NSString stringWithFormat:@"%ld S",self.count] forState:UIControlStateNormal];
+//        [self.verifyCodeButton setBackgroundImage:[UIImage imageNamed:@"btn_code_pressed"] forState:UIControlStateNormal];
+        self.verifyCodeButton.userInteractionEnabled = NO;
+    } else{
+        
+        [self.verifyCodeButton setTitle:@"重发验证码" forState:UIControlStateNormal];
+//        [self.verifyCodeButton setBackgroundImage:[UIImage imageNamed:@"btn_code_normal"] forState:UIControlStateNormal];
+
+        self.verifyCodeButton.userInteractionEnabled = YES;
+        [self.timer invalidate];
+    }
+}
 
 @end
