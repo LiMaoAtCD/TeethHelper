@@ -29,19 +29,21 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"美白" onViewController:self];
 
-    //产品介绍
+    //产品介绍按钮
     UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
     [leftButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
     [leftButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"产品介绍" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12.0],NSForegroundColorAttributeName:[UIColor whiteColor]}] forState:UIControlStateNormal];
     [leftButton addTarget:self action:@selector(clickProductIntroduce:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
 
-    //分享
+    //分享按钮
     UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
     [rightButton addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
     [rightButton setImage:[UIImage imageNamed:@"icon_share_normal"] forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+    
+    //主视图
     [self configMainView];
 
 
@@ -49,6 +51,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
+    
+    BOOL iscure = [MeiBaiConfigFile isCureStage];
+    if (iscure) {
+        
+    }
     [self.alienView animateArcTo:0.7];
 
 

@@ -13,6 +13,7 @@
 #import <SVProgressHUD.h>
 #import "MessageConfigureFile.h"
 #import "TeethStateConfigureFile.h"
+#import "MeiBaiConfigFile.h"
 
 #import "InitialNavigationController.h"
 #import "QuestionsConfigFile.h"
@@ -72,7 +73,7 @@
 -(void)loginSuccess:(id)sender{
     [AccountManager setLogin:YES];
     //登录成功,检查是否初次问卷
-    if ([QuestionsConfigFile isCompletedInitialQuestions]) {
+    if (![QuestionsConfigFile isCompletedInitialQuestions]) {
         
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Questions" bundle:nil];
         self.questionsVC  = [sb instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
@@ -185,6 +186,12 @@
 //        [TeethStateConfigureFile setSensitive:NO];
 //        [TeethStateConfigureFile WillStrong:YES];
 //        [TeethStateConfigureFile setTeethStateLevel:0];
+        
+        
+        // 设置治疗/保持
+        [MeiBaiConfigFile setCureStage:YES];
+        [MeiBaiConfigFile setCompletedCureDays:0];
+        [MeiBaiConfigFile setCompletedKeepDays:0];
         
         
     } else {

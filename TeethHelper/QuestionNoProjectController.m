@@ -8,6 +8,7 @@
 
 #import "QuestionNoProjectController.h"
 #import "Utils.h"
+#import "MeiBaiConfigFile.h"
 @interface QuestionNoProjectController ()
 
 @end
@@ -18,7 +19,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [Utils ConfigNavigationBarWithTitle:@"美白计划" onViewController:self];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];}
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
+    //设置美白等级为3
+    [MeiBaiConfigFile setCureTimesEachDay:3];
+    [MeiBaiConfigFile setNeedCureDays:10];
+}
 -(void)pop{
     
     [self.navigationController popViewControllerAnimated:YES];

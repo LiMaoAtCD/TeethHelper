@@ -11,6 +11,7 @@
 #import <Masonry.h>
 #import "MessageTimeChooseController.h"
 #import "MessageConfigureFile.h"
+#import "MeiBaiConfigFile.h"
 @interface QuestionAnalysizeController ()<TimeSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *projectLabel;
@@ -41,18 +42,33 @@
         self.perTimeMinutesLabel.text = @"32";
         self.projectDayLabel.text = @"5";
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
+        
+        //设置美白等级为4
+        [MeiBaiConfigFile setCureTimesEachDay:4];
+        [MeiBaiConfigFile setNeedCureDays:5];
+        
     } else if (self.type == Enhance){
         self.projectLabel.text = @"加强计划";
         self.timesLabel.text =@"7";
         self.perTimeMinutesLabel.text =@"56";
         self.projectDayLabel.text =@"3";
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
+        
+        //设置美白等级为7
+        [MeiBaiConfigFile setCureTimesEachDay:7];
+        [MeiBaiConfigFile setNeedCureDays:3];
+
     } else{
         self.projectLabel.text = @"温柔计划";
         self.timesLabel.text =@"3";
         self.perTimeMinutesLabel.text =@"24";
         self.projectDayLabel.text =@"10";
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
+        
+        //设置美白等级为3
+        [MeiBaiConfigFile setCureTimesEachDay:3];
+        [MeiBaiConfigFile setNeedCureDays:10];
+
     }
     
     [self.beginTimeButton addTarget:self action:@selector(chooseTime:) forControlEvents:UIControlEventTouchUpInside];
