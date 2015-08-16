@@ -13,9 +13,15 @@
 
 #import "MeiBaiConfigFile.h"
 #import "Utils.h"
-@interface MeiBaiProjectViewController ()<UITableViewDelegate, UITableViewDataSource>
+#import "MeibaiItemChooseController.h"
+@interface MeiBaiProjectViewController ()<UITableViewDelegate, UITableViewDataSource,ItemChooseDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property(nonatomic, strong) NSMutableArray *dayArr;
+@property(nonatomic, strong) NSMutableArray *timesArr;
+
+
 @end
 
 @implementation MeiBaiProjectViewController
@@ -24,6 +30,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"美白计划" onViewController:self];
+    
+    
+    //美白计划选择数组
+    self.dayArr =[NSMutableArray array];
+    self.timesArr =[NSMutableArray array];
+    for (int i =3; i < 16; i++) {
+        
+        NSString *dayString = [NSString stringWithFormat:@"%d 天",i];
+        [self.dayArr addObject:dayString];
+    }
+    
+    for (int i =3; i < 8; i++) {
+        
+        NSString *dayString = [NSString stringWithFormat:@"%d * 8 分钟",i];
+        [self.timesArr addObject:dayString];
+    }
 }
 
 -(void)pop{
@@ -78,7 +100,7 @@
             cell.titleLabel.text = @"每日美白时长";
             
             NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
-            cell.contentLabel.text = [NSString stringWithFormat:@"%ld*8分钟",times];
+            cell.contentLabel.text = [NSString stringWithFormat:@"%ld*8 分钟",times];
             
             return cell;
 
@@ -87,13 +109,13 @@
             cell.titleLabel.text = @"计划美白天数";
             
             NSInteger days = [MeiBaiConfigFile getNeedCureDays];
-            cell.contentLabel.text = [NSString stringWithFormat:@"%ld天",days];
+            cell.contentLabel.text = [NSString stringWithFormat:@"%ld 天",days];
             return cell;
 
         } else{
             MeiBaiThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiThreeCell" forIndexPath:indexPath];
             cell.titleLabel.text = @"每月保持时长";
-            cell.contentLabel.text = @"4*8分钟";
+            cell.contentLabel.text = @"4*8 分钟";
             
             if ([MeiBaiConfigFile isKeepProject]) {
                 cell.titleLabel.textColor = [Utils commonColor];
@@ -122,6 +144,28 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.01;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+    MeibaiItemChooseController *itemVC = [sb instantiateViewControllerWithIdentifier:@"MeibaiItemChooseController"];
+    itemVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        //次数 3-7
+        itemVC.type = Times;
+        itemVC.items = self.timesArr;
+    } else if(indexPath.section == 1&& indexPath.row == 1){
+        //天数3-15
+        itemVC.type = Days;
+        itemVC.items = self.dayArr;
+
+    }
+    itemVC.delegate = self;
+    [self showDetailViewController:itemVC sender:self];
+    
+
+}
+
+
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 1) {
@@ -162,6 +206,20 @@
     }
     [self.tableView reloadData];
 }
+
+-(void)didSelectedIndexAt:(NSInteger)index OnType:(ItemType)type{
+    if (type == Times) {
+        //选择了时长
+        
+        [MeiBaiConfigFile setCureTimesEachDay:(3+ index)];
+        
+    }else{
+        [MeiBaiConfigFile setNeedCureDays:(3 + index)];
+    }
+    
+    [self.tableView reloadData];
+}
+
 /*
  
 #pragma mark - Navigation

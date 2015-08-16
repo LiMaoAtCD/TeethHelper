@@ -45,6 +45,7 @@
 		874249921B798D0600F6DB69 /* TeethDetailThreeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249911B798D0600F6DB69 /* TeethDetailThreeController.m */; };
 		874249951B798EF100F6DB69 /* TeethChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249941B798EF100F6DB69 /* TeethChooseView.m */; };
 		8745C8D71B807EA400272FB4 /* MeiBaiThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8745C8D61B807EA400272FB4 /* MeiBaiThreeCell.m */; };
+		87465BB81B808A8400EA40C7 /* MeibaiItemChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87465BB71B808A8400EA40C7 /* MeibaiItemChooseController.m */; };
 		877B4E3D1B7CD95D00E6720D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B4E3B1B7CD95D00E6720D /* SplashViewController.m */; };
 		877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */; };
 		878108C51B7B907A000A735F /* AlienView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C41B7B907A000A735F /* AlienView.m */; };
@@ -180,6 +181,8 @@
 		874249941B798EF100F6DB69 /* TeethChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeethChooseView.m; sourceTree = "<group>"; };
 		8745C8D51B807EA400272FB4 /* MeiBaiThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiThreeCell.h; sourceTree = "<group>"; };
 		8745C8D61B807EA400272FB4 /* MeiBaiThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiThreeCell.m; sourceTree = "<group>"; };
+		87465BB61B808A8400EA40C7 /* MeibaiItemChooseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeibaiItemChooseController.h; sourceTree = "<group>"; };
+		87465BB71B808A8400EA40C7 /* MeibaiItemChooseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeibaiItemChooseController.m; sourceTree = "<group>"; };
 		877B4E3A1B7CD95D00E6720D /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		877B4E3B1B7CD95D00E6720D /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
@@ -632,6 +635,8 @@
 				8745C8D61B807EA400272FB4 /* MeiBaiThreeCell.m */,
 				87D533F91B7ADF3E00F3D6BE /* MeiBaiConfigFile.h */,
 				87D533FA1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m */,
+				87465BB61B808A8400EA40C7 /* MeibaiItemChooseController.h */,
+				87465BB71B808A8400EA40C7 /* MeibaiItemChooseController.m */,
 			);
 			name = MeiBaiProject;
 			sourceTree = "<group>";
@@ -964,6 +969,7 @@
 				873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */,
 				87E2AB651B78AFB9001ED07F /* InfoCell.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
+				87465BB81B808A8400EA40C7 /* MeibaiItemChooseController.m in Sources */,
 				8742498F1B798CF700F6DB69 /* TeethDetailTwoController.m in Sources */,
 				8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
