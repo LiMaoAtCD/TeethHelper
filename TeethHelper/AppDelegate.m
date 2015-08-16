@@ -49,7 +49,7 @@
 
     //检查是否登录
     BOOL isLogin = [AccountManager isLogin];
-    if (isLogin) {
+    if (!isLogin) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
         _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"LoginSuccess" object:nil];
@@ -71,7 +71,7 @@
     self.window.rootViewController = self.tabarController;
 }
 -(void)loginSuccess:(id)sender{
-    [AccountManager setLogin:YES];
+//    [AccountManager setLogin:YES];
     //登录成功,检查是否初次问卷
     if (![QuestionsConfigFile isCompletedInitialQuestions]) {
         

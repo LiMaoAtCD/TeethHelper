@@ -80,19 +80,21 @@
 
 - (IBAction)login:(id)sender {
     
-    BOOL isValid = [self validityCheck];
+//    BOOL isValid = [self validityCheck];
+//    
+//    if (isValid) {
+//        [SVProgressHUD showWithStatus:@"登录中"];
+//        
+//        //TODO:登录逻辑
+//        
+//        
+//        
+//            [self dismissViewControllerAnimated:YES completion:nil];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+//    }
     
-    if (isValid) {
-        [SVProgressHUD showWithStatus:@"登录中"];
-        
-        //TODO:登录逻辑
-        
-        
-        
-            [self dismissViewControllerAnimated:YES completion:nil];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
-    }
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
 
 
 }

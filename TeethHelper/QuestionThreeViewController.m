@@ -106,7 +106,11 @@
         make.height.equalTo(@30);
     }];
 
+    [TeethStateConfigureFile setTeethStateLevel:0];
     
+    NSInteger level = [TeethStateConfigureFile teethLevel];
+    
+    NSLog(@"level %ld",level);
 
 }
 
@@ -143,23 +147,39 @@
     if (sender.value >= 0.0 && sender.value < 0.25) {
         [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
             [TeethStateConfigureFile setTeethStateLevel:0];
+            
+            NSInteger level = [TeethStateConfigureFile teethLevel];
+            
+            NSLog(@"level %ld",level);
+            
         }];
     } else if (sender.value >= 0.25 && sender.value < 0.5){
         [sender setValue:0.33 withAnimation:YES completion:^(BOOL finished) {
             [TeethStateConfigureFile setTeethStateLevel:1];
+            NSInteger level = [TeethStateConfigureFile teethLevel];
+            
+            NSLog(@"level %ld",level);
 
         }];
     }else if (sender.value >= 0.5 && sender.value < 0.75){
         [sender setValue:0.66 withAnimation:YES completion:^(BOOL finished) {
             [TeethStateConfigureFile setTeethStateLevel:2];
+            NSInteger level = [TeethStateConfigureFile teethLevel];
+            
+            NSLog(@"level %ld",level);
 
         }];
     }else{
         [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
             [TeethStateConfigureFile setTeethStateLevel:3];
+            NSInteger level = [TeethStateConfigureFile teethLevel];
+            
+            NSLog(@"level %ld",level);
 
         }];
     }
+    
+    
 }
 
 

@@ -9,7 +9,7 @@
 #import "MeiBaiProjectViewController.h"
 #import "MeiBaiOneCell.h"
 #import "MeiBaiTwoCell.h"
-
+#import "MeiBaiConfigFile.h"
 #import "Utils.h"
 @interface MeiBaiProjectViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -66,11 +66,21 @@
         MeiBaiTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiTwoCell" forIndexPath:indexPath];
         if (indexPath.section == 1 && indexPath.row == 0) {
             cell.titleLabel.text = @"每日美白时长";
+            
+            NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
+            cell.contentLabel.text = [NSString stringWithFormat:@"%ld*8分钟",times];
+            
+            
         } else if(indexPath.section == 1&& indexPath.row ==1){
             cell.titleLabel.text = @"计划美白天数";
+            
+            NSInteger days = [MeiBaiConfigFile getNeedCureDays];
+            cell.contentLabel.text = [NSString stringWithFormat:@"%ld天",days];
+            
         } else{
             cell.titleLabel.text = @"每月保持时长";
             cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.contentLabel.text = @"4*8分钟";
         }
         return cell;
     }

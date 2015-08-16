@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) UILabel *noLabel;
 
-@property (nonatomic, assign) BOOL isSensitive;
+
 @end
 
 @implementation QuestionFourViewController
@@ -79,7 +79,8 @@
         make.height.equalTo(@30);
     }];
     
-    self.isSensitive = YES;
+    [TeethStateConfigureFile setSensitive:YES];
+
 
 }
 -(void)sliderValueChanged:(RS_SliderView *)sender {

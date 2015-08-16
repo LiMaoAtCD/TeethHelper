@@ -87,23 +87,31 @@
     if (sender.value < 0.5) {
         self.yesLabel.textColor = [Utils commonColor];
         self.noLabel.textColor = [UIColor lightGrayColor];
-        [TeethStateConfigureFile WillStrong:YES];
+        
         
     } else{
         self.yesLabel.textColor = [UIColor lightGrayColor];
         self.noLabel.textColor = [Utils commonColor];
         [TeethStateConfigureFile WillStrong:NO];
+        _isStrongWill = NO;
+
     }
 }
 
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
     
     if (sender.value < 0.5) {
-        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
+        _isStrongWill = YES;
 
+        [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile WillStrong:YES];
         }];
     } else{
+        _isStrongWill = NO;
+
         [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
+            [TeethStateConfigureFile WillStrong:NO];
+
         }];
     }
 }
@@ -127,7 +135,6 @@
 }
 - (IBAction)completedQuestions:(id)sender {
     
-    [QuestionsConfigFile setCompletedInitialQuestions:YES];
     
     //牙齿等级
 
@@ -146,13 +153,14 @@
     }
     NSInteger answer3 = 0;
     //是否意愿强烈
-    BOOL willstrong = [TeethStateConfigureFile isWillStrong];
     
-    if (willstrong) {
+    if (_isStrongWill) {
         answer3 = 0;
     } else{
         answer3 = 1;
     }
+    
+    NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
     
     if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
         //加强
@@ -162,12 +170,13 @@
         QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
         analysizeVC.type = Enhance;
         [self.navigationController pushViewController:analysizeVC animated:YES];
-
+        NSLog(@"加强");
         
     } else if(answer1 == 2){
         //咨询牙医
         QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
         [self.navigationController pushViewController:noprojectVC animated:YES];
+        NSLog(@"牙医");
 
         
     } else if(answer1 != 2 && answer2 == 0 && answer3 == 1){
@@ -178,6 +187,7 @@
         analysizeVC.type = Gentle;
 
         [self.navigationController pushViewController:analysizeVC animated:YES];
+        NSLog(@"温柔");
 
     } else{
         //标准
@@ -187,6 +197,7 @@
         analysizeVC.type = Standard;
 
         [self.navigationController pushViewController:analysizeVC animated:YES];
+        NSLog(@"标准");
 
     }
     
@@ -194,8 +205,9 @@
     
     
     
+    [QuestionsConfigFile setCompletedInitialQuestions:YES];
+
     
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
 
 }
 
