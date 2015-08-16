@@ -48,7 +48,7 @@
 
     //检查是否登录
     BOOL isLogin = [AccountManager isLogin];
-    if (!isLogin) {
+    if (isLogin) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
         _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"LoginSuccess" object:nil];
@@ -72,7 +72,7 @@
 -(void)loginSuccess:(id)sender{
     [AccountManager setLogin:YES];
     //登录成功,检查是否初次问卷
-    if (![QuestionsConfigFile isCompletedInitialQuestions]) {
+    if ([QuestionsConfigFile isCompletedInitialQuestions]) {
         
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Questions" bundle:nil];
         self.questionsVC  = [sb instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
@@ -182,9 +182,9 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FirstLaunch"];
         
         //牙齿状况初始设置
-        [TeethStateConfigureFile setSensitive:NO];
-        [TeethStateConfigureFile WillStrong:YES];
-        [TeethStateConfigureFile setTeethStateLevel:0];
+//        [TeethStateConfigureFile setSensitive:NO];
+//        [TeethStateConfigureFile WillStrong:YES];
+//        [TeethStateConfigureFile setTeethStateLevel:0];
         
         
     } else {

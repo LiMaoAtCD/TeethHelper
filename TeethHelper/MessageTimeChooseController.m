@@ -25,7 +25,6 @@
     
     
     
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -61,11 +60,20 @@
     self.backgroundView.alpha = 0.0;
     
     if ([self.delegate respondsToSelector:@selector(didSelectTime:)]) {
+//        NSDate *date = [self ChinaTime:_timePicker.date];
+       
+        
         [self.delegate didSelectTime:_timePicker.date];
     }
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+-(NSDate *)ChinaTime:(NSDate*)date{
+    NSTimeZone *tz = [NSTimeZone localTimeZone];
+    NSInteger seconds = [tz secondsFromGMTForDate: date];
+    return [NSDate dateWithTimeInterval: seconds sinceDate: date];
 }
 
 @end

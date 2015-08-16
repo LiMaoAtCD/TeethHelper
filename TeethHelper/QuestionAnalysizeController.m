@@ -9,8 +9,9 @@
 #import "QuestionAnalysizeController.h"
 #import "Utils.h"
 #import <Masonry.h>
-
-@interface QuestionAnalysizeController ()
+#import "MessageTimeChooseController.h"
+#import "MessageConfigureFile.h"
+@interface QuestionAnalysizeController ()<TimeSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *projectLabel;
 
@@ -54,7 +55,37 @@
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
     }
     
+    [self.beginTimeButton addTarget:self action:@selector(chooseTime:) forControlEvents:UIControlEventTouchUpInside];
     
+    
+}
+
+-(void)chooseTime:(id)sender{
+    UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+    MessageTimeChooseController *timeVC = [sb instantiateViewControllerWithIdentifier:@"MessageTimeChooseController"];
+    
+    timeVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    timeVC.delegate  = self;
+    [self presentViewController:timeVC animated:YES completion:nil];
+    
+}
+
+-(void)didSelectTime:(NSDate *)date{
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"HH"];
+    NSString *hour = [formatter stringFromDate:date];
+    NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+    [formatter1 setDateFormat:@"mm"];
+    NSString *minute = [formatter1 stringFromDate:date];
+    
+    [MessageConfigureFile setAlertNotificationTime:hour andMinute:minute];
+    [MessageConfigureFile setNotificationAtHour:hour minute:minute];
+    
+    NSString *time =[NSString stringWithFormat:@"%.2ld:%.2ld",[hour integerValue],(long)[minute integerValue]];
+    
+    [self.beginTimeButton setTitle:time forState:UIControlStateNormal];
+
 }
 
 
@@ -85,5 +116,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end
