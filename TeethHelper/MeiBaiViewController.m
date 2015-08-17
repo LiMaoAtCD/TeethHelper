@@ -24,6 +24,8 @@
 @property (nonatomic, strong) ALienGrayView *gray3View;
 @property (nonatomic, strong) ALienGrayView *gray4View;
 
+@property (nonatomic, strong) UILabel *currentProjectLabel;
+
 
 @end
 
@@ -70,6 +72,8 @@
         self.gray4View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)times];
 
         [self.alienView animateArcTo:0.5];
+        _currentProjectLabel.text = @"当前计划: 治疗";
+
 
     } else{
         //保持阶段
@@ -78,6 +82,8 @@
         
         self.gray3View.hidden = YES;
         self.gray4View.daysLabel.text = @"4";
+        _currentProjectLabel.text = @"当前计划: 保持";
+
     }
     
     NSInteger completedCuredays = [MeiBaiConfigFile getCompletedCureDays];
@@ -153,19 +159,19 @@
         make.right.equalTo(self.view.mas_centerX).offset(0);
     }];
     
-    UILabel *currentProjectLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    _currentProjectLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     
 //    if (![MeiBaiConfigFile getCurrentProject] || [[MeiBaiConfigFile getCurrentProject] isEqualToString:@"治疗"]) {
 //        currentProjectLabel.text = @"当前计划: 治疗";
 //    } else{
-        currentProjectLabel.text = @"当前计划: 保持";
+        _currentProjectLabel.text = @"当前计划: 保持";
 //    }
-    currentProjectLabel.textAlignment =NSTextAlignmentCenter;
-    currentProjectLabel.textColor = [Utils commonColor];
-    currentProjectLabel.font = [UIFont systemFontOfSize:14.0];
-    [self.view addSubview:currentProjectLabel];
+    _currentProjectLabel.textAlignment =NSTextAlignmentCenter;
+    _currentProjectLabel.textColor = [Utils commonColor];
+    _currentProjectLabel.font = [UIFont systemFontOfSize:14.0];
+    [self.view addSubview:_currentProjectLabel];
     
-    [currentProjectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_currentProjectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_centerX).offset(0);
         make.right.equalTo(self.view.mas_right);
         make.height.equalTo(@20);
@@ -204,9 +210,9 @@
     [self.view addSubview:_gray3View];
     
     [_gray3View mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(currentProjectLabel.mas_centerX).offset(-4);
+        make.right.equalTo(_currentProjectLabel.mas_centerX).offset(-4);
         make.width.equalTo(@50);
-        make.top.equalTo(currentProjectLabel.mas_bottom).offset(4);
+        make.top.equalTo(_currentProjectLabel.mas_bottom).offset(4);
         make.height.equalTo(@80);
         
     }];
@@ -217,9 +223,9 @@
     [self.view addSubview:_gray4View];
     
     [_gray4View mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(currentProjectLabel.mas_centerX).offset(4);
+        make.left.equalTo(_currentProjectLabel.mas_centerX).offset(4);
         make.width.equalTo(@50);
-        make.top.equalTo(currentProjectLabel.mas_bottom).offset(4);
+        make.top.equalTo(_currentProjectLabel.mas_bottom).offset(4);
         make.height.equalTo(@80);
         
     }];
