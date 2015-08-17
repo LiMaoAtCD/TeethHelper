@@ -23,6 +23,7 @@
     //设置美白等级为3
     [MeiBaiConfigFile setCureTimesEachDay:3];
     [MeiBaiConfigFile setNeedCureDays:10];
+    [MeiBaiConfigFile setCureStage:YES];
 }
 -(void)pop{
     

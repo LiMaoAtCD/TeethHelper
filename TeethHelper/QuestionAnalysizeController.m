@@ -70,7 +70,8 @@
         [MeiBaiConfigFile setNeedCureDays:10];
 
     }
-    
+    [MeiBaiConfigFile setCureStage:YES];
+
     [self.beginTimeButton addTarget:self action:@selector(chooseTime:) forControlEvents:UIControlEventTouchUpInside];
     
     

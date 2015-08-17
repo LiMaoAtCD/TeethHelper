@@ -19,6 +19,11 @@
 @interface MeiBaiViewController ()
 
 @property (nonatomic, strong) AlienView *alienView;
+@property (nonatomic, strong) ALienGrayView *gray1View;
+@property (nonatomic, strong) ALienGrayView *gray2View;
+@property (nonatomic, strong) ALienGrayView *gray3View;
+@property (nonatomic, strong) ALienGrayView *gray4View;
+
 
 @end
 
@@ -54,10 +59,32 @@
     
     BOOL iscure = [MeiBaiConfigFile isCureStage];
     if (iscure) {
+        //如果是治疗阶段
         
-    }
-    [self.alienView animateArcTo:0.7];
+        
+        NSInteger needday = [MeiBaiConfigFile getNeedCureDays];
+        NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
+        self.gray3View.hidden = NO;
 
+        self.gray3View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)needday];
+        self.gray4View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)times];
+
+        [self.alienView animateArcTo:0.5];
+
+    } else{
+        //保持阶段
+        [self.alienView animateArcTo:1.0];
+        self.alienView.dayLabel.text = @"1";
+        
+        self.gray3View.hidden = YES;
+        self.gray4View.daysLabel.text = @"4";
+    }
+    
+    NSInteger completedCuredays = [MeiBaiConfigFile getCompletedCureDays];
+    NSInteger completedkeepdays = [MeiBaiConfigFile getCompletedKeepDays];
+    
+    self.gray1View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedCuredays];
+    self.gray2View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedkeepdays];
 
 }
 -(void)configMainView{
@@ -146,11 +173,11 @@
     }];
    
     //左 - 治疗
-    ALienGrayView *gray1View = [[ALienGrayView alloc] initWithDays:0 forType:@"治疗"];
+    _gray1View = [[ALienGrayView alloc] initWithDays:0 forType:@"治疗"];
     
-    [self.view addSubview:gray1View];
+    [self.view addSubview:_gray1View];
     
-    [gray1View mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_gray1View mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(completedLabel.mas_centerX).offset(-4);
         make.width.equalTo(@50);
         make.top.equalTo(completedLabel.mas_bottom).offset(4);
@@ -159,11 +186,11 @@
     }];
     
     //左 - 保持
-    ALienGrayView *gray2View = [[ALienGrayView alloc] initWithDays:0 forType:@"保持"];
+    _gray2View = [[ALienGrayView alloc] initWithDays:0 forType:@"保持"];
     
-    [self.view addSubview:gray2View];
+    [self.view addSubview:_gray2View];
     
-    [gray2View mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_gray2View mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(completedLabel.mas_centerX).offset(4);
         make.width.equalTo(@50);
         make.top.equalTo(completedLabel.mas_bottom).offset(4);
@@ -172,11 +199,11 @@
     }];
     
     //右 -
-    ALienGrayView *gray3View = [[ALienGrayView alloc] initWithDays:0 forType:@"天"];
+    _gray3View = [[ALienGrayView alloc] initWithDays:0 forType:@"天"];
     
-    [self.view addSubview:gray3View];
+    [self.view addSubview:_gray3View];
     
-    [gray3View mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_gray3View mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(currentProjectLabel.mas_centerX).offset(-4);
         make.width.equalTo(@50);
         make.top.equalTo(currentProjectLabel.mas_bottom).offset(4);
@@ -184,16 +211,12 @@
         
     }];
 
-
-
-    
-    
     //保持天数
-    ALienGrayView *gray4View = [[ALienGrayView alloc] initWithDays:99 forType:@"次/天"];
+    _gray4View = [[ALienGrayView alloc] initWithDays:99 forType:@"次/天"];
     
-    [self.view addSubview:gray4View];
+    [self.view addSubview:_gray4View];
     
-    [gray4View mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_gray4View mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(currentProjectLabel.mas_centerX).offset(4);
         make.width.equalTo(@50);
         make.top.equalTo(currentProjectLabel.mas_bottom).offset(4);
