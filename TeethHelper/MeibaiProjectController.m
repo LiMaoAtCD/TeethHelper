@@ -10,6 +10,8 @@
 #import "Utils.h"
 
 #import "AlienTimerView.h"
+#import "ProjectCompletedQuesitonController.h"
+
 
 @interface MeibaiProjectController ()
 
@@ -114,6 +116,12 @@
     
     [self.timer invalidate];
     
+    
+    ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
+    
+    [self presentViewController:questionVC animated:YES completion:^{
+        
+    }];
     
 }
 
