@@ -191,6 +191,8 @@
                     <exclude reference="aSy-1s-5mo"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="FSB-hO-ecI"/>
+                    <exclude reference="Ow4-n8-h6E"/>
                     <exclude reference="6zg-gj-zi1"/>
                     <exclude reference="9Bk-jj-U13"/>
                     <exclude reference="ICv-MB-GB5"/>
@@ -198,8 +200,6 @@
                     <exclude reference="M5i-S5-v1G"/>
                     <exclude reference="UyE-ja-5y8"/>
                     <exclude reference="aWI-Ln-paC"/>
-                    <exclude reference="FSB-hO-ecI"/>
-                    <exclude reference="Ow4-n8-h6E"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -209,6 +209,8 @@
                     <include reference="aSy-1s-5mo"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="FSB-hO-ecI"/>
+                    <include reference="Ow4-n8-h6E"/>
                     <include reference="6zg-gj-zi1"/>
                     <include reference="9Bk-jj-U13"/>
                     <include reference="ICv-MB-GB5"/>
@@ -216,8 +218,6 @@
                     <include reference="M5i-S5-v1G"/>
                     <include reference="UyE-ja-5y8"/>
                     <include reference="aWI-Ln-paC"/>
-                    <include reference="FSB-hO-ecI"/>
-                    <include reference="Ow4-n8-h6E"/>
                 </mask>
             </variation>
         </view>

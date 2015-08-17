@@ -11,7 +11,7 @@
 
 #import "AlienTimerView.h"
 #import "ProjectCompletedQuesitonController.h"
-
+#import "MeiBaiConfigFile.h"
 
 @interface MeibaiProjectController ()
 
@@ -19,6 +19,10 @@
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger totalCount;
+
+
+//是否从问卷返回
+@property (nonatomic, assign) BOOL isfromQuestion;
 
 @end
 
@@ -55,6 +59,8 @@
     self.totalCount = 0;
 }
 
+
+
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -65,8 +71,13 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    if (self.isfromQuestion) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } else{
+        
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+    }
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
 }
 
 -(void)timerCount:(id)sender{
@@ -117,11 +128,19 @@
     [self.timer invalidate];
     
     
-    ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
+    //如果是治疗阶段
     
-    [self presentViewController:questionVC animated:YES completion:^{
+    if ([MeiBaiConfigFile isCureStage]) {
+        ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
         
-    }];
+        [self presentViewController:questionVC animated:YES completion:^{
+            self.isfromQuestion = YES;
+        }];
+    } else{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    
+    
     
 }
 
