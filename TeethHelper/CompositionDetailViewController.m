@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *grayView;
 
@@ -30,14 +30,11 @@
     
     self.titleLabel.text = self.mainTitle;
     self.imageView.image = self.toRevealImage;
+    
     self.contentLabel.text = self.content;
-    
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];
     
     [self.grayView addGestureRecognizer:tap];
-    
-  
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -45,14 +42,14 @@
     [self.view layoutIfNeeded];
     
  
-    CGRect rect = [self.content boundingRectWithSize:CGSizeMake(self.contentLabel.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading|NSStringDrawingUsesDeviceMetrics attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil];
-    NSLog(@"%f",rect.size.height);
-//    self.contentLabel.bounds.size.height = rect.size.height;
-    CGRect temp = self.contentLabel.frame;
-    self.contentLabel.frame = CGRectMake(temp.origin.x, temp.origin.y, temp.size.width, rect.size.height);
-    CGRect mainTempRect = self.MainView.bounds;
-    
-    self.MainView.bounds =CGRectMake(0, 0, mainTempRect.size.width, mainTempRect.size.height + rect.size.height);
+//    CGRect rect = [self.content boundingRectWithSize:CGSizeMake(self.contentLabel.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading|NSStringDrawingUsesDeviceMetrics attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12.0]} context:nil];
+//    NSLog(@"%f",rect.size.height);
+////    self.contentLabel.bounds.size.height = rect.size.height;
+//    CGRect temp = self.contentLabel.frame;
+//    self.contentLabel.frame = CGRectMake(temp.origin.x, temp.origin.y, temp.size.width, rect.size.height);
+//    CGRect mainTempRect = self.MainView.bounds;
+//    
+//    self.MainView.bounds =CGRectMake(0, 0, mainTempRect.size.width, mainTempRect.size.height + rect.size.height);
 //
 //    [self.view layoutIfNeeded];
     
