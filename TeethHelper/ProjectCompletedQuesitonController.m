@@ -32,6 +32,10 @@
 @property (nonatomic, strong) UILabel *secondAnswerLabel;
 @property (nonatomic, strong) UILabel *thirdAnswerLabel;
 
+@property (nonatomic, assign) NSInteger answer1;
+@property (nonatomic, assign) NSInteger answer2;
+
+
 @end
 
 @implementation ProjectCompletedQuesitonController
@@ -49,7 +53,7 @@
         make.bottom.equalTo(self.view.mas_bottom).offset(0);
         make.left.equalTo(self.view).offset(0);
         make.right.equalTo(self.view).offset(0);
-        make.height.equalTo(@40);
+        make.height.equalTo(@50);
     }];
     
     _previousButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -62,7 +66,7 @@
         make.bottom.equalTo(self.view.mas_bottom).offset(0);
         make.left.equalTo(self.view).offset(0);
         make.right.equalTo(self.view.mas_centerX).offset(-4);
-        make.height.equalTo(@40);
+        make.height.equalTo(@50);
     }];
     
     
@@ -78,7 +82,7 @@
         make.bottom.equalTo(self.view.mas_bottom).offset(0);
         make.left.equalTo(self.view.mas_centerX).offset(4);
         make.right.equalTo(self.view.mas_right).offset(0);
-        make.height.equalTo(@40);
+        make.height.equalTo(@50);
     }];
     
     _previousButton.hidden = YES;
@@ -108,14 +112,15 @@
 //第1题相关
 
 -(void)configFirstQuestionView{
-    NSArray *labels = @[@"3次共24分钟",@"4次共24分钟",@"5次共24分钟",@"6次共24分钟",@"7次共24分钟"];
+    //
+    NSArray *labels = @[@"3次共24分钟",@"4次共32分钟",@"5次共40分钟",@"6次共48分钟",@"7次共56分钟"];
+    
     self.oneViewArrays = [NSMutableArray array];
     
     for (int i = 0 ; i < labels.count; i++) {
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex:)];
         QuestionOneView *view = [[QuestionOneView alloc] initWithLabel:labels[i]];
-        //        view.backgroundColor = [UIColor redColor];
         view.tag = i;
         [view addGestureRecognizer:tap];
         [self.view addSubview:view];
@@ -137,6 +142,8 @@
         QuestionOneView *view = obj;
         if (idx == 0) {
             [view didSelectionAtIndex:Selected];
+            self.answer1 = 0;
+
         } else{
             [view didSelectionAtIndex:Normal];
         }
@@ -159,8 +166,9 @@
     [self.view addSubview:_horSlider];
     
     [_horSlider setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
-        
     }];
+    self.answer2 = 0;
+
     [_horSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(10);
         make.bottom.equalTo(self.view.mas_bottom).offset(-150);
@@ -218,20 +226,22 @@
         self.firstAnswerLabel.textColor = [Utils commonColor];
         self.secondAnswerLabel.textColor = [UIColor lightGrayColor];
         self.thirdAnswerLabel.textColor = [UIColor lightGrayColor];
+        self.answer2 = 0;
     } else if(sender.value >= 0.33 && sender.value < 0.67){
         self.firstAnswerLabel.textColor = [UIColor lightGrayColor];
         self.secondAnswerLabel.textColor = [Utils commonColor];
         self.thirdAnswerLabel.textColor = [UIColor lightGrayColor];
+        self.answer2 = 1;
+
     }else{
         self.firstAnswerLabel.textColor = [UIColor lightGrayColor];
         self.secondAnswerLabel.textColor = [UIColor lightGrayColor];
         self.thirdAnswerLabel.textColor = [Utils commonColor];
+        self.answer2 = 2;
     }
-    
 }
 
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
-    
     if (sender.value <  0.33) {
         [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
         }];
@@ -250,9 +260,11 @@
         QuestionOneView *view = obj;
         if (idx == tap.view.tag) {
             [view didSelectionAtIndex:Selected];
+            self.answer1 = idx;
         } else{
             [view didSelectionAtIndex:Normal];
         }
+        
     }];
 }
 
@@ -265,7 +277,7 @@
 //点击事件处理
 
 -(void)nextQuestion:(UIButton *)button{
-    _questionLabel.text = @"Q2:请问您在牙齿美白中有酸痛感觉吗?";
+    _questionLabel.text = @"Q2:您在牙齿美白中有酸痛感觉吗?";
 
     self.questionIndexImageView.image = [UIImage imageNamed:@"MB_completed_question2"];
     self.nextButton.hidden = YES;
@@ -299,7 +311,12 @@
 }
 
 -(void)finishQuesiton:(UIButton*)button{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSLog(@"answer1: %ld",(long)_answer1);
+    NSLog(@"answer1: %ld",(long)_answer2);
+
+    
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
