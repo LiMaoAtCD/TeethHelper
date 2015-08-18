@@ -9,6 +9,7 @@
 #import "ModifyViewController.h"
 #import "Utils.h"
 #import <SVProgressHUD.h>
+#import "NetworkManager.h"
 @interface ModifyViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
@@ -49,6 +50,25 @@
         //TODO: 修改密码
         [SVProgressHUD showWithStatus:@"正在修改"];
         
+        [NetworkManager ForgetPassword:self.phone verifyCode:self.verifyCode password:self.password withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                //修改成功
+                
+                [SVProgressHUD showSuccessWithStatus:@"密码修改成功，请重新登录"];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                });
+                
+            } else if([responseObject[@"status"] integerValue] == 3001){
+                [SVProgressHUD showErrorWithStatus:@"该手机号尚未注册"];
+            } else if ([responseObject[@"status"] integerValue] == 1008){
+                [SVProgressHUD showErrorWithStatus:@"验证码错误"];
+            }
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错啦"];
+        }];
     
     }
 }

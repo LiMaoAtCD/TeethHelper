@@ -10,4 +10,7 @@
 
 @interface ModifyViewController : UIViewController
 
+@property (nonatomic,strong) NSString *verifyCode;
+@property (nonatomic,strong) NSString *phone;
+
 @end
