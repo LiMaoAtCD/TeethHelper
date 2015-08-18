@@ -36,14 +36,14 @@
 
 //性别
 
-+(void)setgender:(NSInteger)gender{
-    [[NSUserDefaults standardUserDefaults] setInteger:gender forKey:@"user_gender"];
++(void)setgender:(NSString *)gender{
+    [[NSUserDefaults standardUserDefaults] setObject:gender forKey:@"user_gender"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
-+(NSInteger)getGender{
++(NSString *)getGender{
     
-    NSInteger gender  = [[NSUserDefaults standardUserDefaults] integerForKey:@"user_gender"];
+    NSString *gender  = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_gender"];
     return gender;
 
 }

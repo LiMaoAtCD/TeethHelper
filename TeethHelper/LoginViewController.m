@@ -12,6 +12,7 @@
 #import <Masonry.h>
 #import "SplashViewController.h"
 #import <SVProgressHUD.h>
+#import "NetworkManager.h"
 
 @interface LoginViewController ()
 
@@ -80,23 +81,66 @@
 
 - (IBAction)login:(id)sender {
     
-//    BOOL isValid = [self validityCheck];
-//    
-//    if (isValid) {
-//        [SVProgressHUD showWithStatus:@"登录中"];
-//        
-//        //TODO:登录逻辑
-//        
-//        
-//        
-//            [self dismissViewControllerAnimated:YES completion:nil];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
-//    }
+    BOOL isValid = [self validityCheck];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
-
-
+    if (isValid) {
+        [SVProgressHUD showWithStatus:@"登录中"];
+        
+        //TODO:登录逻辑
+        [NetworkManager LoginByUsername:self.phone password:self.password withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"responseObject:%@",responseObject);
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                //注册成功
+                NSDictionary *data = responseObject[@"data"];
+                NSDictionary *temp = data[@"user"];
+                
+                
+                //token
+                if ([[data allKeys] containsObject:@"accessToken"]) {
+                    
+                    [AccountManager setTokenID:data[@"accessToken"]];
+                }
+                if ([[temp allKeys] containsObject:@"nickName"]) {
+                    //姓名
+                    [AccountManager setName:temp[@"nickName"]];
+                }
+                if ([[temp allKeys] containsObject:@"sex"]) {
+                    //性别
+                    [AccountManager setgender:temp[@"sex"]];
+                }
+                if ([[temp allKeys] containsObject:@"birthday"]) {
+                    //生日
+                    [AccountManager setBirthDay:temp[@"birthday"]];
+                }
+                if ([[temp allKeys] containsObject:@"username"]) {
+                    //手机号
+                    [AccountManager setCellphoneNumber:temp[@"username"]];
+                }
+                if ([[temp allKeys] containsObject:@"address"]) {
+                    //地址
+                    [AccountManager setAddress:temp[@"address"]];
+                }
+                if ([[temp allKeys] containsObject:@"avatar"]) {
+                    //头像
+                    [AccountManager setAvatarUrlString:temp[@"avatar"]];
+                }
+                
+                [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+            
+                
+            } else if ([responseObject[@"status"] integerValue] == 1001){
+                //校验出错
+                [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
+                
+            }
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错啦"];
+        }];
+        
+    }
 }
 
 -(void)textFieldEditChanged:(UITextField *)textField{

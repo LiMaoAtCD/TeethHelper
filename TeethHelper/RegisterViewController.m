@@ -9,6 +9,9 @@
 #import "RegisterViewController.h"
 #import "Utils.h"
 #import <SVProgressHUD.h>
+#import "NetworkManager.h"
+#import "AccountManager.h"
+
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nickNameTextField;
 
@@ -96,6 +99,69 @@
         
         if (self.isAgreeProtocol) {
             
+            [SVProgressHUD showWithStatus:@"正在注册"];
+            [NetworkManager RegisterByNickname:self.name phone:self.phone password:self.password verifyCode:self.verifyCode withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"responseObject:%@",responseObject);
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    //注册成功
+                    NSDictionary *data = responseObject[@"data"];
+                    NSDictionary *temp = data[@"user"];
+                    
+                    
+                    //token
+                    if ([[data allKeys] containsObject:@"accessToken"]) {
+
+                        [AccountManager setTokenID:data[@"accessToken"]];
+                    }
+                    if ([[temp allKeys] containsObject:@"nickName"]) {
+                        //姓名
+                        [AccountManager setName:temp[@"nickName"]];
+                    }
+                    if ([[temp allKeys] containsObject:@"sex"]) {
+                        //性别
+                        [AccountManager setgender:temp[@"sex"]];
+                    }
+                    if ([[temp allKeys] containsObject:@"birthday"]) {
+                        //生日
+                        [AccountManager setBirthDay:temp[@"birthday"]];
+                    }
+                    if ([[temp allKeys] containsObject:@"username"]) {
+                        //手机号
+                        [AccountManager setCellphoneNumber:temp[@"username"]];
+                    }
+                    if ([[temp allKeys] containsObject:@"address"]) {
+                        //地址
+                        [AccountManager setAddress:temp[@"address"]];
+                    }
+                    if ([[temp allKeys] containsObject:@"avatar"]) {
+                        //头像
+                        [AccountManager setAvatarUrlString:temp[@"avatar"]];
+                    }
+                    
+                    
+                    
+                    
+                    
+                    [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+                    });
+                    
+                } else if ([responseObject[@"status"] integerValue] == 1008){
+                    //校验出错
+                    [SVProgressHUD showErrorWithStatus:@"验证码错误"];
+
+                } else if ([responseObject[@"status"] integerValue] == 3002) {
+                    //手机号已被注册
+                    [SVProgressHUD showErrorWithStatus:@"该手机号码已经注册"];
+                }
+                
+                
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错啦"];
+            }];
         } else{
             //
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"请先同意xxx协议" preferredStyle:UIAlertControllerStyleAlert];
@@ -179,8 +245,19 @@
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
         [self.timer fire];
         
-        //TODO : 获取验证码
+        [SVProgressHUD showWithStatus:@"正在获取验证码"];
 
+        [NetworkManager FetchVerifyCode:self.phone withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"responseObject:%@",responseObject);
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                [SVProgressHUD showSuccessWithStatus:@"验证码获取成功"];
+            } else if ([responseObject[@"status"] integerValue] == 3002){
+                [SVProgressHUD showErrorWithStatus:@"该手机号码已经注册"];
+            }
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"error %@",error);
+            [SVProgressHUD showErrorWithStatus:@"网络出错啦"];
+        }];
     }
 }
 

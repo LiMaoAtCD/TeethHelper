@@ -20,8 +20,8 @@
 +(void)setTokenID:(NSString*)token;
 
 //性别
-+(void)setgender:(NSInteger)gender;
-+(NSInteger)getGender;
++(void)setgender:(NSString*)gender;
++(NSString*)getGender;
 //地址
 +(NSString*)getAddress;
 +(void)setAddress:(NSString*)address;

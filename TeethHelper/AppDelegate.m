@@ -71,7 +71,7 @@
     self.window.rootViewController = self.tabarController;
 }
 -(void)loginSuccess:(id)sender{
-//    [AccountManager setLogin:YES];
+    [AccountManager setLogin:YES];
     //登录成功,检查是否初次问卷
     if (![QuestionsConfigFile isCompletedInitialQuestions]) {
         
