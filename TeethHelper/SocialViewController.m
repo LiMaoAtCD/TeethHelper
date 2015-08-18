@@ -8,7 +8,14 @@
 
 #import "SocialViewController.h"
 #import "Utils.h"
-@interface SocialViewController ()
+#import "SocialImageCell.h"
+#import "SocialNoImageCell.h"
+#import <DateTools.h>
+@interface SocialViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *dataItems;
 
 @end
 
@@ -19,22 +26,34 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"社区" onViewController:self];
     self.navigationItem.leftBarButtonItem = nil;
+    
+    self.dataItems = [NSMutableArray array];
 
+    self.dataItems =[@[
+                       @{@"avatar":@"xxx",
+                         @"time":@"2015-01-01",
+                         @""
+                         }
+                       
+                       ] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark -tableview
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+}
 
 @end

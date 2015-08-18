@@ -65,6 +65,8 @@
 		8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */; };
 		8785F9071B7C6D250051B29B /* QuestionOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9061B7C6D250051B29B /* QuestionOneView.m */; };
 		8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9091B7C7D210051B29B /* RS_SliderView.m */; };
+		87BE0D381B82CCAC001E0D30 /* SocialNoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */; };
+		87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */; };
 		87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */; };
 		87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */; };
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
@@ -219,6 +221,10 @@
 		8785F9061B7C6D250051B29B /* QuestionOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionOneView.m; sourceTree = "<group>"; };
 		8785F9081B7C7D210051B29B /* RS_SliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RS_SliderView.h; sourceTree = "<group>"; };
 		8785F9091B7C7D210051B29B /* RS_SliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RS_SliderView.m; sourceTree = "<group>"; };
+		87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNoImageCell.h; sourceTree = "<group>"; };
+		87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNoImageCell.m; sourceTree = "<group>"; };
+		87BE0D391B82CCBD001E0D30 /* SocialImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialImageCell.h; sourceTree = "<group>"; };
+		87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialImageCell.m; sourceTree = "<group>"; };
 		87D00AD51B7DCE3700C21378 /* QuestionNoProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionNoProjectController.h; sourceTree = "<group>"; };
 		87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionNoProjectController.m; sourceTree = "<group>"; };
 		87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionNoProjectController.xib; sourceTree = "<group>"; };
@@ -458,6 +464,10 @@
 			children = (
 				873B75C21B774029002D7871 /* SocialViewController.h */,
 				873B75C31B774029002D7871 /* SocialViewController.m */,
+				87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */,
+				87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */,
+				87BE0D391B82CCBD001E0D30 /* SocialImageCell.h */,
+				87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */,
 			);
 			name = ThirdTab;
 			sourceTree = "<group>";
@@ -977,8 +987,10 @@
 				87D533F81B7ACF7E00F3D6BE /* TeethStateConfigureFile.m in Sources */,
 				870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */,
 				873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */,
+				87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */,
 				87E2AB651B78AFB9001ED07F /* InfoCell.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
+				87BE0D381B82CCAC001E0D30 /* SocialNoImageCell.m in Sources */,
 				87465BB81B808A8400EA40C7 /* MeibaiItemChooseController.m in Sources */,
 				8742498F1B798CF700F6DB69 /* TeethDetailTwoController.m in Sources */,
 				8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */,
