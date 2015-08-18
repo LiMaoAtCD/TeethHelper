@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>343F509954A1287F46766D7B99150032</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43EF1AB8F6FEBD77CC31E5220D91B16D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5352D432641F0656C90741034E32F31E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>672DDFB871D6E0B0EEC0459E7AF33BED</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>75060A5B2CC6BD4E95E08623586076B4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7DE913DC2E53853ED355CF0B14522676</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B281DA29A9C3EDFB45BA53651F6BA611</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5C223351AAD9E5B150055258F36B58E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B60EB6D90BFF1D26BA38B779AC21579F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

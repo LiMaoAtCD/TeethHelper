@@ -6,6 +6,9 @@ target 'TeethHelper' do
 	pod "SVProgressHUD"
 	pod 'Masonry'
 	pod 'SDWebImage', '~>3.7'
+    pod 'DateTools'
+    
+
 end
 
 target 'TeethHelperTests' do
