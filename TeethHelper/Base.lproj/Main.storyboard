@@ -158,6 +158,9 @@
                                 <exclude reference="rkA-rH-NdD"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="UlH-cv-foL"/>
+                                <exclude reference="rby-xH-ur8"/>
+                                <exclude reference="zdJ-Of-Rui"/>
                                 <exclude reference="4VU-vg-dnS"/>
                                 <exclude reference="Jna-3c-zfP"/>
                                 <exclude reference="Yog-V8-FWj"/>
@@ -165,9 +168,6 @@
                                 <exclude reference="Jgb-6k-dFv"/>
                                 <exclude reference="f6F-qp-4WV"/>
                                 <exclude reference="gSU-4l-W5I"/>
-                                <exclude reference="rby-xH-ur8"/>
-                                <exclude reference="zdJ-Of-Rui"/>
-                                <exclude reference="UlH-cv-foL"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -177,6 +177,9 @@
                                 <include reference="rkA-rH-NdD"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="UlH-cv-foL"/>
+                                <include reference="rby-xH-ur8"/>
+                                <include reference="zdJ-Of-Rui"/>
                                 <include reference="4VU-vg-dnS"/>
                                 <include reference="Jna-3c-zfP"/>
                                 <include reference="Yog-V8-FWj"/>
@@ -184,9 +187,6 @@
                                 <include reference="Jgb-6k-dFv"/>
                                 <include reference="f6F-qp-4WV"/>
                                 <include reference="gSU-4l-W5I"/>
-                                <include reference="rby-xH-ur8"/>
-                                <include reference="zdJ-Of-Rui"/>
-                                <include reference="UlH-cv-foL"/>
                             </mask>
                         </variation>
                     </view>
@@ -207,7 +207,54 @@
                     <view key="view" contentMode="scaleToFill" id="BIS-2r-Dwu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="79" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="g1L-5n-ooC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="79" id="HZx-Ml-3w9">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HZx-Ml-3w9" id="Ttb-Hk-V7V">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="oEa-zx-kMh" id="ytS-o3-DTV"/>
+                                    <outlet property="delegate" destination="oEa-zx-kMh" id="v47-a2-fjv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="g1L-5n-ooC" secondAttribute="bottom" id="1s9-Hy-Cl2"/>
+                            <constraint firstItem="g1L-5n-ooC" firstAttribute="top" secondItem="BIS-2r-Dwu" secondAttribute="top" id="Inu-E6-NAb"/>
+                            <constraint firstAttribute="trailing" secondItem="g1L-5n-ooC" secondAttribute="trailing" id="Wvr-RB-61C"/>
+                            <constraint firstItem="g1L-5n-ooC" firstAttribute="leading" secondItem="BIS-2r-Dwu" secondAttribute="leading" id="aEd-CW-BkL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="g1L-5n-ooC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="1s9-Hy-Cl2"/>
+                                <exclude reference="Inu-E6-NAb"/>
+                                <exclude reference="Wvr-RB-61C"/>
+                                <exclude reference="aEd-CW-BkL"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="g1L-5n-ooC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="1s9-Hy-Cl2"/>
+                                <include reference="Inu-E6-NAb"/>
+                                <include reference="Wvr-RB-61C"/>
+                                <include reference="aEd-CW-BkL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="kXD-nP-1kF"/>
                 </viewController>
