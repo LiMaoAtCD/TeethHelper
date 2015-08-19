@@ -93,7 +93,7 @@
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:@"http://www.7wang523.com/teeth-api/user/upload" parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file" mimeType:@"image/png"];
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file" mimeType:@"image/jpg"];
     } success:completionHandler failure:failHandler];
     
 

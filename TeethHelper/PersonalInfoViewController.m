@@ -202,7 +202,30 @@
     
 }
 -(void)didSelectGenderType:(GenderType)type{
-    
+    if (type == MALE) {
+        [NetworkManager EditUserNickName:nil sex:@"男" birthday:nil address:nil withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                [AccountManager setgender:@"男"];
+                [self.tableView reloadData];
+            }
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+    } else{
+        [NetworkManager EditUserNickName:nil sex:@"女" birthday:nil address:nil withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                [AccountManager setgender:@"女"];
+                [self.tableView reloadData];
+
+            }
+
+
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+    }
 }
 
 #pragma mark - 头像选择

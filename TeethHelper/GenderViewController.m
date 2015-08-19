@@ -46,6 +46,8 @@
     if ([self.delegate respondsToSelector:@selector(didSelectGenderType:)]) {
         [self.delegate didSelectGenderType:MALE];
         [self dismissViewControllerAnimated:YES completion:nil];
+        
+        
 
     }
 }
