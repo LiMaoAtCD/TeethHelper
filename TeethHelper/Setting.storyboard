@@ -1650,7 +1650,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="5ZF-mz-3fz" secondAttribute="trailing" constant="8" id="pnF-H7-Fsg">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                                 </constraint>
-                                                <constraint firstItem="pf0-9N-7xf" firstAttribute="leading" secondItem="6M8-GJ-Gup" secondAttribute="leadingMargin" id="qvW-8z-eCA"/>
+                                                <constraint firstItem="pf0-9N-7xf" firstAttribute="leading" secondItem="6M8-GJ-Gup" secondAttribute="leading" id="qvW-8z-eCA"/>
                                                 <constraint firstAttribute="bottom" secondItem="V5i-Py-l46" secondAttribute="bottom" constant="6" id="rp4-6D-sW9">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                                 </constraint>
@@ -1741,7 +1741,11 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="pf0-9N-7xf" id="fUh-fu-2E5"/>
+                                            <outlet property="timeLabel" destination="kgc-xt-mBa" id="vsM-ap-VVC"/>
                                             <outlet property="topLine" destination="omo-0w-zjs" id="L5v-ca-B5E"/>
+                                            <outlet property="totalTimeLabel" destination="5ZF-mz-3fz" id="9Wa-9M-ykR"/>
+                                            <outlet property="useTimesLabel" destination="SKD-dq-pDP" id="xLd-HE-Cxm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
