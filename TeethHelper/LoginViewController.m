@@ -125,7 +125,7 @@
                     [AccountManager setAvatarUrlString:temp[@"avatar"]];
                 }
                 
-                [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+                [SVProgressHUD showSuccessWithStatus:@"登录成功"];
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];

@@ -88,14 +88,14 @@
 +(void)UploadAvatarImageFile:(UIImage *)image withCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     dictionary[@"accessToken"] = [AccountManager getTokenID];
-    
-    
+    NSString *string = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/user/upload?accessToken=%@",dictionary[@"accessToken"]];
+
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:@"http://www.7wang523.com/teeth-api/user/upload" parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file" mimeType:@"image/jpg"];
-    } success:completionHandler failure:failHandler];
     
+    [manager POST:string parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file.jpg" mimeType:@"image/jpeg"];
+    } success:completionHandler failure:failHandler];
 
 }
 

@@ -107,6 +107,8 @@
             NSString *phone = [AccountManager getCellphoneNumber];
             
             cell.contentLabel.text = phone;
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.contentLabel.textColor = [UIColor lightGrayColor];
             
         } else if (indexPath.row == 5){
 //            地址
@@ -160,12 +162,12 @@
 
         }
             break;
-        case 4:{
-            //手机号
-            PhoneInfoViewController *phoneVC = [sb instantiateViewControllerWithIdentifier:@"PhoneInfoViewController"];
-            [self.navigationController pushViewController:phoneVC animated:YES];
-        }
-            break;
+//        case 4:{
+//            //手机号
+//            PhoneInfoViewController *phoneVC = [sb instantiateViewControllerWithIdentifier:@"PhoneInfoViewController"];
+//            [self.navigationController pushViewController:phoneVC animated:YES];
+//        }
+//            break;
         case 5:{
             //地址
             AddressViewController *addressVC = [sb instantiateViewControllerWithIdentifier:@"AddressViewController"];
@@ -199,6 +201,20 @@
 */
 
 -(void)didSelectedBirthDay:(NSString *)birthday{
+    NSLog(@"%@",birthday);
+    [SVProgressHUD showWithStatus:@"正在修改"];
+    [NetworkManager EditUserNickName:nil sex:nil birthday:birthday address:nil withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+            [AccountManager setBirthDay:birthday];
+            [self.tableView reloadData];
+        } else{
+            [SVProgressHUD showSuccessWithStatus:@"修改失败"];
+
+        }
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错啦"];
+    }];
     
 }
 -(void)didSelectGenderType:(GenderType)type{
@@ -273,6 +289,8 @@
                 [SVProgressHUD showSuccessWithStatus:@"上传成功"];
                 
                 [AccountManager setAvatarUrlString:responseObject[@"data"]];
+                
+                [self.tableView reloadData];
             } else{
                 [SVProgressHUD showErrorWithStatus:@"上传失败"];
             }
