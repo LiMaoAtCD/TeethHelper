@@ -20,11 +20,16 @@
 
 #import "Utils.h"
 #import "AccountManager.h"
+#import <UIImageView+WebCache.h>
+
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
 
 @interface PersonalInfoViewController ()<UITableViewDelegate, UITableViewDataSource,BirthDaySelectionDelegate,GenderSelectionDelegate,AvatarSelectionDelegate, UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *item;
+@property (nonatomic, strong) UIImagePickerController *picker;
 
 @end
 
@@ -33,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.item =@[@"头像",@"姓名",@"性别",@"出生年月",@"手机号",@"通讯地址"];
+    self.item =@[@"头像",@"昵称",@"性别",@"出生年月",@"手机号",@"通讯地址"];
     [Utils ConfigNavigationBarWithTitle:@"个人信息" onViewController:self];
     
     self.tableView.backgroundView = [UIView new];
@@ -51,6 +56,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.view layoutIfNeeded];
+    [self.tableView reloadData];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -67,9 +73,11 @@
         cell.titleLabel.text = @"头像";
         
         if ([AccountManager getAvatarUrlString]) {
-            cell.avatarImageView.image = [UIImage imageNamed:@""];
+//            cell.avatarImageView.image = [UIImage imageNamed:@""];
+            NSURL *imgURL =[NSURL URLWithString:[AccountManager getAvatarUrlString]];
+            [cell.avatarImageView sd_setImageWithURL:imgURL placeholderImage:[UIImage imageNamed:@"img_head"]];
         } else{
-            cell.avatarImageView.image = [UIImage imageNamed:@""];
+            cell.avatarImageView.image = [UIImage imageNamed:@"img_head"];
         }
         return cell;
         
@@ -82,11 +90,10 @@
             cell.contentLabel.text = [AccountManager getName];
         } else if (indexPath.row == 2){
             //性别
-            NSInteger gender = [AccountManager getGender];
-            if (gender == 0) {
-                cell.contentLabel.text = @"男";
-            } else {
-                cell.contentLabel.text = @"女";
+            NSString * gender = [AccountManager getGender];
+
+            if (gender) {
+                cell.contentLabel.text = gender;
             }
 
         } else if (indexPath.row == 3){
@@ -200,25 +207,25 @@
 
 #pragma mark - 头像选择
 -(void)didSelectedPhoto:(PhotoType)type{
-    
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    _picker = [[UIImagePickerController alloc] init];
+
     if (type == Camera) {
         //调用系统相机
         if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear] ) {
-            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
         
         
     } else {
         //调用相册
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
-    picker.delegate = self;
+    _picker.delegate = self;
     
-    picker.allowsEditing = YES;
+    _picker.allowsEditing = YES;
     
-    [self showDetailViewController:picker sender:self];
+    [self showDetailViewController:_picker sender:self];
     
 }
 
@@ -235,6 +242,21 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateAvatar" object:@{@"avatar": tempImage}];
         
         [self dismissViewControllerAnimated:YES completion:nil];
+        
+        [SVProgressHUD showWithStatus:@"正在上传头像"];
+        [NetworkManager UploadAvatarImageFile:tempImage withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                [SVProgressHUD showSuccessWithStatus:@"上传成功"];
+                
+                [AccountManager setAvatarUrlString:responseObject[@"data"]];
+            } else{
+                [SVProgressHUD showErrorWithStatus:@"上传失败"];
+            }
+            
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showSuccessWithStatus:@"网络出错啦"];
+        }];
         
 
     }

@@ -9,8 +9,11 @@
 #import "PhoneInfoViewController.h"
 #import "Utils.h"
 #import <SVProgressHUD.h>
+#import "NetworkManager.h"
 @interface PhoneInfoViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (nonatomic, copy) NSString *phone;
 @end
 
 @implementation PhoneInfoViewController
@@ -20,14 +23,26 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"编辑" onViewController:self];
     [self configRightNavigationItem];
+    [self.phoneTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+    
+}
+-(void)textFieldEditChanged:(UITextField *)textField{
+    
+    if (textField.text.length > 1) {
+        textField.text = [textField.text substringToIndex:11];
+    }
+    self.phone = textField.text;
+    
+    NSLog(@"phone: %@",_phone);
 }
 
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)save:(UIButton *)button{
-
-}
+    [self.phoneTextField resignFirstResponder];
+    
+  }
 
 -(void)configRightNavigationItem{
     

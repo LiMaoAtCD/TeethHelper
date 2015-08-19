@@ -89,7 +89,27 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 +(void)ForgetPassword:(NSString*)phone verifyCode:(NSString*)verifyCode password:(NSString*)password withCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
 
+/**
+ *  修改用户信息
+ *
+ *  @param nickName          昵称
+ *  @param sex               性别
+ *  @param birthday          生日
+ *  @param address           地址
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)EditUserNickName:(NSString *)nickName sex:(NSString *)sex birthday:(NSString *)birthday address:(NSString *)address withCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+
+/**
+ *  上传头像
+ *
+ *  @param image              头像
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)UploadAvatarImageFile:(UIImage *)image withCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
 
 

@@ -7,7 +7,7 @@
 //
 
 #import "NetworkManager.h"
-
+#import "AccountManager.h"
 @implementation NetworkManager
 
 
@@ -59,6 +59,43 @@
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:@"http://www.7wang523.com/teeth-api/password/forget" parameters:dictionary success:completionHandler failure:failHandler];
+
+}
+
++(void)EditUserNickName:(NSString *)nickName sex:(NSString *)sex birthday:(NSString *)birthday address:(NSString *)address withCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    if (nickName) {
+        dictionary[@"nickName"] = nickName;
+    }
+    if (sex) {
+        dictionary[@"sex"] = sex;
+    }
+    if (birthday) {
+        dictionary[@"birthday"] = birthday;
+    }
+    if (address) {
+        dictionary[@"address"] = address;
+    }
+    
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://www.7wang523.com/teeth-api/user/complete" parameters:dictionary success:completionHandler failure:failHandler];
+}
+
++(void)UploadAvatarImageFile:(UIImage *)image withCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://www.7wang523.com/teeth-api/user/upload" parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file" mimeType:@"image/png"];
+    } success:completionHandler failure:failHandler];
+    
 
 }
 
