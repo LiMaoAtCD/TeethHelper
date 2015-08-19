@@ -200,13 +200,26 @@
 }
 */
 
--(void)didSelectedBirthDay:(NSString *)birthday{
+-(void)didSelectedBirthDay:(NSDate *)birthday{
     NSLog(@"%@",birthday);
+    
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+        [formatter setDateFormat:@"yyyy-MM-dd 00:00:00"];
+    
+    //上传至服务器的时间格式
+        NSString *date = [formatter stringFromDate:birthday];
+    
+    
+        [formatter setDateFormat:@"yyyy年MM月dd日"];
+    //保存本地的时间格式
+        NSString *birthdayString = [formatter stringFromDate:birthday];
+    
     [SVProgressHUD showWithStatus:@"正在修改"];
-    [NetworkManager EditUserNickName:nil sex:nil birthday:birthday address:nil withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [NetworkManager EditUserNickName:nil sex:nil birthday:date address:nil withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 2000) {
             [SVProgressHUD showSuccessWithStatus:@"修改成功"];
-            [AccountManager setBirthDay:birthday];
+            [AccountManager setBirthDay:birthdayString];
             [self.tableView reloadData];
         } else{
             [SVProgressHUD showSuccessWithStatus:@"修改失败"];

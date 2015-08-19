@@ -123,7 +123,14 @@
                     }
                     if ([[temp allKeys] containsObject:@"birthday"]) {
                         //生日
-                        [AccountManager setBirthDay:temp[@"birthday"]];
+                        NSString *yearString = [temp[@"birthday"] substringWithRange:NSMakeRange(0, 4)];
+                        NSString *monthString = [temp[@"birthday"] substringWithRange:NSMakeRange(5, 2)];
+                        NSString *dayString = [temp[@"birthday"] substringWithRange:NSMakeRange(8, 2)];
+                        
+                        NSString *tempBirthday = [NSString stringWithFormat:@"%@年%@月%@日",yearString,monthString,dayString];
+                        
+                        
+                        [AccountManager setBirthDay:tempBirthday];
                     }
                     if ([[temp allKeys] containsObject:@"username"]) {
                         //手机号

@@ -12,7 +12,7 @@
 @protocol BirthDaySelectionDelegate <NSObject>
 
 
--(void)didSelectedBirthDay:(NSString *)birthday;
+-(void)didSelectedBirthDay:(NSDate *)birthday;
 @end
 
 @interface BirthDayViewController : UIViewController

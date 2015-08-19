@@ -110,7 +110,16 @@
                 }
                 if ([[temp allKeys] containsObject:@"birthday"]) {
                     //生日
-                    [AccountManager setBirthDay:temp[@"birthday"]];
+                    
+                    
+                    NSString *yearString = [temp[@"birthday"] substringWithRange:NSMakeRange(0, 4)];
+                    NSString *monthString = [temp[@"birthday"] substringWithRange:NSMakeRange(5, 2)];
+                    NSString *dayString = [temp[@"birthday"] substringWithRange:NSMakeRange(8, 2)];
+
+                    NSString *tempBirthday = [NSString stringWithFormat:@"%@年%@月%@日",yearString,monthString,dayString];
+                    
+                    
+                    [AccountManager setBirthDay:tempBirthday];
                 }
                 if ([[temp allKeys] containsObject:@"username"]) {
                     //手机号
@@ -141,6 +150,21 @@
         }];
         
     }
+}
+
+- (NSDate *)dateFromString:(NSString *)string {
+    if (!string) {
+        return nil;
+    }
+    //Wed Mar 14 16:40:08 +0800 2012
+    static NSDateFormatter *dateformatter=nil;
+    if(dateformatter==nil){
+        dateformatter = [[NSDateFormatter alloc] init];
+        NSTimeZone *tz = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+        [dateformatter setTimeZone:tz];
+        [dateformatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
+    }
+    return [dateformatter dateFromString:string];
 }
 
 -(void)textFieldEditChanged:(UITextField *)textField{

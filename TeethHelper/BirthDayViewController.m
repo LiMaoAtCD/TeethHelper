@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
-@property (nonatomic, copy) NSString *birthday;
+@property (nonatomic, strong) NSDate *birthday;
 @end
 
 @implementation BirthDayViewController
@@ -24,20 +24,21 @@
     self.bgView.alpha = 0.0;
     
     [_datePicker addTarget:self action:@selector(datePick:) forControlEvents:UIControlEventValueChanged];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    
+//    [formatter setDateFormat:@"yyyy年MM月dd日"];
     
-    [formatter setDateFormat:@"yyyy年MM月dd日"];
-    
-    self.birthday = [formatter stringFromDate:[NSDate date]];
+//    self.birthday = [formatter stringFromDate:[NSDate date]];
+    self.birthday = [NSDate date];
 }
 -(void)datePick:(UIDatePicker *)picker{
 //    self.birthday = [picker date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    
+//    [formatter setDateFormat:@"yyyy年MM月dd日"];
     
-    [formatter setDateFormat:@"yyyy年MM月dd日"];
-    
-    self.birthday = [formatter stringFromDate:picker.date];
-    
+//    self.birthday = [formatter stringFromDate:picker.date];
+    self.birthday = picker.date;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
