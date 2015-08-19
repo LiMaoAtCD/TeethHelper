@@ -7,8 +7,14 @@
 //
 
 #import "UseHistoryViewController.h"
+#import "UseHistoryCell.h"
+#import "Utils.h"
 
-@interface UseHistoryViewController ()
+@interface UseHistoryViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *useHistoryItems;
 
 @end
 
@@ -17,6 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [Utils ConfigNavigationBarWithTitle:@"使用记录" onViewController:self];
+}
+
+-(void)pop{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +36,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return self.useHistoryItems.count;
+    return 4;
+
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UseHistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UseHistoryCell" forIndexPath:indexPath];
+    if (indexPath.row != 0) {
+        cell.topLine.hidden = YES;
+    }
+    
+    return cell;
+}
 
 @end

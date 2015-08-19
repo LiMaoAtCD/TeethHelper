@@ -238,7 +238,6 @@
     introduceVC.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:introduceVC animated:YES];
-//    [self.navigationController showViewController:introduceVC sender:self];
     
     
 }

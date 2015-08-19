@@ -98,6 +98,7 @@
 		87E2AB691B78B8D5001ED07F /* AvatarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB681B78B8D5001ED07F /* AvatarViewController.m */; };
 		87E2AB6D1B78B8E9001ED07F /* BirthDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB6C1B78B8E9001ED07F /* BirthDayViewController.m */; };
 		87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB701B78B91A001ED07F /* GenderViewController.m */; };
+		87E2AF0A1B84C2C7002FC28A /* UseHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF091B84C2C7002FC28A /* UseHistoryCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +285,8 @@
 		87E2AB6C1B78B8E9001ED07F /* BirthDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BirthDayViewController.m; sourceTree = "<group>"; };
 		87E2AB6F1B78B91A001ED07F /* GenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenderViewController.h; sourceTree = "<group>"; };
 		87E2AB701B78B91A001ED07F /* GenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenderViewController.m; sourceTree = "<group>"; };
+		87E2AF081B84C2C7002FC28A /* UseHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseHistoryCell.h; sourceTree = "<group>"; };
+		87E2AF091B84C2C7002FC28A /* UseHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseHistoryCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -625,6 +628,8 @@
 			children = (
 				87E2AB3F1B7757BA001ED07F /* UseHistoryViewController.h */,
 				87E2AB401B7757BA001ED07F /* UseHistoryViewController.m */,
+				87E2AF081B84C2C7002FC28A /* UseHistoryCell.h */,
+				87E2AF091B84C2C7002FC28A /* UseHistoryCell.m */,
 			);
 			name = UseHistory;
 			sourceTree = "<group>";
@@ -936,6 +941,7 @@
 				8785F8F81B7C495F0051B29B /* QuestionTwoViewController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
 				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,
+				87E2AF0A1B84C2C7002FC28A /* UseHistoryCell.m in Sources */,
 				878108C81B7B934A000A735F /* ALienGrayView.m in Sources */,
 				873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */,
 				87E2AB3E1B7757B0001ED07F /* CeBaiHistoryViewController.m in Sources */,
