@@ -438,13 +438,13 @@
 		873B75B81B773F7D002D7871 /* FirstTab */ = {
 			isa = PBXGroup;
 			children = (
-				8785F8AA1B7C0D4D0051B29B /* MeiBaiProject */,
+				873B75BC1B77400D002D7871 /* MeiBaiViewController.h */,
+				873B75BD1B77400D002D7871 /* MeiBaiViewController.m */,
 				878108C31B7B907A000A735F /* AlienView.h */,
 				878108C41B7B907A000A735F /* AlienView.m */,
 				878108C61B7B934A000A735F /* ALienGrayView.h */,
 				878108C71B7B934A000A735F /* ALienGrayView.m */,
-				873B75BC1B77400D002D7871 /* MeiBaiViewController.h */,
-				873B75BD1B77400D002D7871 /* MeiBaiViewController.m */,
+				8785F8AA1B7C0D4D0051B29B /* MeiBaiProject */,
 				873B75CE1B774315002D7871 /* Product */,
 			);
 			name = FirstTab;

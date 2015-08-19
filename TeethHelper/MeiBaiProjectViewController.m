@@ -14,13 +14,14 @@
 #import "MeiBaiConfigFile.h"
 #import "Utils.h"
 #import "MeibaiItemChooseController.h"
+
+
 @interface MeiBaiProjectViewController ()<UITableViewDelegate, UITableViewDataSource,ItemChooseDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic, strong) NSMutableArray *dayArr;
 @property(nonatomic, strong) NSMutableArray *timesArr;
-
 
 @end
 
@@ -84,7 +85,8 @@
         MeiBaiOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiOneCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"启用保持计划";
 
-        BOOL isKeepMeiBaiProject = [MeiBaiConfigFile isKeepProject];
+        BOOL isKeepMeiBaiProject = ![MeiBaiConfigFile isCureStage];
+        
         if (isKeepMeiBaiProject) {
             cell.swither.on = YES;
         } else{
@@ -101,7 +103,13 @@
             
             NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
             cell.contentLabel.text = [NSString stringWithFormat:@"%ld*8 分钟",times];
-            
+            if (![MeiBaiConfigFile isCureStage]) {
+                cell.titleLabel.textColor = [UIColor grayColor];
+                cell.contentLabel.textColor = [UIColor grayColor];
+            } else{
+                cell.titleLabel.textColor = [Utils commonColor];
+                cell.contentLabel.textColor = [UIColor blackColor];
+            }
             return cell;
 
         } else if(indexPath.section == 1&& indexPath.row ==1){
@@ -110,6 +118,14 @@
             
             NSInteger days = [MeiBaiConfigFile getNeedCureDays];
             cell.contentLabel.text = [NSString stringWithFormat:@"%ld 天",days];
+            
+            if (![MeiBaiConfigFile isCureStage]) {
+                cell.titleLabel.textColor = [UIColor grayColor];
+                cell.contentLabel.textColor = [UIColor grayColor];
+               } else{
+               cell.titleLabel.textColor = [Utils commonColor];
+               cell.contentLabel.textColor = [UIColor blackColor];
+            }
             return cell;
 
         } else{
@@ -117,7 +133,7 @@
             cell.titleLabel.text = @"每月保持时长";
             cell.contentLabel.text = @"4*8 分钟";
             
-            if ([MeiBaiConfigFile isKeepProject]) {
+            if (![MeiBaiConfigFile isCureStage]) {
                 cell.titleLabel.textColor = [Utils commonColor];
                 cell.contentLabel.textColor = [UIColor blackColor];
             } else{
@@ -145,24 +161,29 @@
     return 0.01;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Setting" bundle:nil];
-    MeibaiItemChooseController *itemVC = [sb instantiateViewControllerWithIdentifier:@"MeibaiItemChooseController"];
-    itemVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    if (indexPath.section == 1 && indexPath.row == 0) {
-        //次数 3-7
-        itemVC.type = Times;
-        itemVC.items = self.timesArr;
-    } else if(indexPath.section == 1&& indexPath.row == 1){
-        //天数3-15
-        itemVC.type = Days;
-        itemVC.items = self.dayArr;
-
-    }
-    itemVC.delegate = self;
-    [self showDetailViewController:itemVC sender:self];
     
-
+    if ([MeiBaiConfigFile isCureStage]) {
+    
+        if (indexPath.section == 1 && indexPath.row == 0) {
+            //次数 3-7
+            UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+            MeibaiItemChooseController *itemVC = [sb instantiateViewControllerWithIdentifier:@"MeibaiItemChooseController"];
+            itemVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            itemVC.type = Times;
+            itemVC.items = self.timesArr;
+            itemVC.delegate = self;
+            [self showDetailViewController:itemVC sender:self];
+        } else if(indexPath.section == 1&& indexPath.row == 1){
+            //天数3-15
+            UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+            MeibaiItemChooseController *itemVC = [sb instantiateViewControllerWithIdentifier:@"MeibaiItemChooseController"];
+            itemVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            itemVC.type = Days;
+            itemVC.items = self.dayArr;
+            itemVC.delegate = self;
+            [self showDetailViewController:itemVC sender:self];
+        }
+    }
 }
 
 
@@ -182,7 +203,7 @@
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 30)];
-        if ([MeiBaiConfigFile isKeepProject]) {
+        if (![MeiBaiConfigFile isCureStage]) {
             label.textColor = [UIColor blackColor];
         } else{
             label.textColor = [UIColor grayColor];
@@ -199,9 +220,12 @@
 
 -(void)changeKeepProject:(UISwitch*)switcher{
     if (switcher.isOn) {
-        [MeiBaiConfigFile setBeginKeepProject:YES];
+//        [MeiBaiConfigFile setBeginKeepProject:YES];
+        [MeiBaiConfigFile setCureStage:NO];
     } else{
-        [MeiBaiConfigFile setBeginKeepProject:NO];
+//        [MeiBaiConfigFile setBeginKeepProject:NO];
+        [MeiBaiConfigFile setCureStage:YES];
+
 
     }
     [self.tableView reloadData];

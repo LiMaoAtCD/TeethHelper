@@ -52,46 +52,6 @@
     
     //主视图
     [self configMainView];
-
-
-}
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    self.navigationController.navigationBar.translucent = YES;
-    
-    BOOL iscure = [MeiBaiConfigFile isCureStage];
-    if (iscure) {
-        //如果是治疗阶段
-        
-        
-        NSInteger needday = [MeiBaiConfigFile getNeedCureDays];
-        NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
-        self.gray3View.hidden = NO;
-
-        self.gray3View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)needday];
-        self.gray4View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)times];
-
-        [self.alienView animateArcTo:0.5];
-        _currentProjectLabel.text = @"当前计划: 治疗";
-
-
-    } else{
-        //保持阶段
-        [self.alienView animateArcTo:1.0];
-        self.alienView.dayLabel.text = @"1";
-        
-        self.gray3View.hidden = YES;
-        self.gray4View.daysLabel.text = @"4";
-        _currentProjectLabel.text = @"当前计划: 保持";
-
-    }
-    
-    NSInteger completedCuredays = [MeiBaiConfigFile getCompletedCureDays];
-    NSInteger completedkeepdays = [MeiBaiConfigFile getCompletedKeepDays];
-    
-    self.gray1View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedCuredays];
-    self.gray2View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedkeepdays];
-
 }
 -(void)configMainView{
     
@@ -118,11 +78,11 @@
     self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 130, width - CircleMargin * 2, width - CircleMargin * 2)];
     if ([Utils isiPhone4]) {
         CGFloat CircleMargin = 90;
-         self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 110, width - CircleMargin * 2, width - CircleMargin * 2)];
+        self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 110, width - CircleMargin * 2, width - CircleMargin * 2)];
         self.alienView.dayLabel.font = [UIFont systemFontOfSize:80];
-
+        
     }
-//    self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 130, width - CircleMargin * 2, width - CircleMargin * 2)];
+    //    self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 130, width - CircleMargin * 2, width - CircleMargin * 2)];
     self.alienView.day = @"10";
     
     [self.view addSubview:_alienView];
@@ -161,11 +121,11 @@
     
     _currentProjectLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     
-//    if (![MeiBaiConfigFile getCurrentProject] || [[MeiBaiConfigFile getCurrentProject] isEqualToString:@"治疗"]) {
-//        currentProjectLabel.text = @"当前计划: 治疗";
-//    } else{
-        _currentProjectLabel.text = @"当前计划: 保持";
-//    }
+    //    if (![MeiBaiConfigFile getCurrentProject] || [[MeiBaiConfigFile getCurrentProject] isEqualToString:@"治疗"]) {
+    //        currentProjectLabel.text = @"当前计划: 治疗";
+    //    } else{
+    _currentProjectLabel.text = @"当前计划: 保持";
+    //    }
     _currentProjectLabel.textAlignment =NSTextAlignmentCenter;
     _currentProjectLabel.textColor = [Utils commonColor];
     _currentProjectLabel.font = [UIFont systemFontOfSize:14.0];
@@ -177,7 +137,7 @@
         make.height.equalTo(@20);
         make.top.equalTo(completedLabel.mas_top);
     }];
-   
+    
     //左 - 治疗
     _gray1View = [[ALienGrayView alloc] initWithDays:0 forType:@"治疗"];
     
@@ -216,7 +176,7 @@
         make.height.equalTo(@80);
         
     }];
-
+    
     //保持天数
     _gray4View = [[ALienGrayView alloc] initWithDays:99 forType:@"次/天"];
     
@@ -230,6 +190,45 @@
         
     }];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    BOOL iscure = [MeiBaiConfigFile isCureStage];
+    if (iscure) {
+        //如果是治疗阶段
+        
+        
+        NSInteger needday = [MeiBaiConfigFile getNeedCureDays];
+        NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
+        self.gray3View.hidden = NO;
+
+        self.gray3View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)needday];
+        self.gray4View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)times];
+
+        [self.alienView animateArcTo:0.5];
+        _currentProjectLabel.text = @"当前计划: 治疗";
+
+    } else{
+        //保持阶段
+        [self.alienView animateArcTo:1.0];
+        self.alienView.dayLabel.text = @"1";
+        
+        self.gray3View.hidden = YES;
+        self.gray4View.daysLabel.text = @"4";
+        _currentProjectLabel.text = @"当前计划: 保持";
+
+    }
+    
+    NSInteger completedCuredays = [MeiBaiConfigFile getCompletedCureDays];
+    NSInteger completedkeepdays = [MeiBaiConfigFile getCompletedKeepDays];
+    
+    self.gray1View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedCuredays];
+    self.gray2View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedkeepdays];
+
+}
+
 
 -(void)clickProductIntroduce:(UIButton *)button {
     

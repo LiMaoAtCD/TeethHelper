@@ -18,8 +18,22 @@
 }
 +(void)setCureStage:(BOOL)cure{
     [[NSUserDefaults standardUserDefaults] setBool:cure forKey:@"cure_stage"];
+
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+//    [self setBeginKeepProject:!cure];
+    
 }
+
+//+(void)setBeginKeepProject:(BOOL)keep{
+//    [[NSUserDefaults standardUserDefaults] setBool:keep forKey:@"cure_keep_project"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//}
+//+(BOOL)isKeepProject{
+//    BOOL iscure = [[NSUserDefaults standardUserDefaults] boolForKey:@"cure_keep_project"];
+//    return iscure;
+//}
+
 
 
 //设置每天治疗的次数
@@ -69,13 +83,5 @@
     return day;
 }
 
-+(void)setBeginKeepProject:(BOOL)keep{
-    [[NSUserDefaults standardUserDefaults] setBool:keep forKey:@"cure_keep_project"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-+(BOOL)isKeepProject{
-    BOOL iscure = [[NSUserDefaults standardUserDefaults] boolForKey:@"cure_keep_project"];
-    return iscure;
-}
 
 @end

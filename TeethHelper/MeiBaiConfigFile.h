@@ -21,6 +21,9 @@
 //区分是否在治疗阶段
 +(BOOL)isCureStage;
 +(void)setCureStage:(BOOL)cure;
+//是否保持美白计划
+//+(void)setBeginKeepProject:(BOOL)keep;
+//+(BOOL)isKeepProject;
 
 
 //设置每天治疗的次数
@@ -41,8 +44,6 @@
 
 
 
-//是否保持美白计划
-+(void)setBeginKeepProject:(BOOL)keep;
-+(BOOL)isKeepProject;
+
 
 @end

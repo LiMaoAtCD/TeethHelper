@@ -90,7 +90,7 @@
 }
 
 -(void)animateArcTo:(CGFloat)strokeEnd{
-    if (strokeEnd >= 1.0 || strokeEnd < 0.0) {
+    if (strokeEnd > 1.0 || strokeEnd < 0.0) {
          self.foreGroundPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.center.x, self.center.y) radius:(self.bounds.size.width / 2) startAngle:-0.5 * M_PI endAngle: M_PI clockwise:YES];
         [self setNeedsDisplay];
     } else{
