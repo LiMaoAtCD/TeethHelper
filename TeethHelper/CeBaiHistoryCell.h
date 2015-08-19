@@ -10,4 +10,7 @@
 
 @interface CeBaiHistoryCell : UITableViewCell
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *topLine;
+
 @end
