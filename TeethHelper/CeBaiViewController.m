@@ -7,8 +7,9 @@
 //
 
 #import "CeBaiViewController.h"
-
-@interface CeBaiViewController ()
+#import "CameraViewController.h"
+#import "ImageEditViewController.h"
+@interface CeBaiViewController ()<PhotoDelegate>
 
 @end
 
@@ -36,5 +37,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)beginCeBai:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
+    cameraVC.delegate = self;
+
+    [self showDetailViewController:cameraVC sender:self];
+}
+
+-(void)getPhotoFromCamera:(UIImage *)image{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    ImageEditViewController *editorVC = [sb instantiateViewControllerWithIdentifier:@"ImageEditViewController"];
+    
+    editorVC.sourceImage  = image;
+    editorVC.hidesBottomBarWhenPushed = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController pushViewController:editorVC animated:YES];
+        
+    });
+    
+}
 
 @end

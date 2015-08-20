@@ -48,6 +48,8 @@
 		87465BB81B808A8400EA40C7 /* MeibaiItemChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87465BB71B808A8400EA40C7 /* MeibaiItemChooseController.m */; };
 		87465BBC1B818FA800EA40C7 /* ProjectCompletedQuesitonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87465BBA1B818FA800EA40C7 /* ProjectCompletedQuesitonController.m */; };
 		87465BBD1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87465BBB1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib */; };
+		874F73661B86181B00429C3D /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874F73651B86181B00429C3D /* CameraViewController.m */; };
+		874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874F73681B8618A200429C3D /* ImageEditViewController.m */; };
 		877B4E3D1B7CD95D00E6720D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B4E3B1B7CD95D00E6720D /* SplashViewController.m */; };
 		877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */; };
 		878108C51B7B907A000A735F /* AlienView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C41B7B907A000A735F /* AlienView.m */; };
@@ -193,6 +195,10 @@
 		87465BB91B818FA800EA40C7 /* ProjectCompletedQuesitonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCompletedQuesitonController.h; sourceTree = "<group>"; };
 		87465BBA1B818FA800EA40C7 /* ProjectCompletedQuesitonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCompletedQuesitonController.m; sourceTree = "<group>"; };
 		87465BBB1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCompletedQuesitonController.xib; sourceTree = "<group>"; };
+		874F73641B86181B00429C3D /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		874F73651B86181B00429C3D /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		874F73671B8618A200429C3D /* ImageEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEditViewController.h; sourceTree = "<group>"; };
+		874F73681B8618A200429C3D /* ImageEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEditViewController.m; sourceTree = "<group>"; };
 		877B4E3A1B7CD95D00E6720D /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		877B4E3B1B7CD95D00E6720D /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
@@ -462,6 +468,10 @@
 		873B75B91B773FE4002D7871 /* SecondTab */ = {
 			isa = PBXGroup;
 			children = (
+				874F73671B8618A200429C3D /* ImageEditViewController.h */,
+				874F73681B8618A200429C3D /* ImageEditViewController.m */,
+				874F73641B86181B00429C3D /* CameraViewController.h */,
+				874F73651B86181B00429C3D /* CameraViewController.m */,
 				873B75BF1B774020002D7871 /* CeBaiViewController.h */,
 				873B75C01B774020002D7871 /* CeBaiViewController.m */,
 			);
@@ -971,6 +981,7 @@
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
 				8785F8FB1B7C49690051B29B /* QuestionThreeViewController.m in Sources */,
+				874F73661B86181B00429C3D /* CameraViewController.m in Sources */,
 				874249881B7989C600F6DB69 /* TeethStateCell.m in Sources */,
 				87D533FE1B7ADF5600F3D6BE /* MeiBaiOneCell.m in Sources */,
 				873B75D31B774C8A002D7871 /* ProductDetailViewController.m in Sources */,
@@ -1024,6 +1035,7 @@
 				8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */,
 				873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */,
 				870A66161B77321900A51B26 /* AccountManager.m in Sources */,
+				874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */,
 				8785F8B11B7C1DD20051B29B /* MeibaiProjectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
