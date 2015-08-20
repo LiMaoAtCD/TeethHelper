@@ -15,6 +15,7 @@
 #import "MeiBaiConfigFile.h"
 
 #import "MeibaiProjectController.h"
+#import "WechatShareViewController.h"
 
 @interface MeiBaiViewController ()
 
@@ -243,7 +244,11 @@
 }
 
 -(void)share:(UIButton*)button{
+    WechatShareViewController *wechatShare = [[WechatShareViewController alloc] initWithNibName:@"WechatShareViewController" bundle:nil];
     
+    wechatShare.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
+    [self showDetailViewController:wechatShare sender:self];
 }
 
 -(void)beginMeibaiProject:(id)sender{

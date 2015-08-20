@@ -99,6 +99,8 @@
 		87E2AB6D1B78B8E9001ED07F /* BirthDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB6C1B78B8E9001ED07F /* BirthDayViewController.m */; };
 		87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB701B78B91A001ED07F /* GenderViewController.m */; };
 		87E2AF0A1B84C2C7002FC28A /* UseHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF091B84C2C7002FC28A /* UseHistoryCell.m */; };
+		87E2AF0F1B855E92002FC28A /* WechatShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */; };
+		87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +289,9 @@
 		87E2AB701B78B91A001ED07F /* GenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenderViewController.m; sourceTree = "<group>"; };
 		87E2AF081B84C2C7002FC28A /* UseHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UseHistoryCell.h; sourceTree = "<group>"; };
 		87E2AF091B84C2C7002FC28A /* UseHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UseHistoryCell.m; sourceTree = "<group>"; };
+		87E2AF0C1B855E92002FC28A /* WechatShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatShareViewController.h; sourceTree = "<group>"; };
+		87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatShareViewController.m; sourceTree = "<group>"; };
+		87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WechatShareViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +346,7 @@
 			children = (
 				870A65DB1B77227100A51B26 /* AppDelegate.h */,
 				870A65DC1B77227100A51B26 /* AppDelegate.m */,
+				87E2AF0B1B855E6A002FC28A /* WechatShare */,
 				870A660C1B772FDA00A51B26 /* Utils */,
 				870A66081B77248D00A51B26 /* Main */,
 				870A65FD1B77227F00A51B26 /* Login */,
@@ -776,6 +782,16 @@
 			name = gender;
 			sourceTree = "<group>";
 		};
+		87E2AF0B1B855E6A002FC28A /* WechatShare */ = {
+			isa = PBXGroup;
+			children = (
+				87E2AF0C1B855E92002FC28A /* WechatShareViewController.h */,
+				87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */,
+				87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */,
+			);
+			name = WechatShare;
+			sourceTree = "<group>";
+		};
 		92FECA73543D42FCD690DBEE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -878,6 +894,7 @@
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
+				87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -993,6 +1010,7 @@
 				87D533F81B7ACF7E00F3D6BE /* TeethStateConfigureFile.m in Sources */,
 				870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */,
 				873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */,
+				87E2AF0F1B855E92002FC28A /* WechatShareViewController.m in Sources */,
 				87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */,
 				87E2AB651B78AFB9001ED07F /* InfoCell.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
