@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
+    self.view.backgroundColor = [UIColor clearColor];
     self.bgView =[[UIView alloc] initWithFrame:CGRectZero];
     self.bgView.backgroundColor = [UIColor blackColor];
     self.bgView.alpha = 0.2;
