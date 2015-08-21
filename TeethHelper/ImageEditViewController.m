@@ -20,13 +20,27 @@
     // Do any additional setup after loading the view.
     
     [Utils ConfigNavigationBarWithTitle:@"测白" onViewController:self];
-    
+    self.navigationController.navigationBar.translucent = NO;
     self.imageView.image = self.sourceImage;
 }
 
 -(void)pop{
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.translucent = YES;
+
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = NO;
+    [super viewWillAppear:animated];
+    [self.view layoutIfNeeded];
+}
+//-(void)viewWillDisappear:(BOOL)animated{
+//    
+//
+//    [super viewWillDisappear:animated];
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

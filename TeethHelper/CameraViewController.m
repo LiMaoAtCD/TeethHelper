@@ -9,6 +9,8 @@
 #import "CameraViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "ImageEditViewController.h"
+
 typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 @interface CameraViewController ()
@@ -34,8 +36,16 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    self.tabBarController.tabBar.hidden = YES;
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.navigationBar.translucent = YES;
+
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
     [super viewWillAppear:animated];
     [self.view layoutIfNeeded];
+    
+    
     //初始化会话
     _captureSession=[[AVCaptureSession alloc]init];
     if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设置分辨率
@@ -76,16 +86,19 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     CALayer *layer= self.viewContainer.layer;
     layer.masksToBounds=YES;
     
-    _captureVideoPreviewLayer.frame=layer.bounds;
+//    _captureVideoPreviewLayer.frame=layer.bounds;
+    _captureVideoPreviewLayer.frame=CGRectMake(layer.bounds.origin.x, layer.bounds.origin.y, layer.bounds.size.width, layer.bounds.size.height + 20);
+
+    NSLog(@"%f,%f,%f,%f",_captureVideoPreviewLayer.frame.origin.x,_captureVideoPreviewLayer.frame.origin.y,_captureVideoPreviewLayer.frame.size.width,_captureVideoPreviewLayer.frame.size.height );
 //    _captureVideoPreviewLayer.frame=CGRectMake(0, 0, 320, 568);
     [_captureVideoPreviewLayer metadataOutputRectOfInterestForRect:layer.bounds];
-    _captureVideoPreviewLayer.videoGravity=AVLayerVideoGravityResizeAspectFill;//填充模式
+    _captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;//填充模式
     //将视频预览层添加到界面中
-    //[layer addSublayer:_captureVideoPreviewLayer];
-    [layer insertSublayer:_captureVideoPreviewLayer below:self.focusCursor.layer];
+    [layer addSublayer:_captureVideoPreviewLayer];
+//    [layer insertSublayer:_captureVideoPreviewLayer below:self.focusCursor.layer];
     
     [self addNotificationToCaptureDevice:captureDevice];
-    [self addGenstureRecognizer];
+//    [self addGenstureRecognizer];
     [self setFlashModeButtonStatus];
     
     //先隐藏视图
@@ -96,8 +109,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.captureSession startRunning];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
+    
     
     //显示界面
 //    [UIView animateWithDuration:0.2 animations:^{
@@ -117,10 +130,11 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 }
 -(void)viewWillDisappear:(BOOL)animated{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    self.navigationController.navigationBar.hidden = NO;
     [super viewWillDisappear:animated];
     [self.captureSession stopRunning];
 
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 
 }
 
@@ -164,13 +178,26 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
                                             orientation:UIImageOrientationRight];
             CGImageRelease(imageRef);
 
-            if ([self.delegate respondsToSelector:@selector(getPhotoFromCamera:)]) {
-                [self.delegate getPhotoFromCamera:result];
-            }
+//            if ([self.delegate respondsToSelector:@selector(getPhotoFromCamera:)]) {
+//                [self.delegate getPhotoFromCamera:result];
+//            }
             
-            [self dismissViewControllerAnimated:YES completion:^{
+//            [self dismissViewControllerAnimated:YES completion:^{
+//            
+//            }];
             
-            }];
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            
+            ImageEditViewController *editorVC = [sb instantiateViewControllerWithIdentifier:@"ImageEditViewController"];
+            
+            editorVC.sourceImage  = result;
+//            editorVC.hidesBottomBarWhenPushed = YES;
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController pushViewController:editorVC animated:YES];
+                
+//            });
+
+            
         }
         
         
@@ -179,7 +206,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 }
 
 - (IBAction)dismiss:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark 切换前后摄像头
@@ -416,17 +444,17 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 /**
  *  添加点按手势，点按时聚焦
  */
--(void)addGenstureRecognizer{
-    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapScreen:)];
-    [self.viewContainer addGestureRecognizer:tapGesture];
-}
--(void)tapScreen:(UITapGestureRecognizer *)tapGesture{
-    CGPoint point= [tapGesture locationInView:self.viewContainer];
-    //将UI坐标转化为摄像头坐标
-    CGPoint cameraPoint= [self.captureVideoPreviewLayer captureDevicePointOfInterestForPoint:point];
-    [self setFocusCursorWithPoint:point];
-    [self focusWithMode:AVCaptureFocusModeAutoFocus exposureMode:AVCaptureExposureModeAutoExpose atPoint:cameraPoint];
-}
+//-(void)addGenstureRecognizer{
+//    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapScreen:)];
+//    [self.viewContainer addGestureRecognizer:tapGesture];
+//}
+//-(void)tapScreen:(UITapGestureRecognizer *)tapGesture{
+//    CGPoint point= [tapGesture locationInView:self.viewContainer];
+//    //将UI坐标转化为摄像头坐标
+//    CGPoint cameraPoint= [self.captureVideoPreviewLayer captureDevicePointOfInterestForPoint:point];
+//    [self setFocusCursorWithPoint:point];
+//    [self focusWithMode:AVCaptureFocusModeAutoFocus exposureMode:AVCaptureExposureModeAutoExpose atPoint:cameraPoint];
+//}
 
 /**
  *  设置闪光灯按钮状态
@@ -469,17 +497,17 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
  *
  *  @param point 光标位置
  */
--(void)setFocusCursorWithPoint:(CGPoint)point{
-    self.focusCursor.center=point;
-    self.focusCursor.transform=CGAffineTransformMakeScale(1.5, 1.5);
-    self.focusCursor.alpha=1.0;
-    [UIView animateWithDuration:1.0 animations:^{
-        self.focusCursor.transform=CGAffineTransformIdentity;
-    } completion:^(BOOL finished) {
-        self.focusCursor.alpha=0;
-        
-    }];
-}
+//-(void)setFocusCursorWithPoint:(CGPoint)point{
+//    self.focusCursor.center=point;
+//    self.focusCursor.transform=CGAffineTransformMakeScale(1.5, 1.5);
+//    self.focusCursor.alpha=1.0;
+//    [UIView animateWithDuration:1.0 animations:^{
+//        self.focusCursor.transform=CGAffineTransformIdentity;
+//    } completion:^(BOOL finished) {
+//        self.focusCursor.alpha=0;
+//        
+//    }];
+//}
 
 
 

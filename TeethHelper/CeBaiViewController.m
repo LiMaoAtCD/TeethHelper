@@ -41,8 +41,9 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
     cameraVC.delegate = self;
-
-    [self showDetailViewController:cameraVC sender:self];
+    cameraVC.hidesBottomBarWhenPushed = YES;
+//    [self showDetailViewController:cameraVC sender:self];
+    [self.navigationController pushViewController:cameraVC animated:YES];
 }
 
 -(void)getPhotoFromCamera:(UIImage *)image{
