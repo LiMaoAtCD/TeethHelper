@@ -47,7 +47,7 @@
     [calendar setTimeZone: [NSTimeZone defaultTimeZone]];
     NSDate *dateToFire = [calendar dateFromComponents:components];
     
-    [self cancelQuestionNotification];
+    [self cancelAlertNotification];
     
     
     UILocalNotification *alarm = [[UILocalNotification alloc] init];

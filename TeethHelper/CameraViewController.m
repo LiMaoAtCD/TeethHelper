@@ -43,13 +43,14 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
     [super viewWillAppear:animated];
-    [self.view layoutIfNeeded];
+//    [self.view layoutIfNeeded];
+    
     
     
     //初始化会话
     _captureSession=[[AVCaptureSession alloc]init];
-    if ([_captureSession canSetSessionPreset:AVCaptureSessionPreset640x480]) {//设置分辨率
-        _captureSession.sessionPreset = AVCaptureSessionPreset640x480;
+    if ([_captureSession canSetSessionPreset:AVCaptureSessionPresetPhoto]) {//设置分辨率
+        _captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     }
     //获得输入设备
     AVCaptureDevice *captureDevice=[self getCameraDeviceWithPosition:AVCaptureDevicePositionBack];//取得后置摄像头
@@ -81,21 +82,25 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     }
     
     //创建视频预览层，用于实时展示摄像头状态
-    _captureVideoPreviewLayer=[[AVCaptureVideoPreviewLayer alloc]initWithSession:self.captureSession];
+    _captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc]initWithSession:self.captureSession];
     
     CALayer *layer= self.viewContainer.layer;
     layer.masksToBounds=YES;
     
-//    _captureVideoPreviewLayer.frame=layer.bounds;
-    _captureVideoPreviewLayer.frame=CGRectMake(layer.bounds.origin.x, layer.bounds.origin.y, layer.bounds.size.width, layer.bounds.size.height + 20);
+//    _captureVideoPreviewLayer.frame=CGRectMake(layer.bounds.origin.x, layer.bounds.origin.y, layer.bounds.size.width, layer.bounds.size.height + 20);
+    _captureVideoPreviewLayer.frame=self.view.bounds;
 
     NSLog(@"%f,%f,%f,%f",_captureVideoPreviewLayer.frame.origin.x,_captureVideoPreviewLayer.frame.origin.y,_captureVideoPreviewLayer.frame.size.width,_captureVideoPreviewLayer.frame.size.height );
-//    _captureVideoPreviewLayer.frame=CGRectMake(0, 0, 320, 568);
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+
+    _captureVideoPreviewLayer.frame= CGRectMake(0, 0, width, height - 150);
     [_captureVideoPreviewLayer metadataOutputRectOfInterestForRect:layer.bounds];
     _captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;//填充模式
+    [_captureVideoPreviewLayer.connection setVideoOrientation:AVCaptureVideoOrientationPortrait];
     //将视频预览层添加到界面中
-    [layer addSublayer:_captureVideoPreviewLayer];
-//    [layer insertSublayer:_captureVideoPreviewLayer below:self.focusCursor.layer];
+//    [layer addSublayer:_captureVideoPreviewLayer];
+    [layer insertSublayer:_captureVideoPreviewLayer below:self.focusCursor.layer];
     
     [self addNotificationToCaptureDevice:captureDevice];
 //    [self addGenstureRecognizer];
@@ -111,14 +116,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     [self.captureSession startRunning];
 
     
-    
-    //显示界面
-//    [UIView animateWithDuration:0.2 animations:^{
-//        self.view.alpha = 1.0;
-//    }];
-    
     //牙齿提示语消失
-    [UIView animateWithDuration:1.0 delay:2.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:1.0 delay:5.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.teethLabel.alpha = 0.0;
     } completion:^(BOOL finished) {
         
@@ -134,7 +133,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     self.navigationController.navigationBar.hidden = NO;
     [super viewWillDisappear:animated];
     [self.captureSession stopRunning];
-
 
 }
 
@@ -155,9 +153,23 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     
     //根据设备输出获得连接
     AVCaptureConnection *captureConnection=[self.captureStillImageOutput connectionWithMediaType:AVMediaTypeVideo];
+    
+    [captureConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
+
+    [captureConnection setVideoScaleAndCropFactor:1.0];
+    
+
     //根据连接取得设备输出的数据
     [self.captureStillImageOutput captureStillImageAsynchronouslyFromConnection:captureConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         if (imageDataSampleBuffer) {
+            
+            //停止捕捉
+            [self.captureVideoPreviewLayer removeFromSuperlayer];
+            self.captureVideoPreviewLayer = nil;
+            
+            [self.captureSession stopRunning];
+
+            //获取数据
             NSData *imageData=[AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             UIImage *image=[UIImage imageWithData:imageData];
             UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
@@ -167,40 +179,28 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //                                     640 * 2,
 //                                     480 * 2);
             
-            CGRect rect = CGRectMake(0,
-                                     0,
-                                     640 * 2,
-                                     480 * 2);
-            
-            CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, rect);
-            UIImage *result = [UIImage imageWithCGImage:imageRef
-                                                  scale:2.0
-                                            orientation:UIImageOrientationRight];
-            CGImageRelease(imageRef);
-
-//            if ([self.delegate respondsToSelector:@selector(getPhotoFromCamera:)]) {
-//                [self.delegate getPhotoFromCamera:result];
-//            }
-            
-//            [self dismissViewControllerAnimated:YES completion:^{
+//            CGRect rect = CGRectMake(0,
+//                                     0,
+//                                     640 * 2,
+//                                     480 * 2);
 //            
-//            }];
+//            CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, rect);
+//            UIImage *result = [UIImage imageWithCGImage:imageRef
+//                                                  scale:2.0
+//                                            orientation:UIImageOrientationRight];
+//            CGImageRelease(imageRef);
             
+            
+
             UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             
             ImageEditViewController *editorVC = [sb instantiateViewControllerWithIdentifier:@"ImageEditViewController"];
             
-            editorVC.sourceImage  = result;
-//            editorVC.hidesBottomBarWhenPushed = YES;
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.navigationController pushViewController:editorVC animated:YES];
-                
-//            });
+            editorVC.sourceImage  = image;
 
+            [self.navigationController pushViewController:editorVC animated:YES];
             
         }
-        
-        
         
     }];
 }
