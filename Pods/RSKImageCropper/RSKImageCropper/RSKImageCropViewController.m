@@ -103,10 +103,10 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     return self;
 }
 
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
+//- (BOOL)prefersStatusBarHidden
+//{
+//    return YES;
+//}
 
 - (void)viewDidLoad
 {
@@ -134,25 +134,25 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
 {
     [super viewWillAppear:animated];
     
-    UIApplication *application = [UIApplication rsk_sharedApplication];
-    if (application) {
-        self.originalStatusBarHidden = application.statusBarHidden;
-        [application setStatusBarHidden:YES];
-    }
-    
-    self.originalNavigationControllerNavigationBarHidden = self.navigationController.navigationBarHidden;
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
-    self.originalNavigationControllerNavigationBarShadowImage = self.navigationController.navigationBar.shadowImage;
-    self.navigationController.navigationBar.shadowImage = nil;
+//    UIApplication *application = [UIApplication rsk_sharedApplication];
+//    if (application) {
+//        self.originalStatusBarHidden = application.statusBarHidden;
+//        [application setStatusBarHidden:YES];
+//    }
+//    
+//    self.originalNavigationControllerNavigationBarHidden = self.navigationController.navigationBarHidden;
+//    [self.navigationController setNavigationBarHidden:YES animated:NO];
+//    
+//    self.originalNavigationControllerNavigationBarShadowImage = self.navigationController.navigationBar.shadowImage;
+//    self.navigationController.navigationBar.shadowImage = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    self.originalNavigationControllerViewBackgroundColor = self.navigationController.view.backgroundColor;
-    self.navigationController.view.backgroundColor = [UIColor blackColor];
+//    self.originalNavigationControllerViewBackgroundColor = self.navigationController.view.backgroundColor;
+//    self.navigationController.view.backgroundColor = [UIColor blackColor];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

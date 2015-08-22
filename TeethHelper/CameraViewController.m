@@ -10,10 +10,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "ImageEditViewController.h"
+#import "ImageCropperViewController.h"
 
 typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
-@interface CameraViewController ()
+@interface CameraViewController ()<RSKImageCropViewControllerDataSource>
 
 @property (strong,nonatomic) AVCaptureSession *captureSession;//负责输入和输出设置之间的数据传递
 @property (strong,nonatomic) AVCaptureDeviceInput *captureDeviceInput;//负责从AVCaptureDevice获得输入数据
@@ -191,14 +192,17 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //            CGImageRelease(imageRef);
             
             
+//
+//            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            
+//            ImageEditViewController *editorVC = [sb instantiateViewControllerWithIdentifier:@"ImageEditViewController"];
+//            
+//            editorVC.sourceImage  = image;
+//            [self.navigationController pushViewController:editorVC animated:YES];
 
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            
-            ImageEditViewController *editorVC = [sb instantiateViewControllerWithIdentifier:@"ImageEditViewController"];
-            
-            editorVC.sourceImage  = image;
-
-            [self.navigationController pushViewController:editorVC animated:YES];
+            ImageCropperViewController *cropper  =[[ImageCropperViewController alloc] initWithImage:image cropMode:RSKImageCropModeCustom];
+            cropper.dataSource = self;
+            [self.navigationController pushViewController:cropper animated:YES];
             
         }
         
@@ -509,7 +513,63 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //    }];
 //}
 
+#pragma mark - datasource
 
+// Returns a custom rect for the mask.
+- (CGRect)imageCropViewControllerCustomMaskRect:(RSKImageCropViewController *)controller
+{
+    CGSize maskSize;
+    if ([controller isPortraitInterfaceOrientation]) {
+        maskSize = CGSizeMake(250, 250);
+    } else {
+        maskSize = CGSizeMake(220, 220);
+    }
+    maskSize = CGSizeMake(300, 150);
+    
+    CGFloat viewWidth = CGRectGetWidth(controller.view.frame);
+    CGFloat viewHeight = CGRectGetHeight(controller.view.frame);
+    
+    CGRect maskRect = CGRectMake((viewWidth - maskSize.width) * 0.5f,
+                                 (viewHeight - maskSize.height) * 0.5f,
+                                 maskSize.width,
+                                 maskSize.height);
+    
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    maskRect = CGRectMake(0, 100, width, 100);
+    
+    return maskRect;
+}
+
+// Returns a custom path for the mask.
+- (UIBezierPath *)imageCropViewControllerCustomMaskPath:(RSKImageCropViewController *)controller
+{
+    CGRect rect = controller.maskRect;
+    
+    CGFloat radius = 50;
+    
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    
+    [path moveToPoint:CGPointMake(radius, CGRectGetMinY(rect))];
+    [path addLineToPoint:CGPointMake(CGRectGetMaxX(rect) - radius, CGRectGetMinY(rect))];
+    [path addLineToPoint:CGPointMake(CGRectGetMaxX(rect) -radius, CGRectGetMaxY(rect))];
+    [path addLineToPoint:CGPointMake(radius, CGRectGetMaxY(rect))];
+    
+    [path addArcWithCenter:CGPointMake(radius, CGRectGetMinY(rect) + radius) radius:radius startAngle: 0.5 * M_PI endAngle:1.5 *M_PI clockwise:YES];
+    [path moveToPoint:CGPointMake(CGRectGetMaxX(rect) - radius, CGRectGetMinY(rect))];
+    
+    [path addArcWithCenter:CGPointMake(CGRectGetMaxX(rect) - radius, CGRectGetMaxY(rect) - radius) radius:radius startAngle: -0.5 * M_PI endAngle:0.5 *M_PI clockwise:YES];
+    //    [path closePath];
+    return path;
+    
+}
+
+// Returns a custom rect in which the image can be moved.
+- (CGRect)imageCropViewControllerCustomMovementRect:(RSKImageCropViewController *)controller
+{
+    // If the image is not rotated, then the movement rect coincides with the mask rect.
+    return controller.maskRect;
+}
 
 
 @end

@@ -50,6 +50,8 @@
 		87465BBD1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87465BBB1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib */; };
 		874F73661B86181B00429C3D /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874F73651B86181B00429C3D /* CameraViewController.m */; };
 		874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874F73681B8618A200429C3D /* ImageEditViewController.m */; };
+		875D24451B8884350068AA2B /* CeBaiResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875D24431B8884350068AA2B /* CeBaiResultViewController.m */; };
+		875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875D24441B8884350068AA2B /* CeBaiResultViewController.xib */; };
 		877B4E3D1B7CD95D00E6720D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B4E3B1B7CD95D00E6720D /* SplashViewController.m */; };
 		877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */; };
 		878108C51B7B907A000A735F /* AlienView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C41B7B907A000A735F /* AlienView.m */; };
@@ -67,6 +69,7 @@
 		8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */; };
 		8785F9071B7C6D250051B29B /* QuestionOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9061B7C6D250051B29B /* QuestionOneView.m */; };
 		8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9091B7C7D210051B29B /* RS_SliderView.m */; };
+		87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */; };
 		87BE0D381B82CCAC001E0D30 /* SocialNoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */; };
 		87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */; };
 		87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */; };
@@ -199,6 +202,9 @@
 		874F73651B86181B00429C3D /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		874F73671B8618A200429C3D /* ImageEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEditViewController.h; sourceTree = "<group>"; };
 		874F73681B8618A200429C3D /* ImageEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEditViewController.m; sourceTree = "<group>"; };
+		875D24421B8884350068AA2B /* CeBaiResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeBaiResultViewController.h; sourceTree = "<group>"; };
+		875D24431B8884350068AA2B /* CeBaiResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiResultViewController.m; sourceTree = "<group>"; };
+		875D24441B8884350068AA2B /* CeBaiResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CeBaiResultViewController.xib; sourceTree = "<group>"; };
 		877B4E3A1B7CD95D00E6720D /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		877B4E3B1B7CD95D00E6720D /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
@@ -230,6 +236,8 @@
 		8785F9061B7C6D250051B29B /* QuestionOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionOneView.m; sourceTree = "<group>"; };
 		8785F9081B7C7D210051B29B /* RS_SliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RS_SliderView.h; sourceTree = "<group>"; };
 		8785F9091B7C7D210051B29B /* RS_SliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RS_SliderView.m; sourceTree = "<group>"; };
+		87BBCDC81B8872E1009130F1 /* ImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropperViewController.h; sourceTree = "<group>"; };
+		87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropperViewController.m; sourceTree = "<group>"; };
 		87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNoImageCell.h; sourceTree = "<group>"; };
 		87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNoImageCell.m; sourceTree = "<group>"; };
 		87BE0D391B82CCBD001E0D30 /* SocialImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialImageCell.h; sourceTree = "<group>"; };
@@ -474,6 +482,11 @@
 				874F73651B86181B00429C3D /* CameraViewController.m */,
 				873B75BF1B774020002D7871 /* CeBaiViewController.h */,
 				873B75C01B774020002D7871 /* CeBaiViewController.m */,
+				87BBCDC81B8872E1009130F1 /* ImageCropperViewController.h */,
+				87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */,
+				875D24421B8884350068AA2B /* CeBaiResultViewController.h */,
+				875D24431B8884350068AA2B /* CeBaiResultViewController.m */,
+				875D24441B8884350068AA2B /* CeBaiResultViewController.xib */,
 			);
 			name = SecondTab;
 			sourceTree = "<group>";
@@ -901,6 +914,7 @@
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
+				875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
@@ -994,6 +1008,7 @@
 				8785F8F51B7C49560051B29B /* QuestionOneViewController.m in Sources */,
 				87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */,
 				87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */,
+				875D24451B8884350068AA2B /* CeBaiResultViewController.m in Sources */,
 				87D534011B7ADF6300F3D6BE /* MeiBaiTwoCell.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
@@ -1036,6 +1051,7 @@
 				873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */,
 				870A66161B77321900A51B26 /* AccountManager.m in Sources */,
 				874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */,
+				87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */,
 				8785F8B11B7C1DD20051B29B /* MeibaiProjectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
