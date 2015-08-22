@@ -7,6 +7,8 @@ target 'TeethHelper' do
 	pod 'Masonry'
 	pod 'SDWebImage', '~>3.7'
     pod 'DateTools'
+    pod 'RSKImageCropper'
+
     
 
 end

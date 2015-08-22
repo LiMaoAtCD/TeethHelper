@@ -22,6 +22,7 @@
     [Utils ConfigNavigationBarWithTitle:@"测白" onViewController:self];
     self.navigationController.navigationBar.translucent = NO;
     self.imageView.image = self.sourceImage;
+    
 }
 
 -(void)pop{

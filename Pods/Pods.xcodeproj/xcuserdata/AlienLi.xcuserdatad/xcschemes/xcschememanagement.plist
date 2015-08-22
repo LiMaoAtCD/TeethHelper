@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RSKImageCropper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>343F509954A1287F46766D7B99150032</key>
+		<key>0106EC1AB4DFCCA631552B3FA3A8F8B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43EF1AB8F6FEBD77CC31E5220D91B16D</key>
+		<key>127E4A31AB025B08F7526535F29B53ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,17 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>63E28BDC928BEE37E41704E46FB83610</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>814B8C2C87683D77A8017202021C60A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A98AC4EFEDEEC0AB1CBA657803462F09</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B281DA29A9C3EDFB45BA53651F6BA611</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B5C223351AAD9E5B150055258F36B58E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B60EB6D90BFF1D26BA38B779AC21579F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
