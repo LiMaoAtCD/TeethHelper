@@ -2,8 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "social_imageupload_normal.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
@@ -11,7 +10,8 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "social_imageupload_normal.png"
     }
   ],
   "info" : {

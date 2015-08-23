@@ -52,6 +52,8 @@
 		874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874F73681B8618A200429C3D /* ImageEditViewController.m */; };
 		875D24451B8884350068AA2B /* CeBaiResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875D24431B8884350068AA2B /* CeBaiResultViewController.m */; };
 		875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875D24441B8884350068AA2B /* CeBaiResultViewController.xib */; };
+		877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8778802E1B8A063600BAF13D /* PostTopicViewController.m */; };
+		877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8778802F1B8A063600BAF13D /* PostTopicViewController.xib */; };
 		877B4E3D1B7CD95D00E6720D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B4E3B1B7CD95D00E6720D /* SplashViewController.m */; };
 		877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */; };
 		878108C51B7B907A000A735F /* AlienView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C41B7B907A000A735F /* AlienView.m */; };
@@ -205,6 +207,9 @@
 		875D24421B8884350068AA2B /* CeBaiResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeBaiResultViewController.h; sourceTree = "<group>"; };
 		875D24431B8884350068AA2B /* CeBaiResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiResultViewController.m; sourceTree = "<group>"; };
 		875D24441B8884350068AA2B /* CeBaiResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CeBaiResultViewController.xib; sourceTree = "<group>"; };
+		8778802D1B8A063600BAF13D /* PostTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTopicViewController.h; sourceTree = "<group>"; };
+		8778802E1B8A063600BAF13D /* PostTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTopicViewController.m; sourceTree = "<group>"; };
+		8778802F1B8A063600BAF13D /* PostTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTopicViewController.xib; sourceTree = "<group>"; };
 		877B4E3A1B7CD95D00E6720D /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		877B4E3B1B7CD95D00E6720D /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
@@ -494,6 +499,7 @@
 		873B75BA1B773FEE002D7871 /* ThirdTab */ = {
 			isa = PBXGroup;
 			children = (
+				877880291B8A05FF00BAF13D /* PostTopic */,
 				873B75C21B774029002D7871 /* SocialViewController.h */,
 				873B75C31B774029002D7871 /* SocialViewController.m */,
 				87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */,
@@ -576,6 +582,16 @@
 				874249941B798EF100F6DB69 /* TeethChooseView.m */,
 			);
 			name = StateDetail;
+			sourceTree = "<group>";
+		};
+		877880291B8A05FF00BAF13D /* PostTopic */ = {
+			isa = PBXGroup;
+			children = (
+				8778802D1B8A063600BAF13D /* PostTopicViewController.h */,
+				8778802E1B8A063600BAF13D /* PostTopicViewController.m */,
+				8778802F1B8A063600BAF13D /* PostTopicViewController.xib */,
+			);
+			name = PostTopic;
 			sourceTree = "<group>";
 		};
 		8785F8AA1B7C0D4D0051B29B /* MeiBaiProject */ = {
@@ -915,6 +931,7 @@
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
 				875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */,
+				877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
@@ -1046,6 +1063,7 @@
 				8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
+				877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */,
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
 				8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */,
 				873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */,

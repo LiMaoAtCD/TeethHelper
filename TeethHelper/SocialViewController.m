@@ -11,6 +11,8 @@
 #import "SocialImageCell.h"
 #import "SocialNoImageCell.h"
 #import <DateTools.h>
+#import "PostTopicViewController.h"
+
 @interface SocialViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -26,6 +28,15 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"社区" onViewController:self];
     self.navigationItem.leftBarButtonItem = nil;
+    UIImage *image = [UIImage imageNamed:@"social_post_normal"];
+    UIButton *publish = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
+    
+    [publish setImage:image forState:UIControlStateNormal];
+    [publish setImage:[UIImage imageNamed:@"social_post_pressed"] forState:UIControlStateHighlighted];
+
+    [publish addTarget:self action:@selector(publishTopic:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:publish];
     
     self.dataItems = [NSMutableArray array];
 
@@ -150,6 +161,13 @@
     }
 }
 
+#pragma mark - post topic
+
+-(void)publishTopic:(id)sender{
+    PostTopicViewController *postVC = [[PostTopicViewController alloc] initWithNibName:@"PostTopicViewController" bundle:nil];
+    postVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:postVC animated:YES];
+}
 
 
 
