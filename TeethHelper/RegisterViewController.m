@@ -159,7 +159,18 @@
                 } else if ([responseObject[@"status"] integerValue] == 3002) {
                     //手机号已被注册
                     [SVProgressHUD showErrorWithStatus:@"该手机号码已经注册"];
+                } else if ([responseObject[@"status"] integerValue] == 1000) {
+                    [SVProgressHUD showErrorWithStatus:@"操作失败"];
+                } else if ([responseObject[@"status"] integerValue] == 1001){
+                    [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
+                } else if ([responseObject[@"status"] integerValue] == 1002){
+                    [SVProgressHUD showErrorWithStatus:@"无效的访问令牌"];
+                } else if ([responseObject[@"status"] integerValue] == 1003){
+                    [SVProgressHUD showErrorWithStatus:@"无权访问"];
+                } else if ([responseObject[@"status"] integerValue] == 1004){
+                    [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
                 }
+                
                 
                 
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {

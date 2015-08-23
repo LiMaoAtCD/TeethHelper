@@ -99,5 +99,69 @@
 
 }
 
++(void)fetchProductInfoWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    [manager GET:@"http://www.7wang523.com/teeth-api/product" parameters:nil success:completionHandler failure:failHandler];
+
+}
+
++(void)publishTextContent:(NSString *)content WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    if (content) {
+        dictionary[@"content"] = content;
+    }
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://www.7wang523.com/teeth-api/topic/publishonlycon" parameters:dictionary success:completionHandler failure:failHandler];
+}
+
++(void)fetchPostsByStartIndex:(NSInteger)index pageSize:(NSInteger)pageSize WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic?accessToken=%@&startIndex=%ld&pageSize=%ld", [AccountManager getTokenID],index,pageSize];
+ 
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:nil success:completionHandler failure:failHandler];
+
+}
+
++(void)replyToID:(NSString *)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic/%@/reply",topicID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
++(void)fetchTopicDetailByTopicID:(NSString*)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic/%@",topicID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
++(void)LikeTopicByID:(NSString*)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+//    http://www.7wang523.com/teeth-api/topic/2/love
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic/%@/love",topicID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
 
 @end
