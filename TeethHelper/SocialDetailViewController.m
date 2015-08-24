@@ -16,6 +16,7 @@
 #import "SocialDetailOneCell.h"
 #import "SocialDetailTwoCell.h"
 #import "SocialDetailThreeCell.h"
+#import "DetailReplyCell.h"
 
 #import <UIImageView+WebCache.h>
 
@@ -69,7 +70,7 @@
     }
     //昵称
     if ([[self.topicDetail allKeys] containsObject:@"nickName"]) {
-        self.avatarURL = self.topicDetail[@"nickName"];
+        self.nickName = self.topicDetail[@"nickName"];
     }
     //回复数
     if ([[self.topicDetail allKeys] containsObject:@"callbacks"]) {
@@ -98,8 +99,8 @@
             //
             [SVProgressHUD showSuccessWithStatus:@"请求成功"];
             
-            self.gender = responseObject[@"sex"];
-            self.comments = responseObject[@"comments"];
+            self.gender = responseObject[@"data"][@"sex"];
+            self.comments = responseObject[@"data"][@"comments"];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -133,8 +134,11 @@
 
     }
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailReplyCell" bundle:nil] forCellReuseIdentifier:@"DetailReplyCell"];
+
     
-//    self.tableView.tableFooterView = [UIView new];
+    
+    self.tableView.tableFooterView = [UIView new];
     
 
 }
@@ -174,7 +178,7 @@
     if (indexPath.row == 0) {
         
         if (self.images.count == 0) {
-            SocialDetailNoImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SocialNoImageCell" forIndexPath:indexPath];
+            SocialDetailNoImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SocialDetailNoImageCell" forIndexPath:indexPath];
             [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.avatarURL] placeholderImage:[UIImage imageNamed:@"img_head"]];
             cell.nameLabel.text = self.nickName;
             
@@ -238,7 +242,13 @@
         }
 
     } else{
-        return  nil;
+        
+        DetailReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailReplyCell" forIndexPath:indexPath];
+        
+//        cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.comments] placeholderImage:<#(UIImage *)#>
+        
+        
+        return cell;
     }
     
 }

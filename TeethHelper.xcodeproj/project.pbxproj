@@ -118,6 +118,8 @@
 		87E2AF0A1B84C2C7002FC28A /* UseHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF091B84C2C7002FC28A /* UseHistoryCell.m */; };
 		87E2AF0F1B855E92002FC28A /* WechatShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */; };
 		87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */; };
+		87FAFCEB1B8B7508000CB8F4 /* DetailReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FAFCE91B8B7508000CB8F4 /* DetailReplyCell.m */; };
+		87FAFCEC1B8B7508000CB8F4 /* DetailReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FAFCEA1B8B7508000CB8F4 /* DetailReplyCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +338,9 @@
 		87E2AF0C1B855E92002FC28A /* WechatShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatShareViewController.h; sourceTree = "<group>"; };
 		87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatShareViewController.m; sourceTree = "<group>"; };
 		87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WechatShareViewController.xib; sourceTree = "<group>"; };
+		87FAFCE81B8B7508000CB8F4 /* DetailReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailReplyCell.h; sourceTree = "<group>"; };
+		87FAFCE91B8B7508000CB8F4 /* DetailReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailReplyCell.m; sourceTree = "<group>"; };
+		87FAFCEA1B8B7508000CB8F4 /* DetailReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailReplyCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -623,21 +628,10 @@
 		877B05161B8AB4CA00D5ECF1 /* SocialDetail */ = {
 			isa = PBXGroup;
 			children = (
+				87FAFCE71B8B74DA000CB8F4 /* Cells */,
 				877B05171B8AB4E000D5ECF1 /* SocialDetailViewController.h */,
 				877B05181B8AB4E000D5ECF1 /* SocialDetailViewController.m */,
 				877B05191B8AB4E000D5ECF1 /* SocialDetailViewController.xib */,
-				87911F441B8B4FD6000E9218 /* SocialDetailNoImageCell.h */,
-				87911F451B8B4FD6000E9218 /* SocialDetailNoImageCell.m */,
-				87911F461B8B4FD6000E9218 /* SocialDetailNoImageCell.xib */,
-				87911F491B8B4FF5000E9218 /* SocialDetailOneCell.h */,
-				87911F4A1B8B4FF5000E9218 /* SocialDetailOneCell.m */,
-				87911F4B1B8B4FF5000E9218 /* SocialDetailOneCell.xib */,
-				87911F4E1B8B500A000E9218 /* SocialDetailTwoCell.h */,
-				87911F4F1B8B500A000E9218 /* SocialDetailTwoCell.m */,
-				87911F501B8B500A000E9218 /* SocialDetailTwoCell.xib */,
-				87911F531B8B501F000E9218 /* SocialDetailThreeCell.h */,
-				87911F541B8B501F000E9218 /* SocialDetailThreeCell.m */,
-				87911F551B8B501F000E9218 /* SocialDetailThreeCell.xib */,
 			);
 			name = SocialDetail;
 			sourceTree = "<group>";
@@ -879,6 +873,28 @@
 			name = WechatShare;
 			sourceTree = "<group>";
 		};
+		87FAFCE71B8B74DA000CB8F4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				87FAFCE81B8B7508000CB8F4 /* DetailReplyCell.h */,
+				87FAFCE91B8B7508000CB8F4 /* DetailReplyCell.m */,
+				87FAFCEA1B8B7508000CB8F4 /* DetailReplyCell.xib */,
+				87911F441B8B4FD6000E9218 /* SocialDetailNoImageCell.h */,
+				87911F451B8B4FD6000E9218 /* SocialDetailNoImageCell.m */,
+				87911F461B8B4FD6000E9218 /* SocialDetailNoImageCell.xib */,
+				87911F491B8B4FF5000E9218 /* SocialDetailOneCell.h */,
+				87911F4A1B8B4FF5000E9218 /* SocialDetailOneCell.m */,
+				87911F4B1B8B4FF5000E9218 /* SocialDetailOneCell.xib */,
+				87911F4E1B8B500A000E9218 /* SocialDetailTwoCell.h */,
+				87911F4F1B8B500A000E9218 /* SocialDetailTwoCell.m */,
+				87911F501B8B500A000E9218 /* SocialDetailTwoCell.xib */,
+				87911F531B8B501F000E9218 /* SocialDetailThreeCell.h */,
+				87911F541B8B501F000E9218 /* SocialDetailThreeCell.m */,
+				87911F551B8B501F000E9218 /* SocialDetailThreeCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		92FECA73543D42FCD690DBEE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -988,6 +1004,7 @@
 				877B051B1B8AB4E000D5ECF1 /* SocialDetailViewController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */,
+				87FAFCEC1B8B7508000CB8F4 /* DetailReplyCell.xib in Resources */,
 				87911F521B8B500A000E9218 /* SocialDetailTwoCell.xib in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
 			);
@@ -1101,6 +1118,7 @@
 				874249951B798EF100F6DB69 /* TeethChooseView.m in Sources */,
 				87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */,
 				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
+				87FAFCEB1B8B7508000CB8F4 /* DetailReplyCell.m in Sources */,
 				8785F9011B7C497A0051B29B /* QuestionFiveViewController.m in Sources */,
 				87911F471B8B4FD6000E9218 /* SocialDetailNoImageCell.m in Sources */,
 				8785F8B51B7C26F20051B29B /* AlienTimerView.m in Sources */,
