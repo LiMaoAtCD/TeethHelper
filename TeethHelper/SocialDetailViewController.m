@@ -15,6 +15,8 @@
 
 @interface SocialDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation SocialDetailViewController

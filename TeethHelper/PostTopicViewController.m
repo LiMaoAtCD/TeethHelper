@@ -268,6 +268,15 @@
     }
 }
 
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if (textView.text.length > 255) {
+        textView.text  =  [textView.text substringToIndex:255];
+    }
+    
+    return YES;
+}
+
 #pragma mark - 发布
 
 -(void)postTopic:(id)sender{
@@ -290,7 +299,9 @@
                 if ([responseObject[@"status"] integerValue] == 2000) {
                     [SVProgressHUD showSuccessWithStatus:@"发布成功"];
                     [self.navigationController popViewControllerAnimated:YES];
-                } else{
+                } else if([responseObject[@"status"] integerValue] == 1004){
+                    [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
+                }else{
                     [SVProgressHUD showErrorWithStatus:@"发布失败,稍后再试吧"];
                 }
                 

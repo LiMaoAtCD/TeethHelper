@@ -73,6 +73,14 @@
 		8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */; };
 		8785F9071B7C6D250051B29B /* QuestionOneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9061B7C6D250051B29B /* QuestionOneView.m */; };
 		8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F9091B7C7D210051B29B /* RS_SliderView.m */; };
+		87911F471B8B4FD6000E9218 /* SocialDetailNoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87911F451B8B4FD6000E9218 /* SocialDetailNoImageCell.m */; };
+		87911F481B8B4FD6000E9218 /* SocialDetailNoImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87911F461B8B4FD6000E9218 /* SocialDetailNoImageCell.xib */; };
+		87911F4C1B8B4FF5000E9218 /* SocialDetailOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87911F4A1B8B4FF5000E9218 /* SocialDetailOneCell.m */; };
+		87911F4D1B8B4FF5000E9218 /* SocialDetailOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87911F4B1B8B4FF5000E9218 /* SocialDetailOneCell.xib */; };
+		87911F511B8B500A000E9218 /* SocialDetailTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87911F4F1B8B500A000E9218 /* SocialDetailTwoCell.m */; };
+		87911F521B8B500A000E9218 /* SocialDetailTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87911F501B8B500A000E9218 /* SocialDetailTwoCell.xib */; };
+		87911F561B8B501F000E9218 /* SocialDetailThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87911F541B8B501F000E9218 /* SocialDetailThreeCell.m */; };
+		87911F571B8B501F000E9218 /* SocialDetailThreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87911F551B8B501F000E9218 /* SocialDetailThreeCell.xib */; };
 		87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */; };
 		87BE0D381B82CCAC001E0D30 /* SocialNoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */; };
 		87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */; };
@@ -246,6 +254,18 @@
 		8785F9061B7C6D250051B29B /* QuestionOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionOneView.m; sourceTree = "<group>"; };
 		8785F9081B7C7D210051B29B /* RS_SliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RS_SliderView.h; sourceTree = "<group>"; };
 		8785F9091B7C7D210051B29B /* RS_SliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RS_SliderView.m; sourceTree = "<group>"; };
+		87911F441B8B4FD6000E9218 /* SocialDetailNoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailNoImageCell.h; sourceTree = "<group>"; };
+		87911F451B8B4FD6000E9218 /* SocialDetailNoImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailNoImageCell.m; sourceTree = "<group>"; };
+		87911F461B8B4FD6000E9218 /* SocialDetailNoImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialDetailNoImageCell.xib; sourceTree = "<group>"; };
+		87911F491B8B4FF5000E9218 /* SocialDetailOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailOneCell.h; sourceTree = "<group>"; };
+		87911F4A1B8B4FF5000E9218 /* SocialDetailOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailOneCell.m; sourceTree = "<group>"; };
+		87911F4B1B8B4FF5000E9218 /* SocialDetailOneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialDetailOneCell.xib; sourceTree = "<group>"; };
+		87911F4E1B8B500A000E9218 /* SocialDetailTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailTwoCell.h; sourceTree = "<group>"; };
+		87911F4F1B8B500A000E9218 /* SocialDetailTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailTwoCell.m; sourceTree = "<group>"; };
+		87911F501B8B500A000E9218 /* SocialDetailTwoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialDetailTwoCell.xib; sourceTree = "<group>"; };
+		87911F531B8B501F000E9218 /* SocialDetailThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailThreeCell.h; sourceTree = "<group>"; };
+		87911F541B8B501F000E9218 /* SocialDetailThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailThreeCell.m; sourceTree = "<group>"; };
+		87911F551B8B501F000E9218 /* SocialDetailThreeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialDetailThreeCell.xib; sourceTree = "<group>"; };
 		87BBCDC81B8872E1009130F1 /* ImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropperViewController.h; sourceTree = "<group>"; };
 		87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropperViewController.m; sourceTree = "<group>"; };
 		87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNoImageCell.h; sourceTree = "<group>"; };
@@ -606,6 +626,18 @@
 				877B05171B8AB4E000D5ECF1 /* SocialDetailViewController.h */,
 				877B05181B8AB4E000D5ECF1 /* SocialDetailViewController.m */,
 				877B05191B8AB4E000D5ECF1 /* SocialDetailViewController.xib */,
+				87911F441B8B4FD6000E9218 /* SocialDetailNoImageCell.h */,
+				87911F451B8B4FD6000E9218 /* SocialDetailNoImageCell.m */,
+				87911F461B8B4FD6000E9218 /* SocialDetailNoImageCell.xib */,
+				87911F491B8B4FF5000E9218 /* SocialDetailOneCell.h */,
+				87911F4A1B8B4FF5000E9218 /* SocialDetailOneCell.m */,
+				87911F4B1B8B4FF5000E9218 /* SocialDetailOneCell.xib */,
+				87911F4E1B8B500A000E9218 /* SocialDetailTwoCell.h */,
+				87911F4F1B8B500A000E9218 /* SocialDetailTwoCell.m */,
+				87911F501B8B500A000E9218 /* SocialDetailTwoCell.xib */,
+				87911F531B8B501F000E9218 /* SocialDetailThreeCell.h */,
+				87911F541B8B501F000E9218 /* SocialDetailThreeCell.m */,
+				87911F551B8B501F000E9218 /* SocialDetailThreeCell.xib */,
 			);
 			name = SocialDetail;
 			sourceTree = "<group>";
@@ -938,9 +970,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87911F481B8B4FD6000E9218 /* SocialDetailNoImageCell.xib in Resources */,
 				8785F8B21B7C1DD20051B29B /* MeibaiProjectController.xib in Resources */,
 				877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */,
 				870A66071B7722D600A51B26 /* Login.storyboard in Resources */,
+				87911F4D1B8B4FF5000E9218 /* SocialDetailOneCell.xib in Resources */,
 				87465BBD1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib in Resources */,
 				873B75D01B774338002D7871 /* Product.storyboard in Resources */,
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
@@ -948,11 +982,13 @@
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
 				875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */,
 				877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */,
+				87911F571B8B501F000E9218 /* SocialDetailThreeCell.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				877B051B1B8AB4E000D5ECF1 /* SocialDetailViewController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */,
+				87911F521B8B500A000E9218 /* SocialDetailTwoCell.xib in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1022,11 +1058,13 @@
 				873B75C11B774020002D7871 /* CeBaiViewController.m in Sources */,
 				87E2AB3E1B7757B0001ED07F /* CeBaiHistoryViewController.m in Sources */,
 				87E2AB581B787FB9001ED07F /* CompositionDetailViewController.m in Sources */,
+				87911F4C1B8B4FF5000E9218 /* SocialDetailOneCell.m in Sources */,
 				87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */,
 				877B4E3D1B7CD95D00E6720D /* SplashViewController.m in Sources */,
 				87D533EC1B79CA6C00F3D6BE /* MessageTwoCell.m in Sources */,
 				87E2AB621B78AFA3001ED07F /* AvatarCell.m in Sources */,
 				874249921B798D0600F6DB69 /* TeethDetailThreeController.m in Sources */,
+				87911F511B8B500A000E9218 /* SocialDetailTwoCell.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
 				8785F8FB1B7C49690051B29B /* QuestionThreeViewController.m in Sources */,
@@ -1064,6 +1102,7 @@
 				87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */,
 				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
 				8785F9011B7C497A0051B29B /* QuestionFiveViewController.m in Sources */,
+				87911F471B8B4FD6000E9218 /* SocialDetailNoImageCell.m in Sources */,
 				8785F8B51B7C26F20051B29B /* AlienTimerView.m in Sources */,
 				874249811B78E73500F6DB69 /* AddressViewController.m in Sources */,
 				873B75B11B773984002D7871 /* RegisterViewController.m in Sources */,
@@ -1072,6 +1111,7 @@
 				870A66001B7722A500A51B26 /* LoginNavigationController.m in Sources */,
 				873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */,
 				87E2AF0F1B855E92002FC28A /* WechatShareViewController.m in Sources */,
+				87911F561B8B501F000E9218 /* SocialDetailThreeCell.m in Sources */,
 				87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */,
 				87E2AB651B78AFB9001ED07F /* InfoCell.m in Sources */,
 				870A660F1B772FEB00A51B26 /* Utils.m in Sources */,
