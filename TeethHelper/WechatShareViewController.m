@@ -23,7 +23,7 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.bgView =[[UIView alloc] initWithFrame:CGRectZero];
     self.bgView.backgroundColor = [UIColor blackColor];
-    self.bgView.alpha = 0.2;
+    self.bgView.alpha = 0.0;
     [self.view addSubview:self.bgView];
     
     [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -120,6 +120,7 @@
     
     [cancel setBackgroundImage:[UIImage imageNamed:@"bg_green"] forState:UIControlStateNormal];
     [cancel setTitle:@"取消" forState:UIControlStateNormal];
+    [cancel addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
     [shareView addSubview:cancel];
     
     [cancel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -136,14 +137,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.bgView.alpha = 0.2;
+    } completion:^(BOOL finished) {
+        
+    }];
 }
-*/
+
+-(void)cancel{
+    
+    self.bgView.alpha = 0.0;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

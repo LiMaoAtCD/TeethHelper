@@ -291,6 +291,8 @@
         
         UIImage *tempImage = [info objectForKey:UIImagePickerControllerEditedImage];
         
+        
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateAvatar" object:@{@"avatar": tempImage}];
         
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -309,7 +311,7 @@
             }
             
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [SVProgressHUD showSuccessWithStatus:@"网络出错啦"];
+            [SVProgressHUD showErrorWithStatus:@"网络出错啦"];
         }];
         
 
