@@ -10,4 +10,6 @@
 
 @interface SocialDetailViewController : UIViewController
 
+@property (nonatomic, strong) NSDictionary *topicDetail;
+
 @end

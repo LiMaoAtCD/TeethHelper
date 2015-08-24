@@ -32,7 +32,16 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:publish];
 
+    
+    
 }
+
+
+
+
+
+
+
 
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];

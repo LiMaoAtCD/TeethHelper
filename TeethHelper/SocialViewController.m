@@ -261,6 +261,10 @@
     
     detail.hidesBottomBarWhenPushed = YES;
     
+    NSDictionary *temp = self.dataItems[indexPath.row];
+    
+    detail.topicDetail = temp;
+    
     [self.navigationController pushViewController:detail animated:YES];
     
     
