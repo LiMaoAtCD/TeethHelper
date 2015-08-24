@@ -13,11 +13,20 @@
 #import <DateTools.h>
 #import "PostTopicViewController.h"
 
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
+#import <MJRefresh.h>
+#import <UIImageView+WebCache.h>
+
+#import "SocialDetailViewController.h"
+
 @interface SocialViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataItems;
+
+@property (nonatomic, assign) NSInteger currentPage;
 
 @end
 
@@ -38,34 +47,47 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:publish];
     
-    self.dataItems = [NSMutableArray array];
-
-    self.dataItems =[@[
-                       @{
-                           @"avatar":@"xxx",
-                           @"date":[NSDate dateWithTimeInterval:-70 sinceDate:[NSDate date]],
-                           @"containImage":@1
-                         },
-                       @{
-                           @"avatar":@"xxx",
-                           @"date":[NSDate dateWithTimeInterval:-1 sinceDate:[NSDate date]],
-                           @"containImage":@0
-                         },
-                       @{
-                             @"avatar":@"xxx",
-                             @"date":[NSDate dateWithTimeInterval:-5000 sinceDate:[NSDate date]],
-                             @"containImage":@0
-                         },
-                       @{
-                           @"avatar":@"xxx",
-                           @"date":[NSDate dateWithTimeInterval:-3600*27 sinceDate:[NSDate date]],
-                           @"containImage":@0
-                         }
-                       
-                       ] mutableCopy];
-    
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44.0;
+    self.navigationController.navigationBar.translucent = NO;
+    
+    
+    self.currentPage = 0;
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadData];
+    }];
+    
+    [self.tableView.header beginRefreshing];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+-(void)loadData{
+    
+    [NetworkManager fetchPostsByStartIndex:0 pageSize:10 WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+        
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            
+            self.currentPage = [responseObject[@"count"] integerValue];
+            NSArray *data = responseObject[@"data"];
+            NSLog(@"%@",data);
+            
+            self.dataItems = [data mutableCopy];
+            
+            [self.tableView reloadData];
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        }
+        
+        [self.tableView.header endRefreshing];
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [self.tableView.header endRefreshing];
+
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,10 +107,28 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSDictionary *temp = self.dataItems[indexPath.row];
-    if ([temp[@"containImage"] integerValue] == 1) {
+   
+    NSArray *images = temp[@"resources"];
+    
+    if (images.count > 0) {
+        
         SocialImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SocialImageCell" forIndexPath:indexPath];
         
-        NSDate *date = temp[@"date"];
+        if (temp[@"avatar"]) {
+            NSURL *headUrl =[[NSURL alloc] initWithString:temp[@"avatar"]];
+            [cell.avatarImageView sd_setImageWithURL:headUrl placeholderImage:[UIImage imageNamed:@"img_head"]];
+        } else{
+            cell.avatarImageView.image = [UIImage imageNamed:@"img_head"];
+        }
+        
+        NSString *dateString = temp[@"createTime"];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        NSDate *date = [formatter dateFromString:dateString];
+        
         
         if (date.secondsAgo <= 60) {
             cell.timeStampLabel.text = @"刚刚";
@@ -118,14 +158,43 @@
             
             cell.timeStampLabel.text = timestamp;
         }
+        cell.commentsLabel.text  = [NSString stringWithFormat:@"%ld", [temp[@"callbacks"] integerValue]];
+        cell.cotentLabel.text = temp[@"content"];
+        cell.nameLabel.text = temp[@"nickName"];
         
-        cell.cotentLabel.text = @"1刚打开结婚发疯节哈看见奋斗哈健康地方哈家开发和大家康复哈觉得符合啊了就罚款";
+        if (images.count == 1) {
+            [cell.contentOneImageView sd_setImageWithURL:[NSURL URLWithString:images[0][@"thumb"]] placeholderImage:nil];
+        } else if (images.count == 2){
+            [cell.contentOneImageView sd_setImageWithURL:[NSURL URLWithString:images[0][@"thumb"]] placeholderImage:nil];
+            [cell.contentTwoImageView sd_setImageWithURL:[NSURL URLWithString:images[1][@"thumb"]] placeholderImage:nil];
+
+        } else{
+            [cell.contentOneImageView sd_setImageWithURL:[NSURL URLWithString:images[0][@"thumb"]] placeholderImage:nil];
+            [cell.contentTwoImageView sd_setImageWithURL:[NSURL URLWithString:images[1][@"thumb"]] placeholderImage:nil];
+            [cell.contentThreeImageView sd_setImageWithURL:[NSURL URLWithString:images[2][@"thumb"]] placeholderImage:nil];
+        }
+        
         
         return cell;
-    } else{
+
+    }else{
         SocialNoImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SocialNoImageCell" forIndexPath:indexPath];
         
-        NSDate *date = temp[@"date"];
+        if (temp[@"avatar"]) {
+            NSURL *headUrl =[[NSURL alloc] initWithString:temp[@"avatar"]];
+            [cell.avatarImageView sd_setImageWithURL:headUrl placeholderImage:[UIImage imageNamed:@"img_head"]];
+        } else{
+            cell.avatarImageView.image = [UIImage imageNamed:@"img_head"];
+        }
+
+        
+        NSString *dateString = temp[@"createTime"];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        
+        NSDate *date = [formatter dateFromString:dateString];
         
         if (date.secondsAgo <= 60) {
             cell.timeStampLabel.text = @"刚刚";
@@ -155,10 +224,46 @@
             
             cell.timeStampLabel.text = timestamp;
         }
+        cell.commentsLabel.text  = [NSString stringWithFormat:@"%ld", [temp[@"callbacks"] integerValue]];
 
-        cell.contentLabel.text = @"2刚打开结婚发疯节哈看见奋斗哈健康地方哈家开发和大家康复哈觉得符合啊了就罚款";
+        cell.contentLabel.text = temp[@"content"];
+        cell.nameLabel.text = temp[@"nickName"];
+
         return cell;
     }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40.0;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    UIImageView *hotImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"social_hot"]];
+    hotImageView.frame = CGRectMake(12, 10, 16, 20);
+    [view addSubview:hotImageView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(40, 0, 200, 40)];
+    label.text = @"大家都在聊";
+    label.textColor = [UIColor grayColor];
+    
+    [view addSubview:label];
+    
+    return view;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    SocialDetailViewController *detail = [[SocialDetailViewController alloc] initWithNibName:@"SocialDetailViewController" bundle:nil];
+    
+    detail.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:detail animated:YES];
+    
+    
 }
 
 #pragma mark - post topic

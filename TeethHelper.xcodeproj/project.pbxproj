@@ -54,6 +54,8 @@
 		875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875D24441B8884350068AA2B /* CeBaiResultViewController.xib */; };
 		877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8778802E1B8A063600BAF13D /* PostTopicViewController.m */; };
 		877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8778802F1B8A063600BAF13D /* PostTopicViewController.xib */; };
+		877B051A1B8AB4E000D5ECF1 /* SocialDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B05181B8AB4E000D5ECF1 /* SocialDetailViewController.m */; };
+		877B051B1B8AB4E000D5ECF1 /* SocialDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877B05191B8AB4E000D5ECF1 /* SocialDetailViewController.xib */; };
 		877B4E3D1B7CD95D00E6720D /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B4E3B1B7CD95D00E6720D /* SplashViewController.m */; };
 		877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */; };
 		878108C51B7B907A000A735F /* AlienView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C41B7B907A000A735F /* AlienView.m */; };
@@ -210,6 +212,9 @@
 		8778802D1B8A063600BAF13D /* PostTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTopicViewController.h; sourceTree = "<group>"; };
 		8778802E1B8A063600BAF13D /* PostTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTopicViewController.m; sourceTree = "<group>"; };
 		8778802F1B8A063600BAF13D /* PostTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTopicViewController.xib; sourceTree = "<group>"; };
+		877B05171B8AB4E000D5ECF1 /* SocialDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailViewController.h; sourceTree = "<group>"; };
+		877B05181B8AB4E000D5ECF1 /* SocialDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailViewController.m; sourceTree = "<group>"; };
+		877B05191B8AB4E000D5ECF1 /* SocialDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialDetailViewController.xib; sourceTree = "<group>"; };
 		877B4E3A1B7CD95D00E6720D /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		877B4E3B1B7CD95D00E6720D /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
@@ -499,13 +504,14 @@
 		873B75BA1B773FEE002D7871 /* ThirdTab */ = {
 			isa = PBXGroup;
 			children = (
-				877880291B8A05FF00BAF13D /* PostTopic */,
+				877B05161B8AB4CA00D5ECF1 /* SocialDetail */,
 				873B75C21B774029002D7871 /* SocialViewController.h */,
 				873B75C31B774029002D7871 /* SocialViewController.m */,
 				87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */,
 				87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */,
 				87BE0D391B82CCBD001E0D30 /* SocialImageCell.h */,
 				87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */,
+				877880291B8A05FF00BAF13D /* PostTopic */,
 			);
 			name = ThirdTab;
 			sourceTree = "<group>";
@@ -592,6 +598,16 @@
 				8778802F1B8A063600BAF13D /* PostTopicViewController.xib */,
 			);
 			name = PostTopic;
+			sourceTree = "<group>";
+		};
+		877B05161B8AB4CA00D5ECF1 /* SocialDetail */ = {
+			isa = PBXGroup;
+			children = (
+				877B05171B8AB4E000D5ECF1 /* SocialDetailViewController.h */,
+				877B05181B8AB4E000D5ECF1 /* SocialDetailViewController.m */,
+				877B05191B8AB4E000D5ECF1 /* SocialDetailViewController.xib */,
+			);
+			name = SocialDetail;
 			sourceTree = "<group>";
 		};
 		8785F8AA1B7C0D4D0051B29B /* MeiBaiProject */ = {
@@ -934,6 +950,7 @@
 				877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
+				877B051B1B8AB4E000D5ECF1 /* SocialDetailViewController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
@@ -995,6 +1012,7 @@
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
 				87D533F21B79EC9F00F3D6BE /* MessageTimeChooseController.m in Sources */,
 				8742498C1B798CE600F6DB69 /* TeethDetailOneController.m in Sources */,
+				877B051A1B8AB4E000D5ECF1 /* SocialDetailViewController.m in Sources */,
 				87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */,
 				8785F8F81B7C495F0051B29B /* QuestionTwoViewController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
