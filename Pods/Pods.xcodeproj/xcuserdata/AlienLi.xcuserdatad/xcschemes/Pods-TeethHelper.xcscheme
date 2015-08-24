@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1B50E2D093F725443B65B366"
+               BlueprintIdentifier = "A2B4CD9827AE2687E4297B4B"
                BuildableName = "libPods-TeethHelper.a"
                BlueprintName = "Pods-TeethHelper"
                ReferencedContainer = "container:Pods.xcodeproj">
