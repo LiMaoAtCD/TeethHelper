@@ -17,4 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *loveLabel;
+
 @end

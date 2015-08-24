@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *contentOneImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *contentTwoImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *loveLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
 
 
 @end
