@@ -92,6 +92,10 @@
     
     self.textView = [[UITextView alloc] initWithFrame:CGRectZero textContainer:nil];
     self.textView.delegate = self;
+    self.textView.font = [UIFont systemFontOfSize:14.0];
+    self.textView.textColor =[UIColor lightGrayColor];
+    self.textView.text = @"请填写内容...";
+
     
     [self.commentView addSubview:self.textView];
     
@@ -159,6 +163,34 @@
     }];
 }
 
+#pragma mark -textView delegate
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    textView.textColor = [UIColor blackColor];
+    if ([textView.text isEqualToString:@"请填写内容..."]) {
+        textView.text = nil;
+    }
+    
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (textView.text.length<1) {
+        textView.text = @"请填写内容...";
+        textView.textColor = [UIColor lightGrayColor];
+    }
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if (textView.text.length > 255) {
+        textView.text  =  [textView.text substringToIndex:255];
+    }
+    
+    return YES;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -171,6 +203,24 @@
 }
 
 -(void)sendComment:(id)sender{
+    if (self.textView.text.length > 0 ) {
+        if ([self.delegate respondsToSelector:@selector(postComment:)]) {
+            [self.delegate postComment:self.textView.text];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else{
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"回复不能为空" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+        }];
+        
+        [alert addAction:action];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+   
 
 }
 

@@ -132,10 +132,11 @@
 
 }
 
-+(void)replyToID:(NSString *)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
++(void)replyToID:(NSString *)topicID ByCommentContent:(NSString*)content WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     dictionary[@"accessToken"] = [AccountManager getTokenID];
-    
+    dictionary[@"content"] = content;
     NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic/%@/reply",topicID];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

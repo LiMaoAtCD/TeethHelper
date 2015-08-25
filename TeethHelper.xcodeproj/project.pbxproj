@@ -120,6 +120,7 @@
 		87F73F6F1B8C92D0005705AA /* SocialDetailReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F73F6E1B8C92D0005705AA /* SocialDetailReplyViewController.m */; };
 		87F73F741B8CA42D005705AA /* SocialCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F73F721B8CA42D005705AA /* SocialCommentViewController.m */; };
 		87F73F751B8CA42D005705AA /* SocialCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F73F731B8CA42D005705AA /* SocialCommentViewController.xib */; };
+		87F73F791B8CB827005705AA /* SocialDetailScrollToTopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F73F781B8CB827005705AA /* SocialDetailScrollToTopController.m */; };
 		87FAFCEB1B8B7508000CB8F4 /* DetailReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FAFCE91B8B7508000CB8F4 /* DetailReplyCell.m */; };
 		87FAFCEC1B8B7508000CB8F4 /* DetailReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FAFCEA1B8B7508000CB8F4 /* DetailReplyCell.xib */; };
 /* End PBXBuildFile section */
@@ -344,6 +345,8 @@
 		87F73F711B8CA42D005705AA /* SocialCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialCommentViewController.h; sourceTree = "<group>"; };
 		87F73F721B8CA42D005705AA /* SocialCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialCommentViewController.m; sourceTree = "<group>"; };
 		87F73F731B8CA42D005705AA /* SocialCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialCommentViewController.xib; sourceTree = "<group>"; };
+		87F73F771B8CB827005705AA /* SocialDetailScrollToTopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailScrollToTopController.h; sourceTree = "<group>"; };
+		87F73F781B8CB827005705AA /* SocialDetailScrollToTopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailScrollToTopController.m; sourceTree = "<group>"; };
 		87FAFCE81B8B7508000CB8F4 /* DetailReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailReplyCell.h; sourceTree = "<group>"; };
 		87FAFCE91B8B7508000CB8F4 /* DetailReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailReplyCell.m; sourceTree = "<group>"; };
 		87FAFCEA1B8B7508000CB8F4 /* DetailReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailReplyCell.xib; sourceTree = "<group>"; };
@@ -636,6 +639,7 @@
 			children = (
 				877B05171B8AB4E000D5ECF1 /* SocialDetailViewController.h */,
 				877B05181B8AB4E000D5ECF1 /* SocialDetailViewController.m */,
+				87F73F761B8CB806005705AA /* Containers */,
 				87F73F701B8CA40C005705AA /* SocialComments */,
 				87FAFCE71B8B74DA000CB8F4 /* Cells */,
 			);
@@ -889,11 +893,20 @@
 			name = SocialComments;
 			sourceTree = "<group>";
 		};
-		87FAFCE71B8B74DA000CB8F4 /* Cells */ = {
+		87F73F761B8CB806005705AA /* Containers */ = {
 			isa = PBXGroup;
 			children = (
 				87F73F6D1B8C92D0005705AA /* SocialDetailReplyViewController.h */,
 				87F73F6E1B8C92D0005705AA /* SocialDetailReplyViewController.m */,
+				87F73F771B8CB827005705AA /* SocialDetailScrollToTopController.h */,
+				87F73F781B8CB827005705AA /* SocialDetailScrollToTopController.m */,
+			);
+			name = Containers;
+			sourceTree = "<group>";
+		};
+		87FAFCE71B8B74DA000CB8F4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				87FAFCE81B8B7508000CB8F4 /* DetailReplyCell.h */,
 				87FAFCE91B8B7508000CB8F4 /* DetailReplyCell.m */,
 				87FAFCEA1B8B7508000CB8F4 /* DetailReplyCell.xib */,
@@ -1157,6 +1170,7 @@
 				87465BB81B808A8400EA40C7 /* MeibaiItemChooseController.m in Sources */,
 				8742498F1B798CF700F6DB69 /* TeethDetailTwoController.m in Sources */,
 				8785F90A1B7C7D210051B29B /* RS_SliderView.m in Sources */,
+				87F73F791B8CB827005705AA /* SocialDetailScrollToTopController.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
 				877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */,

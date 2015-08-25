@@ -20,7 +20,7 @@
                             <constraint firstAttribute="height" constant="40" id="p0R-Ep-wrY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="20"/>
                             </userDefinedRuntimeAttribute>
@@ -45,7 +45,7 @@
                             <constraint firstAttribute="width" constant="76" id="k5k-bE-wT7"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -108,7 +108,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bny-lN-0qU">
                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021-09-01" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xi-2K-lgN">
@@ -163,8 +163,12 @@
                         <exclude reference="0Xi-2K-lgN"/>
                     </mask>
                     <mask key="constraints">
-                        <exclude reference="1pX-tw-8C0"/>
-                        <exclude reference="3fC-OK-B2Z"/>
+                        <exclude reference="1MI-AW-g8w"/>
+                        <exclude reference="UGt-ZK-DWs"/>
+                        <exclude reference="VMY-4u-274"/>
+                        <exclude reference="0qr-oy-7pt"/>
+                        <exclude reference="Fla-AW-hGW"/>
+                        <exclude reference="qWx-LW-sUG"/>
                         <exclude reference="125-eO-6eo"/>
                         <exclude reference="DDO-HY-n4w"/>
                         <exclude reference="uX6-xv-KJU"/>
@@ -172,12 +176,8 @@
                         <exclude reference="9Yq-tC-Cdz"/>
                         <exclude reference="cR5-3V-GU9"/>
                         <exclude reference="KHQ-2I-n0C"/>
-                        <exclude reference="1MI-AW-g8w"/>
-                        <exclude reference="UGt-ZK-DWs"/>
-                        <exclude reference="VMY-4u-274"/>
-                        <exclude reference="0qr-oy-7pt"/>
-                        <exclude reference="Fla-AW-hGW"/>
-                        <exclude reference="qWx-LW-sUG"/>
+                        <exclude reference="1pX-tw-8C0"/>
+                        <exclude reference="3fC-OK-B2Z"/>
                     </mask>
                 </variation>
                 <variation key="heightClass=regular-widthClass=compact">
@@ -190,8 +190,12 @@
                         <include reference="0Xi-2K-lgN"/>
                     </mask>
                     <mask key="constraints">
-                        <include reference="1pX-tw-8C0"/>
-                        <include reference="3fC-OK-B2Z"/>
+                        <include reference="1MI-AW-g8w"/>
+                        <include reference="UGt-ZK-DWs"/>
+                        <include reference="VMY-4u-274"/>
+                        <include reference="0qr-oy-7pt"/>
+                        <include reference="Fla-AW-hGW"/>
+                        <include reference="qWx-LW-sUG"/>
                         <include reference="125-eO-6eo"/>
                         <include reference="DDO-HY-n4w"/>
                         <include reference="uX6-xv-KJU"/>
@@ -199,12 +203,8 @@
                         <include reference="9Yq-tC-Cdz"/>
                         <include reference="cR5-3V-GU9"/>
                         <include reference="KHQ-2I-n0C"/>
-                        <include reference="1MI-AW-g8w"/>
-                        <include reference="UGt-ZK-DWs"/>
-                        <include reference="VMY-4u-274"/>
-                        <include reference="0qr-oy-7pt"/>
-                        <include reference="Fla-AW-hGW"/>
-                        <include reference="qWx-LW-sUG"/>
+                        <include reference="1pX-tw-8C0"/>
+                        <include reference="3fC-OK-B2Z"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

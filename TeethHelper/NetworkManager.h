@@ -145,7 +145,7 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  *  @param completionHandler
  *  @param failHandler
  */
-+(void)replyToID:(NSString *)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
++(void)replyToID:(NSString *)topicID ByCommentContent:(NSString*)content WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
 /**
  *  获取帖子详情

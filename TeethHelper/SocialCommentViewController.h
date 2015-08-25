@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CommentDelegate<NSObject>
+
+-(void)postComment:(NSString*)comment;
+
+@end
+
 @interface SocialCommentViewController : UIViewController
+
+@property (nonatomic, weak) id<CommentDelegate> delegate;
+
 
 @end
