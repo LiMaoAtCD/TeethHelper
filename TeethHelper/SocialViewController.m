@@ -257,7 +257,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    SocialDetailViewController *detail = [[SocialDetailViewController alloc] initWithNibName:@"SocialDetailViewController" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SocialDetailViewController *detail = [sb instantiateViewControllerWithIdentifier:@"SocialDetailViewController"];
     
     detail.hidesBottomBarWhenPushed = YES;
     

@@ -20,8 +20,10 @@
 
 #import <UIImageView+WebCache.h>
 
+#import "SocialDetailReplyViewController.h"
+#import "SocialCommentViewController.h"
 
-@interface SocialDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface SocialDetailViewController ()<UITableViewDelegate, UITableViewDataSource,SocialLikeAndCommentDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -48,6 +50,8 @@
 //时间
 @property (nonatomic, copy) NSString *date;
 
+@property (nonatomic, strong) SocialDetailReplyViewController *replyVC;
+
 
 @end
 
@@ -55,6 +59,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarController.tabBar.hidden = YES;
+
     //title
     [Utils ConfigNavigationBarWithTitle:@"主题详情" onViewController:self];
      //分享按钮
@@ -97,11 +103,11 @@
         
         if ([responseObject[@"status"] integerValue] == 2000) {
             //
-            [SVProgressHUD showSuccessWithStatus:@"请求成功"];
+            [SVProgressHUD dismiss];
             
             self.gender = responseObject[@"data"][@"sex"];
             self.comments = responseObject[@"data"][@"comments"];
-            
+            self.numberOfLikes = [responseObject[@"data"][@"loves"] integerValue];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
 
@@ -113,7 +119,14 @@
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络出错"];
     }];
+    
+ 
    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.view layoutIfNeeded];
 }
 
 -(void)configTableView{
@@ -133,22 +146,11 @@
         [self.tableView registerNib:[UINib nibWithNibName:@"SocialDetailThreeCell" bundle:nil] forCellReuseIdentifier:@"SocialDetailThreeCell"];
 
     }
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailReplyCell" bundle:nil] forCellReuseIdentifier:@"DetailReplyCell"];
-
-    
-    
     self.tableView.tableFooterView = [UIView new];
     
 
 }
-
-
-
-
-
-
-
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -252,6 +254,75 @@
     }
     
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"replySegue"]) {
+        self.replyVC =  segue.destinationViewController;
+        self.replyVC.delegate = self;
+        
+        // 查询当前帖子是否已赞
+        
+        [NetworkManager LikeTopicByID:self.topicDetail[@"id"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                if ([responseObject[@"data"] integerValue] == 0) {
+                    self.replyVC.likeLabel.text = @"赞过了";
+                    self.replyVC.likeImageView.image = [UIImage imageNamed:@"social_like_click"];
+                }
+            }
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
+    }
+}
+
+
+#pragma mark -点击点赞
+-(void)didClickLike{
+    
+    [NetworkManager LikeTopicByID:self.topicDetail[@"id"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            if ([responseObject[@"data"] integerValue] == YES) {
+                //点赞成功
+                
+                self.numberOfLikes++;
+                self.replyVC.likeLabel.text = @"赞过了";
+                self.replyVC.likeImageView.image = [UIImage imageNamed:@"social_like_click"];
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            } else{
+                //已经点赞了
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+                view.backgroundColor = [UIColor blackColor];
+                
+                UILabel *label =[[UILabel alloc] initWithFrame:view.bounds];
+                label.text = @"已赞";
+                label.textAlignment = NSTextAlignmentCenter;
+                label.textColor = [UIColor whiteColor];
+                
+                [view addSubview:label];
+                
+                [self.view addSubview:view];
+                view.center = CGPointMake(self.view.center.x, self.view.center.y - 100.0);
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [view removeFromSuperview];
+                });
+
+            }
+        }
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+    }];
+}
+
+#pragma mark -点击评论
+-(void)didCommentPressed{
+    
+    SocialCommentViewController *commentVC = [[SocialCommentViewController alloc] initWithNibName:@"SocialCommentViewController" bundle:nil];
+    
+    commentVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
+    [self presentViewController:commentVC animated:YES completion:nil];
+}
+
 
 
 @end

@@ -138,7 +138,14 @@
 
 -(void)logout:(UIButton *)button{
     [AccountManager setLogin:NO];
-    
+    [AccountManager setAvatarUrlString:nil];
+    [AccountManager setName:nil];
+    [AccountManager setgender:nil];
+    [AccountManager setAddress:nil];
+    [AccountManager setTokenID:nil];
+    [AccountManager setBirthDay:nil];
+    [AccountManager setPassword:nil];
+    [AccountManager setCellphoneNumber:nil];
     
 
     
