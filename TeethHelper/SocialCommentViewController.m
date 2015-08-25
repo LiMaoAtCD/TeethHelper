@@ -103,19 +103,62 @@
 
     }];
     
-    
+    [self registerForKeyboardNotifications];
+    [self.textView becomeFirstResponder];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
+
     [UIView animateWithDuration:0.2 animations:^{
         self.bgView.alpha = 0.2;
 
     } completion:^(BOOL finished) {
-        
     }];
 }
+
+
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShown:)
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+#pragma mark - 键盘相关处理
+- (void)keyboardWillShown:(NSNotification*)aNotification
+{
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    [self.commentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.bottom.equalTo(@(-kbSize.height));
+        make.height.equalTo(@200);
+    }];
+    
+    
+ }
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    [self.commentView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.bottom.equalTo(@0);
+        make.height.equalTo(@200);
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -123,7 +166,8 @@
 }
 
 -(void)cancelComment:(id)sender{
-    
+    [self.textView resignFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)sendComment:(id)sender{

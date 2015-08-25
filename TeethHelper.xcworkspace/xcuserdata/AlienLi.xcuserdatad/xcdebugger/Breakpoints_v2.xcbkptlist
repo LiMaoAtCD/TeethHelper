@@ -19,5 +19,53 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeethHelper/SocialCommentViewController.m"
+            timestampString = "462204474.287714"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "-keyboardWillShown:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SocialCommentViewController keyboardWillShown:]"
+                  moduleName = "TeethHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/SocialCommentViewController.m"
+                  timestampString = "462204355.376977"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__49-[SocialCommentViewController keyboardWillShown:]_block_invoke"
+                  moduleName = "TeethHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/SocialCommentViewController.m"
+                  timestampString = "462204355.377314"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
