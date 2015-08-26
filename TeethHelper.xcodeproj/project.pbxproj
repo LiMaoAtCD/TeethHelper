@@ -53,7 +53,7 @@
 		875D24451B8884350068AA2B /* CeBaiResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875D24431B8884350068AA2B /* CeBaiResultViewController.m */; };
 		875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875D24441B8884350068AA2B /* CeBaiResultViewController.xib */; };
 		8761F4521B8DD6300061A59E /* ProtocolAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */; };
-		8761F4541B8DD6E30061A59E /* meiya.html in Resources */ = {isa = PBXBuildFile; fileRef = 8761F4531B8DD6E30061A59E /* meiya.html */; };
+		8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */ = {isa = PBXBuildFile; fileRef = 8761F4571B8DDAEA0061A59E /* meiya_.html */; };
 		877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8778802E1B8A063600BAF13D /* PostTopicViewController.m */; };
 		877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8778802F1B8A063600BAF13D /* PostTopicViewController.xib */; };
 		877B051A1B8AB4E000D5ECF1 /* SocialDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B05181B8AB4E000D5ECF1 /* SocialDetailViewController.m */; };
@@ -226,7 +226,7 @@
 		875D24441B8884350068AA2B /* CeBaiResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CeBaiResultViewController.xib; sourceTree = "<group>"; };
 		8761F4501B8DD6300061A59E /* ProtocolAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolAgreementViewController.h; sourceTree = "<group>"; };
 		8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolAgreementViewController.m; sourceTree = "<group>"; };
-		8761F4531B8DD6E30061A59E /* meiya.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meiya.html; sourceTree = "<group>"; };
+		8761F4571B8DDAEA0061A59E /* meiya_.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meiya_.html; sourceTree = "<group>"; };
 		8778802D1B8A063600BAF13D /* PostTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTopicViewController.h; sourceTree = "<group>"; };
 		8778802E1B8A063600BAF13D /* PostTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTopicViewController.m; sourceTree = "<group>"; };
 		8778802F1B8A063600BAF13D /* PostTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTopicViewController.xib; sourceTree = "<group>"; };
@@ -460,9 +460,9 @@
 				877B4E3A1B7CD95D00E6720D /* SplashViewController.h */,
 				877B4E3B1B7CD95D00E6720D /* SplashViewController.m */,
 				877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */,
+				8761F4571B8DDAEA0061A59E /* meiya_.html */,
 				873B75AF1B773984002D7871 /* RegisterViewController.h */,
 				873B75B01B773984002D7871 /* RegisterViewController.m */,
-				8761F4531B8DD6E30061A59E /* meiya.html */,
 				8761F4501B8DD6300061A59E /* ProtocolAgreementViewController.h */,
 				8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */,
 				873B75B21B7739B8002D7871 /* ForgetPasswordViewController.h */,
@@ -1033,6 +1033,7 @@
 				87465BBD1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib in Resources */,
 				873B75D01B774338002D7871 /* Product.storyboard in Resources */,
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
+				8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
 				87F73F751B8CA42D005705AA /* SocialCommentViewController.xib in Resources */,
@@ -1043,7 +1044,6 @@
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */,
-				8761F4541B8DD6E30061A59E /* meiya.html in Resources */,
 				87FAFCEC1B8B7508000CB8F4 /* DetailReplyCell.xib in Resources */,
 				87911F521B8B500A000E9218 /* SocialDetailTwoCell.xib in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,

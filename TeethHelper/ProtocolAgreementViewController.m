@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view.
     
     
-    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"meiya" ofType:@"html"];
+    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"meiya_" ofType:@"html"];
     NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
     [_webView loadHTMLString:htmlString baseURL:nil];
 }
