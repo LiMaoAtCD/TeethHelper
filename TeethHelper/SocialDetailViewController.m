@@ -387,6 +387,8 @@
         NSLog(@"%@",responseObject);
         if ([responseObject[@"status"] integerValue] == 2000) {
             [SVProgressHUD showSuccessWithStatus:@"回复成功"];
+            
+            [self addCommentsToLocalDataSources:comment];
         } else{
             [SVProgressHUD showErrorWithStatus:@"回复失败"];
 
@@ -394,6 +396,10 @@
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络出错"];
     }];
+}
+
+-(void)addCommentsToLocalDataSources:(NSString*)comment{
+    
 }
 
 -(void)needScrollToTop{

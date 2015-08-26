@@ -289,6 +289,22 @@
             
         } else{
             //只发布图片
+            //图片+ 文字
+            NSMutableArray *array = [NSMutableArray array];
+            if (self.toPostImage1) {
+                [array addObject:self.toPostImage1];
+            }
+            if (self.toPostImage2) {
+                [array addObject:self.toPostImage2];
+            }
+            if (self.toPostImage3) {
+                [array addObject:self.toPostImage3];
+            }
+            [NetworkManager publishTextContent:nil withImages:array WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"%@",responseObject);
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
         }
     } else{
         //填写内容
@@ -312,6 +328,21 @@
         } else{
             
             //图片+ 文字
+            NSMutableArray *array = [NSMutableArray array];
+            if (self.toPostImage1) {
+                [array addObject:self.toPostImage1];
+            }
+            if (self.toPostImage2) {
+                [array addObject:self.toPostImage2];
+            }
+            if (self.toPostImage3) {
+                [array addObject:self.toPostImage3];
+            }
+            [NetworkManager publishTextContent:self.textView.text withImages:array WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"%@",responseObject);
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
         }
     }
 }

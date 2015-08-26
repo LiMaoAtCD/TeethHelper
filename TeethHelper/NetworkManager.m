@@ -109,6 +109,33 @@
 
 }
 
++(void)publishTextContent:(NSString *)content withImages:(NSArray*)images WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    if (content) {
+        dictionary[@"content"] = content;
+    }
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    NSString *string = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic/publish?accessToken=%@",dictionary[@"accessToken"]];
+    
+    NSMutableArray *imageDataArray = [NSMutableArray array];
+    [images enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UIImage *image = obj;
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+
+        [imageDataArray addObject:imageData];
+    }];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager POST:string parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [imageDataArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSData *data = obj;
+            [formData appendPartWithFileData:data name:@"file" fileName:@"file.jpg" mimeType:@"image/jpeg"];
+        }];
+    } success:completionHandler failure:failHandler];
+}
+
 +(void)publishTextContent:(NSString *)content WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
     
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];

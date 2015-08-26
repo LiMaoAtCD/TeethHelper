@@ -120,6 +120,17 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  */
 +(void)fetchProductInfoWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+
+/**
+ *  发布图片加文字
+ *
+ *  @param content           文字
+ *  @param images            图片数组
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)publishTextContent:(NSString *)content withImages:(NSArray*)images WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 /**
  *  发布文字帖子
  *
