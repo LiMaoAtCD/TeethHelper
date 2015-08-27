@@ -176,4 +176,13 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  */
 +(void)LikeTopicByID:(NSString*)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+/**
+ *  获取首页数据
+ *
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)fetchFirstPageWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+
 @end

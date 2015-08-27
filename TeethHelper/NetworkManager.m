@@ -192,4 +192,14 @@
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
++(void)fetchFirstPageWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    NSString *url = @"http://www.7wang523.com/teeth-api/index";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
 @end

@@ -113,6 +113,9 @@
     if ([AccountManager isLogin]) {
         //获取产品信息
         [self fetchProductInfo];
+        
+        //获取首页数据
+        [self fetchFirstPageData];
     }
 
 }
@@ -230,6 +233,10 @@
 //    }
 }
 
+
+
+#pragma mark - 获取产品信息
+
 -(void)fetchProductInfo{
     [NetworkManager fetchProductInfoWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
@@ -237,6 +244,48 @@
         
     }];
 }
+
+-(void)fetchFirstPageData{
+    [NetworkManager fetchFirstPageWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            NSDictionary *dictionary = responseObject[@"data"];
+            
+//            evaluated 是否参与了首次问卷 bool  useless
+//            tested 是否参与了首次测白 bool      useless
+//            cureno 累计治疗次数 integer
+            [MeiBaiConfigFile setCompletedCureDays:[dictionary[@"cureno"] integerValue]];
+//            keepno 累计保持次数
+            [MeiBaiConfigFile setCompletedKeepDays:[dictionary[@"keepno"] integerValue]];
+
+//            planId 当前计划ID
+//            plan 当前计划
+//            plantype A标准B加强C温柔D自定义E保持
+//            times 计划对应次数
+//            duration 计划对应分钟 好像固定为8
+//            days 计划对应天数
+//            processed 已完成天数
+            
+//            white 未完成的测白记录，如果为空就表示没有未完成的，直接进入首页。如果不为空，判断endTime是否为空，不为空表示测白已完成，但是没有填写问卷，需跳转至问卷页面。如果endTime为空则表示测白没有结束，需根据beginTime和sysTime继续计时器页面，另外还需要处理超过3倍时间的情况，这时是默认完成，直接进入问卷页面。
+//            beginTime 上一次测白开始时间
+//            endTime 测白结束时间
+//            sysTime 当前系统时间
+            
+            
+            
+        } else{
+            
+            [SVProgressHUD showErrorWithStatus:@"美白数据同步失败，请稍后再试"];
+
+        }
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+    }];
+}
+
+
+
+#pragma mark - 微信登录相关
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return [WXApi handleOpenURL:url delegate:self];
@@ -252,16 +301,7 @@
 {
     if([resp isKindOfClass:[SendMessageToWXResp class]])
     {
-        
         //分享
-//        NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
-//        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
-        
-        
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//        [alert show];
-        
-        
     }
     else if([resp isKindOfClass:[SendAuthResp class]])
     {

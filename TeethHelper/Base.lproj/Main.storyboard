@@ -27,7 +27,7 @@
         <!--Ce Bai View Controller-->
         <scene sceneID="8ki-2s-fQA">
             <objects>
-                <viewController id="cfL-kv-vac" customClass="CeBaiViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CeBaiViewController" id="cfL-kv-vac" customClass="CeBaiViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cIz-1h-ECh"/>
                         <viewControllerLayoutGuide type="bottom" id="kQd-ng-mCz"/>
@@ -197,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jf2-vI-wa1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-569" y="1473"/>
+            <point key="canvasLocation" x="-1176" y="2860.5"/>
         </scene>
         <!--Social View Controller-->
         <scene sceneID="th5-qc-klJ">
@@ -269,7 +269,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="92.5" width="177" height="21"/>
+                                                        <rect key="frame" x="66" y="92" width="177" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="jro-5D-O0b"/>
                                                         </mask>
@@ -288,7 +288,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="264" y="99.5" width="14" height="13"/>
+                                                        <rect key="frame" x="264" y="99" width="14" height="13"/>
                                                         <mask key="constraints">
                                                             <include reference="ME8-NR-P4E"/>
                                                             <include reference="a50-De-65e"/>
@@ -311,7 +311,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="286" y="98.5" width="14" height="15"/>
+                                                        <rect key="frame" x="286" y="98" width="14" height="15"/>
                                                         <mask key="constraints">
                                                             <include reference="E2K-pY-AgE"/>
                                                             <include reference="pud-Yv-vVp"/>
@@ -506,7 +506,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="173.5" width="177" height="21"/>
+                                                        <rect key="frame" x="66" y="173" width="177" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="tFP-v3-3KR"/>
                                                         </mask>
@@ -525,7 +525,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="264" y="180.5" width="14" height="13"/>
+                                                        <rect key="frame" x="264" y="180" width="14" height="13"/>
                                                         <mask key="constraints">
                                                             <include reference="Du1-fp-tqg"/>
                                                             <include reference="j15-eR-BXk"/>
@@ -548,7 +548,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="286" y="179.5" width="14" height="15"/>
+                                                        <rect key="frame" x="286" y="179" width="14" height="15"/>
                                                         <mask key="constraints">
                                                             <include reference="6kq-sY-5F8"/>
                                                             <include reference="sjq-da-dqh"/>
@@ -568,7 +568,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="85.5" width="74" height="80"/>
+                                                        <rect key="frame" x="66" y="85" width="74" height="80"/>
                                                         <mask key="constraints">
                                                             <exclude reference="Ev9-yG-Z71"/>
                                                             <include reference="gHT-gh-Kyt"/>
@@ -578,13 +578,13 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uan-eJ-NhO">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="148" y="85.5" width="74" height="80"/>
+                                                        <rect key="frame" x="148" y="85" width="74" height="80"/>
                                                     </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6LW-uz-idL">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="230" y="85.5" width="74" height="80"/>
+                                                        <rect key="frame" x="230" y="85" width="74" height="80"/>
                                                     </variation>
                                                 </imageView>
                                             </subviews>
@@ -1114,7 +1114,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dLl-g6-uwJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1249.5" y="1535.25"/>
+            <point key="canvasLocation" x="-1993.5" y="2860.5"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="KgN-Mp-geX">
