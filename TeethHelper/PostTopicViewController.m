@@ -300,8 +300,20 @@
             if (self.toPostImage3) {
                 [array addObject:self.toPostImage3];
             }
+            
+            [SVProgressHUD showWithStatus:@"正在发布"];
+
             [NetworkManager publishTextContent:nil withImages:array WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"%@",responseObject);
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+                    [self.navigationController popViewControllerAnimated:YES];
+                } else if([responseObject[@"status"] integerValue] == 1004){
+                    [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:@"发布失败,稍后再试吧"];
+                }
+
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [SVProgressHUD showErrorWithStatus:@"网络出错"];
             }];
@@ -338,8 +350,17 @@
             if (self.toPostImage3) {
                 [array addObject:self.toPostImage3];
             }
+            [SVProgressHUD showWithStatus:@"正在发布"];
             [NetworkManager publishTextContent:self.textView.text withImages:array WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"%@",responseObject);
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+                    [self.navigationController popViewControllerAnimated:YES];
+                } else if([responseObject[@"status"] integerValue] == 1004){
+                    [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
+                }else{
+                    [SVProgressHUD showErrorWithStatus:@"发布失败,稍后再试吧"];
+                }
+                
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [SVProgressHUD showErrorWithStatus:@"网络出错"];
             }];
