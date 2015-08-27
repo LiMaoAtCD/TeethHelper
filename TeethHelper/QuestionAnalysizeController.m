@@ -12,6 +12,9 @@
 #import "MessageTimeChooseController.h"
 #import "MessageConfigureFile.h"
 #import "MeiBaiConfigFile.h"
+
+//#import "CeBaiViewController.h"
+#import "FirstCeBaiViewController.h"
 @interface QuestionAnalysizeController ()<TimeSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *projectLabel;
@@ -107,7 +110,23 @@
 
 
 - (IBAction)gotoCeBai:(id)sender {
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+    
+    
+//     [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+    
+    
+    FirstCeBaiViewController * first = [[FirstCeBaiViewController alloc] initWithNibName:@"FirstCeBaiViewController" bundle:nil];;
+    
+    [self.navigationController pushViewController:first animated:YES];
+    
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    
+//    CeBaiViewController *cebai = [sb instantiateViewControllerWithIdentifier:@"CeBaiViewController"];
+//    
+//    [self.navigationController pushViewController:cebai animated:YES];
+    
+
+    
 }
 
 -(void)pop{

@@ -91,6 +91,8 @@
 		87C1EECB1B8F461400CA191E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C1EECA1B8F461400CA191E /* SystemConfiguration.framework */; };
 		87C1EECD1B8F462900CA191E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C1EECC1B8F462900CA191E /* libsqlite3.0.dylib */; };
 		87C1EECE1B8F465D00CA191E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C1EEC81B8F45E800CA191E /* libc++.dylib */; };
+		87C1EED21B8F5D2A00CA191E /* FirstCeBaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C1EED01B8F5D2A00CA191E /* FirstCeBaiViewController.m */; };
+		87C1EED31B8F5D2A00CA191E /* FirstCeBaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C1EED11B8F5D2A00CA191E /* FirstCeBaiViewController.xib */; };
 		87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */; };
 		87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */; };
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
@@ -296,6 +298,9 @@
 		87C1EEC81B8F45E800CA191E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		87C1EECA1B8F461400CA191E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		87C1EECC1B8F462900CA191E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		87C1EECF1B8F5D2A00CA191E /* FirstCeBaiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCeBaiViewController.h; sourceTree = "<group>"; };
+		87C1EED01B8F5D2A00CA191E /* FirstCeBaiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCeBaiViewController.m; sourceTree = "<group>"; };
+		87C1EED11B8F5D2A00CA191E /* FirstCeBaiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstCeBaiViewController.xib; sourceTree = "<group>"; };
 		87D00AD51B7DCE3700C21378 /* QuestionNoProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionNoProjectController.h; sourceTree = "<group>"; };
 		87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionNoProjectController.m; sourceTree = "<group>"; };
 		87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionNoProjectController.xib; sourceTree = "<group>"; };
@@ -742,6 +747,9 @@
 				87D00AD51B7DCE3700C21378 /* QuestionNoProjectController.h */,
 				87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */,
 				87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */,
+				87C1EECF1B8F5D2A00CA191E /* FirstCeBaiViewController.h */,
+				87C1EED01B8F5D2A00CA191E /* FirstCeBaiViewController.m */,
+				87C1EED11B8F5D2A00CA191E /* FirstCeBaiViewController.xib */,
 			);
 			name = QuestionAnswers;
 			sourceTree = "<group>";
@@ -1078,6 +1086,7 @@
 				875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */,
 				877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */,
 				87911F571B8B501F000E9218 /* SocialDetailThreeCell.xib in Resources */,
+				87C1EED31B8F5D2A00CA191E /* FirstCeBaiViewController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
@@ -1161,6 +1170,7 @@
 				87E2AB621B78AFA3001ED07F /* AvatarCell.m in Sources */,
 				874249921B798D0600F6DB69 /* TeethDetailThreeController.m in Sources */,
 				87911F511B8B500A000E9218 /* SocialDetailTwoCell.m in Sources */,
+				87C1EED21B8F5D2A00CA191E /* FirstCeBaiViewController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
 				8785F8FB1B7C49690051B29B /* QuestionThreeViewController.m in Sources */,

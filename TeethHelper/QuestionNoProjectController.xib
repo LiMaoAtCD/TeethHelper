@@ -155,15 +155,15 @@
                     <exclude reference="WnC-bx-ANt"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="LVX-QW-J2j"/>
-                    <exclude reference="VmA-SM-fg0"/>
-                    <exclude reference="d40-AZ-gMS"/>
                     <exclude reference="LdK-0d-Nm2"/>
                     <exclude reference="bdn-S6-1CN"/>
                     <exclude reference="ow9-He-jmF"/>
                     <exclude reference="LkL-an-j6f"/>
                     <exclude reference="axJ-dT-Yvc"/>
                     <exclude reference="ujo-iM-U8P"/>
+                    <exclude reference="LVX-QW-J2j"/>
+                    <exclude reference="VmA-SM-fg0"/>
+                    <exclude reference="d40-AZ-gMS"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -173,15 +173,15 @@
                     <include reference="WnC-bx-ANt"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="LVX-QW-J2j"/>
-                    <include reference="VmA-SM-fg0"/>
-                    <include reference="d40-AZ-gMS"/>
                     <include reference="LdK-0d-Nm2"/>
                     <include reference="bdn-S6-1CN"/>
                     <exclude reference="ow9-He-jmF"/>
                     <include reference="LkL-an-j6f"/>
                     <include reference="axJ-dT-Yvc"/>
                     <include reference="ujo-iM-U8P"/>
+                    <include reference="LVX-QW-J2j"/>
+                    <include reference="VmA-SM-fg0"/>
+                    <include reference="d40-AZ-gMS"/>
                 </mask>
             </variation>
         </view>
