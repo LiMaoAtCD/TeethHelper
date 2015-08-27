@@ -20,7 +20,10 @@
 
 #import "NetworkManager.h"
 
-@interface AppDelegate ()
+#import "WXApi.h"
+
+
+@interface AppDelegate ()<WXApiDelegate>
 
 @property (nonatomic, strong) MainTabBarController *tabarController;
 @property (nonatomic, strong) LoginNavigationController *loginVC;
@@ -66,7 +69,8 @@
         [self loginSuccess:nil];
         
     }
-   
+    [WXApi registerApp:@"wxc213130fe4f9b110"];
+    
     return YES;
 }
 
@@ -233,4 +237,68 @@
         
     }];
 }
+
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    return [WXApi handleOpenURL:url delegate:self];
+
+}
+
+
+-(void) onResp:(BaseResp*)resp
+{
+    if([resp isKindOfClass:[SendMessageToWXResp class]])
+    {
+        
+        //分享
+//        NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
+//        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+        
+        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+        
+        
+    }
+    else if([resp isKindOfClass:[SendAuthResp class]])
+    {
+         //微信登录
+//        SendAuthResp *temp = (SendAuthResp*)resp;
+        
+//        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
+//        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
+    }
+  
+}
+
+- (void) sendLinkContent:(BOOL)session
+{
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = @"纽米";
+    message.description = @"牙齿美白神器的辅助APP，指导和管理美白过程，并附带独一无二的有趣的测白功能";
+    [message setThumbImage:[UIImage imageNamed:@"Nummi_icon.png"]];
+    
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+    
+    message.mediaObject = ext;
+    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
+    
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    
+    if (session) {
+        req.scene = WXSceneSession;
+    } else{
+        req.scene = WXSceneTimeline;
+    }
+
+    
+    [WXApi sendReq:req];
+}
+
 @end

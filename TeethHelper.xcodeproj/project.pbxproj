@@ -85,6 +85,12 @@
 		87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */; };
 		87BE0D381B82CCAC001E0D30 /* SocialNoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */; };
 		87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */; };
+		87C1EEC21B8F451D00CA191E /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C1EEBE1B8F451D00CA191E /* libWeChatSDK.a */; };
+		87C1EEC31B8F451D00CA191E /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87C1EEBF1B8F451D00CA191E /* read_me.txt */; };
+		87C1EEC71B8F45C800CA191E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C1EEC61B8F45C800CA191E /* libz.dylib */; };
+		87C1EECB1B8F461400CA191E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C1EECA1B8F461400CA191E /* SystemConfiguration.framework */; };
+		87C1EECD1B8F462900CA191E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C1EECC1B8F462900CA191E /* libsqlite3.0.dylib */; };
+		87C1EECE1B8F465D00CA191E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87C1EEC81B8F45E800CA191E /* libc++.dylib */; };
 		87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */; };
 		87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */; };
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
@@ -281,6 +287,15 @@
 		87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialNoImageCell.m; sourceTree = "<group>"; };
 		87BE0D391B82CCBD001E0D30 /* SocialImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialImageCell.h; sourceTree = "<group>"; };
 		87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialImageCell.m; sourceTree = "<group>"; };
+		87C1EEBE1B8F451D00CA191E /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		87C1EEBF1B8F451D00CA191E /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		87C1EEC01B8F451D00CA191E /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		87C1EEC11B8F451D00CA191E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		87C1EEC41B8F45BE00CA191E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		87C1EEC61B8F45C800CA191E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		87C1EEC81B8F45E800CA191E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		87C1EECA1B8F461400CA191E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		87C1EECC1B8F462900CA191E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		87D00AD51B7DCE3700C21378 /* QuestionNoProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionNoProjectController.h; sourceTree = "<group>"; };
 		87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionNoProjectController.m; sourceTree = "<group>"; };
 		87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionNoProjectController.xib; sourceTree = "<group>"; };
@@ -362,6 +377,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87C1EECE1B8F465D00CA191E /* libc++.dylib in Frameworks */,
+				87C1EEC71B8F45C800CA191E /* libz.dylib in Frameworks */,
+				87C1EECD1B8F462900CA191E /* libsqlite3.0.dylib in Frameworks */,
+				87C1EECB1B8F461400CA191E /* SystemConfiguration.framework in Frameworks */,
+				87C1EEC21B8F451D00CA191E /* libWeChatSDK.a in Frameworks */,
 				7C42B4A7085D0D96715AF090 /* libPods-TeethHelper.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +399,11 @@
 		1D1C4AF922FF62D94542F7C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87C1EECC1B8F462900CA191E /* libsqlite3.0.dylib */,
+				87C1EECA1B8F461400CA191E /* SystemConfiguration.framework */,
+				87C1EEC81B8F45E800CA191E /* libc++.dylib */,
+				87C1EEC61B8F45C800CA191E /* libz.dylib */,
+				87C1EEC41B8F45BE00CA191E /* libsqlite3.dylib */,
 				56779700444A6622AC945D58 /* libPods-TeethHelper.a */,
 			);
 			name = Frameworks;
@@ -387,6 +412,7 @@
 		870A65CB1B77227100A51B26 = {
 			isa = PBXGroup;
 			children = (
+				87C1EEBD1B8F451D00CA191E /* SDKExport */,
 				870A65D61B77227100A51B26 /* TeethHelper */,
 				870A65F01B77227100A51B26 /* TeethHelperTests */,
 				870A65D51B77227100A51B26 /* Products */,
@@ -694,6 +720,17 @@
 				8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */,
 			);
 			name = InitialQuestions;
+			sourceTree = "<group>";
+		};
+		87C1EEBD1B8F451D00CA191E /* SDKExport */ = {
+			isa = PBXGroup;
+			children = (
+				87C1EEBE1B8F451D00CA191E /* libWeChatSDK.a */,
+				87C1EEBF1B8F451D00CA191E /* read_me.txt */,
+				87C1EEC01B8F451D00CA191E /* WXApi.h */,
+				87C1EEC11B8F451D00CA191E /* WXApiObject.h */,
+			);
+			path = SDKExport;
 			sourceTree = "<group>";
 		};
 		87DABF4C1B7D7F610051DE31 /* QuestionAnswers */ = {
@@ -1026,6 +1063,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87911F481B8B4FD6000E9218 /* SocialDetailNoImageCell.xib in Resources */,
+				87C1EEC31B8F451D00CA191E /* read_me.txt in Resources */,
 				8785F8B21B7C1DD20051B29B /* MeibaiProjectController.xib in Resources */,
 				877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */,
 				870A66071B7722D600A51B26 /* Login.storyboard in Resources */,
@@ -1320,6 +1358,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TeethHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TeethHelper",
+					"$(PROJECT_DIR)/SDKExport",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1332,6 +1375,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = TeethHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TeethHelper",
+					"$(PROJECT_DIR)/SDKExport",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

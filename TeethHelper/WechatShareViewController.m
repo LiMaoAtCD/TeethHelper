@@ -8,6 +8,8 @@
 
 #import "WechatShareViewController.h"
 #import <Masonry.h>
+
+#import "AppDelegate.h"
 @interface WechatShareViewController ()
 
 @property (strong, nonatomic) UIView *bgView;
@@ -65,6 +67,7 @@
     
     UIButton *friends =[UIButton buttonWithType:UIButtonTypeCustom];
     [friends setImage:[UIImage imageNamed:@"share_weixin"] forState:UIControlStateNormal];
+    [friends addTarget:self action:@selector(shareToFriends:) forControlEvents:UIControlEventTouchUpInside];
     [shareView addSubview:friends];
     
     [friends mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -92,7 +95,7 @@
     UIButton *friendsZone =[UIButton buttonWithType:UIButtonTypeCustom];
     
     [friendsZone setImage:[UIImage imageNamed:@"share_pengyouquan"] forState:UIControlStateNormal];
-    
+    [friendsZone addTarget:self action:@selector(shareToFriendsZone:) forControlEvents:UIControlEventTouchUpInside];
     [shareView addSubview:friendsZone];
     
     [friendsZone mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -153,4 +156,22 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+-(void)shareToFriendsZone:(UIButton *)button{
+    AppDelegate *delegate  =(AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [delegate sendLinkContent:NO];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)shareToFriends:(UIButton *)button{
+    AppDelegate *delegate  =(AppDelegate*)[UIApplication sharedApplication].delegate;
+
+    [delegate sendLinkContent:YES];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+
+}
 @end
