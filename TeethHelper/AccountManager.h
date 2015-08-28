@@ -47,4 +47,8 @@
 +(void)setBirthDay:(NSString*)birthday;
 
 
+//是否完成首次测白
++(BOOL)isCompletedFirstCeBai;
++(void)setCompletedFirstCeBai:(BOOL)completed;
+
 @end

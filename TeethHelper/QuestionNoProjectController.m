@@ -9,6 +9,8 @@
 #import "QuestionNoProjectController.h"
 #import "Utils.h"
 #import "MeiBaiConfigFile.h"
+#import "FirstCeBaiViewController.h"
+
 @interface QuestionNoProjectController ()
 
 @end
@@ -35,7 +37,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)goCeBai:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+    
+    FirstCeBaiViewController * first = [[FirstCeBaiViewController alloc] initWithNibName:@"FirstCeBaiViewController" bundle:nil];;
+    
+    [self.navigationController pushViewController:first animated:YES];
 
 }
 

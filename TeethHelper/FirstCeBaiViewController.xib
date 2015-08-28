@@ -47,12 +47,12 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="7g8-fd-2ld"/>
+                            <exclude reference="dUH-89-YfH"/>
+                            <exclude reference="m56-Oq-vji"/>
                             <exclude reference="KKe-ek-B91"/>
                             <exclude reference="Uxc-6g-CS5"/>
                             <exclude reference="uEW-aL-3Aj"/>
                             <exclude reference="ycQ-u4-OHg"/>
-                            <exclude reference="dUH-89-YfH"/>
-                            <exclude reference="m56-Oq-vji"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -62,12 +62,12 @@
                         </mask>
                         <mask key="constraints">
                             <include reference="7g8-fd-2ld"/>
+                            <include reference="dUH-89-YfH"/>
+                            <include reference="m56-Oq-vji"/>
                             <include reference="KKe-ek-B91"/>
                             <include reference="Uxc-6g-CS5"/>
                             <include reference="uEW-aL-3Aj"/>
                             <include reference="ycQ-u4-OHg"/>
-                            <include reference="dUH-89-YfH"/>
-                            <include reference="m56-Oq-vji"/>
                         </mask>
                     </variation>
                 </view>
@@ -78,6 +78,7 @@
                         <constraint firstAttribute="height" constant="50" id="Ayp-cN-HrG"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <inset key="contentEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="确认带好，开始">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,15 +93,41 @@
                             <include reference="Ayp-cN-HrG"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="gotoCebai:" destination="-1" eventType="touchUpInside" id="5hk-db-PDw"/>
+                    </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cebai_jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="QjF-mx-gen">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="17" id="JHd-t8-fuc"/>
+                        <constraint firstAttribute="height" constant="17" id="YZa-E5-svx"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="JHd-t8-fuc"/>
+                            <exclude reference="YZa-E5-svx"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="JHd-t8-fuc"/>
+                            <include reference="YZa-E5-svx"/>
+                        </mask>
+                    </variation>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="a5d-DZ-lUT" firstAttribute="top" secondItem="F6W-j2-TLy" secondAttribute="bottom" constant="2" id="1NV-S2-2a4">
+                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="a5d-DZ-lUT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-122" id="1b5-tC-loO">
                     <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                 </constraint>
                 <constraint firstAttribute="trailing" secondItem="a5d-DZ-lUT" secondAttribute="trailing" id="47G-zZ-thh"/>
                 <constraint firstItem="deG-UN-wgU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="55O-F8-tFA"/>
+                <constraint firstItem="QjF-mx-gen" firstAttribute="centerX" secondItem="deG-UN-wgU" secondAttribute="centerX" constant="54.5" id="BQB-qz-X0C"/>
                 <constraint firstAttribute="bottom" secondItem="a5d-DZ-lUT" secondAttribute="bottom" constant="152" id="NLA-WH-twN">
                     <variation key="heightClass=regular-widthClass=compact" constant="50"/>
                 </constraint>
@@ -108,8 +135,9 @@
                 <constraint firstItem="a5d-DZ-lUT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZjR-Bq-drB"/>
                 <constraint firstItem="deG-UN-wgU" firstAttribute="top" secondItem="a5d-DZ-lUT" secondAttribute="bottom" id="bMa-e9-YvM"/>
                 <constraint firstAttribute="bottom" secondItem="deG-UN-wgU" secondAttribute="bottom" id="c1E-VM-gdn"/>
+                <constraint firstItem="QjF-mx-gen" firstAttribute="centerY" secondItem="deG-UN-wgU" secondAttribute="centerY" constant="-0.5" id="eUg-Wa-sZb"/>
                 <constraint firstItem="F6W-j2-TLy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="2" id="iaU-yO-adL">
-                    <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                 </constraint>
                 <constraint firstAttribute="trailing" secondItem="F6W-j2-TLy" secondAttribute="trailing" id="ku3-Hi-x6Z"/>
                 <constraint firstItem="F6W-j2-TLy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zy5-iG-xaD"/>
@@ -119,19 +147,23 @@
                     <exclude reference="a5d-DZ-lUT"/>
                     <exclude reference="F6W-j2-TLy"/>
                     <exclude reference="deG-UN-wgU"/>
+                    <exclude reference="QjF-mx-gen"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="iaU-yO-adL"/>
+                    <exclude reference="ku3-Hi-x6Z"/>
+                    <exclude reference="zy5-iG-xaD"/>
+                    <exclude reference="1NV-S2-2a4"/>
                     <exclude reference="1b5-tC-loO"/>
                     <exclude reference="47G-zZ-thh"/>
                     <exclude reference="NLA-WH-twN"/>
                     <exclude reference="ZjR-Bq-drB"/>
-                    <exclude reference="iaU-yO-adL"/>
-                    <exclude reference="ku3-Hi-x6Z"/>
-                    <exclude reference="zy5-iG-xaD"/>
                     <exclude reference="55O-F8-tFA"/>
                     <exclude reference="RaM-Ox-Qr3"/>
                     <exclude reference="bMa-e9-YvM"/>
                     <exclude reference="c1E-VM-gdn"/>
+                    <exclude reference="BQB-qz-X0C"/>
+                    <exclude reference="eUg-Wa-sZb"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -139,25 +171,30 @@
                     <include reference="a5d-DZ-lUT"/>
                     <include reference="F6W-j2-TLy"/>
                     <include reference="deG-UN-wgU"/>
+                    <include reference="QjF-mx-gen"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="1b5-tC-loO"/>
-                    <include reference="47G-zZ-thh"/>
-                    <exclude reference="NLA-WH-twN"/>
-                    <include reference="ZjR-Bq-drB"/>
                     <include reference="iaU-yO-adL"/>
                     <include reference="ku3-Hi-x6Z"/>
                     <include reference="zy5-iG-xaD"/>
+                    <include reference="1NV-S2-2a4"/>
+                    <exclude reference="1b5-tC-loO"/>
+                    <include reference="47G-zZ-thh"/>
+                    <exclude reference="NLA-WH-twN"/>
+                    <include reference="ZjR-Bq-drB"/>
                     <include reference="55O-F8-tFA"/>
                     <include reference="RaM-Ox-Qr3"/>
                     <include reference="bMa-e9-YvM"/>
                     <include reference="c1E-VM-gdn"/>
+                    <include reference="BQB-qz-X0C"/>
+                    <include reference="eUg-Wa-sZb"/>
                 </mask>
             </variation>
         </view>
     </objects>
     <resources>
         <image name="bg_green" width="320" height="99"/>
-        <image name="cebai_bg_img" width="320" height="568"/>
+        <image name="cebai_bg_img" width="320" height="357"/>
+        <image name="cebai_jiantou" width="16" height="16"/>
     </resources>
 </document>

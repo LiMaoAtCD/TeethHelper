@@ -7,7 +7,11 @@
 //
 
 #import "FirstCeBaiViewController.h"
+#import "CameraViewController.h"
+#import "ImageEditViewController.h"
 #import "Utils.h"
+
+
 @interface FirstCeBaiViewController ()
 
 @end
@@ -21,6 +25,21 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+
+}
+
+- (IBAction)gotoCebai:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
+//    cameraVC.delegate = self;
+    cameraVC.hidesBottomBarWhenPushed = YES;
+    //    [self showDetailViewController:cameraVC sender:self];
+    [self.navigationController pushViewController:cameraVC animated:YES];
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

@@ -22,6 +22,21 @@
     [defaults synchronize];
 }
 
+//是否完成首次测白
++(BOOL)isCompletedFirstCeBai{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    BOOL islogin = [defaults boolForKey:@"Account_first_cebai"];
+    return islogin;
+}
++(void)setCompletedFirstCeBai:(BOOL)completed{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:completed forKey:@"Account_first_cebai"];
+    [defaults synchronize];
+}
+
+
+
 //tokenID
 +(NSString*)getTokenID{
     NSString *token  = [[NSUserDefaults standardUserDefaults] objectForKey:@"user_token_id"];

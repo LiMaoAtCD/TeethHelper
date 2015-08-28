@@ -19,11 +19,12 @@
 #import "QuestionsConfigFile.h"
 
 #import "NetworkManager.h"
+#import "FirstCeBaiNavigationController.h"
 
-#import "WXApi.h"
+//#import "WXApi.h"
+//<WXApiDelegate>
 
-
-@interface AppDelegate ()<WXApiDelegate>
+@interface AppDelegate ()
 
 @property (nonatomic, strong) MainTabBarController *tabarController;
 @property (nonatomic, strong) LoginNavigationController *loginVC;
@@ -53,13 +54,14 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _tabarController = [sb instantiateViewControllerWithIdentifier:@"MainTabBarController"];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(QuestionsCompleted:) name:@"QuestionsCompleted" object:nil];
+
     //检查是否登录
     BOOL isLogin = [AccountManager isLogin];
     if (!isLogin) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
         _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"LoginSuccess" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(QuestionsCompleted:) name:@"QuestionsCompleted" object:nil];
 
         self.window.rootViewController = _loginVC;
         [self.window makeKeyAndVisible];
@@ -69,13 +71,13 @@
         [self loginSuccess:nil];
         
     }
-    [WXApi registerApp:@"wxc213130fe4f9b110"];
+//    [WXApi registerApp:@"wxc213130fe4f9b110"];
     
     return YES;
 }
 
 -(void)QuestionsCompleted:(id)sender{
-    self.tabarController.selectedIndex = 1;
+//    self.tabarController.selectedIndex = 1;
     self.window.rootViewController = self.tabarController;
 }
 -(void)loginSuccess:(id)sender{
@@ -86,7 +88,12 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Questions" bundle:nil];
         self.questionsVC  = [sb instantiateViewControllerWithIdentifier:@"InitialNavigationController"];
         self.window.rootViewController = self.questionsVC;
-    } else{
+    } else if (![AccountManager isCompletedFirstCeBai]){
+        FirstCeBaiNavigationController *first = [[FirstCeBaiNavigationController alloc] init];
+        
+        self.window.rootViewController  = first;
+    }
+    else{
         self.window.rootViewController = self.tabarController;
     }
 }
@@ -182,7 +189,7 @@
 
 -(void)configFirstLaunchOptions{
     
-    BOOL isFirstLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:@"FirstLaunch"];
+    BOOL isFirstLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:@"FirstLaunch_config"];
     if (!isFirstLaunch) {
         //初次启动,开启本地通知
 //        [[UIApplication sharedApplication] cancelAllLocalNotifications] ;
@@ -197,7 +204,7 @@
   
        
         
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FirstLaunch"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"FirstLaunch_config"];
         
         //牙齿状况初始设置
 //        [TeethStateConfigureFile setSensitive:NO];
@@ -210,6 +217,8 @@
         [MeiBaiConfigFile setCompletedCureDays:0];
         [MeiBaiConfigFile setCompletedKeepDays:0];
         
+//        首次测白，如果未完成，需要完成
+        [AccountManager setCompletedFirstCeBai:NO];
         
     } else {
         
@@ -287,58 +296,58 @@
 
 #pragma mark - 微信登录相关
 
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [WXApi handleOpenURL:url delegate:self];
-}
-
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [WXApi handleOpenURL:url delegate:self];
-
-}
-
-
--(void) onResp:(BaseResp*)resp
-{
-    if([resp isKindOfClass:[SendMessageToWXResp class]])
-    {
-        //分享
-    }
-    else if([resp isKindOfClass:[SendAuthResp class]])
-    {
-         //微信登录
-//        SendAuthResp *temp = (SendAuthResp*)resp;
-        
-//        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
-//        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
-    }
-  
-}
-
-- (void) sendLinkContent:(BOOL)session
-{
-    WXMediaMessage *message = [WXMediaMessage message];
-    message.title = @"纽米";
-    message.description = @"牙齿美白神器的辅助APP，指导和管理美白过程，并附带独一无二的有趣的测白功能";
-    [message setThumbImage:[UIImage imageNamed:@"Nummi_icon.png"]];
-    
-    WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
-    
-    message.mediaObject = ext;
-    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
-    
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    
-    if (session) {
-        req.scene = WXSceneSession;
-    } else{
-        req.scene = WXSceneTimeline;
-    }
-
-    
-    [WXApi sendReq:req];
-}
+//-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+//    return [WXApi handleOpenURL:url delegate:self];
+//}
+//
+//-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+//    return [WXApi handleOpenURL:url delegate:self];
+//
+//}
+//
+//
+//-(void) onResp:(BaseResp*)resp
+//{
+//    if([resp isKindOfClass:[SendMessageToWXResp class]])
+//    {
+//        //分享
+//    }
+//    else if([resp isKindOfClass:[SendAuthResp class]])
+//    {
+//         //微信登录
+////        SendAuthResp *temp = (SendAuthResp*)resp;
+//        
+////        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
+////        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
+//    }
+//  
+//}
+//
+//- (void) sendLinkContent:(BOOL)session
+//{
+//    WXMediaMessage *message = [WXMediaMessage message];
+//    message.title = @"纽米";
+//    message.description = @"牙齿美白神器的辅助APP，指导和管理美白过程，并附带独一无二的有趣的测白功能";
+//    [message setThumbImage:[UIImage imageNamed:@"Nummi_icon.png"]];
+//    
+//    WXWebpageObject *ext = [WXWebpageObject object];
+//    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+//    
+//    message.mediaObject = ext;
+//    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
+//    
+//    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+//    req.bText = NO;
+//    req.message = message;
+//    
+//    if (session) {
+//        req.scene = WXSceneSession;
+//    } else{
+//        req.scene = WXSceneTimeline;
+//    }
+//
+//    
+//    [WXApi sendReq:req];
+//}
 
 @end
