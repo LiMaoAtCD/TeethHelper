@@ -21,6 +21,8 @@
 #import "NetworkManager.h"
 #import "FirstCeBaiNavigationController.h"
 
+#import <Appirater.h>
+
 //#import "WXApi.h"
 //<WXApiDelegate>
 
@@ -49,7 +51,6 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     
-    
     //初始化
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     _tabarController = [sb instantiateViewControllerWithIdentifier:@"MainTabBarController"];
@@ -72,6 +73,8 @@
         
     }
 //    [WXApi registerApp:@"wxc213130fe4f9b110"];
+    
+    [self configRate];
     
     return YES;
 }
@@ -112,6 +115,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -249,6 +253,8 @@
 -(void)fetchProductInfo{
     [NetworkManager fetchProductInfoWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
+        
+        
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
@@ -350,4 +356,22 @@
 //    [WXApi sendReq:req];
 //}
 
+
+#pragma mark -app 评分
+
+-(void)configRate{
+    [Appirater setDebug:NO];
+
+    [Appirater setAppId:@"770699556"];
+    [Appirater setDaysUntilPrompt:0];
+    [Appirater setUsesUntilPrompt:0];
+    [Appirater setSignificantEventsUntilPrompt:5];
+    [Appirater setTimeBeforeReminding:40];
+    [Appirater appLaunched:YES];
+    [Appirater setCustomAlertTitle:@""];
+    [Appirater setCustomAlertMessage:@"请到APP store帮我们评分吧"];
+    [Appirater setCustomAlertRateButtonTitle:@"去评分"];
+    [Appirater setCustomAlertCancelButtonTitle:@"不,谢谢"];
+    [Appirater setCustomAlertRateLaterButtonTitle:@"稍后再去"];
+}
 @end

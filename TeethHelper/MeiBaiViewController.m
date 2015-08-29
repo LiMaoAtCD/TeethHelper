@@ -17,6 +17,8 @@
 #import "MeibaiProjectController.h"
 #import "WechatShareViewController.h"
 
+#import <Appirater.h>
+
 @interface MeiBaiViewController ()
 
 @property (nonatomic, strong) AlienView *alienView;
@@ -252,6 +254,8 @@
 }
 
 -(void)beginMeibaiProject:(id)sender{
+    
+    [Appirater userDidSignificantEvent:YES];
     MeibaiProjectController * projectVC = [[MeibaiProjectController alloc] initWithNibName:@"MeibaiProjectController" bundle:nil];
     projectVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:projectVC animated:YES];

@@ -24,6 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Appirater_ios8
+
+Copyright 2014. Arash Payan. This library is distributed under the terms of the MIT/X11. This fork is being re-released as a cocoa pod to suport iOS 8.
+
 ## DateTools
 
 The MIT License (MIT)

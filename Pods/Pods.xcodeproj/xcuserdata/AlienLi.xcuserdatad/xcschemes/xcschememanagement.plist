@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Appirater_ios8-Appirater.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Appirater_ios8.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,37 +62,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>097BD609EFC9AD4C1EBDAFC9D4DABDF2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>21D64DCA63B8D9BC488C0D65CD4F8D0B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5352D432641F0656C90741034E32F31E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>672DDFB871D6E0B0EEC0459E7AF33BED</key>
+		<key>57AAE7CAA4E942248350A588E4FC75C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>75060A5B2CC6BD4E95E08623586076B4</key>
+		<key>703E01F5ABBE82592D17749EFFAB48E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7DE913DC2E53853ED355CF0B14522676</key>
+		<key>74DD2BD22672E071945FF298CD61BB97</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>849390A4BFE26F0278667B45CA6379C5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9A3684FD5B7B529C0D463F78092D45E7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A61E5DFD0FCF74F2A5586390BAE5DF15</key>
+		<key>A393CC7EEC12275C53012766232D431E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BB3CEA3F98068DA10BC135879474D2C2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DC39C99E986C2490E1F700465B601003</key>
+		<key>ED5CC487045D60593C649B6D79B41CAF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

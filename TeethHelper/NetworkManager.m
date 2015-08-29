@@ -100,12 +100,11 @@
 }
 
 +(void)fetchProductInfoWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-    dictionary[@"accessToken"] = [AccountManager getTokenID];
     
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/product?accessToken=%@",[AccountManager getTokenID]];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
-    [manager GET:@"http://www.7wang523.com/teeth-api/product" parameters:nil success:completionHandler failure:failHandler];
+    [manager GET:url parameters:nil success:completionHandler failure:failHandler];
 
 }
 

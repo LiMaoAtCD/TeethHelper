@@ -9,7 +9,7 @@ target 'TeethHelper' do
     pod 'DateTools'
     pod 'RSKImageCropper'
     pod 'MJRefresh'
-    
+    pod 'Appirater_ios8', '~> 3.0.0'
 
 end
 

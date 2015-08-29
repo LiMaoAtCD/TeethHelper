@@ -41,6 +41,14 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright 2014. Arash Payan. This library is distributed under the terms of the MIT/X11. This fork is being re-released as a cocoa pod to suport iOS 8.</string>
+			<key>Title</key>
+			<string>Appirater_ios8</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2014 Matthew York

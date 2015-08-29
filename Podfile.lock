@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Appirater_ios8 (3.0.0)
   - DateTools (1.6.1)
   - Masonry (0.6.2)
   - MJRefresh (2.4.7)
@@ -31,6 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Appirater_ios8 (~> 3.0.0)
   - DateTools
   - Masonry
   - MJRefresh
@@ -40,6 +42,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  Appirater_ios8: aac206fd7dc4f3b411f630d29dde9e9da0e1091f
   DateTools: 9bcc89e4f2f9004d8a7a2bd1b49269cf78968e65
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   MJRefresh: 6eb2f61338f89f64fd628fd43debcf479381ff59
