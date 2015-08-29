@@ -10,4 +10,10 @@
 
 @interface PostToSocialController : UIViewController
 
+@property (nonatomic, strong) UIImage *firstImage;
+@property (nonatomic, strong) UIImage *secondImage;
+@property (nonatomic, copy) NSString *levelString;
+@property (nonatomic, copy) NSString *beatRateString;
+
+
 @end

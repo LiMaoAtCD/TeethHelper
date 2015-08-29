@@ -12,6 +12,8 @@
 #import <Masonry.h>
 
 #import "MeiBaiConfigFile.h"
+#import "PostToSocialController.h"
+
 @interface CeBaiResultViewController ()
 
 
@@ -326,7 +328,18 @@
 
 #pragma mark - 分享至社区
 -(void)ShareToSocial:(id)sender{
+    PostToSocialController *postVC = [[PostToSocialController alloc] initWithNibName:@"PostToSocialController" bundle:nil];
     
+    
+    UIImage *image = [self loadImage];
+    if (image != nil) {
+        postVC.firstImage = image;
+    }
+    postVC.secondImage = self.image;
+    postVC.beatRateString = [self beatRateFromLevel:self.Level];
+
+    postVC.levelString = [NSString stringWithFormat:@"N%ld",self.Level];
+    [self.navigationController pushViewController:postVC animated:YES];
 }
 
 -(void)pop{
