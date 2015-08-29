@@ -33,14 +33,21 @@
     } else{
         //展示对比图片
     }
+    
+    self.navigationController.navigationBar.translucent = YES;
+}
+
+-(void)pop{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)done:(id)sender {
     
     if (![AccountManager isCompletedFirstCeBai]) {
         //未完成首次测白，展示一张图片
-        [AccountManager setCompletedFirstCeBai:YES];
 
         [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+        [AccountManager setCompletedFirstCeBai:YES];
+
         
     } else{
         //展示对比图片

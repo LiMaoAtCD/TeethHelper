@@ -424,6 +424,13 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
         [self.maskLayer addAnimation:pathAnimation forKey:@"path"];
         
         self.maskLayer.path = [clipPath CGPath];
+        
+        CAShapeLayer *circleLayer = [CAShapeLayer layer];
+        circleLayer.path = maskPath.CGPath;
+        circleLayer.strokeColor = [UIColor whiteColor].CGColor;
+        circleLayer.lineWidth = 4.0;
+        circleLayer.fillColor = [UIColor clearColor].CGColor;
+        [self.maskLayer addSublayer:circleLayer];
     }
 }
 

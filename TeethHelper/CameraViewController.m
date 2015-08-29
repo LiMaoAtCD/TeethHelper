@@ -543,23 +543,41 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 // Returns a custom path for the mask.
 - (UIBezierPath *)imageCropViewControllerCustomMaskPath:(RSKImageCropViewController *)controller
 {
+//    CGRect rect = controller.maskRect;
+//    
+//    CGFloat radius = 50;
+//    CGMutablePathRef roundedTrianglePath = CGPathCreateMutable();
+//    CGPathMoveToPoint(roundedTrianglePath, NULL,
+//                      radius,
+//                      CGRectGetMinY(rect));
+//    
+//    
+//    CGPathAddArc(roundedTrianglePath, NULL,
+//                 CGRectGetMaxX(rect) - radius, CGRectGetMaxY(rect) - radius,
+//                 radius,
+//                 -0.5 * M_PI, 0.5 *M_PI,
+//                 NO);
+//    
+//    CGPathAddArc(roundedTrianglePath, NULL,
+//                 radius, CGRectGetMinY(rect) + radius,
+//                 radius,
+//                 0.5 * M_PI, 1.5 *M_PI,
+//                 NO);
+//    
+//    CGPathCloseSubpath(roundedTrianglePath);
+//    UIBezierPath *path = [UIBezierPath bezierPathWithCGPath:roundedTrianglePath];
+//    
+//    CGPathRelease(roundedTrianglePath);
+//    
+//    return path;
+    
     CGRect rect = controller.maskRect;
-    
     CGFloat radius = 50;
+    const CGFloat lineWidth = 20;
     
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, 40 , 0 )
+                                                    cornerRadius:radius];
     
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    
-    [path moveToPoint:CGPointMake(radius, CGRectGetMinY(rect))];
-    [path addLineToPoint:CGPointMake(CGRectGetMaxX(rect) - radius, CGRectGetMinY(rect))];
-    [path addLineToPoint:CGPointMake(CGRectGetMaxX(rect) -radius, CGRectGetMaxY(rect))];
-    [path addLineToPoint:CGPointMake(radius, CGRectGetMaxY(rect))];
-    
-    [path addArcWithCenter:CGPointMake(radius, CGRectGetMinY(rect) + radius) radius:radius startAngle: 0.5 * M_PI endAngle:1.5 *M_PI clockwise:YES];
-    [path moveToPoint:CGPointMake(CGRectGetMaxX(rect) - radius, CGRectGetMinY(rect))];
-    
-    [path addArcWithCenter:CGPointMake(CGRectGetMaxX(rect) - radius, CGRectGetMaxY(rect) - radius) radius:radius startAngle: -0.5 * M_PI endAngle:0.5 *M_PI clockwise:YES];
-    //    [path closePath];
     return path;
     
 }

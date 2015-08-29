@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tpd-Hi-vT7">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tpd-Hi-vT7">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="800" id="PcR-TL-EVQ">
@@ -62,7 +62,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="tpd-Hi-vT7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Zj-NV-NYF"/>
-                <constraint firstItem="tpd-Hi-vT7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CdT-v7-OcI"/>
+                <constraint firstItem="tpd-Hi-vT7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CdT-v7-OcI">
+                    <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="tpd-Hi-vT7" secondAttribute="trailing" id="Ebd-pq-vdi"/>
                 <constraint firstAttribute="centerY" secondItem="XwX-jP-Gwq" secondAttribute="centerY" id="RsE-qj-uo0"/>
                 <constraint firstAttribute="centerX" secondItem="XwX-jP-Gwq" secondAttribute="centerX" id="lEO-PD-aLu"/>
@@ -73,11 +75,11 @@
                     <exclude reference="XwX-jP-Gwq"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="RsE-qj-uo0"/>
+                    <exclude reference="lEO-PD-aLu"/>
                     <exclude reference="9Zj-NV-NYF"/>
                     <exclude reference="CdT-v7-OcI"/>
                     <exclude reference="Ebd-pq-vdi"/>
-                    <exclude reference="RsE-qj-uo0"/>
-                    <exclude reference="lEO-PD-aLu"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -86,11 +88,11 @@
                     <include reference="XwX-jP-Gwq"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="RsE-qj-uo0"/>
+                    <include reference="lEO-PD-aLu"/>
                     <include reference="9Zj-NV-NYF"/>
                     <include reference="CdT-v7-OcI"/>
                     <include reference="Ebd-pq-vdi"/>
-                    <include reference="RsE-qj-uo0"/>
-                    <include reference="lEO-PD-aLu"/>
                 </mask>
             </variation>
         </view>
