@@ -126,6 +126,8 @@
 		87E2AF0A1B84C2C7002FC28A /* UseHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF091B84C2C7002FC28A /* UseHistoryCell.m */; };
 		87E2AF0F1B855E92002FC28A /* WechatShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */; };
 		87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */; };
+		87F4289D1B91978000F0CD46 /* PostToSocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F4289B1B91978000F0CD46 /* PostToSocialController.m */; };
+		87F4289E1B91978000F0CD46 /* PostToSocialController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F4289C1B91978000F0CD46 /* PostToSocialController.xib */; };
 		87F73F6F1B8C92D0005705AA /* SocialDetailReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F73F6E1B8C92D0005705AA /* SocialDetailReplyViewController.m */; };
 		87F73F741B8CA42D005705AA /* SocialCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F73F721B8CA42D005705AA /* SocialCommentViewController.m */; };
 		87F73F751B8CA42D005705AA /* SocialCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F73F731B8CA42D005705AA /* SocialCommentViewController.xib */; };
@@ -362,6 +364,9 @@
 		87E2AF0C1B855E92002FC28A /* WechatShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatShareViewController.h; sourceTree = "<group>"; };
 		87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatShareViewController.m; sourceTree = "<group>"; };
 		87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WechatShareViewController.xib; sourceTree = "<group>"; };
+		87F4289A1B91978000F0CD46 /* PostToSocialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToSocialController.h; sourceTree = "<group>"; };
+		87F4289B1B91978000F0CD46 /* PostToSocialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToSocialController.m; sourceTree = "<group>"; };
+		87F4289C1B91978000F0CD46 /* PostToSocialController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostToSocialController.xib; sourceTree = "<group>"; };
 		87F73F6D1B8C92D0005705AA /* SocialDetailReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailReplyViewController.h; sourceTree = "<group>"; };
 		87F73F6E1B8C92D0005705AA /* SocialDetailReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailReplyViewController.m; sourceTree = "<group>"; };
 		87F73F711B8CA42D005705AA /* SocialCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialCommentViewController.h; sourceTree = "<group>"; };
@@ -565,6 +570,9 @@
 				875D24421B8884350068AA2B /* CeBaiResultViewController.h */,
 				875D24431B8884350068AA2B /* CeBaiResultViewController.m */,
 				875D24441B8884350068AA2B /* CeBaiResultViewController.xib */,
+				87F4289A1B91978000F0CD46 /* PostToSocialController.h */,
+				87F4289B1B91978000F0CD46 /* PostToSocialController.m */,
+				87F4289C1B91978000F0CD46 /* PostToSocialController.xib */,
 			);
 			name = SecondTab;
 			sourceTree = "<group>";
@@ -1067,6 +1075,7 @@
 				8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
+				87F4289E1B91978000F0CD46 /* PostToSocialController.xib in Resources */,
 				87F73F751B8CA42D005705AA /* SocialCommentViewController.xib in Resources */,
 				875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */,
 				877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */,
@@ -1140,6 +1149,7 @@
 				877B051A1B8AB4E000D5ECF1 /* SocialDetailViewController.m in Sources */,
 				87F73F6F1B8C92D0005705AA /* SocialDetailReplyViewController.m in Sources */,
 				87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */,
+				87F4289D1B91978000F0CD46 /* PostToSocialController.m in Sources */,
 				8785F8F81B7C495F0051B29B /* QuestionTwoViewController.m in Sources */,
 				873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */,
 				87E2AB4E1B7856B7001ED07F /* NoticeTableViewCell.m in Sources */,

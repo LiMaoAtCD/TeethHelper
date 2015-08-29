@@ -83,5 +83,15 @@
     return day;
 }
 
++(void)setFirstCebaiLevel:(NSInteger)level{
+    [[NSUserDefaults standardUserDefaults] setInteger:level forKey:@"user_first_cebai_level"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSInteger)firstCeBaiLevel{
+    NSInteger level = [[NSUserDefaults standardUserDefaults] integerForKey:@"user_first_cebai_level"];
+    
+    return level;
+}
+
 
 @end

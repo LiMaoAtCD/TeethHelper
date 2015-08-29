@@ -44,6 +44,9 @@
 
 
 
+//首次测白等级
++(void)setFirstCebaiLevel:(NSInteger)level;
++(NSInteger)firstCeBaiLevel;
 
 
 @end

@@ -1380,7 +1380,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="153" y="11.5" width="159" height="21"/>
+                                                        <rect key="frame" x="153" y="11" width="159" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="gIV-4h-0fe"/>
                                                         </mask>
@@ -1682,7 +1682,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="107" y="19.5" width="106" height="21"/>
+                                                        <rect key="frame" x="107" y="19" width="106" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="Hsz-ZG-Rwz"/>
                                                         </mask>
@@ -1702,7 +1702,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="214" y="19.5" width="106" height="21"/>
+                                                        <rect key="frame" x="214" y="19" width="106" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="wmk-Y7-Wif"/>
                                                         </mask>
