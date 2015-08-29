@@ -356,7 +356,7 @@
 
         [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
     } else{
-        //展示对比图片,返回
+        //返回
         
         [self.navigationController popToRootViewControllerAnimated:YES];
         

@@ -10,9 +10,10 @@
 #import "Utils.h"
 
 #import <Masonry.h>
-@interface PostToSocialController ()
+@interface PostToSocialController ()<UITextViewDelegate>
 
 @property (strong, nonatomic) UIImageView *postImageView;
+@property (strong, nonatomic) UITextView *textView;
 
 @end
 
@@ -25,7 +26,7 @@
     
     [Utils ConfigNavigationBarWithTitle:@"分享至社区" onViewController:self];
     [self configRightNavigationItem];
-    
+    [self configTextView];
     
     if (self.firstImage) {
         //如果不是第一次
@@ -220,8 +221,74 @@
     
 }
 
+-(void)configTextView{
+    //textview;
+    self.textView = [[UITextView alloc] initWithFrame:CGRectZero textContainer:nil];
+    self.textView.delegate = self;
+    self.textView.font = [UIFont systemFontOfSize:14.0];
+    self.textView.textColor =[UIColor lightGrayColor];
+    self.textView.text = @"请填写内容...";
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+    tapGesture.numberOfTapsRequired = 1; //点击次数
+    tapGesture.numberOfTouchesRequired = 1; //点击手指数
+    [self.view addGestureRecognizer:tapGesture];
+    
+    
+    
+    
+    [self.view addSubview:self.textView];
+    
+    
+    
+    
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(0);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view.mas_centerX);
+        make.height.equalTo(@200);
+    }];
+    
+    
+    
+}
+#pragma mark -textView delegate
 
+//轻击手势触发方法
+-(void)tapGesture:(UITapGestureRecognizer *)sender
+{
+    [self.view endEditing:YES];
+}
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    textView.textColor = [UIColor blackColor];
+    if ([textView.text isEqualToString:@"请填写内容..."]) {
+        textView.text = nil;
+    }
+    
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if (textView.text.length<1) {
+        textView.text = @"请填写内容...";
+        textView.textColor = [UIColor lightGrayColor];
+    }
+}
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    if (textView.text.length > 255) {
+        textView.text  =  [textView.text substringToIndex:255];
+    }
+    
+    return YES;
+}
+
+#pragma mark - 发布
 -(void)post:(id)sender{
 
 }
+
+
 @end
