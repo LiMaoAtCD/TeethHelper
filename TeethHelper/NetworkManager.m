@@ -196,6 +196,8 @@
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
+
+
 +(void)fetchFirstPageWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     dictionary[@"accessToken"] = [AccountManager getTokenID];

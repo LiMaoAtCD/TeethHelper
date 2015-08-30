@@ -223,6 +223,8 @@
             self.imageButton2.hidden = NO;
             self.imageButton3.hidden = YES;
             self.toPostImage1 = tempImage;
+            self.toPostImage2 = nil;
+            self.toPostImage3 = nil;
         }
             break;
         case 2:
@@ -230,6 +232,7 @@
             [self.imageButton2 setImage:tempImage forState:UIControlStateNormal];
             self.imageButton3.hidden = NO;
             self.toPostImage2 = tempImage;
+            self.toPostImage3 = nil;
 
 
         }

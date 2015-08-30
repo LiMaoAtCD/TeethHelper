@@ -164,9 +164,12 @@
         
         if (images.count == 1) {
             [cell.contentOneImageView sd_setImageWithURL:[NSURL URLWithString:images[0][@"thumb"]] placeholderImage:nil];
+            cell.contentTwoImageView.image = nil;
+            cell.contentThreeImageView.image = nil;
         } else if (images.count == 2){
             [cell.contentOneImageView sd_setImageWithURL:[NSURL URLWithString:images[0][@"thumb"]] placeholderImage:nil];
             [cell.contentTwoImageView sd_setImageWithURL:[NSURL URLWithString:images[1][@"thumb"]] placeholderImage:nil];
+            cell.contentThreeImageView.image = nil;
 
         } else{
             [cell.contentOneImageView sd_setImageWithURL:[NSURL URLWithString:images[0][@"thumb"]] placeholderImage:nil];
