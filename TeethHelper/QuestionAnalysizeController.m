@@ -47,8 +47,10 @@
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
         
         //设置美白等级为4
-        [MeiBaiConfigFile setCureTimesEachDay:4];
-        [MeiBaiConfigFile setNeedCureDays:5];
+//        [MeiBaiConfigFile setCureTimesEachDay:4];
+//        [MeiBaiConfigFile setNeedCureDays:5];
+        [MeiBaiConfigFile setCurrentProject:STANDARD];
+
         
     } else if (self.type == Enhance){
         self.projectLabel.text = @"加强计划";
@@ -58,8 +60,10 @@
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
         
         //设置美白等级为7
-        [MeiBaiConfigFile setCureTimesEachDay:7];
-        [MeiBaiConfigFile setNeedCureDays:3];
+//        [MeiBaiConfigFile setCureTimesEachDay:7];
+//        [MeiBaiConfigFile setNeedCureDays:3];
+        [MeiBaiConfigFile setCurrentProject:ENHANCE];
+
 
     } else{
         self.projectLabel.text = @"温柔计划";
@@ -69,11 +73,12 @@
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
         
         //设置美白等级为3
-        [MeiBaiConfigFile setCureTimesEachDay:3];
-        [MeiBaiConfigFile setNeedCureDays:10];
+//        [MeiBaiConfigFile setCureTimesEachDay:3];
+//        [MeiBaiConfigFile setNeedCureDays:10];
+        [MeiBaiConfigFile setCurrentProject:GENTLE];
+
 
     }
-    [MeiBaiConfigFile setCureStage:YES];
 
     [self.beginTimeButton addTarget:self action:@selector(chooseTime:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -102,7 +107,7 @@
     [MessageConfigureFile setAlertNotificationTime:hour andMinute:minute];
     [MessageConfigureFile setNotificationAtHour:hour minute:minute];
     
-    NSString *time =[NSString stringWithFormat:@"%.2ld:%.2ld",[hour integerValue],(long)[minute integerValue]];
+    NSString *time =[NSString stringWithFormat:@"%.2ld:%.2ld",(long)[hour integerValue],(long)[minute integerValue]];
     
     [self.beginTimeButton setTitle:time forState:UIControlStateNormal];
 

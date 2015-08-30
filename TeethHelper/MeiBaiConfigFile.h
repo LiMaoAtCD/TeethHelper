@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef enum : NSUInteger {
+    ENHANCE,
+    STANDARD,
+    GENTLE,
+    KEEP
+} MEIBAI_PROJECT;
 @interface MeiBaiConfigFile : NSObject
 
 /*
@@ -18,12 +25,9 @@
  */
 
 
-//区分是否在治疗阶段
-+(BOOL)isCureStage;
-+(void)setCureStage:(BOOL)cure;
-//是否保持美白计划
-//+(void)setBeginKeepProject:(BOOL)keep;
-//+(BOOL)isKeepProject;
+
++(void)setCurrentProject:(MEIBAI_PROJECT)project;
++(MEIBAI_PROJECT)getCurrentProject;
 
 
 //设置每天治疗的次数

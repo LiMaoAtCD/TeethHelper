@@ -135,7 +135,7 @@
     
     //如果是治疗阶段
     
-    if ([MeiBaiConfigFile isCureStage]) {
+    if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
         ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
         
         [self presentViewController:questionVC animated:YES completion:^{

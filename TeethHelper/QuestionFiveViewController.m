@@ -18,6 +18,8 @@
 #import "NetworkManager.h"
 #import <SVProgressHUD.h>
 
+#import "MeiBaiConfigFile.h"
+
 
 @interface QuestionFiveViewController ()<RSliderViewDelegate>
 @property (nonatomic, strong) RS_SliderView *horSlider;
@@ -231,8 +233,8 @@
             
             if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
                 //加强
-                
                 //分析结果跳转至相应界面
+                
                 
                 QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
                 analysizeVC.type = Enhance;
@@ -245,6 +247,7 @@
                 [self.navigationController pushViewController:noprojectVC animated:YES];
                 NSLog(@"牙医");
                 
+
                 
             } else if(answer1 != 2 && answer2 == 0 && answer3 == 1){
                 //温柔计划
@@ -257,6 +260,7 @@
                 NSLog(@"温柔");
                 
             } else{
+
                 //标准
                 //分析结果跳转至相应界面
                 

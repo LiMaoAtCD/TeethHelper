@@ -12,6 +12,7 @@
 #import "Utils.h"
 
 #import "TeethStateConfigureFile.h"
+#import "MeiBaiConfigFile.h"
 
 @interface TeethDetailThreeController ()
 
@@ -79,6 +80,74 @@
             } else{
                 [TeethStateConfigureFile WillStrong:NO];
             }
+            
+            
+            //获取当前牙齿等级
+            NSInteger answer1 = [TeethStateConfigureFile teethLevel];
+            // 是否敏感
+            NSInteger answer2 = 0;
+            if ([TeethStateConfigureFile isSensitive]) {
+                answer2 = 0;
+            } else{
+                answer2 = 1;
+            }
+            //是否意愿强烈
+            NSInteger answer3 = idx;
+
+         
+            NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
+            
+            
+            MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+            if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
+                //提示修改至加强计划
+                if (project != ENHANCE) {
+                    [self alertUserToModifyProject:ENHANCE withAlertHandler:^{
+                        //
+                        [MeiBaiConfigFile setCurrentProject:ENHANCE];
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }];
+                    
+                }
+                
+            } else if (answer1 == 2) {
+                //提示修改温柔计划
+                if (project != GENTLE) {
+                    [self alertUserToModifyProject:GENTLE withAlertHandler:^{
+                        //
+                        [MeiBaiConfigFile setCurrentProject:GENTLE];
+                        [self.navigationController popViewControllerAnimated:YES];
+
+                    }];
+                    
+                }
+            } else if (answer1 != 2 && answer2 == 0 && answer2 == 1) {
+                //提示修改温柔计划
+                if (project != GENTLE) {
+                    [self alertUserToModifyProject:GENTLE withAlertHandler:^{
+                        //
+                        [MeiBaiConfigFile setCurrentProject:GENTLE];
+                        [self.navigationController popViewControllerAnimated:YES];
+
+                    }];
+                    
+                }
+            } else{
+                //提示修改至标准计划
+                if (project != STANDARD) {
+                    [self alertUserToModifyProject:STANDARD withAlertHandler:^{
+                        //
+                        [MeiBaiConfigFile setCurrentProject:STANDARD];
+                        [self.navigationController popViewControllerAnimated:YES];
+
+                    }];
+                    
+                }
+            }
+            
+            //关闭保持计划
+
+            
         } else{
             [view didCHangeColorType:Normal];
         }
@@ -105,5 +174,51 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+typedef void(^AlertBlock)(void);
+
+-(void)alertUserToModifyProject:(MEIBAI_PROJECT)project withAlertHandler:(AlertBlock)block{
+    
+    NSString *string = @"根据您的选择，是否调整至标准计划";
+    
+    NSString *actionString = @"调整至加强计划";
+    
+    if (project == ENHANCE) {
+        //加强
+        string = @"根据您的选择，是否调整至加强计划";
+        
+        actionString = @"调整至加强计划";
+        
+        
+    } else if (project == GENTLE) {
+        //温柔
+        string = @"根据您的选择，是否调整至温柔计划";
+        actionString = @"调整至温柔计划";
+        
+        
+    } else if (project == STANDARD) {
+        //标准
+        string = @"根据您的选择，是否调整至标准计划";
+        actionString = @"调整至标准计划";
+    }
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:string preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:actionString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        if (block) {
+            block();
+        }
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }];
+    
+    [alert addAction:action1];
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
 @end

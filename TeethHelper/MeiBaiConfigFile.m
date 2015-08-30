@@ -11,29 +11,6 @@
 @implementation MeiBaiConfigFile
 
 
-//区分是否在治疗阶段
-+(BOOL)isCureStage{
-    BOOL iscure = [[NSUserDefaults standardUserDefaults] boolForKey:@"cure_stage"];
-    return iscure;
-}
-+(void)setCureStage:(BOOL)cure{
-    [[NSUserDefaults standardUserDefaults] setBool:cure forKey:@"cure_stage"];
-
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-//    [self setBeginKeepProject:!cure];
-    
-}
-
-//+(void)setBeginKeepProject:(BOOL)keep{
-//    [[NSUserDefaults standardUserDefaults] setBool:keep forKey:@"cure_keep_project"];
-//    [[NSUserDefaults standardUserDefaults] synchronize];
-//}
-//+(BOOL)isKeepProject{
-//    BOOL iscure = [[NSUserDefaults standardUserDefaults] boolForKey:@"cure_keep_project"];
-//    return iscure;
-//}
-
 
 
 //设置每天治疗的次数
@@ -91,6 +68,36 @@
     NSInteger level = [[NSUserDefaults standardUserDefaults] integerForKey:@"user_first_cebai_level"];
     
     return level;
+}
+
+
+
++(void)setCurrentProject:(MEIBAI_PROJECT)project{
+    
+//    温柔计划 3*8 -10天
+//    标准计划 4*8 -5天
+//    加强计划 7*8 - 3天
+    
+    if (project == GENTLE) {
+        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"cure_each_times"];
+        [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"cure_days"];
+    } else if (project == ENHANCE){
+        [[NSUserDefaults standardUserDefaults] setInteger:7 forKey:@"cure_each_times"];
+        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"cure_days"];
+    } else if(project == STANDARD){
+        [[NSUserDefaults standardUserDefaults] setInteger:4 forKey:@"cure_each_times"];
+        [[NSUserDefaults standardUserDefaults] setInteger:5 forKey:@"cure_days"];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:project forKey:@"Current_project"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(MEIBAI_PROJECT)getCurrentProject{
+    NSInteger level = [[NSUserDefaults standardUserDefaults] integerForKey:@"Current_project"];
+    
+    return level;
+    
 }
 
 

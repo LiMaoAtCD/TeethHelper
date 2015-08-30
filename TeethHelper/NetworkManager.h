@@ -213,4 +213,13 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  */
 +(void)uploadCeBaiisFirst:(NSString *)isFirst file:(UIImage *)image color:(NSString *)color defeat:(NSString *)defeat WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+/**
+ *  修改当前美白计划至某个计划
+ *
+ *  @param projectID         计划
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)ModifyProject:(NSString *)projectID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end

@@ -85,9 +85,10 @@
         MeiBaiOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiOneCell" forIndexPath:indexPath];
         cell.titleLabel.text = @"启用保持计划";
 
-        BOOL isKeepMeiBaiProject = ![MeiBaiConfigFile isCureStage];
+       MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
         
-        if (isKeepMeiBaiProject) {
+        
+        if (project == KEEP) {
             cell.swither.on = YES;
         } else{
             cell.swither.on = NO;
@@ -102,8 +103,10 @@
             cell.titleLabel.text = @"每日美白时长";
             
             NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
-            cell.contentLabel.text = [NSString stringWithFormat:@"%ld*8 分钟",times];
-            if (![MeiBaiConfigFile isCureStage]) {
+            cell.contentLabel.text = [NSString stringWithFormat:@"%ld*8 分钟",(long)times];
+            MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+
+            if (project == KEEP) {
                 cell.titleLabel.textColor = [UIColor grayColor];
                 cell.contentLabel.textColor = [UIColor grayColor];
             } else{
@@ -117,9 +120,11 @@
             cell.titleLabel.text = @"计划美白天数";
             
             NSInteger days = [MeiBaiConfigFile getNeedCureDays];
-            cell.contentLabel.text = [NSString stringWithFormat:@"%ld 天",days];
+            cell.contentLabel.text = [NSString stringWithFormat:@"%ld 天",(long)days];
             
-            if (![MeiBaiConfigFile isCureStage]) {
+            MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+
+            if (project == KEEP) {
                 cell.titleLabel.textColor = [UIColor grayColor];
                 cell.contentLabel.textColor = [UIColor grayColor];
                } else{
@@ -133,7 +138,9 @@
             cell.titleLabel.text = @"每月保持时长";
             cell.contentLabel.text = @"4*8 分钟";
             
-            if (![MeiBaiConfigFile isCureStage]) {
+            MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+
+            if (project == KEEP) {
                 cell.titleLabel.textColor = [Utils commonColor];
                 cell.contentLabel.textColor = [UIColor blackColor];
             } else{
@@ -162,7 +169,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ([MeiBaiConfigFile isCureStage]) {
+    if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
     
         if (indexPath.section == 1 && indexPath.row == 0) {
             //次数 3-7
@@ -203,7 +210,7 @@
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 30)];
-        if (![MeiBaiConfigFile isCureStage]) {
+        if ([MeiBaiConfigFile getCurrentProject] == KEEP) {
             label.textColor = [UIColor blackColor];
         } else{
             label.textColor = [UIColor grayColor];
@@ -220,11 +227,13 @@
 
 -(void)changeKeepProject:(UISwitch*)switcher{
     if (switcher.isOn) {
-//        [MeiBaiConfigFile setBeginKeepProject:YES];
-        [MeiBaiConfigFile setCureStage:NO];
+//        [MeiBaiConfigFile setCureStage:NO];
+        [MeiBaiConfigFile setCurrentProject:KEEP];
     } else{
-//        [MeiBaiConfigFile setBeginKeepProject:NO];
-        [MeiBaiConfigFile setCureStage:YES];
+//        [MeiBaiConfigFile setCureStage:YES];
+        
+        [MeiBaiConfigFile setCurrentProject:STANDARD];
+
 
 
     }

@@ -573,7 +573,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     
     CGRect rect = controller.maskRect;
     CGFloat radius = 50;
-    const CGFloat lineWidth = 20;
+//    const CGFloat lineWidth = 20;
     
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, 40 , 0 )
                                                     cornerRadius:radius];

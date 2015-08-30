@@ -198,8 +198,8 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
     
-    BOOL iscure = [MeiBaiConfigFile isCureStage];
-    if (iscure) {
+    
+    if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
         //如果是治疗阶段
         
         

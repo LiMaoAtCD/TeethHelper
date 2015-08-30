@@ -214,7 +214,6 @@
         
         
         // 设置治疗/保持
-        [MeiBaiConfigFile setCureStage:YES];
         [MeiBaiConfigFile setCompletedCureDays:0];
         [MeiBaiConfigFile setCompletedKeepDays:0];
         
