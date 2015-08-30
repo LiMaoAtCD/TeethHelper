@@ -113,9 +113,10 @@
     
     if (content) {
         dictionary[@"content"] = content;
+    } else{
+        dictionary = nil;
     }
-    dictionary[@"accessToken"] = [AccountManager getTokenID];
-    NSString *string = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic/publish?accessToken=%@",dictionary[@"accessToken"]];
+    NSString *string = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic/publish?accessToken=%@",[AccountManager getTokenID]];
     
     NSMutableArray *imageDataArray = [NSMutableArray array];
     [images enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -126,13 +127,17 @@
     }];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    [manager POST:string parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [imageDataArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            NSData *data = obj;
-            [formData appendPartWithFileData:data name:@"file" fileName:@"file.jpg" mimeType:@"image/jpeg"];
-        }];
+//
+    [manager POST:string parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        for (int i = 0; i < imageDataArray.count; i++) {
+            [formData appendPartWithFileData:imageDataArray[i] name:@"files" fileName:@"file.jpg" mimeType:@"image/jpeg"];
+        }
     } success:completionHandler failure:failHandler];
+    
+    
+    
+    
 }
 
 +(void)publishTextContent:(NSString *)content WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
