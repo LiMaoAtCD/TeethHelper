@@ -8,12 +8,17 @@
 
 #import "PostToSocialController.h"
 #import "Utils.h"
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
+
 
 #import <Masonry.h>
 @interface PostToSocialController ()<UITextViewDelegate>
 
 @property (strong, nonatomic) UIImageView *postImageView;
 @property (strong, nonatomic) UITextView *textView;
+
+@property (strong, nonatomic) UIImage *toPostImage;
 
 @end
 
@@ -73,7 +78,7 @@
         
         UIGraphicsEndImageContext();
         
-        
+        self.toPostImage = temp;
         
         self.postImageView = [[UIImageView alloc] initWithImage:temp];
         
@@ -172,7 +177,8 @@
         
         UIGraphicsEndImageContext();
         
-        
+        self.toPostImage = temp;
+
         
         self.postImageView = [[UIImageView alloc] initWithImage:temp];
         
@@ -288,6 +294,31 @@
 #pragma mark - 发布
 -(void)post:(id)sender{
 
+    NSString *content;
+    if ([self.textView.text isEqualToString:@""] ||[self.textView.text isEqualToString:@"请填写内容..."]) {
+        content = nil;
+    } else {
+        content = self.textView.text;
+    }
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObject:self.toPostImage];
+    [SVProgressHUD showWithStatus:@"正在发布"];
+    [NetworkManager publishTextContent:content withImages:array WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else if([responseObject[@"status"] integerValue] == 1004){
+            [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"发布失败,稍后再试吧"];
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+    }];
+    
+
+    
 }
 
 

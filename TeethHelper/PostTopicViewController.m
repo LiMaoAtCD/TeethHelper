@@ -311,8 +311,10 @@
                 if ([responseObject[@"status"] integerValue] == 2000) {
                     [SVProgressHUD showSuccessWithStatus:@"发布成功"];
                     [self.navigationController popViewControllerAnimated:YES];
+                    
                 } else if([responseObject[@"status"] integerValue] == 1004){
                     [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
+                    
                 }else{
                     [SVProgressHUD showErrorWithStatus:@"发布失败,稍后再试吧"];
                 }
