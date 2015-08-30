@@ -200,4 +200,17 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 +(void)uploadFirstQuestionsSex:(NSString *)sex age:(NSString *)age health:(NSString *)health sensitived:(NSString*)sensitived intention:(NSString*)intention WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
 
+
+/**
+ *  上传测白数据
+ *
+ *  @param isFrist           如果是首次测白，此参数传true，其他情况可以不用传或者false
+ *  @param image             测白的图片
+ *  @param color             测白的色阶
+ *  @param defeat            测白打败的百分比，数字即可
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)uploadCeBaiisFirst:(NSString *)isFirst file:(UIImage *)image color:(NSString *)color defeat:(NSString *)defeat WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end

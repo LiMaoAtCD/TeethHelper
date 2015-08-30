@@ -222,5 +222,26 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:@"http://www.7wang523.com/teeth-api/index/asq" parameters:dictionary success:completionHandler failure:failHandler];
 }
++(void)uploadCeBaiisFirst:(NSString *)isFirst file:(UIImage *)image color:(NSString *)color defeat:(NSString *)defeat WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    if (isFirst) {
+        dictionary[@"isFirst"] = @"true";
+    }
+    
+    dictionary[@"color"] = color;
+    dictionary[@"defeat"] = defeat;
+    
+//    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/test?accessToken=%@",[AccountManager getTokenID]];
+    
+    [manager POST:url parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file.jpg" mimeType:@"image/jpeg"];
+    } success:completionHandler failure:failHandler];
+}
 
 @end

@@ -14,6 +14,9 @@
 #import "MeiBaiConfigFile.h"
 #import "PostToSocialController.h"
 
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
+
 @interface CeBaiResultViewController ()
 
 
@@ -349,17 +352,49 @@
 
 - (IBAction)done:(id)sender {
     
+    NSString *rate = [self beatRateFromLevel:self.Level];
+    NSArray *arr = [rate componentsSeparatedByString:@"%"];
+
     if (![AccountManager isCompletedFirstCeBai]) {
         //首次测白，保存图片，并跳转至首页
-        [AccountManager setCompletedFirstCeBai:YES];
+        
+        [SVProgressHUD showWithStatus:@"正在记录结果"];
+        
+        [NetworkManager uploadCeBaiisFirst:@"true" file:self.image color:[NSString stringWithFormat:@"N%ld",self.Level] defeat:arr[0] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                
+                [SVProgressHUD dismiss];
 
+                [AccountManager setCompletedFirstCeBai:YES];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+            } else{
+                
+                [SVProgressHUD showErrorWithStatus:@"测白结果记录失败"];
+                
+            }
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        }];
 
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+        
     } else{
         //返回
         
-        [self.navigationController popToRootViewControllerAnimated:YES];
-        
+        [SVProgressHUD showWithStatus:@"正在记录结果"];
+
+        [NetworkManager uploadCeBaiisFirst:nil file:self.image color:[NSString stringWithFormat:@"N%ld",self.Level] defeat:arr[0] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                
+                [SVProgressHUD dismiss];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            } else{
+                [SVProgressHUD showErrorWithStatus:@"测白结果记录失败"];
+            }
+
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        }];
     }
 }
 

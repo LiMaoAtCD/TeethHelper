@@ -90,7 +90,7 @@
                   moduleName = "TeethHelper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/PostTopicViewController.m"
-                  timestampString = "462611239.102316"
+                  timestampString = "462613015.585466"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "357"
@@ -105,12 +105,60 @@
                   moduleName = "TeethHelper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/PostTopicViewController.m"
-                  timestampString = "462611239.102609"
+                  timestampString = "462613015.585797"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "357"
                   endingLineNumber = "357"
                   offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeethHelper/NetworkManager.m"
+            timestampString = "462613015.529355"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "+uploadCeBaiisFirst:file:color:defeat:WithCompletionHandler:FailHandler:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[NetworkManager uploadCeBaiisFirst:file:color:defeat:WithCompletionHandler:FailHandler:]"
+                  moduleName = "TeethHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/NetworkManager.m"
+                  timestampString = "462613015.599746"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "616">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__89+[NetworkManager uploadCeBaiisFirst:file:color:defeat:WithCompletionHandler:FailHandler:]_block_invoke"
+                  moduleName = "TeethHelper"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/NetworkManager.m"
+                  timestampString = "462613015.600016"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "72">
                </Location>
             </Locations>
          </BreakpointContent>
