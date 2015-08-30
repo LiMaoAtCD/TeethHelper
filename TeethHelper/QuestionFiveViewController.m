@@ -15,6 +15,9 @@
 #import "QuestionAnalysizeController.h"
 #import "QuestionNoProjectController.h"
 
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
+
 
 @interface QuestionFiveViewController ()<RSliderViewDelegate>
 @property (nonatomic, strong) RS_SliderView *horSlider;
@@ -135,7 +138,6 @@
 }
 - (IBAction)completedQuestions:(id)sender {
     
-    
     //牙齿等级
 
     NSInteger answer1 = [TeethStateConfigureFile teethLevel];
@@ -162,50 +164,123 @@
     
     NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
     
-    if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
-        //加强
-        
-        //分析结果跳转至相应界面
-        
-        QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
-        analysizeVC.type = Enhance;
-        [self.navigationController pushViewController:analysizeVC animated:YES];
-        NSLog(@"加强");
-        
-    } else if(answer1 == 2){
-        //咨询牙医
-        QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
-        [self.navigationController pushViewController:noprojectVC animated:YES];
-        NSLog(@"牙医");
+    
+    
+    //上传
+    NSString *sex;
+    NSInteger gender = [TeethStateConfigureFile gender];
+    if (gender == 0) {
+        sex = @"A";
+    } else{
+        sex = @"B";
+    }
+    
+    NSString *age;
+    NSInteger ageScope = [TeethStateConfigureFile ageScope];
+    if (ageScope == 0) {
+        age = @"A";
+    } else if (ageScope == 1){
+        age = @"B";
 
-        
-    } else if(answer1 != 2 && answer2 == 0 && answer3 == 1){
-        //温柔计划
-        //分析结果跳转至相应界面
-        
-        QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
-        analysizeVC.type = Gentle;
+    } else if (ageScope == 2){
+        age = @"C";
 
-        [self.navigationController pushViewController:analysizeVC animated:YES];
-        NSLog(@"温柔");
+    } else if (ageScope == 3){
+        age = @"D";
+
+    } else if (ageScope == 4){
+        age = @"E";
 
     } else{
-        //标准
-        //分析结果跳转至相应界面
-        
-        QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
-        analysizeVC.type = Standard;
-
-        [self.navigationController pushViewController:analysizeVC animated:YES];
-        NSLog(@"标准");
+        age = @"F";
+    }
+    
+    NSString *health;
+    if (answer1 == 0) {
+        health = @"A";
+    } else if (answer1 == 1){
+        health = @"B";
+    }else if (answer1 == 2){
+        health = @"C";
+    }else{
+        health = @"D";
+    }
+    
+    NSString *sensitived;
+    if (answer2 == 0) {
+        sensitived = @"A";
+    } else{
+        sensitived = @"B";
 
     }
     
+    NSString *intention;
+    if (answer3 == 0) {
+        intention = @"A";
+    } else{
+        intention = @"B";
+        
+    }
+
+    [SVProgressHUD showWithStatus:@"正在获取美白计划"];
+    
+    [NetworkManager uploadFirstQuestionsSex:sex age:age health:health sensitived:sensitived intention:intention WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            [SVProgressHUD dismiss];
+            
+            if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
+                //加强
+                
+                //分析结果跳转至相应界面
+                
+                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+                analysizeVC.type = Enhance;
+                [self.navigationController pushViewController:analysizeVC animated:YES];
+                NSLog(@"加强");
+                
+            } else if(answer1 == 2){
+                //咨询牙医
+                QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
+                [self.navigationController pushViewController:noprojectVC animated:YES];
+                NSLog(@"牙医");
+                
+                
+            } else if(answer1 != 2 && answer2 == 0 && answer3 == 1){
+                //温柔计划
+                //分析结果跳转至相应界面
+                
+                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+                analysizeVC.type = Gentle;
+                
+                [self.navigationController pushViewController:analysizeVC animated:YES];
+                NSLog(@"温柔");
+                
+            } else{
+                //标准
+                //分析结果跳转至相应界面
+                
+                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+                analysizeVC.type = Standard;
+                
+                [self.navigationController pushViewController:analysizeVC animated:YES];
+                NSLog(@"标准");
+                
+            }
+            [QuestionsConfigFile setCompletedInitialQuestions:YES];
+        
+        } else{
+            [SVProgressHUD showErrorWithStatus:@"获取计划失败"];
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+    }];
     
     
     
     
-    [QuestionsConfigFile setCompletedInitialQuestions:YES];
+   
 
     
 

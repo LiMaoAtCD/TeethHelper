@@ -185,4 +185,19 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 +(void)fetchFirstPageWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
 
+
+/**
+ *  首次问卷提交
+ *
+ *  @param sex               Q1> A:男，B:女
+ *  @param age                Q2> A:'20岁以下',B:'20岁-25岁',C:'25岁-30岁',D:'30岁-35岁',E:'35岁-40岁',F:'40岁以上'
+ *  @param health            Q3> A:好，B:一般，C:不好，D:不知道
+ *  @param sensitived        Q4> A:是，B:否
+ *  @param intention         Q5> A:很强，希望马上实现, B:还好，等几天也可以
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)uploadFirstQuestionsSex:(NSString *)sex age:(NSString *)age health:(NSString *)health sensitived:(NSString*)sensitived intention:(NSString*)intention WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+
 @end

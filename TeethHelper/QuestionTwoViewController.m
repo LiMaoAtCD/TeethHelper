@@ -10,6 +10,8 @@
 #import "Utils.h"
 #import "RS_SliderView.h"
 #import <Masonry.h>
+#import "TeethStateConfigureFile.h"
+
 @interface QuestionTwoViewController ()<RSliderViewDelegate>
 
 @property (nonatomic, strong) UILabel *maleLabel;
@@ -82,6 +84,9 @@
 
     self.isMale = YES;
     
+    [TeethStateConfigureFile setGender:0];
+
+    
 }
 
 -(void)sliderValueChanged:(RS_SliderView *)sender {
@@ -101,9 +106,12 @@
 -(void)sliderValueChangeEnded:(RS_SliderView *)sender {
     
     if (sender.value > 0.5) {
+        [TeethStateConfigureFile setGender:1];
         [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
         }];
     } else{
+        [TeethStateConfigureFile setGender:0];
+
         [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
             
         }];

@@ -208,4 +208,19 @@
     [manager GET:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
++(void)uploadFirstQuestionsSex:(NSString *)sex age:(NSString *)age health:(NSString *)health sensitived:(NSString*)sensitived intention:(NSString*)intention WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"sex"] = sex;
+    dictionary[@"age"] = age;
+    dictionary[@"health"] = health;
+    dictionary[@"sensitived"] = sensitived;
+    dictionary[@"intention"] = intention;
+
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://www.7wang523.com/teeth-api/index/asq" parameters:dictionary success:completionHandler failure:failHandler];
+}
+
 @end

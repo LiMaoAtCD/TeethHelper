@@ -10,7 +10,7 @@
 #import "Utils.h"
 #import "QuestionOneView.h"
 #import <Masonry.h>
-
+#import "TeethStateConfigureFile.h"
 @interface QuestionOneViewController ()
 
 @property (nonatomic,strong) NSMutableArray *oneViewArrays;
@@ -55,6 +55,8 @@
         QuestionOneView *view = obj;
         if (idx == 0) {
             [view didSelectionAtIndex:Selected];
+            
+            [TeethStateConfigureFile setAgeScope:0];
         } else{
             [view didSelectionAtIndex:Normal];
         }
@@ -67,6 +69,8 @@
         QuestionOneView *view = obj;
         if (idx == tap.view.tag) {
             [view didSelectionAtIndex:Selected];
+            [TeethStateConfigureFile setAgeScope:idx];
+
         } else{
             [view didSelectionAtIndex:Normal];
         }
