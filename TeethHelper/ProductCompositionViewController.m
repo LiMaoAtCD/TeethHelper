@@ -14,6 +14,9 @@
 #import "QRCodeAnimator.h"
 #import "QRCodeDismissAnimator.h"
 
+#import "ProductConfigFile.h"
+#import <UIImageView+WebCache.h>
+
 @interface ProductCompositionViewController ()<UITableViewDataSource,UITableViewDelegate,UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -56,6 +59,10 @@
     cell.contentImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"pdc_%ld",indexPath.row]];
 
     
+    if (indexPath.row == 4) {
+        [cell.contentImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getMeiBaiJiaoourceThumb]] placeholderImage:[UIImage imageNamed:@"pdc_4"]];
+    }
+    
     
     return cell;
 }
@@ -71,6 +78,14 @@
     compositionVC.mainTitle = self.items[indexPath.row];
     compositionVC.content =self.Detailitems[indexPath.row];
     compositionVC.toRevealImage = [UIImage imageNamed:[NSString stringWithFormat:@"pdc_%ld",indexPath.row]];
+    
+    if (indexPath.row == 4) {
+        compositionVC.meibaijiaoURL = [ProductConfigFile getMeiBaiJiaoourceThumb];
+    }
+    
+  
+    
+    
     
     compositionVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     compositionVC.transitioningDelegate = self;

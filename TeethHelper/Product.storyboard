@@ -821,6 +821,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="thumbImageView" destination="erP-vf-8hr" id="4qu-Hb-eGx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ecu-Gc-WkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1099,6 +1102,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="thumbImageView" destination="0dY-rj-bOR" id="K74-wK-VNz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLQ-Vl-Ppo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

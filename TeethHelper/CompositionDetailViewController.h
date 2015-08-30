@@ -15,5 +15,7 @@
 @property (nonatomic,copy) NSString *mainTitle;
 @property (nonatomic,copy) NSString *content;
 
+@property (nonatomic, copy) NSString *meibaijiaoURL;
+
 
 @end

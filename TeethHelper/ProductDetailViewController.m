@@ -9,9 +9,13 @@
 #import "ProductDetailViewController.h"
 #import "Utils.h"
 #import <MediaPlayer/MediaPlayer.h>
-
+#import <UIImageView+WebCache.h>
+#import "ProductConfigFile.h"
 @interface ProductDetailViewController ()
 @property (nonatomic,strong) MPMoviePlayerViewController *moviePlayerViewController;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 
 @end
 
@@ -21,6 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"产品介绍" onViewController:self];
+    
+    [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getProductIntroduceSourceThumb]] placeholderImage:[UIImage imageNamed:@"bg_video"]];
 }
 
 -(void)pop{
@@ -96,7 +102,9 @@
  *  @return 文件路径
  */
 -(NSURL *)getNetworkUrl{
-    NSString *urlStr=@"http://115.28.227.81:5566/images/turpan/1437964239076.7229.mp4";
+//    NSString *urlStr=@"http://115.28.227.81:5566/images/turpan/1437964239076.7229.mp4";
+    NSString *urlStr=[ProductConfigFile getProductIntroduceSource];
+
     urlStr=[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url=[NSURL URLWithString:urlStr];
     return url;

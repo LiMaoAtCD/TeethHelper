@@ -9,13 +9,16 @@
 #import "NewGuideViewController.h"
 #import "Utils.h"
 #import <MediaPlayer/MediaPlayer.h>
-
+#import "ProductConfigFile.h"
+#import <UIImageView+WebCache.h>
 //#import "VideoPlayerViewController.h"
 
 @interface NewGuideViewController ()
 
 
 @property (nonatomic,strong) MPMoviePlayerViewController *moviePlayerViewController;
+
+@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 
 @end
 
@@ -25,6 +28,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"新手指南" onViewController:self];
+    
+    
+    [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getProductGuideSourceThumb]] placeholderImage:[UIImage imageNamed:@"bg_video"]];
 }
 
 -(void)pop{
@@ -92,7 +98,8 @@
  *  @return 文件路径
  */
 -(NSURL *)getNetworkUrl{
-    NSString *urlStr=@"http://115.28.227.81:5566/images/turpan/1437964239076.7229.mp4";
+    
+    NSString *urlStr = [ProductConfigFile getProductGuideSource];
     urlStr=[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url=[NSURL URLWithString:urlStr];
     return url;

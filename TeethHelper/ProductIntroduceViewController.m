@@ -14,6 +14,10 @@
 #import "NewGuideViewController.h"
 #import "NoticeViewController.h"
 
+#import "NetworkManager.h"
+#import "ProductConfigFile.h"
+#import <SVProgressHUD.h>
+
 
 @interface ProductIntroduceViewController ()
 
@@ -26,7 +30,48 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"产品介绍" onViewController:self];
     self.navigationController.navigationBar.translucent = NO;
+    [self fetchProductInfo];
+    
 }
+
+-(void)fetchProductInfo{
+    
+    [SVProgressHUD showWithStatus:@"正在获取产品信息"];
+    [NetworkManager fetchProductInfoWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            NSArray *data = responseObject[@"data"];
+            
+            [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSDictionary *temp = obj;
+                
+                if ([temp[@"type"] integerValue] == 1) {
+                    
+                    [ProductConfigFile setProductIntroduceSource:temp[@"source"]];
+                    [ProductConfigFile setProductIntroduceSourceThumb:temp[@"thumb"]];
+                } else if ([temp[@"type"] integerValue] == 2) {
+                    [ProductConfigFile setProductGuideSource:temp[@"source"]];
+                    [ProductConfigFile setProductGuideSourceThumb:temp[@"thumb"]];
+
+                } else{
+                    [ProductConfigFile setMeiBaiJiaoourceThumb:temp[@"source"]];
+                }
+            }];
+            
+            
+            [SVProgressHUD dismiss];
+
+            
+        } else{
+            [SVProgressHUD showErrorWithStatus:@"产品信息获取失败"];
+
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+    }];
+}
+
 
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];

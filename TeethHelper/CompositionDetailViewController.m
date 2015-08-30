@@ -8,6 +8,8 @@
 
 #import "CompositionDetailViewController.h"
 
+#import <UIImageView+WebCache.h>
+
 @interface CompositionDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -30,6 +32,10 @@
     
     self.titleLabel.text = self.mainTitle;
     self.imageView.image = self.toRevealImage;
+    
+    if (self.meibaijiaoURL) {
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:_meibaijiaoURL] placeholderImage:self.toRevealImage];
+    }
     
     self.contentLabel.text = self.content;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)];

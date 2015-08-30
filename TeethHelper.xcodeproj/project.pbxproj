@@ -128,6 +128,7 @@
 		87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */; };
 		87F4289D1B91978000F0CD46 /* PostToSocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F4289B1B91978000F0CD46 /* PostToSocialController.m */; };
 		87F4289E1B91978000F0CD46 /* PostToSocialController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F4289C1B91978000F0CD46 /* PostToSocialController.xib */; };
+		87F428A11B92A09800F0CD46 /* ProductConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F428A01B92A09800F0CD46 /* ProductConfigFile.m */; };
 		87F73F6F1B8C92D0005705AA /* SocialDetailReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F73F6E1B8C92D0005705AA /* SocialDetailReplyViewController.m */; };
 		87F73F741B8CA42D005705AA /* SocialCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F73F721B8CA42D005705AA /* SocialCommentViewController.m */; };
 		87F73F751B8CA42D005705AA /* SocialCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F73F731B8CA42D005705AA /* SocialCommentViewController.xib */; };
@@ -367,6 +368,8 @@
 		87F4289A1B91978000F0CD46 /* PostToSocialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToSocialController.h; sourceTree = "<group>"; };
 		87F4289B1B91978000F0CD46 /* PostToSocialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToSocialController.m; sourceTree = "<group>"; };
 		87F4289C1B91978000F0CD46 /* PostToSocialController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostToSocialController.xib; sourceTree = "<group>"; };
+		87F4289F1B92A09800F0CD46 /* ProductConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductConfigFile.h; sourceTree = "<group>"; };
+		87F428A01B92A09800F0CD46 /* ProductConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductConfigFile.m; sourceTree = "<group>"; };
 		87F73F6D1B8C92D0005705AA /* SocialDetailReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailReplyViewController.h; sourceTree = "<group>"; };
 		87F73F6E1B8C92D0005705AA /* SocialDetailReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailReplyViewController.m; sourceTree = "<group>"; };
 		87F73F711B8CA42D005705AA /* SocialCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialCommentViewController.h; sourceTree = "<group>"; };
@@ -620,6 +623,8 @@
 				873B75CB1B7742EF002D7871 /* ProductIntroduceViewController.h */,
 				873B75CC1B7742EF002D7871 /* ProductIntroduceViewController.m */,
 				873B75CF1B774338002D7871 /* Product.storyboard */,
+				87F4289F1B92A09800F0CD46 /* ProductConfigFile.h */,
+				87F428A01B92A09800F0CD46 /* ProductConfigFile.m */,
 			);
 			name = Product;
 			sourceTree = "<group>";
@@ -1227,6 +1232,7 @@
 				8761F4521B8DD6300061A59E /* ProtocolAgreementViewController.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
+				87F428A11B92A09800F0CD46 /* ProductConfigFile.m in Sources */,
 				877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */,
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
 				8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */,

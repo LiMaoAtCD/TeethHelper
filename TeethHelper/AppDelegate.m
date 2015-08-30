@@ -122,9 +122,6 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 
     if ([AccountManager isLogin]) {
-        //获取产品信息
-        [self fetchProductInfo];
-        
         //获取首页数据
         [self fetchFirstPageData];
     }
@@ -248,17 +245,6 @@
 
 
 
-#pragma mark - 获取产品信息
-
--(void)fetchProductInfo{
-    [NetworkManager fetchProductInfoWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
-        
-        
-    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
-}
 
 -(void)fetchFirstPageData{
     [NetworkManager fetchFirstPageWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -363,9 +349,9 @@
     [Appirater setDebug:NO];
 
     [Appirater setAppId:@"770699556"];
-    [Appirater setDaysUntilPrompt:0];
+    [Appirater setDaysUntilPrompt:5];
     [Appirater setUsesUntilPrompt:0];
-    [Appirater setSignificantEventsUntilPrompt:5];
+    [Appirater setSignificantEventsUntilPrompt:-1];
     [Appirater setTimeBeforeReminding:40];
     [Appirater appLaunched:YES];
     [Appirater setCustomAlertTitle:@""];
