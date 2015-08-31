@@ -392,6 +392,11 @@
                 SuggestionKeepViewController *keepVC =[[SuggestionKeepViewController alloc] initWithNibName:@"SuggestionKeepViewController" bundle:nil];
                 [self.navigationController pushViewController:keepVC animated:YES];
                 
+//                SuggestGentleViewController *gentle =[[SuggestGentleViewController alloc] initWithNibName:@"SuggestGentleViewController" bundle:nil];
+//                
+//                [self.navigationController pushViewController:gentle animated:YES];
+
+                
              } else if ([responseObject[@"data"] isEqualToString:@"E"]) {
                 //进入保持计划
                 
