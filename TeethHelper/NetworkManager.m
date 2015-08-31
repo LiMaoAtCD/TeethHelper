@@ -247,7 +247,7 @@
 +(void)ModifyProject:(NSString *)projectID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     dictionary[@"accessToken"] = [AccountManager getTokenID];
-    dictionary[@"projectID"] = projectID;
+    dictionary[@"plantype"] = projectID;
     NSString *url = @"http://www.7wang523.com/teeth-api/plan/change";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

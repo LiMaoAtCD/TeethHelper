@@ -15,7 +15,8 @@
 #import "Utils.h"
 #import "MeibaiItemChooseController.h"
 #import "TeethStateConfigureFile.h"
-
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
 
 @interface MeiBaiProjectViewController ()<UITableViewDelegate, UITableViewDataSource,ItemChooseDelegate>
 
@@ -200,8 +201,12 @@
     if (section == 1) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 30)];
-        label.textColor = [UIColor blackColor];
-        label.text = @"美白计划";
+        if ([MeiBaiConfigFile getCurrentProject] == KEEP) {
+            label.textColor = [UIColor grayColor];
+        } else{
+            label.textColor = [UIColor blackColor];
+            
+        }        label.text = @"美白计划";
         
         [view addSubview:label];
         
@@ -230,13 +235,24 @@
    
     if (switcher.isOn) {
         //切换美白计划：保持
-        [MeiBaiConfigFile setCurrentProject:KEEP];
+        
+    
+        [NetworkManager ModifyProject:@"E" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"response %@",responseObject);
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                [MeiBaiConfigFile setCurrentProject:KEEP];
+                [self.tableView reloadData];
+
+            } else{
+                [SVProgressHUD showErrorWithStatus:@"切换失败"];
+            }
+            
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        }];
     } else{
 //      加强，温柔，标准 根据 牙齿状况
-        
-        
-        
-        
+
         //获取当前牙齿等级
         NSInteger answer1 = [TeethStateConfigureFile teethLevel];
         // 是否敏感
@@ -252,28 +268,82 @@
         } else{
             answer3 = 1;
         }
-        NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
         
         if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
             //提示修改至加强计划
-            [MeiBaiConfigFile setCurrentProject:ENHANCE];
             
+            
+            [NetworkManager ModifyProject:@"B" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"response %@",responseObject);
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    [MeiBaiConfigFile setCurrentProject:ENHANCE];
+                    [self.tableView reloadData];
+
+                } else{
+                    [SVProgressHUD showErrorWithStatus:@"切换失败"];
+                }
+                
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
+            
+    
         } else if (answer1 == 2) {
             //提示修改温柔计划
-            [MeiBaiConfigFile setCurrentProject:GENTLE];
+            
+            [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"response %@",responseObject);
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    [MeiBaiConfigFile setCurrentProject:GENTLE];
+                    [self.tableView reloadData];
+
+                } else{
+                    [SVProgressHUD showErrorWithStatus:@"切换失败"];
+                }
+                
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
 
         } else if (answer1 != 2 && answer2 == 0 && answer2 == 1) {
             //提示修改温柔计划
-            [MeiBaiConfigFile setCurrentProject:GENTLE];
+            
+            [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"response %@",responseObject);
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    [MeiBaiConfigFile setCurrentProject:GENTLE];
+                    [self.tableView reloadData];
+
+                } else{
+                    [SVProgressHUD showErrorWithStatus:@"切换失败"];
+                }
+                
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
 
         } else{
             //提示修改至标准计划
-            [MeiBaiConfigFile setCurrentProject:STANDARD];
+            
+            [NetworkManager ModifyProject:@"A" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSLog(@"response %@",responseObject);
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    [MeiBaiConfigFile setCurrentProject:STANDARD];
+                    
+                    [self.tableView reloadData];
+
+                } else{
+                    [SVProgressHUD showErrorWithStatus:@"切换失败"];
+                }
+                
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
+
 
         }
 
     }
-    [self.tableView reloadData];
 }
 
 -(void)didSelectedIndexAt:(NSInteger)index OnType:(ItemType)type{

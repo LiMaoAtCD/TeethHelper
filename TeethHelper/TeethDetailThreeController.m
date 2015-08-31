@@ -13,6 +13,7 @@
 
 #import "TeethStateConfigureFile.h"
 #import "MeiBaiConfigFile.h"
+#import "NetworkManager.h"
 
 @interface TeethDetailThreeController ()
 
@@ -104,6 +105,11 @@
                 if (project != ENHANCE && project != KEEP) {
                     [self alertUserToModifyProject:ENHANCE withAlertHandler:^{
                         //
+                        [NetworkManager ModifyProject:@"B" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            
+                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            
+                        }];
                         [MeiBaiConfigFile setCurrentProject:ENHANCE];
                         [self.navigationController popViewControllerAnimated:YES];
                     }];
@@ -115,6 +121,11 @@
                 if (project != GENTLE && project != KEEP) {
                     [self alertUserToModifyProject:GENTLE withAlertHandler:^{
                         //
+                        [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            
+                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            
+                        }];
                         [MeiBaiConfigFile setCurrentProject:GENTLE];
                         [self.navigationController popViewControllerAnimated:YES];
 
@@ -126,6 +137,11 @@
                 if (project != GENTLE && project != KEEP) {
                     [self alertUserToModifyProject:GENTLE withAlertHandler:^{
                         //
+                        [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            
+                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            
+                        }];
                         [MeiBaiConfigFile setCurrentProject:GENTLE];
                         [self.navigationController popViewControllerAnimated:YES];
 
@@ -137,6 +153,11 @@
                 if (project != STANDARD && project != KEEP) {
                     [self alertUserToModifyProject:STANDARD withAlertHandler:^{
                         //
+                        [NetworkManager ModifyProject:@"A" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            
+                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            
+                        }];
                         [MeiBaiConfigFile setCurrentProject:STANDARD];
                         [self.navigationController popViewControllerAnimated:YES];
                     }];
