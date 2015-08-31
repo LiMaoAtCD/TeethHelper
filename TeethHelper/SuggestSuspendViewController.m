@@ -7,7 +7,7 @@
 //
 
 #import "SuggestSuspendViewController.h"
-
+#import "Utils.h"
 @interface SuggestSuspendViewController ()
 
 @end
@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [Utils ConfigNavigationBarWithTitle:@"反馈结果" onViewController:self];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,6 +17,11 @@
 
 #import "Utils.h"
 
+#import "SuggestGentleViewController.h"
+#import "SuggestionKeepViewController.h"
+#import "SuggestSuspendViewController.h"
+#import "SuggestStanstardViewController.h"
+
 @interface ProjectCompletedQuesitonController ()<RSliderViewDelegate>
 
 
@@ -385,12 +390,32 @@
             
             if ([responseObject[@"data"] isEqualToString:@"CURRENT"]) {
                 //保持当前计划
+                
+                SuggestionKeepViewController *keepVC =[[SuggestionKeepViewController alloc] initWithNibName:@"SuggestionKeepViewController" bundle:nil];
+                
+                [self.navigationController pushViewController:keepVC animated:YES];
+                
+                
             } else if ([responseObject[@"data"] isEqualToString:@"E"]) {
                 //进入保持计划
+                
+                SuggestSuspendViewController *keepVC =[[SuggestSuspendViewController alloc] initWithNibName:@"SuggestionKeepViewController" bundle:nil];
+                
+                [self.navigationController pushViewController:keepVC animated:YES];
+
             }else if ([responseObject[@"data"] isEqualToString:@"A"]) {
                 //降低至标准计划
+                SuggestStanstardViewController *keepVC =[[SuggestStanstardViewController alloc] initWithNibName:@"SuggestStanstardViewController" bundle:nil];
+                
+                [self.navigationController pushViewController:keepVC animated:YES];
+
             }else if ([responseObject[@"data"] isEqualToString:@"C"]) {
                 //降低至温柔计划
+                
+                SuggestGentleViewController *gentle =[[SuggestGentleViewController alloc] initWithNibName:@"SuggestGentleViewController" bundle:nil];
+                
+                [self.navigationController pushViewController:gentle animated:YES];
+
             }
 
         }

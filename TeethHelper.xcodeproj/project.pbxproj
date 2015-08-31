@@ -652,10 +652,10 @@
 		873EAE7B1B9499F100445728 /* MeiBaiCompleted */ = {
 			isa = PBXGroup;
 			children = (
-				873EAE7C1B949A1100445728 /* Suggestion */,
 				87465BB91B818FA800EA40C7 /* ProjectCompletedQuesitonController.h */,
 				87465BBA1B818FA800EA40C7 /* ProjectCompletedQuesitonController.m */,
 				87465BBB1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib */,
+				873EAE7C1B949A1100445728 /* Suggestion */,
 			);
 			name = MeiBaiCompleted;
 			sourceTree = "<group>";
