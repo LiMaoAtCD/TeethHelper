@@ -9,6 +9,8 @@
 #import "SuggestGentleViewController.h"
 #import "Utils.h"
 #import <Masonry.h>
+
+#import "MeiBaiConfigFile.h"
 @interface SuggestGentleViewController ()
 
 @end
@@ -131,11 +133,29 @@
 
 
 -(void)sure:(id)sender{
-
+    //调整至温柔计划
+    [MeiBaiConfigFile setCurrentProject:GENTLE];
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)goOn:(id)sender{
-
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"根据您的问卷调查,我们建议您调整至标准计划,您确定要继续当前计划吗？" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action =[UIAlertAction actionWithTitle:@"继续当前计划" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }];
+    
+    UIAlertAction *back =[UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+    }];
+    
+    [alert addAction:action];
+    [alert addAction:back];
+    
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
