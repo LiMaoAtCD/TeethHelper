@@ -98,7 +98,7 @@
             MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
             if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
                 //提示修改至加强计划
-                if (project != ENHANCE) {
+                if (project != ENHANCE  && project != KEEP) {
                     [self alertUserToModifyProject:ENHANCE withAlertHandler:^{
                         //
                         [MeiBaiConfigFile setCurrentProject:ENHANCE];
@@ -110,7 +110,7 @@
                 
             } else if (answer1 == 2) {
                 //提示修改温柔计划
-                if (project != GENTLE) {
+                if (project != GENTLE  && project != KEEP) {
                     [self alertUserToModifyProject:GENTLE withAlertHandler:^{
                         //
                         [MeiBaiConfigFile setCurrentProject:GENTLE];
@@ -121,7 +121,7 @@
                 }
             } else if (answer1 != 2 && answer2 == 0 && answer2 == 1) {
                 //提示修改温柔计划
-                if (project != GENTLE) {
+                if (project != GENTLE  && project != KEEP) {
                     [self alertUserToModifyProject:GENTLE withAlertHandler:^{
                         //
                         [MeiBaiConfigFile setCurrentProject:GENTLE];
@@ -132,7 +132,7 @@
                 }
             } else{
                 //提示修改至标准计划
-                if (project != STANDARD) {
+                if (project != STANDARD  && project != KEEP) {
                     [self alertUserToModifyProject:STANDARD withAlertHandler:^{
                         //
                         [MeiBaiConfigFile setCurrentProject:STANDARD];
@@ -143,7 +143,6 @@
                 }
             }
             
-            //关闭保持计划
 
             
 

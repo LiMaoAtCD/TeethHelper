@@ -14,6 +14,7 @@
 #import "MeiBaiConfigFile.h"
 #import "Utils.h"
 #import "MeibaiItemChooseController.h"
+#import "TeethStateConfigureFile.h"
 
 
 @interface MeiBaiProjectViewController ()<UITableViewDelegate, UITableViewDataSource,ItemChooseDelegate>
@@ -226,15 +227,50 @@
 }
 
 -(void)changeKeepProject:(UISwitch*)switcher{
+   
     if (switcher.isOn) {
-//        [MeiBaiConfigFile setCureStage:NO];
+        //切换美白计划：保持
         [MeiBaiConfigFile setCurrentProject:KEEP];
     } else{
-//        [MeiBaiConfigFile setCureStage:YES];
+//      加强，温柔，标准 根据 牙齿状况
         
-        [MeiBaiConfigFile setCurrentProject:STANDARD];
+        
+        
+        
+        //获取当前牙齿等级
+        NSInteger answer1 = [TeethStateConfigureFile teethLevel];
+        // 是否敏感
+        NSInteger answer2 = 0;
+        if ([TeethStateConfigureFile isSensitive]) {
+            answer2 = 0;
+        } else{
+            answer2 = 1;
+        }        //是否意愿强烈
+        NSInteger answer3 = 0;
+        if ([TeethStateConfigureFile isWillStrong]) {
+            answer3 = 0;
+        } else{
+            answer3 = 1;
+        }
+        NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
+        
+        if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
+            //提示修改至加强计划
+            [MeiBaiConfigFile setCurrentProject:ENHANCE];
+            
+        } else if (answer1 == 2) {
+            //提示修改温柔计划
+            [MeiBaiConfigFile setCurrentProject:GENTLE];
 
+        } else if (answer1 != 2 && answer2 == 0 && answer2 == 1) {
+            //提示修改温柔计划
+            [MeiBaiConfigFile setCurrentProject:GENTLE];
 
+        } else{
+            //提示修改至标准计划
+            [MeiBaiConfigFile setCurrentProject:STANDARD];
+
+        }
 
     }
     [self.tableView reloadData];
