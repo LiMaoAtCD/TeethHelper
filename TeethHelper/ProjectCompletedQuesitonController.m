@@ -391,9 +391,15 @@
             if ([responseObject[@"data"] isEqualToString:@"CURRENT"]) {
                 //保持当前计划
                 
-                SuggestionKeepViewController *keepVC =[[SuggestionKeepViewController alloc] initWithNibName:@"SuggestionKeepViewController" bundle:nil];
+//                SuggestionKeepViewController *keepVC =[[SuggestionKeepViewController alloc] initWithNibName:@"SuggestionKeepViewController" bundle:nil];
+//                
+//                [self.navigationController pushViewController:keepVC animated:YES];
+//
+                SuggestGentleViewController *gentle =[[SuggestGentleViewController alloc] initWithNibName:@"SuggestGentleViewController" bundle:nil];
                 
-                [self.navigationController pushViewController:keepVC animated:YES];
+                [self.navigationController pushViewController:gentle animated:YES];
+
+              
                 
                 
             } else if ([responseObject[@"data"] isEqualToString:@"E"]) {
