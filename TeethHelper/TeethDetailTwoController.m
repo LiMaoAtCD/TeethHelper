@@ -13,6 +13,7 @@
 #import "TeethStateConfigureFile.h"
 #import "MeiBaiConfigFile.h"
 #import "NetworkManager.h"
+#import <SVProgressHUD.h>
 
 @interface TeethDetailTwoController ()
 
@@ -99,17 +100,29 @@
             MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
             if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
                 //提示修改至加强计划
-                if (project != ENHANCE  && project != KEEP) {
+                if (project != ENHANCE && project != KEEP) {
                     [self alertUserToModifyProject:ENHANCE withAlertHandler:^{
                         //
+                        
+                        [SVProgressHUD showWithStatus:@"正在调整计划"];
+                        
                         [NetworkManager ModifyProject:@"B" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            NSLog(@"response %@",responseObject);
+                            if ([responseObject[@"status"] integerValue] == 2000) {
+                                [MeiBaiConfigFile setCurrentProject:ENHANCE];
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+                                    [self.navigationController popViewControllerAnimated:YES];
+                                    
+                                });
+                            } else{
+                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
+                            }
                             
                         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            
+                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
                         }];
-                        [MeiBaiConfigFile setCurrentProject:ENHANCE];
-                        [self.navigationController popViewControllerAnimated:YES];
-
+                        
                     }];
                     
                 }
@@ -119,14 +132,26 @@
                 if (project != GENTLE  && project != KEEP) {
                     [self alertUserToModifyProject:GENTLE withAlertHandler:^{
                         //
+                        [SVProgressHUD showWithStatus:@"正在调整计划"];
+                        
                         [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            NSLog(@"response %@",responseObject);
+                            if ([responseObject[@"status"] integerValue] == 2000) {
+                                [MeiBaiConfigFile setCurrentProject:GENTLE];
+                                
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+                                    [self.navigationController popViewControllerAnimated:YES];
+                                    
+                                });
+                            } else{
+                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
+                            }
                             
                         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            
+                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
                         }];
-                        [MeiBaiConfigFile setCurrentProject:GENTLE];
-                        [self.navigationController popViewControllerAnimated:YES];
-
+                        
                     }];
                     
                 }
@@ -135,14 +160,27 @@
                 if (project != GENTLE  && project != KEEP) {
                     [self alertUserToModifyProject:GENTLE withAlertHandler:^{
                         //
+                        [SVProgressHUD showWithStatus:@"正在调整计划"];
+                        
                         [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            NSLog(@"response %@",responseObject);
+                            if ([responseObject[@"status"] integerValue] == 2000) {
+                                [MeiBaiConfigFile setCurrentProject:GENTLE];
+                                
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+                                    [self.navigationController popViewControllerAnimated:YES];
+                                    
+                                });
+                            } else{
+                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
+                            }
                             
                         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            
+                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
                         }];
-                        [MeiBaiConfigFile setCurrentProject:GENTLE];
-                        [self.navigationController popViewControllerAnimated:YES];
-
+                        
+                        
                     }];
                     
                 }
@@ -151,14 +189,26 @@
                 if (project != STANDARD  && project != KEEP) {
                     [self alertUserToModifyProject:STANDARD withAlertHandler:^{
                         //
+                        [SVProgressHUD showWithStatus:@"正在调整计划"];
+                        
                         [NetworkManager ModifyProject:@"A" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            NSLog(@"response %@",responseObject);
+                            if ([responseObject[@"status"] integerValue] == 2000) {
+                                [MeiBaiConfigFile setCurrentProject:STANDARD];
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+                                    [self.navigationController popViewControllerAnimated:YES];
+                                    
+                                });
+                            } else{
+                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
+                            }
                             
                         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            
+                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
                         }];
-                        [MeiBaiConfigFile setCurrentProject:STANDARD];
-                        [self.navigationController popViewControllerAnimated:YES];
-
+                        
+                        
                     }];
                     
                 }
