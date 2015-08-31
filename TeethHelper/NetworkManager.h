@@ -213,6 +213,10 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  */
 +(void)uploadCeBaiisFirst:(NSString *)isFirst file:(UIImage *)image color:(NSString *)color defeat:(NSString *)defeat WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+
+
+
+
 /**
  *  修改当前美白计划至某个计划
  *
@@ -221,5 +225,33 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  *  @param failHandler
  */
 +(void)ModifyProject:(NSString *)projectID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+
+/**
+ *  开始美白（美白计划开始时上传数据以便服务器统计时间）
+ *
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)BeginMeiBaiProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+/**
+ *  结束美白
+ *
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)EndMeiBaiProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+
+/**
+ *  美白程序-用后问卷
+ *
+ *  @param totalTime         Q1> A:3次共24分钟，B:4次公32分钟，C:5次共40分钟，D:6次共48分钟，E:7次共56分钟
+ *  @param feel              Q2> A:无，B:轻微酸痛感，C:严重酸痛感
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)CompletedMeibaiQuestionByTotalTime:(NSString *)totalTime feel:(NSString *)feel WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
 @end
