@@ -13,16 +13,17 @@
 #import "ProjectCompletedQuesitonController.h"
 #import "MeiBaiConfigFile.h"
 
+#import "WechatShareViewController.h"
+
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
+
 @interface MeibaiProjectController ()
 
 @property (nonatomic, strong) AlienTimerView *alienView;
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger totalCount;
-
-
-//是否从问卷返回
-@property (nonatomic, assign) BOOL isfromQuestion;
 
 @end
 
@@ -66,35 +67,22 @@
 }
 
 -(void)share:(UIButton*)button{
+    WechatShareViewController *share = [[WechatShareViewController alloc] initWithNibName:@"WechatShareViewController" bundle:nil];
     
+    share.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+    
+    [self showDetailViewController:share sender:self];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if (self.isfromQuestion) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    } else{
-        
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
-    }
-    
+
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
 }
 
 -(void)timerCount:(id)sender{
     self.totalCount++;
-    
-//    NSNumber *time = [NSNumber numberWithDouble:[self.totalCount - 3600];
-//    NSTimeInterval interval = [time doubleValue];
-//    NSDate *online = [NSDate date];
-//    online = [NSDate dateWithTimeIntervalSince1970:interval];
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//    [dateFormatter setDateFormat:@"mm:ss"];
-//    
-//    NSLog(@"result: %@", [dateFormatter stringFromDate:online]);
 
-//    NSNumber *theDouble = [NSNumber numberWithInt:self.totalCount];
-//    
-//    int inputSeconds = [theDouble intValue];
     int inputSeconds = (int)self.totalCount;
 //    int hours =  inputSeconds / 3600;
     int minutes = inputSeconds / 60;
@@ -106,6 +94,7 @@
     [self.alienView animateToSeconds:self.totalCount];
     
     if (minutes == 99 && seconds == 59) {
+        
         [self.timer invalidate];
     }
     
@@ -131,19 +120,26 @@
 - (IBAction)completeMeibai:(id)sender {
     
     [self.timer invalidate];
+    self.timer = nil;
     
-    
-    //如果是治疗阶段
-    
-    if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
-        ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
+    [NetworkManager EndMeiBaiProjectWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"responseObject %@",responseObject);
         
-        [self presentViewController:questionVC animated:YES completion:^{
-            self.isfromQuestion = YES;
-        }];
-    } else{
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+        //如果是治疗阶段,问卷调查
+        
+        if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
+            ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
+            [self.navigationController pushViewController:questionVC animated:YES];
+        } else{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+
+    
+
     
     
     

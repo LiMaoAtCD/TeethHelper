@@ -144,9 +144,6 @@
                         </mask>
                     </variation>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_top" translatesAutoresizingMaskIntoConstraints="NO" id="PKL-mY-mnp">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="问卷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSy-1s-5mo">
                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                     <constraints>
@@ -172,13 +169,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="PKL-mY-mnp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6zg-gj-zi1"/>
-                <constraint firstItem="PKL-mY-mnp" firstAttribute="trailing" secondItem="Z9f-h1-V4O" secondAttribute="trailing" id="9Bk-jj-U13"/>
+                <constraint firstItem="aSy-1s-5mo" firstAttribute="centerX" secondItem="Z9f-h1-V4O" secondAttribute="centerX" id="3If-8l-Nxd"/>
                 <constraint firstItem="Z9f-h1-V4O" firstAttribute="top" secondItem="aSy-1s-5mo" secondAttribute="bottom" constant="22" id="9GD-Gu-kb3"/>
-                <constraint firstItem="aSy-1s-5mo" firstAttribute="centerX" secondItem="PKL-mY-mnp" secondAttribute="centerX" id="FSB-hO-ecI"/>
-                <constraint firstItem="PKL-mY-mnp" firstAttribute="leading" secondItem="Z9f-h1-V4O" secondAttribute="leading" id="ICv-MB-GB5"/>
                 <constraint firstAttribute="trailing" secondItem="Z9f-h1-V4O" secondAttribute="trailing" id="M5i-S5-v1G"/>
-                <constraint firstItem="aSy-1s-5mo" firstAttribute="centerY" secondItem="PKL-mY-mnp" secondAttribute="centerY" constant="-0.5" id="Ow4-n8-h6E"/>
                 <constraint firstItem="Z9f-h1-V4O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UyE-ja-5y8"/>
                 <constraint firstItem="Z9f-h1-V4O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aWI-Ln-paC">
                     <variation key="heightClass=regular-widthClass=compact" constant="64"/>
@@ -187,37 +180,27 @@
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="Z9f-h1-V4O"/>
-                    <exclude reference="PKL-mY-mnp"/>
                     <exclude reference="aSy-1s-5mo"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="FSB-hO-ecI"/>
-                    <exclude reference="Ow4-n8-h6E"/>
-                    <exclude reference="6zg-gj-zi1"/>
-                    <exclude reference="9Bk-jj-U13"/>
-                    <exclude reference="ICv-MB-GB5"/>
                     <exclude reference="9GD-Gu-kb3"/>
                     <exclude reference="M5i-S5-v1G"/>
                     <exclude reference="UyE-ja-5y8"/>
                     <exclude reference="aWI-Ln-paC"/>
+                    <exclude reference="3If-8l-Nxd"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
                     <include reference="Z9f-h1-V4O"/>
-                    <include reference="PKL-mY-mnp"/>
                     <include reference="aSy-1s-5mo"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="FSB-hO-ecI"/>
-                    <include reference="Ow4-n8-h6E"/>
-                    <include reference="6zg-gj-zi1"/>
-                    <include reference="9Bk-jj-U13"/>
-                    <include reference="ICv-MB-GB5"/>
                     <include reference="9GD-Gu-kb3"/>
                     <include reference="M5i-S5-v1G"/>
                     <include reference="UyE-ja-5y8"/>
                     <include reference="aWI-Ln-paC"/>
+                    <include reference="3If-8l-Nxd"/>
                 </mask>
             </variation>
         </view>
@@ -225,6 +208,5 @@
     <resources>
         <image name="MB_completed_question1" width="155" height="30"/>
         <image name="bg_green" width="320" height="99"/>
-        <image name="bg_top" width="320" height="63"/>
     </resources>
 </document>

@@ -19,6 +19,9 @@
 
 #import <Appirater.h>
 
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
+
 @interface MeiBaiViewController ()
 
 @property (nonatomic, strong) AlienView *alienView;
@@ -256,9 +259,26 @@
 -(void)beginMeibaiProject:(id)sender{
     
     [Appirater userDidSignificantEvent:YES];
-    MeibaiProjectController * projectVC = [[MeibaiProjectController alloc] initWithNibName:@"MeibaiProjectController" bundle:nil];
-    projectVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:projectVC animated:YES];
+    
+    [SVProgressHUD showWithStatus:@"正在启动美白计划"];
+    [NetworkManager BeginMeiBaiProjectWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            
+            [SVProgressHUD dismiss];
+            MeibaiProjectController * projectVC = [[MeibaiProjectController alloc] initWithNibName:@"MeibaiProjectController" bundle:nil];
+            projectVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:projectVC animated:YES];
+
+        } else{
+            [SVProgressHUD showErrorWithStatus:@"美白计划启动失败"];
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+    }];
+    
+    
 }
 
 

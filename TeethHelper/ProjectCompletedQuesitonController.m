@@ -12,6 +12,11 @@
 #import "Utils.h"
 #import "RS_SliderView.h"
 
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
+
+#import "Utils.h"
+
 @interface ProjectCompletedQuesitonController ()<RSliderViewDelegate>
 
 
@@ -106,6 +111,11 @@
     
     
     [self configFirstQuestionView];
+    
+    
+    [Utils ConfigNavigationBarWithTitle:@"问卷" onViewController:self];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
+    
     
 }
 
@@ -312,12 +322,82 @@
 
 -(void)finishQuesiton:(UIButton*)button{
     
-    NSLog(@"answer1: %ld",(long)_answer1);
-    NSLog(@"answer1: %ld",(long)_answer2);
 
+    NSString *ans1String;
+    switch (_answer1) {
+        case 0:
+        {
+        ans1String = @"A";
+        }
+            break;
+        case 1:
+        {
+            ans1String = @"B";
+
+        }
+            break;
+        case 2:
+        {
+            ans1String = @"C";
+
+        }
+            break;
+        case 3:
+        {
+            ans1String = @"D";
+
+        }
+            break;
+        case 4:
+        {
+            ans1String = @"E";
+
+        }
+            break;
+  
+    }
+    NSString *ans2String;
+
+    switch (_answer2) {
+        case 0:
+        {
+            ans2String = @"A";
+        }
+            break;
+        case 1:
+        {
+            ans2String = @"B";
+
+        }
+            break;
+        case 2:
+        {
+            ans2String = @"C";
+
+        }
+            break;
+    }
     
-//    [self dismissViewControllerAnimated:YES completion:nil];
     
+    [NetworkManager CompletedMeibaiQuestionByTotalTime:ans1String feel:ans2String WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"responseObject : %@",responseObject);
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            
+            if ([responseObject[@"data"] isEqualToString:@"CURRENT"]) {
+                //保持当前计划
+            } else if ([responseObject[@"data"] isEqualToString:@"E"]) {
+                //进入保持计划
+            }else if ([responseObject[@"data"] isEqualToString:@"A"]) {
+                //降低至标准计划
+            }else if ([responseObject[@"data"] isEqualToString:@"C"]) {
+                //降低至温柔计划
+            }
+
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
     
 }
 

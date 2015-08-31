@@ -279,7 +279,10 @@
 +(void)CompletedMeibaiQuestionByTotalTime:(NSString *)totalTime feel:(NSString *)feel WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     dictionary[@"accessToken"] = [AccountManager getTokenID];
-    NSString *url = @"http://www.7wang523.com/teeth-api/plan/change";
+    dictionary[@"totalTime"] = totalTime;
+    dictionary[@"feel"] = feel;
+
+    NSString *url = @"http://www.7wang523.com/teeth-api/white/feedback";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
