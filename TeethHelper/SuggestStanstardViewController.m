@@ -10,9 +10,6 @@
 #import "Utils.h"
 #import <Masonry.h>
 #import "MeiBaiConfigFile.h"
-#import "NetworkManager.h"
-#import <SVProgressHUD.h>
-
 @interface SuggestStanstardViewController ()
 
 @end
@@ -141,21 +138,10 @@
 -(void)sure:(id)sender{
     
     //调整至标准计划
-    [SVProgressHUD showWithStatus:@"正在为您调整美白计划"];
-    [NetworkManager ModifyProject:@"A" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 2000) {
-            [MeiBaiConfigFile setCurrentProject:STANDARD];
-            [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.navigationController popToRootViewControllerAnimated:YES];
-            });
-        } else{
-            [SVProgressHUD showErrorWithStatus:@"美白计划调整失败"];
+    [MeiBaiConfigFile setCurrentProject:STANDARD];
 
-        }
-    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错"];
-    }];}
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
