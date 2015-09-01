@@ -288,4 +288,20 @@
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
+
++(void)fetchUseHistoryStartIndex:(NSInteger)startIndex andPageSize:(NSInteger)pageSize WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/white/history?accessToken=%@&startIndex=%ld&pageSize=%ld", [AccountManager getTokenID],startIndex,pageSize];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:nil success:completionHandler failure:failHandler];
+}
+
++(void)fetchCeBaiHistoryStartIndex:(NSInteger)startIndex andPageSize:(NSInteger)pageSize WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/test/history?accessToken=%@&startIndex=%ld&pageSize=%ld", [AccountManager getTokenID],startIndex,pageSize];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:nil success:completionHandler failure:failHandler];
+
+}
 @end

@@ -1505,6 +1505,9 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dateLabel" destination="Zfq-I0-die" id="8Sb-9s-xVh"/>
+                                            <outlet property="levelLabel" destination="bNQ-DE-Ixw" id="MZt-mK-Vzw"/>
+                                            <outlet property="timeLabel" destination="as7-2U-ZuD" id="oZS-or-oiF"/>
                                             <outlet property="topLine" destination="fHN-qr-HPc" id="W1j-Q4-6NL"/>
                                         </connections>
                                     </tableViewCell>

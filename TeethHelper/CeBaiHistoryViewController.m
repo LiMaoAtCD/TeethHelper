@@ -9,12 +9,20 @@
 #import "CeBaiHistoryViewController.h"
 #import "CeBaiHistoryCell.h"
 #import "Utils.h"
-
-
+#import "NetworkManager.h"
+#import <MJRefresh.h>
+#import <SVProgressHUD.h>
 @interface CeBaiHistoryViewController ()<UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic, strong) NSMutableArray *dataItems;
+
+@property (nonatomic, assign) NSInteger currentIndex;
+
 @end
+
+static const NSInteger pageSize = 20;
 
 @implementation CeBaiHistoryViewController
 
@@ -24,6 +32,23 @@
     self.tableView.tableFooterView = [UIView new];
     
     [Utils ConfigNavigationBarWithTitle:@"测白记录" onViewController:self];
+    
+    self.dataItems = [NSMutableArray array];
+    self.currentIndex = 0;
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self fetchData];
+    }];
+    
+    [self.tableView.header beginRefreshing];
+    
+    self.navigationController.navigationBar.translucent = NO;
+    
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self fetchMoreData];
+
+    }];
+
 }
 
 -(void)pop{
@@ -40,8 +65,84 @@
 }
 
 
+-(void)fetchData{
+    [NetworkManager fetchCeBaiHistoryStartIndex:self.currentIndex andPageSize:pageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.tableView.header endRefreshing];
+        
+        NSLog(@"response %@",responseObject);
+        
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            NSArray *data = responseObject[@"data"];
+            //判断是不是第一次
+            
+            if (self.dataItems.count == 0) {
+                //第一次
+                self.dataItems = [data mutableCopy];
+                [self.tableView reloadData];
+                self.currentIndex = self.dataItems.count;
+                
+                if (self.currentIndex < pageSize) {
+                    [self.tableView.footer noticeNoMoreData];
+                }
+            } else{
+                if (data.count > 0) {
+                    if ([self.dataItems[0][@"createTime"] isEqualToString:data[0][@"createTime"]]) {
+                        //如果没有新数据
+                    } else{
+                        self.dataItems = [data mutableCopy];
+                        self.currentIndex = self.dataItems.count;
+                        [self.tableView reloadData];
+                        [self.tableView.footer resetNoMoreData];
+                    }
+                }
+            }
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"获取失败"];
+
+        }
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.tableView.header endRefreshing];
+        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+
+    }];
+
+}
+
+-(void)fetchMoreData{
+    
+    [NetworkManager fetchCeBaiHistoryStartIndex:self.currentIndex andPageSize:pageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.tableView.footer endRefreshing];
+        
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            
+            NSArray *data = responseObject[@"data"];
+            [self.dataItems addObjectsFromArray:data];
+            
+            [self.tableView reloadData];
+            self.currentIndex += data.count;
+            
+            if (data.count < pageSize) {
+                
+                [self.tableView.footer noticeNoMoreData];
+            } else{
+                [self.tableView.footer resetNoMoreData];
+            }
+            
+            
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"获取失败"];
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [self.tableView.footer endRefreshing];
+        
+    }];
+
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return self.dataItems.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -50,6 +151,29 @@
     if (indexPath.row != 0) {
         cell.topLine.hidden = YES;
     }
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    NSDate *createTime = [formatter dateFromString:self.dataItems[indexPath.row][@"createTime"]];
+    
+    [formatter setDateFormat:@"yyyy年MM月dd日"];
+    
+    NSString *dateString = [formatter stringFromDate:createTime];
+    
+    [formatter setDateFormat:@"hh:mm"];
+    
+    NSString *timeString = [formatter stringFromDate:createTime];
+    
+    NSString *levelString = self.dataItems[indexPath.row][@"color"];
+    
+    cell.dateLabel.text = dateString;
+    cell.timeLabel.text = timeString;
+    cell.levelLabel.text = levelString;
+    
+    
+    
     return cell;
 }
 

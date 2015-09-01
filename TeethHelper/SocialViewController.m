@@ -91,15 +91,17 @@ static const NSInteger PageSize = 20;
                     [self.tableView.footer noticeNoMoreData];
                 }
             } else{
-                if ([self.dataItems[0][@"createTime"] isEqualToString:data[0][@"createTime"]]) {
-                    //如果没有新数据
-                } else{
-                    self.dataItems = [data mutableCopy];
-                    self.currentIndex = self.dataItems.count;
-                    [self.tableView reloadData];
-                    [self.tableView.footer resetNoMoreData];
-
+                if (data.count > 0) {
+                    if ([self.dataItems[0][@"createTime"] isEqualToString:data[0][@"createTime"]]) {
+                        //如果没有新数据
+                    } else{
+                        self.dataItems = [data mutableCopy];
+                        self.currentIndex = self.dataItems.count;
+                        [self.tableView reloadData];
+                        [self.tableView.footer resetNoMoreData];
+                    }
                 }
+             
             }
         } else {
             [SVProgressHUD showErrorWithStatus:@"获取失败"];
@@ -119,20 +121,7 @@ static const NSInteger PageSize = 20;
             
             NSArray *data = responseObject[@"data"];
             [self.dataItems addObjectsFromArray:data];
-            
-    
-//            NSMutableArray *indexPaths = [NSMutableArray array];
-//            [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//                
-//                NSIndexPath *path = [NSIndexPath indexPathForRow:idx + self.currentIndex inSection:0];
-//                [indexPaths addObject:path];
-//            }];
-//            
-//            
-//            [self.tableView beginUpdates];
-//            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-//            [self.tableView endUpdates];
-            
+
             [self.tableView reloadData];
             self.currentIndex += data.count;
             

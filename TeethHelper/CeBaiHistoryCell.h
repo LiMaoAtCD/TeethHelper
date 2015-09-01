@@ -12,5 +12,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *topLine;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *levelLabel;
 @end

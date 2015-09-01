@@ -254,4 +254,26 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  */
 +(void)CompletedMeibaiQuestionByTotalTime:(NSString *)totalTime feel:(NSString *)feel WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+/**
+ *  使用记录
+ *
+ *  @param startIndex
+ *  @param pageSize
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)fetchUseHistoryStartIndex:(NSInteger)startIndex andPageSize:(NSInteger)pageSize WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+/**
+ *  测白记录
+ *
+ *  @param startIndex
+ *  @param pageSize
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)fetchCeBaiHistoryStartIndex:(NSInteger)startIndex andPageSize:(NSInteger)pageSize WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+
+
 @end
