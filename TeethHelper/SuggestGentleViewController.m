@@ -9,7 +9,8 @@
 #import "SuggestGentleViewController.h"
 #import "Utils.h"
 #import <Masonry.h>
-
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
 #import "MeiBaiConfigFile.h"
 @interface SuggestGentleViewController ()
 
@@ -134,9 +135,22 @@
 
 -(void)sure:(id)sender{
     //调整至温柔计划
-    [MeiBaiConfigFile setCurrentProject:GENTLE];
+    [SVProgressHUD showWithStatus:@"正在为您调整美白计划"];
+
+    [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            [MeiBaiConfigFile setCurrentProject:GENTLE];
+            
+            [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            });
+
+        }
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+    }];
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void)goOn:(id)sender{

@@ -58,6 +58,8 @@
     
     
     self.totalCount = 0;
+    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 
