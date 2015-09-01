@@ -78,6 +78,7 @@
     [super viewDidAppear:animated];
 
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 -(void)timerCount:(id)sender{
@@ -107,6 +108,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
     [super viewWillDisappear:animated];
     [self.timer invalidate];
     self.timer = nil;

@@ -74,7 +74,6 @@
         CGFloat rate =  (CGFloat)seconds / 6000;
         self.lightGrayLayer2.strokeStart = 0;
         self.lightGrayLayer2.strokeEnd = rate;
-        NSLog(@"%f",rate);
 
     }
     

@@ -26,9 +26,13 @@
 
 @property (nonatomic, strong) NSMutableArray *dataItems;
 
-@property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, assign) NSInteger currentIndex;
+
+
 
 @end
+
+static const NSInteger PageSize = 20;
 
 @implementation SocialViewController
 
@@ -52,43 +56,106 @@
     self.navigationController.navigationBar.translucent = NO;
     
     
-    self.currentPage = 0;
+    
+    
+    self.dataItems = [NSMutableArray array];
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadData];
     }];
     
     [self.tableView.header beginRefreshing];
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self loadMoreData];
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 }
-
 -(void)loadData{
-    
-    [NetworkManager fetchPostsByStartIndex:0 pageSize:10 WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
-        
-        if ([responseObject[@"status"] integerValue] == 2000) {
-            
-            self.currentPage = [responseObject[@"count"] integerValue];
-            NSArray *data = responseObject[@"data"];
-            NSLog(@"%@",data);
-            
-            self.dataItems = [data mutableCopy];
-            
-            [self.tableView reloadData];
-        } else {
-            [SVProgressHUD showErrorWithStatus:@"网络出错"];
-        }
-        
+    [NetworkManager fetchPostsByStartIndex:0 pageSize:PageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.tableView.header endRefreshing];
+
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            NSArray *data = responseObject[@"data"];
+            //判断是不是第一次
+            
+            if (self.dataItems.count == 0) {
+                //第一次
+                self.dataItems = [data mutableCopy];
+                [self.tableView reloadData];
+                self.currentIndex = self.dataItems.count;
+                
+                if (self.currentIndex < PageSize) {
+                    [self.tableView.footer noticeNoMoreData];
+                }
+            } else{
+                if ([self.dataItems[0][@"createTime"] isEqualToString:data[0][@"createTime"]]) {
+                    //如果没有新数据
+                } else{
+                    self.dataItems = [data mutableCopy];
+                    self.currentIndex = self.dataItems.count;
+                    [self.tableView reloadData];
+                    [self.tableView.footer resetNoMoreData];
+
+                }
+            }
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"获取失败"];
+        }
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络出错了"];
         [self.tableView.header endRefreshing];
-
     }];
 }
+
+-(void)loadMoreData{
+    
+    [NetworkManager fetchPostsByStartIndex:self.currentIndex pageSize:PageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.tableView.footer endRefreshing];
+
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            
+            NSArray *data = responseObject[@"data"];
+            [self.dataItems addObjectsFromArray:data];
+            
+    
+//            NSMutableArray *indexPaths = [NSMutableArray array];
+//            [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//                
+//                NSIndexPath *path = [NSIndexPath indexPathForRow:idx + self.currentIndex inSection:0];
+//                [indexPaths addObject:path];
+//            }];
+//            
+//            
+//            [self.tableView beginUpdates];
+//            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+//            [self.tableView endUpdates];
+            
+            [self.tableView reloadData];
+            self.currentIndex += data.count;
+            
+            if (data.count < PageSize) {
+                
+                [self.tableView.footer noticeNoMoreData];
+            } else{
+                [self.tableView.footer resetNoMoreData];
+            }
+
+            
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"获取失败"];
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [self.tableView.footer endRefreshing];
+        
+    }];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
