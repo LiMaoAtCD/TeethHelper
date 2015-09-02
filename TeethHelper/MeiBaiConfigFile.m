@@ -11,6 +11,15 @@
 @implementation MeiBaiConfigFile
 
 
++(void)setProcessDays:(NSInteger)day{
+    [[NSUserDefaults standardUserDefaults] setInteger:day forKey:@"cure_process_day"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSInteger)getProcessDays{
+    NSInteger level = [[NSUserDefaults standardUserDefaults] integerForKey:@"cure_process_day"];
+    
+    return level;
+}
 
 
 //设置每天治疗的次数

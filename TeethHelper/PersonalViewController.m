@@ -35,6 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"我" onViewController:self];
+    self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.leftBarButtonItem = nil;
     
     self.items = @[@"个人信息",@"使用记录",@"测白记录",@"美白计划",@"牙齿状况",@"消息推送"];

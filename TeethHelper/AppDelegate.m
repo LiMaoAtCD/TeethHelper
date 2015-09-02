@@ -116,6 +116,9 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [Appirater appEnteredForeground:YES];
+    
+    
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -247,35 +250,98 @@
 
 -(void)fetchFirstPageData{
     [NetworkManager fetchFirstPageWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
         if ([responseObject[@"status"] integerValue] == 2000) {
-            NSDictionary *dictionary = responseObject[@"data"];
+            NSDictionary *data = responseObject[@"data"];
             
-//            evaluated 是否参与了首次问卷 bool  useless
-//            tested 是否参与了首次测白 bool      useless
-//            cureno 累计治疗次数 integer
-            [MeiBaiConfigFile setCompletedCureDays:[dictionary[@"cureno"] integerValue]];
-//            keepno 累计保持次数
-            [MeiBaiConfigFile setCompletedKeepDays:[dictionary[@"keepno"] integerValue]];
+            //保持天数
+            NSInteger keepNo = [data[@"keepno"] integerValue];
+            
+            [MeiBaiConfigFile setCompletedKeepDays:keepNo];
+            //治疗天数
+            NSInteger cureNo = [data[@"cureno"] integerValue];
+            [MeiBaiConfigFile setCompletedCureDays:cureNo];
+            
+            NSDictionary *plan  = data[@"plan"];
+            
+            //治疗进行的天数
+            NSInteger processedDays = [plan[@"processed"] integerValue];
+            [MeiBaiConfigFile setProcessDays:processedDays];
+            
+            NSInteger days = [plan[@"days"] integerValue];
+            
+            [MeiBaiConfigFile setNeedCureDays:days];
+            NSInteger times = [plan[@"times"] integerValue];
+            [MeiBaiConfigFile setCureTimesEachDay:times];
+            
+            
+            
+            if ([[data allKeys] containsObject:@"white"]) {
+                //有未完成的计划
+                NSDictionary *temp = data[@"white"];
+                
+                if ([[temp allKeys] containsObject:@"endTime"]) {
+                    //测白已完成，问卷
+                    
+                } else{
+                    //判断systime 跟begintime 是否超过3倍计划时间
+                    NSString *systime = temp[@"sysTime"];
+                    NSString *beginTime = temp[@"beginTime"];
+                    
+                    
+                    //获取当前时间差
 
-//            planId 当前计划ID
-//            plan 当前计划
-//            plantype A标准B加强C温柔D自定义E保持
-//            times 计划对应次数
-//            duration 计划对应分钟 好像固定为8
-//            days 计划对应天数
-//            processed 已完成天数
+                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                    
+                    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                    
+                    NSDate* sysDate = [formatter dateFromString:systime];
+                    NSDate* beginDate = [formatter dateFromString:beginTime];
+                    
+                    NSTimeInterval distanceBetweenDates = [sysDate timeIntervalSinceDate:beginDate];
+                    
+                    double secondsInAnHour = 60;
+                    NSInteger hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
+                    
             
-//            white 未完成的测白记录，如果为空就表示没有未完成的，直接进入首页。如果不为空，判断endTime是否为空，不为空表示测白已完成，但是没有填写问卷，需跳转至问卷页面。如果endTime为空则表示测白没有结束，需根据beginTime和sysTime继续计时器页面，另外还需要处理超过3倍时间的情况，这时是默认完成，直接进入问卷页面。
-//            beginTime 上一次测白开始时间
-//            endTime 测白结束时间
-//            sysTime 当前系统时间
+                    //获取计划时间
+
+                    NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
+                    
+                    NSInteger ProjectTime = times * 24;
+                    
+                    if (hoursBetweenDates > ProjectTime) {
+                        //超过三倍计划时间了
+
+                        //并且不是保持计划
+                        if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
+                            //问卷
+                        } else {
+                            //不做任何东西，理论上不应该出现这个情况，因为超过三倍时间直接记录完成了，没有white
+                        }
+                        
+                    } else{
+                        //没有超过三倍时间，计时器继续计时
+                        
+                    }
+                    
+                
+                    
+                    
+                    
+                }
+                
+                
+                
+            } else{
+                //没有未完成的计划
+                
+            }
+
             
             
             
         } else{
             
-            [SVProgressHUD showErrorWithStatus:@"美白数据同步失败，请稍后再试"];
 
         }
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {

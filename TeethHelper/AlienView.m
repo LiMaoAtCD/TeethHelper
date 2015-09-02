@@ -60,12 +60,16 @@
         
         //天数
         
-        self.dayLabel= [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 70 - 10, self.bounds.size.height / 2 - 40, 140, 80)];
+//        self.dayLabel= [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 70 - 10, self.bounds.size.height / 2 - 40, 140, 80)];
+        
+        
+        self.dayLabel= [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 70 , self.bounds.size.height / 2 - 40, 140, 80)];
+
         self.dayLabel.text = self.day;
         self.dayLabel.textAlignment = NSTextAlignmentCenter;
         self.dayLabel.textColor = [UIColor colorWithRed:99.0/255 green:181./255 blue:180./255 alpha:1.0];
 //        self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:100.0];
-        self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:100.0];
+        self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:90.0];
 
         [self addSubview:self.dayLabel];
         
@@ -87,6 +91,17 @@
 
 -(void)setDay:(NSString *)day{
     self.dayLabel.text = day;
+    
+//    
+//    self.dayLabel= [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 70 , self.bounds.size.height / 2 - 40, 140, 80)];
+
+    if ([day integerValue] < 10) {
+        self.dayLabel.frame =CGRectMake(self.bounds.size.width / 2 - 70, self.bounds.size.height / 2 - 40, 140, 80) ;
+    } else{
+        self.dayLabel.frame =CGRectMake(self.bounds.size.width / 2 - 70 - 10, self.bounds.size.height / 2 - 40, 140, 80) ;
+
+    }
+    
 }
 
 -(void)animateArcTo:(CGFloat)strokeEnd{

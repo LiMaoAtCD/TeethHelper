@@ -46,6 +46,11 @@ typedef enum : NSUInteger {
 +(void)setCompletedKeepDays:(NSInteger)day;
 +(NSInteger)getCompletedKeepDays;
 
+//设置治疗进行中完成的天数
++(void)setProcessDays:(NSInteger)day;
++(NSInteger)getProcessDays;
+
+
 
 
 //首次测白等级
