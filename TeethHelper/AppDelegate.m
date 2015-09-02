@@ -204,7 +204,7 @@
         [MessageConfigureFile setAlertNotificationTime:@"20" andMinute:@"0"];
         NSString *hour = [MessageConfigureFile hourForAlertNotification];
         NSString *minute = [MessageConfigureFile minuteForAlertNotification];
-        [MessageConfigureFile setNotificationAtHour:hour minute:minute];
+        [MessageConfigureFile setMeiBaiNotificationAtHour:hour minute:minute];
   
        
         

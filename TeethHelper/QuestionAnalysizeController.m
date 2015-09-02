@@ -105,7 +105,7 @@
     NSString *minute = [formatter1 stringFromDate:date];
     
     [MessageConfigureFile setAlertNotificationTime:hour andMinute:minute];
-    [MessageConfigureFile setNotificationAtHour:hour minute:minute];
+    [MessageConfigureFile setMeiBaiNotificationAtHour:hour minute:minute];
     
     NSString *time =[NSString stringWithFormat:@"%.2ld:%.2ld",(long)[hour integerValue],(long)[minute integerValue]];
     

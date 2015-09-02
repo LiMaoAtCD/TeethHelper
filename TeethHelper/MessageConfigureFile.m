@@ -29,7 +29,7 @@
 
 }
 
-+(void)setNotificationAtHour:(NSString*)hour minute:(NSString *)minute{
++(void)setMeiBaiNotificationAtHour:(NSString*)hour minute:(NSString *)minute{
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
     NSDate *now = [NSDate date];
     // Break the date up into components
@@ -75,7 +75,9 @@
 }
 
 
-+(void)setQuestionOpenLocalNotification{
++(void)setQuestionNotificationDelayMinute:(NSInteger)minute{
+    
+    [self cancelQuestionNotification];
     NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
     NSDate *now = [NSDate date];
     // Break the date up into components
@@ -89,7 +91,7 @@
     [components setYear: [dateComponents year]];
     
     [components setHour: [timeComponents hour]];
-    [components setMinute: [timeComponents minute] + 10];
+    [components setMinute: [timeComponents minute] + minute];
     [components setSecond: [timeComponents second]];
     
     [calendar setTimeZone: [NSTimeZone defaultTimeZone]];
@@ -99,10 +101,11 @@
     if (alarm) {
         alarm.fireDate = dateToFire;
         alarm.timeZone = [NSTimeZone defaultTimeZone];
-        alarm.repeatInterval = kCFCalendarUnitDay;
+//        alarm.repeatInterval = kCFCalendarUnitDay;
         alarm.alertBody = @"开启问卷调查";
         alarm.alertAction = @"";
-        alarm.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] +1;
+        alarm.soundName = UILocalNotificationDefaultSoundName;
+        alarm.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     }
     
     [[UIApplication sharedApplication] scheduleLocalNotification:alarm];

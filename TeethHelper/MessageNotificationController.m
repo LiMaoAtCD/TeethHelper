@@ -185,7 +185,7 @@
     NSString *minute = [formatter1 stringFromDate:date];
     
     [MessageConfigureFile setAlertNotificationTime:hour andMinute:minute];
-    [MessageConfigureFile setNotificationAtHour:hour minute:minute];
+    [MessageConfigureFile setMeiBaiNotificationAtHour:hour minute:minute];
     [self.tableView reloadData];
 }
 

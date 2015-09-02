@@ -173,7 +173,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             //获取数据
             NSData *imageData=[AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             UIImage *image=[UIImage imageWithData:imageData];
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
 //            CGRect rect = CGRectMake(0,
 //                                     0,

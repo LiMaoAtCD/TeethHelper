@@ -13,7 +13,7 @@
 #import "ALienGrayView.h"
 #import <Masonry.h>
 #import "MeiBaiConfigFile.h"
-
+#import "MessageConfigureFile.h"
 #import "MeibaiProjectController.h"
 #import "WechatShareViewController.h"
 
@@ -21,6 +21,7 @@
 
 #import "NetworkManager.h"
 #import <SVProgressHUD.h>
+
 
 @interface MeiBaiViewController ()
 
@@ -223,9 +224,11 @@
             NSInteger days = [plan[@"days"] integerValue];
             
             [MeiBaiConfigFile setNeedCureDays:days];
+            
             NSInteger times = [plan[@"times"] integerValue];
             [MeiBaiConfigFile setCureTimesEachDay:times];
 
+            
             
             
             if ([[data allKeys] containsObject:@"white"]) {
@@ -301,17 +304,40 @@
 
 -(void)beginMeibaiProject:(id)sender{
     
+    //记录美白次数
     [Appirater userDidSignificantEvent:YES];
     
+    //上传服务器，开始计时
     [SVProgressHUD showWithStatus:@"正在启动美白计划"];
     [NetworkManager BeginMeiBaiProjectWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if ([responseObject[@"status"] integerValue] == 2000) {
             
             [SVProgressHUD dismiss];
+            
             MeibaiProjectController * projectVC = [[MeibaiProjectController alloc] initWithNibName:@"MeibaiProjectController" bundle:nil];
             projectVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:projectVC animated:YES];
+            
+            
+            //如果是治疗计划，判断问卷提醒是否开启了，如果开启了，计时3倍美白时间
+            if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
+                if ([MessageConfigureFile isQuestionaireOpen]) {
+                    
+                    
+                   NSInteger timesADay =  [MeiBaiConfigFile getCureTimesEachDay];
+                    //需要延迟3倍
+                    NSInteger delayTime = timesADay * 24;
+
+                    [MessageConfigureFile setQuestionNotificationDelayMinute:delayTime];
+                    
+                    
+                    
+                    
+                }
+            }
+            
+            
 
         } else{
             [SVProgressHUD showErrorWithStatus:@"美白计划启动失败"];

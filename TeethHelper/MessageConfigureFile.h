@@ -20,7 +20,7 @@
 +(void)setQuestionaireOpenLocalNotification:(BOOL)open;
 
 // 设置本地美白通知
-+(void)setNotificationAtHour:(NSString*)hour minute:(NSString *)minute;
++(void)setMeiBaiNotificationAtHour:(NSString*)hour minute:(NSString *)minute;
 
 //设置时间
 +(void)setAlertNotificationTime:(NSString *)hour andMinute:(NSString *)minute;
@@ -33,7 +33,7 @@
 
 
 
-+(void)setQuestionOpenLocalNotification;
++(void)setQuestionNotificationDelayMinute:(NSInteger)minute;
 +(void)cancelQuestionNotification;
 
 
