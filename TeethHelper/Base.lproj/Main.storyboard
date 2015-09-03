@@ -261,7 +261,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="37" width="234" height="43"/>
+                                                        <rect key="frame" x="56" y="37" width="244" height="43"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刚刚" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwD-Lc-XRh">
@@ -278,7 +278,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="92" width="177" height="21"/>
+                                                        <rect key="frame" x="56" y="92" width="187" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="jro-5D-O0b"/>
                                                         </mask>
@@ -343,7 +343,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="56" y="8" width="292" height="21"/>
+                                                        <rect key="frame" x="56" y="8" width="222" height="21"/>
                                                         <mask key="constraints">
                                                             <exclude reference="3gp-ZI-bBs"/>
                                                             <include reference="NWd-AV-4Hb"/>
@@ -491,7 +491,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="56" y="8" width="292" height="21"/>
+                                                        <rect key="frame" x="56" y="8" width="222" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="CVq-P6-Ee7"/>
                                                             <exclude reference="zjP-en-bhj"/>
@@ -504,7 +504,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="37" width="234" height="40"/>
+                                                        <rect key="frame" x="56" y="37" width="244" height="40"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="刚刚" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRW-i1-VSV">
@@ -521,7 +521,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="173" width="177" height="21"/>
+                                                        <rect key="frame" x="56" y="173" width="187" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="tFP-v3-3KR"/>
                                                         </mask>
@@ -583,7 +583,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="66" y="85" width="74" height="80"/>
+                                                        <rect key="frame" x="56" y="85" width="77.5" height="80"/>
                                                         <mask key="constraints">
                                                             <exclude reference="Ev9-yG-Z71"/>
                                                             <include reference="gHT-gh-Kyt"/>
@@ -593,13 +593,13 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uan-eJ-NhO">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="148" y="85" width="74" height="80"/>
+                                                        <rect key="frame" x="141.5" y="85" width="77" height="80"/>
                                                     </variation>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6LW-uz-idL">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="230" y="85" width="74" height="80"/>
+                                                        <rect key="frame" x="226.5" y="85" width="77.5" height="80"/>
                                                     </variation>
                                                 </imageView>
                                             </subviews>

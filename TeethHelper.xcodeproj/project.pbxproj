@@ -69,8 +69,6 @@
 		877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877B4E3C1B7CD95D00E6720D /* SplashViewController.xib */; };
 		878108C51B7B907A000A735F /* AlienView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C41B7B907A000A735F /* AlienView.m */; };
 		878108C81B7B934A000A735F /* ALienGrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C71B7B934A000A735F /* ALienGrayView.m */; };
-		8785F8B11B7C1DD20051B29B /* MeibaiProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8AF1B7C1DD20051B29B /* MeibaiProjectController.m */; };
-		8785F8B21B7C1DD20051B29B /* MeibaiProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8785F8B01B7C1DD20051B29B /* MeibaiProjectController.xib */; };
 		8785F8B51B7C26F20051B29B /* AlienTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8B41B7C26F20051B29B /* AlienTimerView.m */; };
 		8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8785F8EE1B7C46840051B29B /* Questions.storyboard */; };
 		8785F8F21B7C46B20051B29B /* InitialNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8F11B7C46B20051B29B /* InitialNavigationController.m */; };
@@ -90,6 +88,8 @@
 		87911F521B8B500A000E9218 /* SocialDetailTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87911F501B8B500A000E9218 /* SocialDetailTwoCell.xib */; };
 		87911F561B8B501F000E9218 /* SocialDetailThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87911F541B8B501F000E9218 /* SocialDetailThreeCell.m */; };
 		87911F571B8B501F000E9218 /* SocialDetailThreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87911F551B8B501F000E9218 /* SocialDetailThreeCell.xib */; };
+		87BA16E51B97F32D006158D6 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87BA16E11B97F32D006158D6 /* libWeChatSDK.a */; };
+		87BA16E61B97F32D006158D6 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87BA16E21B97F32D006158D6 /* read_me.txt */; };
 		87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */; };
 		87BE0D381B82CCAC001E0D30 /* SocialNoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */; };
 		87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */; };
@@ -134,6 +134,8 @@
 		87E2AF0A1B84C2C7002FC28A /* UseHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF091B84C2C7002FC28A /* UseHistoryCell.m */; };
 		87E2AF0F1B855E92002FC28A /* WechatShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */; };
 		87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */; };
+		87F0FC961B980CE900147DF3 /* MeiBaiTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F0FC941B980CE900147DF3 /* MeiBaiTimerViewController.m */; };
+		87F0FC971B980CE900147DF3 /* MeiBaiTimerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F0FC951B980CE900147DF3 /* MeiBaiTimerViewController.xib */; };
 		87F4289D1B91978000F0CD46 /* PostToSocialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F4289B1B91978000F0CD46 /* PostToSocialController.m */; };
 		87F4289E1B91978000F0CD46 /* PostToSocialController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F4289C1B91978000F0CD46 /* PostToSocialController.xib */; };
 		87F428A11B92A09800F0CD46 /* ProductConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F428A01B92A09800F0CD46 /* ProductConfigFile.m */; };
@@ -269,9 +271,6 @@
 		878108C41B7B907A000A735F /* AlienView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlienView.m; sourceTree = "<group>"; };
 		878108C61B7B934A000A735F /* ALienGrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALienGrayView.h; sourceTree = "<group>"; };
 		878108C71B7B934A000A735F /* ALienGrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALienGrayView.m; sourceTree = "<group>"; };
-		8785F8AE1B7C1DD20051B29B /* MeibaiProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeibaiProjectController.h; sourceTree = "<group>"; };
-		8785F8AF1B7C1DD20051B29B /* MeibaiProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeibaiProjectController.m; sourceTree = "<group>"; };
-		8785F8B01B7C1DD20051B29B /* MeibaiProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeibaiProjectController.xib; sourceTree = "<group>"; };
 		8785F8B31B7C26F20051B29B /* AlienTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlienTimerView.h; sourceTree = "<group>"; };
 		8785F8B41B7C26F20051B29B /* AlienTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlienTimerView.m; sourceTree = "<group>"; };
 		8785F8EE1B7C46840051B29B /* Questions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
@@ -305,6 +304,10 @@
 		87911F531B8B501F000E9218 /* SocialDetailThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialDetailThreeCell.h; sourceTree = "<group>"; };
 		87911F541B8B501F000E9218 /* SocialDetailThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialDetailThreeCell.m; sourceTree = "<group>"; };
 		87911F551B8B501F000E9218 /* SocialDetailThreeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialDetailThreeCell.xib; sourceTree = "<group>"; };
+		87BA16E11B97F32D006158D6 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		87BA16E21B97F32D006158D6 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		87BA16E31B97F32D006158D6 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		87BA16E41B97F32D006158D6 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		87BBCDC81B8872E1009130F1 /* ImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropperViewController.h; sourceTree = "<group>"; };
 		87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropperViewController.m; sourceTree = "<group>"; };
 		87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNoImageCell.h; sourceTree = "<group>"; };
@@ -385,6 +388,9 @@
 		87E2AF0C1B855E92002FC28A /* WechatShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatShareViewController.h; sourceTree = "<group>"; };
 		87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatShareViewController.m; sourceTree = "<group>"; };
 		87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WechatShareViewController.xib; sourceTree = "<group>"; };
+		87F0FC931B980CE900147DF3 /* MeiBaiTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiTimerViewController.h; sourceTree = "<group>"; };
+		87F0FC941B980CE900147DF3 /* MeiBaiTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiTimerViewController.m; sourceTree = "<group>"; };
+		87F0FC951B980CE900147DF3 /* MeiBaiTimerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeiBaiTimerViewController.xib; sourceTree = "<group>"; };
 		87F4289A1B91978000F0CD46 /* PostToSocialController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToSocialController.h; sourceTree = "<group>"; };
 		87F4289B1B91978000F0CD46 /* PostToSocialController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToSocialController.m; sourceTree = "<group>"; };
 		87F4289C1B91978000F0CD46 /* PostToSocialController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostToSocialController.xib; sourceTree = "<group>"; };
@@ -409,6 +415,7 @@
 			files = (
 				87C1EECE1B8F465D00CA191E /* libc++.dylib in Frameworks */,
 				87C1EEC71B8F45C800CA191E /* libz.dylib in Frameworks */,
+				87BA16E51B97F32D006158D6 /* libWeChatSDK.a in Frameworks */,
 				87C1EECD1B8F462900CA191E /* libsqlite3.0.dylib in Frameworks */,
 				87C1EECB1B8F461400CA191E /* SystemConfiguration.framework in Frameworks */,
 				7C42B4A7085D0D96715AF090 /* libPods-TeethHelper.a in Frameworks */,
@@ -441,6 +448,7 @@
 		870A65CB1B77227100A51B26 = {
 			isa = PBXGroup;
 			children = (
+				87BA16E01B97F32D006158D6 /* SDKExport */,
 				870A65D61B77227100A51B26 /* TeethHelper */,
 				870A65F01B77227100A51B26 /* TeethHelperTests */,
 				870A65D51B77227100A51B26 /* Products */,
@@ -746,12 +754,12 @@
 		8785F8AA1B7C0D4D0051B29B /* MeiBaiProject */ = {
 			isa = PBXGroup;
 			children = (
-				8785F8AE1B7C1DD20051B29B /* MeibaiProjectController.h */,
-				8785F8AF1B7C1DD20051B29B /* MeibaiProjectController.m */,
-				8785F8B01B7C1DD20051B29B /* MeibaiProjectController.xib */,
 				8785F8B31B7C26F20051B29B /* AlienTimerView.h */,
 				8785F8B41B7C26F20051B29B /* AlienTimerView.m */,
 				873EAE7B1B9499F100445728 /* MeiBaiCompleted */,
+				87F0FC931B980CE900147DF3 /* MeiBaiTimerViewController.h */,
+				87F0FC941B980CE900147DF3 /* MeiBaiTimerViewController.m */,
+				87F0FC951B980CE900147DF3 /* MeiBaiTimerViewController.xib */,
 			);
 			name = MeiBaiProject;
 			sourceTree = "<group>";
@@ -781,6 +789,17 @@
 				8785F9031B7C64CB0051B29B /* QuestionsConfigFile.m */,
 			);
 			name = InitialQuestions;
+			sourceTree = "<group>";
+		};
+		87BA16E01B97F32D006158D6 /* SDKExport */ = {
+			isa = PBXGroup;
+			children = (
+				87BA16E11B97F32D006158D6 /* libWeChatSDK.a */,
+				87BA16E21B97F32D006158D6 /* read_me.txt */,
+				87BA16E31B97F32D006158D6 /* WXApi.h */,
+				87BA16E41B97F32D006158D6 /* WXApiObject.h */,
+			);
+			path = SDKExport;
 			sourceTree = "<group>";
 		};
 		87DABF4C1B7D7F610051DE31 /* QuestionAnswers */ = {
@@ -1118,12 +1137,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				87911F481B8B4FD6000E9218 /* SocialDetailNoImageCell.xib in Resources */,
-				8785F8B21B7C1DD20051B29B /* MeibaiProjectController.xib in Resources */,
 				877B4E3E1B7CD95D00E6720D /* SplashViewController.xib in Resources */,
 				870A66071B7722D600A51B26 /* Login.storyboard in Resources */,
 				873EAE8B1B949A6800445728 /* SuggestStanstardViewController.xib in Resources */,
 				87911F4D1B8B4FF5000E9218 /* SocialDetailOneCell.xib in Resources */,
 				87465BBD1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib in Resources */,
+				87BA16E61B97F32D006158D6 /* read_me.txt in Resources */,
 				873B75D01B774338002D7871 /* Product.storyboard in Resources */,
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
 				8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */,
@@ -1136,6 +1155,7 @@
 				873EAE901B949A9200445728 /* SuggestSuspendViewController.xib in Resources */,
 				87911F571B8B501F000E9218 /* SocialDetailThreeCell.xib in Resources */,
 				87C1EED31B8F5D2A00CA191E /* FirstCeBaiViewController.xib in Resources */,
+				87F0FC971B980CE900147DF3 /* MeiBaiTimerViewController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				873EAE811B949A3200445728 /* SuggestionKeepViewController.xib in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
@@ -1264,6 +1284,7 @@
 				87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */,
 				873B75BE1B77400D002D7871 /* MeiBaiViewController.m in Sources */,
 				87FAFCEB1B8B7508000CB8F4 /* DetailReplyCell.m in Sources */,
+				87F0FC961B980CE900147DF3 /* MeiBaiTimerViewController.m in Sources */,
 				8785F9011B7C497A0051B29B /* QuestionFiveViewController.m in Sources */,
 				87911F471B8B4FD6000E9218 /* SocialDetailNoImageCell.m in Sources */,
 				8785F8B51B7C26F20051B29B /* AlienTimerView.m in Sources */,
@@ -1296,7 +1317,6 @@
 				870A66161B77321900A51B26 /* AccountManager.m in Sources */,
 				874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */,
 				87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */,
-				8785F8B11B7C1DD20051B29B /* MeibaiProjectController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

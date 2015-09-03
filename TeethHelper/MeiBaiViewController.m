@@ -14,8 +14,9 @@
 #import <Masonry.h>
 #import "MeiBaiConfigFile.h"
 #import "MessageConfigureFile.h"
-#import "MeibaiProjectController.h"
+#import "MeiBaiTimerViewController.h"
 #import "WechatShareViewController.h"
+#import "ProjectCompletedQuesitonController.h"
 
 #import <Appirater.h>
 
@@ -202,7 +203,6 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
     
-    
     [NetworkManager fetchFirstPageWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 2000) {
             NSDictionary *data = responseObject[@"data"];
@@ -214,71 +214,143 @@
             //治疗天数
             NSInteger cureNo = [data[@"cureno"] integerValue];
             [MeiBaiConfigFile setCompletedCureDays:cureNo];
-
+            
             NSDictionary *plan  = data[@"plan"];
             
             //治疗进行的天数
             NSInteger processedDays = [plan[@"processed"] integerValue];
             [MeiBaiConfigFile setProcessDays:processedDays];
-
+            
             NSInteger days = [plan[@"days"] integerValue];
             
             [MeiBaiConfigFile setNeedCureDays:days];
-            
             NSInteger times = [plan[@"times"] integerValue];
             [MeiBaiConfigFile setCureTimesEachDay:times];
-
+            
+            
+            if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
+                //如果是治疗阶段
+                NSInteger needday = [MeiBaiConfigFile getNeedCureDays];
+                NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
+                self.gray3View.hidden = NO;
+                
+                self.gray3View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)needday];
+                self.gray4View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)times];
+                
+                NSInteger processDays = [MeiBaiConfigFile getProcessDays];
+                //        NSInteger processDays = 2;
+                
+                self.alienView.day = [NSString stringWithFormat:@"%ld",(long)processDays];
+                
+                [self.alienView animateArcTo:processDays * 1.0 / needday];
+                _currentProjectLabel.text = @"当前计划: 治疗";
+                
+            } else{
+                //保持阶段
+                [self.alienView animateArcTo:1.0];
+                self.alienView.day = @"1";
+                
+                self.gray3View.hidden = YES;
+                self.gray4View.daysLabel.text = @"4";
+                _currentProjectLabel.text = @"当前计划: 保持";
+                
+            }
+            
+            NSInteger completedCuredays = [MeiBaiConfigFile getCompletedCureDays];
+            NSInteger completedkeepdays = [MeiBaiConfigFile getCompletedKeepDays];
+            
+            self.gray1View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedCuredays];
+            self.gray2View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedkeepdays];
+            
+            
             
             
             
             if ([[data allKeys] containsObject:@"white"]) {
+                //有未完成的计划
+                NSDictionary *temp = data[@"white"];
                 
+                if ([[temp allKeys] containsObject:@"endTime"]) {
+                    //测白已完成，没有做问卷
+                    
+                    ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
+                    [self.navigationController pushViewController:questionVC animated:YES];
+                    
+                } else{
+                    //判断systime 跟begintime 是否超过3倍计划时间
+                    NSString *systime = temp[@"sysTime"];
+                    NSString *beginTime = temp[@"beginTime"];
+                    
+                    
+                    //获取当前时间差
+                    
+                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                    
+                    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                    
+                    NSDate* sysDate = [formatter dateFromString:systime];
+                    NSDate* beginDate = [formatter dateFromString:beginTime];
+                    
+                    NSTimeInterval distanceBetweenDates = [sysDate timeIntervalSinceDate:beginDate];
+                    
+                    double secondsInAnHour = 60;
+                    NSInteger hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
+                    
+                    
+                    //获取计划时间
+                    
+                    NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
+                    
+                    NSInteger ProjectTime = times * 24;
+                    
+                    if (hoursBetweenDates > ProjectTime) {
+                        //超过三倍计划时间了
+                        
+                        //并且不是保持计划
+                        if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
+                            //问卷
+                            
+                            ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
+                            [self.navigationController pushViewController:questionVC animated:YES];
+                        } else {
+                            //不做任何东西，理论上不应该出现这个情况，因为超过三倍时间直接记录完成了，没有white
+                        }
+                        
+                    } else{
+                        //没有超过三倍时间，计时器继续计时
+                       NSInteger previousCost = ProjectTime - hoursBetweenDates;
+                        
+                        MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] init];
+                        projectVC.hidesBottomBarWhenPushed = YES;
+                        projectVC.previousMinutes = previousCost;
+                        [self.navigationController pushViewController:projectVC animated:YES];
+                        
+                        
+                        //如果是治疗计划，判断问卷提醒是否开启了，如果开启了，计时3倍美白时间
+                        if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
+                            if ([MessageConfigureFile isQuestionaireOpen]) {
+                                
+                                NSInteger timesADay =  [MeiBaiConfigFile getCureTimesEachDay];
+                                //需要延迟3倍
+                                NSInteger delayTime = timesADay * 24;
+                                
+                                [MessageConfigureFile setQuestionNotificationDelayMinute:delayTime];
+                            }
+                        }
+                        
+                        
+                    }
+                }
+            } else{
+                //没有未完成的计划
             }
+        } else{
             
             
         }
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
     }];
-    
-    
-    
-    if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
-        //如果是治疗阶段
-        
-        
-        NSInteger needday = [MeiBaiConfigFile getNeedCureDays];
-        NSInteger times = [MeiBaiConfigFile getCureTimesEachDay];
-        self.gray3View.hidden = NO;
-
-        self.gray3View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)needday];
-        self.gray4View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)times];
-
-        NSInteger processDays = [MeiBaiConfigFile getProcessDays];
-//        NSInteger processDays = 2;
-
-        self.alienView.day = [NSString stringWithFormat:@"%ld",(long)processDays];
-
-        [self.alienView animateArcTo:processDays * 1.0 / needday];
-        _currentProjectLabel.text = @"当前计划: 治疗";
-
-    } else{
-        //保持阶段
-        [self.alienView animateArcTo:1.0];
-        self.alienView.day = @"1";
-        
-        self.gray3View.hidden = YES;
-        self.gray4View.daysLabel.text = @"4";
-        _currentProjectLabel.text = @"当前计划: 保持";
-
-    }
-    
-    NSInteger completedCuredays = [MeiBaiConfigFile getCompletedCureDays];
-    NSInteger completedkeepdays = [MeiBaiConfigFile getCompletedKeepDays];
-    
-    self.gray1View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedCuredays];
-    self.gray2View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedkeepdays];
-
 }
 
 
@@ -315,8 +387,10 @@
             
             [SVProgressHUD dismiss];
             
-            MeibaiProjectController * projectVC = [[MeibaiProjectController alloc] initWithNibName:@"MeibaiProjectController" bundle:nil];
+            MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] initWithNibName:@"MeibaiProjectController" bundle:nil];
             projectVC.hidesBottomBarWhenPushed = YES;
+            projectVC.previousMinutes = 0;
+
             [self.navigationController pushViewController:projectVC animated:YES];
             
             
@@ -330,15 +404,8 @@
                     NSInteger delayTime = timesADay * 24;
 
                     [MessageConfigureFile setQuestionNotificationDelayMinute:delayTime];
-                    
-                    
-                    
-                    
                 }
             }
-            
-            
-
         } else{
             [SVProgressHUD showErrorWithStatus:@"美白计划启动失败"];
         }

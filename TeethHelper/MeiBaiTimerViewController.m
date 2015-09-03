@@ -1,12 +1,12 @@
 //
-//  MeibaiProjectController.m
+//  MeiBaiTimerViewController.m
 //  TeethHelper
 //
-//  Created by AlienLi on 15/8/13.
+//  Created by AlienLi on 15/9/3.
 //  Copyright (c) 2015年 MarcoLi. All rights reserved.
 //
 
-#import "MeibaiProjectController.h"
+#import "MeiBaiTimerViewController.h"
 #import "Utils.h"
 
 #import "AlienTimerView.h"
@@ -18,16 +18,20 @@
 #import "NetworkManager.h"
 #import <SVProgressHUD.h>
 
-@interface MeibaiProjectController ()
+#import <Masonry.h>
+@interface MeiBaiTimerViewController ()
 
 @property (nonatomic, strong) AlienTimerView *alienView;
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, assign) NSInteger totalCount;
 
+
+@property (strong, nonatomic) UILabel *TextLabel;
+
 @end
 
-@implementation MeibaiProjectController
+@implementation MeiBaiTimerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +45,64 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     
+    
+    UIImageView *topBgImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    topBgImageView.image = [UIImage imageNamed:@"btn_complete_narmal"];
+    
+    [self.view addSubview:topBgImageView];
+    
+    
+    [topBgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view);
+        make.top.equalTo(self.view).offset(64);
+        make.right.equalTo(self.view);
+        make.height.equalTo(@100);
+    }];
+    
+    UIImageView *timerTag = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_clock"]];
+    
+    [topBgImageView addSubview:timerTag];
+    
+    
+    
+    self.TextLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.TextLabel.text = @"您当前已使用仪器00:00分钟";
+    self.TextLabel.textAlignment = NSTextAlignmentCenter;
+    self.TextLabel.textColor = [UIColor whiteColor];
+    self.TextLabel.font =[UIFont systemFontOfSize:17.0];
+    
+    [topBgImageView addSubview:self.TextLabel];
+    
+    [self.TextLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(topBgImageView.mas_centerX);
+        make.centerY.equalTo(topBgImageView.mas_centerY);
+    }];
+    
+    [timerTag mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.TextLabel.mas_centerY);
+        make.right.equalTo(self.TextLabel.mas_left).offset(-8);
+        make.width.equalTo(@17);
+        make.height.equalTo(@20);
+    }];
+    
+    
+    UIButton * completeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [completeButton setTitle:@"完成今日美白程序" forState:UIControlStateNormal];
+    
+    [completeButton addTarget:self action:@selector(completeMeibai:) forControlEvents:UIControlEventTouchUpInside];
+    [completeButton setBackgroundImage:[UIImage imageNamed:@"bg_green"] forState:UIControlStateNormal];
+    [self.view addSubview:completeButton];
+    
+    [completeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.height.equalTo(@60);
+
+    }];
+    
+    
     //圆形图
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat CircleMargin = 70;
@@ -51,17 +113,12 @@
         self.alienView.timerLabel.font = [UIFont systemFontOfSize:80];
         
     }
-    //    self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 130, width - CircleMargin * 2, width - CircleMargin * 2)];
-//    self.alienView.ti = @"10";
     
     [self.view addSubview:_alienView];
     
     
-    self.totalCount = 0;
+    self.totalCount = _previousMinutes * 60;
 }
-
-
-
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -76,30 +133,34 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-
+    
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 -(void)timerCount:(id)sender{
     self.totalCount++;
-
+    
     int inputSeconds = (int)self.totalCount;
-//    int hours =  inputSeconds / 3600;
+    //    int hours =  inputSeconds / 3600;
     int minutes = inputSeconds / 60;
     int seconds = inputSeconds  - minutes * 60;
     
-    NSString *theTime = [NSString stringWithFormat:@"%.2d'%.2d\"", minutes, seconds];
-//    NSLog(@"time %@",theTime);
-    
-    [self.alienView animateToSeconds:self.totalCount];
-    
-    if (minutes == 99 && seconds == 59) {
+    if (minutes >= 99 && seconds >= 59) {
         
         [self.timer invalidate];
+        minutes = 99;
+        seconds = 59;
     }
     
+    NSString *theTime = [NSString stringWithFormat:@"%.2d'%.2d\"", minutes, seconds];
+    
+    [self.alienView animateToSeconds:self.totalCount];
     self.alienView.timerLabel.text = theTime;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.TextLabel.text = [NSString stringWithFormat:@"您当前已使用仪器%.2d:%.2d分钟",minutes,seconds];
+    
+        });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -119,13 +180,12 @@
     [self.timer invalidate];
     self.timer = nil;
 }
-- (IBAction)completeMeibai:(id)sender {
+- (void)completeMeibai:(id)sender {
     
     [self.timer invalidate];
     self.timer = nil;
     
     [NetworkManager EndMeiBaiProjectWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"responseObject %@",responseObject);
         
         //如果是治疗阶段,问卷调查
         
@@ -139,12 +199,13 @@
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];
-
     
-
+    
+    
     
     
     
 }
+
 
 @end
