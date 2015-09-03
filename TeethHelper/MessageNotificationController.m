@@ -116,7 +116,6 @@
     } else {
         //关闭美白提醒
         [MessageConfigureFile setOpenLocalNotification:NO];
-        [MessageConfigureFile cancelAlertNotification];
 
     }
     [self.tableView reloadData];

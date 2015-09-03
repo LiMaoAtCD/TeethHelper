@@ -198,7 +198,6 @@
         //初次启动,开启本地通知
 //        [[UIApplication sharedApplication] cancelAllLocalNotifications] ;
 
-        [MessageConfigureFile setOpenLocalNotification:YES];
         [MessageConfigureFile setQuestionaireOpenLocalNotification:YES];
         
         [MessageConfigureFile setAlertNotificationTime:@"20" andMinute:@"0"];

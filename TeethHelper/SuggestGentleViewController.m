@@ -66,8 +66,6 @@
     [keepLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.view.mas_centerY).offset(-30);
         make.left.equalTo(self.view).offset(10);
-
-        
     }];
     
     UILabel *keep2Label = [[UILabel alloc] initWithFrame:CGRectZero];

@@ -385,20 +385,19 @@
     
     
     [NetworkManager CompletedMeibaiQuestionByTotalTime:ans1String feel:ans2String WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"responseobejct : %@",responseObject);
         if ([responseObject[@"status"] integerValue] == 2000) {
             
             if ([responseObject[@"data"] isEqualToString:@"CURRENT"]) {
                 //保持当前计划
                 SuggestionKeepViewController *keepVC =[[SuggestionKeepViewController alloc] initWithNibName:@"SuggestionKeepViewController" bundle:nil];
                 [self.navigationController pushViewController:keepVC animated:YES];
-                
-//                SuggestGentleViewController *gentle =[[SuggestGentleViewController alloc] initWithNibName:@"SuggestGentleViewController" bundle:nil];
-//                
-//                [self.navigationController pushViewController:gentle animated:YES];
+
 
                 
-             } else if ([responseObject[@"data"] isEqualToString:@"E"]) {
-                //进入保持计划
+             } else if ([responseObject[@"data"] isEqualToString:@"PAUSE"]) {
+                //进入温柔计划，但不推送美白提醒
                 
                 SuggestSuspendViewController *keepVC =[[SuggestSuspendViewController alloc] initWithNibName:@"SuggestionKeepViewController" bundle:nil];
                 [self.navigationController pushViewController:keepVC animated:YES];

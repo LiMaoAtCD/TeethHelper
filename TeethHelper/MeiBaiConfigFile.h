@@ -13,6 +13,7 @@ typedef enum : NSUInteger {
     ENHANCE,
     STANDARD,
     GENTLE,
+    GENTLE_NoNotification,
     KEEP
 } MEIBAI_PROJECT;
 @interface MeiBaiConfigFile : NSObject

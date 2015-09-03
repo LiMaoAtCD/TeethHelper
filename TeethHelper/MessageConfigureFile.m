@@ -15,6 +15,10 @@
     return isOpen;
 }
 +(void)setOpenLocalNotification:(BOOL)open{
+    if (open == NO) {
+        [self cancelAlertNotification];
+    }
+    
     [[NSUserDefaults standardUserDefaults] setBool:open forKey:@"Local_Notification"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -24,6 +28,10 @@
     return isOpen;
 }
 +(void)setQuestionaireOpenLocalNotification:(BOOL)open{
+    
+    if (open == NO) {
+        [self cancelQuestionNotification];
+    }
     [[NSUserDefaults standardUserDefaults] setBool:open forKey:@"Local_question_Notification"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
