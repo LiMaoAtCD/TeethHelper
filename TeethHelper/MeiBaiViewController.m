@@ -228,6 +228,23 @@
             NSInteger times = [plan[@"times"] integerValue];
             [MeiBaiConfigFile setCureTimesEachDay:times];
             
+            //当前治疗类型：A标准计划B加强计划C温柔计划D自定义计划E保持计划
+            NSString *planType = plan[@"plantype"];
+            
+            if ([planType isEqualToString:@"E"]) {
+                [MeiBaiConfigFile setCurrentProject:KEEP];
+            } else if ([planType isEqualToString:@"A"]){
+                [MeiBaiConfigFile setCurrentProject:STANDARD];
+            }else if ([planType isEqualToString:@"B"]){
+                [MeiBaiConfigFile setCurrentProject:ENHANCE];
+
+            }else if ([planType isEqualToString:@"C"]){
+                [MeiBaiConfigFile setCurrentProject:GENTLE];
+
+            } else{
+                //自定义计划
+                [MeiBaiConfigFile setCurrentProject:USER_DEFINED];
+            }
             
             if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
                 //如果是治疗阶段

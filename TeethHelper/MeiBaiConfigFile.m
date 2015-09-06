@@ -107,6 +107,8 @@
 
         [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"cure_each_times"];
         [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"cure_days"];
+    } else{
+        // 自定义计划
     }
 
     

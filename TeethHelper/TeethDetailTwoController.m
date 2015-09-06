@@ -137,7 +137,7 @@
                         [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
                             NSLog(@"response %@",responseObject);
                             if ([responseObject[@"status"] integerValue] == 2000) {
-                                [MeiBaiConfigFile setCurrentProject:GENTLE];
+                                [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
                                 
                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];

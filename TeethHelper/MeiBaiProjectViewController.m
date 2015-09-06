@@ -294,7 +294,7 @@
             [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"response %@",responseObject);
                 if ([responseObject[@"status"] integerValue] == 2000) {
-                    [MeiBaiConfigFile setCurrentProject:GENTLE];
+                    [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
                     [self.tableView reloadData];
 
                 } else{

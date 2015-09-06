@@ -10,6 +10,7 @@
 
 
 typedef enum : NSUInteger {
+    USER_DEFINED,
     ENHANCE,
     STANDARD,
     GENTLE,

@@ -2943,7 +2943,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="DPI-et-hog" secondAttribute="trailing" constant="-16" id="I3a-Vc-X5R"/>
                             <constraint firstItem="DPI-et-hog" firstAttribute="top" secondItem="X4Q-aZ-jfI" secondAttribute="topMargin" id="KsQ-JF-L1A">
-                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="DPI-et-hog" firstAttribute="leading" secondItem="X4Q-aZ-jfI" secondAttribute="leadingMargin" constant="-16" id="uoJ-uE-H3M"/>
                         </constraints>
@@ -3052,7 +3052,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="cEW-u5-XGE" secondAttribute="trailing" constant="-16" id="Z4w-6l-3P7"/>
                             <constraint firstItem="cEW-u5-XGE" firstAttribute="leading" secondItem="N5q-19-Slz" secondAttribute="leadingMargin" constant="-16" id="jNz-5d-Xnu"/>
                             <constraint firstItem="cEW-u5-XGE" firstAttribute="top" secondItem="N5q-19-Slz" secondAttribute="topMargin" id="mEX-FP-Qct">
-                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
@@ -3158,7 +3158,7 @@
                         <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="vpR-Nb-JvS" firstAttribute="top" secondItem="zlQ-6F-X1D" secondAttribute="topMargin" id="5cg-B1-j6t">
-                                <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="vpR-Nb-JvS" secondAttribute="trailing" constant="-16" id="q7s-ba-jjY"/>
                             <constraint firstItem="vpR-Nb-JvS" firstAttribute="leading" secondItem="zlQ-6F-X1D" secondAttribute="leadingMargin" constant="-16" id="sdV-GN-mxN"/>
