@@ -418,8 +418,8 @@
                     
                     
                    NSInteger timesADay =  [MeiBaiConfigFile getCureTimesEachDay];
-                    //需要延迟3倍
-                    NSInteger delayTime = timesADay * 24;
+                    //需要延迟3倍,加3分钟为了防止本地时间比服务器时间早了，没有弹出问卷，弹出计时器了
+                    NSInteger delayTime = timesADay * 24 + 3;
 
                     [MessageConfigureFile setQuestionNotificationDelayMinute:delayTime];
                 }
@@ -431,24 +431,12 @@
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络出错"];
     }];
-    
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

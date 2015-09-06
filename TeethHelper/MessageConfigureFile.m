@@ -23,6 +23,20 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+//+(BOOL)isOpenMonthlyNotification{
+//    BOOL isOpen = [[NSUserDefaults standardUserDefaults] boolForKey:@"Local_Notification_monthly"];
+//    return isOpen;
+//}
+//+(void)setOpenMonthlyNotification:(BOOL)open{
+//    if (open == NO) {
+//        [self cancelMonthlyNotification];
+//    }
+//    
+//    [[NSUserDefaults standardUserDefaults] setBool:open forKey:@"Local_Notification_monthly"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//}
+
+
 +(BOOL)isQuestionaireOpen{
     BOOL isOpen = [[NSUserDefaults standardUserDefaults] boolForKey:@"Local_question_Notification"];
     return isOpen;
@@ -83,6 +97,52 @@
 }
 
 
++(void)setMonthlyNotification{
+    NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+    NSDate *now = [NSDate date];
+    // Break the date up into components
+    NSDateComponents *dateComponents = [calendar components:( NSCalendarUnitYear |       NSCalendarUnitMonth |  NSCalendarUnitDay )
+                                                   fromDate:now];
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setDay: [dateComponents day]];
+    [components setMonth: [dateComponents month]];
+    [components setYear: [dateComponents year]];
+    
+    [components setHour: 20];
+    [components setMinute: 0];
+    [components setSecond: 0];
+    
+    [calendar setTimeZone: [NSTimeZone defaultTimeZone]];
+    NSDate *dateToFire = [calendar dateFromComponents:components];
+    
+    [self cancelMonthlyNotification];
+    
+    
+    UILocalNotification *alarm = [[UILocalNotification alloc] init];
+    if (alarm) {
+        alarm.fireDate = dateToFire;
+        alarm.timeZone = [NSTimeZone defaultTimeZone];
+        alarm.repeatInterval = kCFCalendarUnitMonth;
+        alarm.alertBody = @"很久没有美白了,让牙齿美白一下吧";
+        alarm.alertAction = @"开始美白吧";
+        alarm.soundName = UILocalNotificationDefaultSoundName;
+        alarm.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
+    }
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:alarm];
+}
+
++(void)cancelMonthlyNotification{
+    NSArray *notificationArray = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for(UILocalNotification *notification in notificationArray){
+        if ([notification.alertBody isEqualToString:@"很久没有美白了,让牙齿美白一下吧"]) {
+            // delete this notification
+            [[UIApplication sharedApplication] cancelLocalNotification:notification] ;
+        }
+    }
+}
+
+
 +(void)setQuestionNotificationDelayMinute:(NSInteger)minute{
     
     [self cancelQuestionNotification];
@@ -99,8 +159,8 @@
     [components setYear: [dateComponents year]];
     
     [components setHour: [timeComponents hour]];
-    [components setMinute: [timeComponents minute] + minute];
-    [components setSecond: [timeComponents second]];
+    [components setMinute: [timeComponents minute]];
+    [components setSecond: [timeComponents second] + minute];
     
     [calendar setTimeZone: [NSTimeZone defaultTimeZone]];
     NSDate *dateToFire = [calendar dateFromComponents:components];

@@ -88,8 +88,11 @@
 //    加强计划 7*8 - 3天
     
     
-    //如果不是暂停计划或者咨询医生，关闭美白推送
+    //如果不是暂停计划或者咨询医生，关闭美白推送,
     [MessageConfigureFile setOpenLocalNotification:YES];
+    [MessageConfigureFile setQuestionaireOpenLocalNotification:YES];
+    [MessageConfigureFile cancelMonthlyNotification];
+
 
     if (project == GENTLE) {
         [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"cure_each_times"];
@@ -107,7 +110,16 @@
 
         [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"cure_each_times"];
         [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"cure_days"];
-    } else{
+    }else if(project == KEEP){
+        //关闭提醒
+        [MessageConfigureFile setOpenLocalNotification:NO];
+        [MessageConfigureFile setQuestionaireOpenLocalNotification:NO];
+        [MessageConfigureFile setMonthlyNotification];
+        //开启每月提醒
+        
+//        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"cure_each_times"];
+//        [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"cure_days"];
+    }else{
         // 自定义计划
     }
 

@@ -14,6 +14,14 @@
 +(BOOL)isOpenLocalNotification;
 +(void)setOpenLocalNotification:(BOOL)open;
 
+//开启每月提醒（保持计划）
++(void)setMonthlyNotification;
+//关闭每月提醒
++(void)cancelMonthlyNotification;
+
+// 是否开启每月通知
+//+(BOOL)isOpenMonthlyNotification;
+//+(void)setOpenMonthlyNotification;
 
 // 是否开启本地问卷通知
 +(BOOL)isQuestionaireOpen;
