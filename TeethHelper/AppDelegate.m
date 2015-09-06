@@ -143,13 +143,23 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 
 
+    BOOL isTimerGoing  = [[NSUserDefaults standardUserDefaults] boolForKey:@"timer_view_going"];
     
+    if (isTimerGoing) {
+        //从计时器页面进入的后台
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"kNotificationForResignAndActive" object:@{@"duration":@(distanceBetweenDates)}];
+    }
     
     
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    //如果是在计时页面关闭app，则设置不在计时页面
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"timer_view_going"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

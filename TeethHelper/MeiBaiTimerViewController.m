@@ -115,8 +115,6 @@
     }
     
     [self.view addSubview:_alienView];
-    
-    
     self.totalCount = _previousMinutes * 60;
 }
 -(void)pop{
@@ -136,43 +134,66 @@
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"timer_view_going"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addDurationsFromResignAndActive:) name:@"kNotificationForResignAndActive" object:nil];
+    
+}
+
+-(void)addDurationsFromResignAndActive:(NSNotification *)notification{
+    
+    NSDictionary *temp = [notification object];
+    NSTimeInterval duration  = [temp[@"duration"] doubleValue];
+    
+    self.totalCount += (NSInteger)duration;
+    
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+  
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+    [self.timer invalidate];
+    self.timer = nil;
+    
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"timer_view_going"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)timerCount:(id)sender{
     self.totalCount++;
     
     int inputSeconds = (int)self.totalCount;
-    //    int hours =  inputSeconds / 3600;
     int minutes = inputSeconds / 60;
     int seconds = inputSeconds  - minutes * 60;
     
-    if (minutes >= 99 && seconds >= 59) {
-        
+    if (self.totalCount >= 99 * 60 + 59 ) {
+        self.totalCount =  99 * 60 + 59;
         [self.timer invalidate];
+      
         minutes = 99;
         seconds = 59;
     }
+
     
     NSString *theTime = [NSString stringWithFormat:@"%.2d'%.2d\"", minutes, seconds];
     
     [self.alienView animateToSeconds:self.totalCount];
-    self.alienView.timerLabel.text = theTime;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.TextLabel.text = [NSString stringWithFormat:@"您当前已使用仪器%.2d:%.2d分钟",minutes,seconds];
     
-        });
+    self.alienView.timerLabel.text = theTime;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.TextLabel.text = [NSString stringWithFormat:@"您当前已使用仪器%.2d:%.2d分钟",minutes,seconds];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
-    [super viewWillDisappear:animated];
-    [self.timer invalidate];
-    self.timer = nil;
 }
 
 

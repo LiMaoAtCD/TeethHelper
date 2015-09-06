@@ -294,7 +294,7 @@
                     NSTimeInterval distanceBetweenDates = [sysDate timeIntervalSinceDate:beginDate];
                     
                     double secondsInAnHour = 60;
-                    NSInteger hoursBetweenDates = distanceBetweenDates / secondsInAnHour;
+                    NSInteger minutesBetweenDates = distanceBetweenDates / secondsInAnHour;
                     
                     
                     //获取计划时间
@@ -303,7 +303,7 @@
                     
                     NSInteger ProjectTime = times * 24;
                     
-                    if (hoursBetweenDates > ProjectTime) {
+                    if (minutesBetweenDates > ProjectTime) {
                         //超过三倍计划时间了
                         
                         //并且不是保持计划
@@ -311,6 +311,7 @@
                             //问卷
                             
                             ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
+                            questionVC.hidesBottomBarWhenPushed = YES;
                             [self.navigationController pushViewController:questionVC animated:YES];
                         } else {
                             //不做任何东西，理论上不应该出现这个情况，因为超过三倍时间直接记录完成了，没有white
@@ -318,7 +319,7 @@
                         
                     } else{
                         //没有超过三倍时间，计时器继续计时
-                       NSInteger previousCost = ProjectTime - hoursBetweenDates;
+                       NSInteger previousCost = minutesBetweenDates;
                         
                         MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] init];
                         projectVC.hidesBottomBarWhenPushed = YES;
@@ -387,7 +388,7 @@
             
             [SVProgressHUD dismiss];
             
-            MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] initWithNibName:@"MeibaiProjectController" bundle:nil];
+            MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] initWithNibName:@"MeiBaiTimerViewController" bundle:nil];
             projectVC.hidesBottomBarWhenPushed = YES;
             projectVC.previousMinutes = 0;
 

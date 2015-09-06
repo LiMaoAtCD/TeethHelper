@@ -393,9 +393,6 @@
                 //保持当前计划
                 SuggestionKeepViewController *keepVC =[[SuggestionKeepViewController alloc] initWithNibName:@"SuggestionKeepViewController" bundle:nil];
                 [self.navigationController pushViewController:keepVC animated:YES];
-
-
-                
              } else if ([responseObject[@"data"] isEqualToString:@"PAUSE"]) {
                 //进入温柔计划，但不推送美白提醒
                 
