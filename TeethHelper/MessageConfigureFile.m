@@ -159,8 +159,8 @@
     [components setYear: [dateComponents year]];
     
     [components setHour: [timeComponents hour]];
-    [components setMinute: [timeComponents minute]];
-    [components setSecond: [timeComponents second] + minute];
+    [components setMinute: [timeComponents minute]+ minute];
+    [components setSecond: [timeComponents second]];
     
     [calendar setTimeZone: [NSTimeZone defaultTimeZone]];
     NSDate *dateToFire = [calendar dateFromComponents:components];
