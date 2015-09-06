@@ -25,6 +25,9 @@
 @property(nonatomic, strong) NSMutableArray *dayArr;
 @property(nonatomic, strong) NSMutableArray *timesArr;
 
+@property (nonatomic, assign) NSInteger processDay;
+@property (nonatomic, assign) long planID;
+
 @end
 
 @implementation MeiBaiProjectViewController
@@ -35,20 +38,52 @@
     [Utils ConfigNavigationBarWithTitle:@"美白计划" onViewController:self];
     
     
+    [SVProgressHUD show];
+    [NetworkManager FetchCurrrentProjectWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"responseObject: %@",responseObject);
+        
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            [SVProgressHUD dismiss];
+            
+            self.processDay = [responseObject[@"data"][@"processed"] integerValue];
+            self.planID = [responseObject[@"data"][@"id"] integerValue];
+        } else{
+            [SVProgressHUD showErrorWithStatus:@"当前美白计划获取失败"];
+        }
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        
+    }];
+    
     //美白计划选择数组
     self.dayArr =[NSMutableArray array];
     self.timesArr =[NSMutableArray array];
-    for (int i =3; i < 16; i++) {
-        
-        NSString *dayString = [NSString stringWithFormat:@"%d 天",i];
-        [self.dayArr addObject:dayString];
-    }
     
-    for (int i =3; i < 8; i++) {
+    if (self.processDay > 3) {
+        for (int i = (int)self.processDay; i < 16; i++) {
+            
+            NSString *dayString = [NSString stringWithFormat:@"%d 天",i];
+            [self.dayArr addObject:dayString];
+        }
+    } else{
+        
+        for (int i = 3; i < 16; i++) {
+            
+            NSString *dayString = [NSString stringWithFormat:@"%d 天",i];
+            [self.dayArr addObject:dayString];
+        }
+    }
+  
+    
+    for (int i = 3; i < 8; i++) {
         
         NSString *dayString = [NSString stringWithFormat:@"%d * 8 分钟",i];
         [self.timesArr addObject:dayString];
     }
+    
+    
+    
+    
 }
 
 -(void)pop{
@@ -350,24 +385,57 @@
     if (type == Times) {
         //选择了时长
         
-        [MeiBaiConfigFile setCureTimesEachDay:(3+ index)];
+        [SVProgressHUD show];
+        [NetworkManager ModifyTimes:(3+ index) Days:[MeiBaiConfigFile getNeedCureDays] OnPlanID:self.planID WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                [MeiBaiConfigFile setCureTimesEachDay:(3 + index)];
+                [self.tableView reloadData];
+
+            } else{
+                [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
+            }
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        }];
         
     }else{
-        [MeiBaiConfigFile setNeedCureDays:(3 + index)];
+        //选择天数
+        
+        if (self.processDay <= 3) {
+            [NetworkManager ModifyTimes:[MeiBaiConfigFile getCureTimesEachDay] Days:(3 + index) OnPlanID:self.planID WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                    [MeiBaiConfigFile setNeedCureDays:(3 + index)];
+                    [self.tableView reloadData];
+
+                } else{
+                    [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
+                }
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
+            
+
+        } else{
+
+            [NetworkManager ModifyTimes:[MeiBaiConfigFile getCureTimesEachDay] Days:(3 + index) OnPlanID:self.planID WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    [SVProgressHUD showSuccessWithStatus:@"修改成功"];
+                    [MeiBaiConfigFile setNeedCureDays:(self.processDay + index)];
+                    [self.tableView reloadData];
+
+                } else{
+                    [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
+                }
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
+        }
     }
     
-    [self.tableView reloadData];
 }
 
-/*
- 
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

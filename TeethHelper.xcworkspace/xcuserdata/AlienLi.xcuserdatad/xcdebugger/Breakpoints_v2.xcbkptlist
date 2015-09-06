@@ -90,7 +90,7 @@
                   moduleName = "TeethHelper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/PostTopicViewController.m"
-                  timestampString = "463236328.333671"
+                  timestampString = "463245631.020141"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "359"
@@ -105,7 +105,7 @@
                   moduleName = "TeethHelper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/PostTopicViewController.m"
-                  timestampString = "463236328.333875"
+                  timestampString = "463245631.020361"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "359"
@@ -122,12 +122,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeethHelper/MeiBaiViewController.m"
-            timestampString = "463236328.284237"
+            timestampString = "463239672.784041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeethHelper/MeiBaiProjectViewController.m"
+            timestampString = "463244828.977837"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
+            landmarkName = "-didSelectedIndexAt:OnType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

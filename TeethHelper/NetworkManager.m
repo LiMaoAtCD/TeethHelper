@@ -304,4 +304,37 @@
     [manager GET:url parameters:nil success:completionHandler failure:failHandler];
 
 }
+
+
+
+
++(void)FetchCurrrentProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSString *URL = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/plan?accessToken=%@",[AccountManager getTokenID]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:URL parameters:nil success:completionHandler failure:failHandler];
+
+}
++(void)ModifyTimes:(NSInteger)times Days:(NSInteger)days OnPlanID:(long)planID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    dictionary[@"times"] = @(times);
+    dictionary[@"days"] = @(days);
+    dictionary[@"id"] = @(planID);
+    
+    NSString *url = @"http://www.7wang523.com/teeth-api/plan/cure/edit";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
++(void)SwitchCurrentProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSString *URL = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/plan/switch?accessToken=%@",[AccountManager getTokenID]];
+    
+      AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:URL parameters:nil success:completionHandler failure:failHandler];
+
+}
+
 @end

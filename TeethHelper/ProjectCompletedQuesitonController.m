@@ -22,6 +22,8 @@
 #import "SuggestSuspendViewController.h"
 #import "SuggestStanstardViewController.h"
 
+#import "MessageConfigureFile.h"
+
 @interface ProjectCompletedQuesitonController ()<RSliderViewDelegate>
 
 
@@ -383,11 +385,13 @@
             break;
     }
     
-    
     [NetworkManager CompletedMeibaiQuestionByTotalTime:ans1String feel:ans2String WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"responseobejct : %@",responseObject);
         if ([responseObject[@"status"] integerValue] == 2000) {
+            
+            //如果完成问卷，不弹出问卷提醒了
+            [MessageConfigureFile cancelQuestionNotification];
             
             if ([responseObject[@"data"] isEqualToString:@"CURRENT"]) {
                 //保持当前计划

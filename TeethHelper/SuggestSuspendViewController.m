@@ -11,6 +11,9 @@
 #import <Masonry.h>
 #import "MeiBaiConfigFile.h"
 
+#import "NetworkManager.h"
+#import <SVProgressHUD.h>
+
 @interface SuggestSuspendViewController ()
 
 @end
@@ -130,9 +133,29 @@
 
 -(void)sure:(id)sender{
     //调整至温柔计划,不推送
-    [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [SVProgressHUD showWithStatus:@"正在调整计划"];
+    
+//    A标准计划B加强计划C温柔计划E保养计划,如果7.3接口返回了PAUSE,则传入C，即使用温柔计划
+    [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
+            [SVProgressHUD dismiss];
+
+        } else{
+            [SVProgressHUD showErrorWithStatus:@"计划调整失败"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+        
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+
+    }];
+    
+    
 }
 
 -(void)goOn:(id)sender{

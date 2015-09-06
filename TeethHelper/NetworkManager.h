@@ -276,4 +276,27 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 
 
 
+
+
+/**
+ *  查询当前美白计划
+ *
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)FetchCurrrentProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+/**
+ *  修改次数或天数
+ *
+ *  @param times             次数
+ *  @param days              天数
+ *  @param planID            计划ID
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)ModifyTimes:(NSInteger)times Days:(NSInteger)days OnPlanID:(long)planID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+//切换当前计划
++(void)SwitchCurrentProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end
