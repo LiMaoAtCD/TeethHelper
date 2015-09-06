@@ -10,6 +10,6 @@
 
 @interface MeiBaiTimerViewController : UIViewController
 
-@property (nonatomic, assign) NSInteger previousMinutes;
+@property (nonatomic, assign) NSInteger previousSeconds;
 
 @end

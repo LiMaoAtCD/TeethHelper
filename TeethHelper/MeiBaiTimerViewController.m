@@ -115,7 +115,7 @@
     }
     
     [self.view addSubview:_alienView];
-    self.totalCount = _previousMinutes * 60;
+    self.totalCount = _previousSeconds;
 }
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];

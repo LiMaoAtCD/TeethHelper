@@ -90,7 +90,7 @@
                   moduleName = "TeethHelper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/PostTopicViewController.m"
-                  timestampString = "463217830.232905"
+                  timestampString = "463234676.34376"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "359"
@@ -105,7 +105,7 @@
                   moduleName = "TeethHelper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/AlienLi/Desktop/TeethHelper/TeethHelper/PostTopicViewController.m"
-                  timestampString = "463217830.233478"
+                  timestampString = "463234676.343985"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "359"
@@ -113,6 +113,22 @@
                   offsetFromSymbolStart = "80">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeethHelper/MeiBaiViewController.m"
+            timestampString = "463233761.553426"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

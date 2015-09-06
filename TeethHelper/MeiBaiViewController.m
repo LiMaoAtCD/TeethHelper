@@ -93,6 +93,7 @@
     //    self.alienView = [[AlienView alloc] initWithFrame:CGRectMake(CircleMargin, 130, width - CircleMargin * 2, width - CircleMargin * 2)];
 //    self.alienView.day = @"10";
     
+    self.alienView.day = @"0";
     [self.view addSubview:_alienView];
     
     
@@ -186,7 +187,7 @@
     }];
     
     //保持天数
-    _gray4View = [[ALienGrayView alloc] initWithDays:99 forType:@"次/天"];
+    _gray4View = [[ALienGrayView alloc] initWithDays:0 forType:@"次/天"];
     
     [self.view addSubview:_gray4View];
     
@@ -319,11 +320,10 @@
                         
                     } else{
                         //没有超过三倍时间，计时器继续计时
-                       NSInteger previousCost = minutesBetweenDates;
                         
                         MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] init];
                         projectVC.hidesBottomBarWhenPushed = YES;
-                        projectVC.previousMinutes = previousCost;
+                        projectVC.previousSeconds = distanceBetweenDates;
                         [self.navigationController pushViewController:projectVC animated:YES];
                         
                         
@@ -390,7 +390,7 @@
             
             MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] initWithNibName:@"MeiBaiTimerViewController" bundle:nil];
             projectVC.hidesBottomBarWhenPushed = YES;
-            projectVC.previousMinutes = 0;
+            projectVC.previousSeconds = 0;
 
             [self.navigationController pushViewController:projectVC animated:YES];
             
