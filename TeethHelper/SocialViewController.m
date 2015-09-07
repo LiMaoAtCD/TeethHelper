@@ -63,15 +63,21 @@ static const NSInteger PageSize = 20;
         [self loadData];
     }];
     
-    [self.tableView.header beginRefreshing];
     
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self loadMoreData];
     }];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [self.tableView.header beginRefreshing];
+
 }
 -(void)loadData{
     [NetworkManager fetchPostsByStartIndex:0 pageSize:PageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {

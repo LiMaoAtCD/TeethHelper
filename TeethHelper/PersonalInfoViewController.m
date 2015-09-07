@@ -94,6 +94,8 @@
 
             if (gender) {
                 cell.contentLabel.text = gender;
+            } else{
+                cell.contentLabel.text = @"";
             }
 
         } else if (indexPath.row == 3){
@@ -113,15 +115,11 @@
         } else if (indexPath.row == 5){
 //            地址
             NSString *address = [AccountManager getAddress];
-            
             cell.contentLabel.text = address;
-
         }
         
         return cell;
     }
-    
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
