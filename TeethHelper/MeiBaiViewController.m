@@ -22,6 +22,7 @@
 
 #import "NetworkManager.h"
 #import <SVProgressHUD.h>
+#import "AccountManager.h"
 
 
 @interface MeiBaiViewController ()
@@ -203,6 +204,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
+    
+    if (![AccountManager isLogin]) {
+        return;
+    }
     
     [NetworkManager fetchFirstPageWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 2000) {
