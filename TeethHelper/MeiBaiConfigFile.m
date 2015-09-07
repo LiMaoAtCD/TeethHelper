@@ -104,13 +104,13 @@
         
         [[NSUserDefaults standardUserDefaults] setInteger:4 forKey:@"cure_each_times"];
         [[NSUserDefaults standardUserDefaults] setInteger:5 forKey:@"cure_days"];
-    }else if(project == GENTLE_NoNotification){
+    } else if(project == GENTLE_NoNotification){
         //关闭提醒
         [MessageConfigureFile setOpenLocalNotification:NO];
 
         [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"cure_each_times"];
         [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"cure_days"];
-    }else if(project == KEEP){
+    } else if(project == KEEP){
         //关闭提醒
         [MessageConfigureFile setOpenLocalNotification:NO];
         [MessageConfigureFile setQuestionaireOpenLocalNotification:NO];
@@ -119,7 +119,7 @@
         
 //        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"cure_each_times"];
 //        [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"cure_days"];
-    }else{
+    } else{
         // 自定义计划
         
     }
@@ -133,7 +133,6 @@
     NSInteger level = [[NSUserDefaults standardUserDefaults] integerForKey:@"Current_project"];
     
     return level;
-    
 }
 
 
