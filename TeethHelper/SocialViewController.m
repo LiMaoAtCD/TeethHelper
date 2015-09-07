@@ -107,7 +107,6 @@ static const NSInteger PageSize = 20;
                         [self.tableView.footer resetNoMoreData];
                     }
                 }
-             
             }
         } else {
             [SVProgressHUD showErrorWithStatus:@"获取失败"];

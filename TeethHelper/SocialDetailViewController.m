@@ -103,7 +103,7 @@
     //请求
     [SVProgressHUD showWithStatus:@"正在获取详情"];
     [NetworkManager fetchTopicDetailByTopicID:self.topicDetail[@"id"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
         
         if ([responseObject[@"status"] integerValue] == 2000) {
             //
@@ -276,6 +276,10 @@
         
         DetailReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailReplyCell" forIndexPath:indexPath];
         
+        //TODO: 昵称
+        NSString *nickName = self.comments[indexPath.row][@"nickName"];
+        
+        cell.nameLabel.text = nickName;
 //        cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.comments] placeholderImage:<#(UIImage *)#>
         [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.comments[indexPath.row][@"avatar"]] placeholderImage:[UIImage imageNamed:@"img_head"]];
         
@@ -425,7 +429,11 @@
     NSString *reply = comment;
     NSString *sex = [AccountManager getGender];
     
-    NSDictionary *mycommentsItems = @{@"avatar":avatar,@"createTime":createTime, @"reply":reply,@"sex":sex};
+    if (sex == nil || [sex isKindOfClass:[NSNull class]]) {
+        sex = @"男";
+    }
+    
+    NSDictionary *mycommentsItems = @{@"avatar":avatar,@"createTime":createTime, @"reply":reply,@"sex":sex,@"nickName":[AccountManager getName]};
 
     [self.comments addObject:mycommentsItems];
     
