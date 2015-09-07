@@ -36,7 +36,7 @@
 
 -(void)fetchProductInfo{
     
-    [SVProgressHUD showWithStatus:@"正在获取产品信息"];
+//    [SVProgressHUD showWithStatus:@"正在获取产品信息"];
     [NetworkManager fetchProductInfoWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
         if ([responseObject[@"status"] integerValue] == 2000) {
@@ -59,16 +59,11 @@
             }];
             
             
-            [SVProgressHUD dismiss];
-
-            
         } else{
-            [SVProgressHUD showErrorWithStatus:@"产品信息获取失败"];
-
         }
         
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+
     }];
 }
 

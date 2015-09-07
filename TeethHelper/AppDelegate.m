@@ -25,6 +25,8 @@
 
 #import "WXApi.h"
 
+#import "ProductConfigFile.h"
+
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -129,10 +131,11 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 
-//    if ([AccountManager isLogin]) {
-//        //获取首页数据
+    if ([AccountManager isLogin]) {
+        //获取首页数据
 //        [self fetchFirstPageData];
-//    }
+        [self fetchProductInfo];
+    }
     
     NSDate *previousDate =[[NSUserDefaults standardUserDefaults] objectForKey:@"user_timer_previous"];
     
@@ -272,6 +275,37 @@
 }
 
 
+-(void)fetchProductInfo{
+    
+    //    [SVProgressHUD showWithStatus:@"正在获取产品信息"];
+    [NetworkManager fetchProductInfoWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            NSArray *data = responseObject[@"data"];
+            
+            [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSDictionary *temp = obj;
+                
+                if ([temp[@"type"] integerValue] == 1) {
+                    
+                    [ProductConfigFile setProductIntroduceSource:temp[@"source"]];
+                    [ProductConfigFile setProductIntroduceSourceThumb:temp[@"thumb"]];
+                } else if ([temp[@"type"] integerValue] == 2) {
+                    [ProductConfigFile setProductGuideSource:temp[@"source"]];
+                    [ProductConfigFile setProductGuideSourceThumb:temp[@"thumb"]];
+                    
+                } else{
+                    [ProductConfigFile setMeiBaiJiaoourceThumb:temp[@"source"]];
+                }
+            }];
+            
+            
+        } else{
+        }
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+}
 
 
 -(void)fetchFirstPageData{
