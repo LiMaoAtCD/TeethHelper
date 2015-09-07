@@ -138,7 +138,7 @@
                         //
                         [SVProgressHUD showWithStatus:@"正在调整计划"];
                         
-                        [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        [NetworkManager ModifyProject:@"F" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
                             NSLog(@"response %@",responseObject);
                             if ([responseObject[@"status"] integerValue] == 2000) {
                                 [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];

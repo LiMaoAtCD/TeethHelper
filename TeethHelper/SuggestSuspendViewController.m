@@ -136,8 +136,8 @@
     
     [SVProgressHUD showWithStatus:@"正在调整计划"];
     
-//    A标准计划B加强计划C温柔计划E保养计划,如果7.3接口返回了PAUSE,则传入C，即使用温柔计划
-    [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //A标准计划B加强计划C温柔计划D自定义计划E保持计划F咨询医生PAUSE暂停
+    [NetworkManager ModifyProject:@"PAUSE" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 2000) {
             [self.navigationController popToRootViewControllerAnimated:YES];
             [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];

@@ -121,6 +121,7 @@
 //        [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:@"cure_days"];
     }else{
         // 自定义计划
+        
     }
 
     
