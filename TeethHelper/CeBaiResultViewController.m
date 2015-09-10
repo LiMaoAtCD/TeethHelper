@@ -17,7 +17,9 @@
 #import "NetworkManager.h"
 #import <SVProgressHUD.h>
 
-@interface CeBaiResultViewController ()
+#import "WeChatShareSocialViewController.h"
+
+@interface CeBaiResultViewController ()<ShareToSocialDelegate>
 
 
 @property (nonatomic, assign) NSInteger Level;
@@ -331,18 +333,28 @@
 
 #pragma mark - 分享至社区
 -(void)ShareToSocial:(id)sender{
-    PostToSocialController *postVC = [[PostToSocialController alloc] initWithNibName:@"PostToSocialController" bundle:nil];
     
+    WeChatShareSocialViewController *wechatShare = [[WeChatShareSocialViewController alloc] initWithNibName:@"WeChatShareSocialViewController" bundle:nil];
+    wechatShare.delegate = self;
+    wechatShare.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
-    UIImage *image = [self loadImage];
-    if (image != nil) {
-        postVC.firstImage = image;
-    }
-    postVC.secondImage = self.image;
-    postVC.beatRateString = [self beatRateFromLevel:self.Level];
+    [self showDetailViewController:wechatShare sender:self];
+}
 
-    postVC.levelString = [NSString stringWithFormat:@"N%ld",self.Level];
-    [self.navigationController pushViewController:postVC animated:YES];
+-(void)didShareToSocialClicked{
+    
+        PostToSocialController *postVC = [[PostToSocialController alloc] initWithNibName:@"PostToSocialController" bundle:nil];
+    
+        UIImage *image = [self loadImage];
+    
+        if (image != nil) {
+            postVC.firstImage = image;
+        }
+        postVC.secondImage = self.image;
+        postVC.beatRateString = [self beatRateFromLevel:self.Level];
+    
+        postVC.levelString = [NSString stringWithFormat:@"N%ld",self.Level];
+        [self.navigationController pushViewController:postVC animated:YES];
 }
 
 -(void)pop{

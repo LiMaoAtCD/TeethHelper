@@ -111,6 +111,8 @@
 		87D533FB1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533FA1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m */; };
 		87D533FE1B7ADF5600F3D6BE /* MeiBaiOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */; };
 		87D534011B7ADF6300F3D6BE /* MeiBaiTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */; };
+		87D8BBD81BA160950049CC00 /* WeChatShareSocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D8BBD61BA160950049CC00 /* WeChatShareSocialViewController.m */; };
+		87D8BBD91BA160950049CC00 /* WeChatShareSocialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D8BBD71BA160950049CC00 /* WeChatShareSocialViewController.xib */; };
 		87DABF501B7D801A0051DE31 /* QuestionAnalysizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DABF4E1B7D801A0051DE31 /* QuestionAnalysizeController.m */; };
 		87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87DABF4F1B7D801A0051DE31 /* QuestionAnalysizeController.xib */; };
 		87E2AB351B77578A001ED07F /* MessageNotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E2AB341B77578A001ED07F /* MessageNotificationController.m */; };
@@ -345,6 +347,9 @@
 		87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiOneCell.m; sourceTree = "<group>"; };
 		87D533FF1B7ADF6300F3D6BE /* MeiBaiTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiTwoCell.h; sourceTree = "<group>"; };
 		87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiTwoCell.m; sourceTree = "<group>"; };
+		87D8BBD51BA160950049CC00 /* WeChatShareSocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatShareSocialViewController.h; sourceTree = "<group>"; };
+		87D8BBD61BA160950049CC00 /* WeChatShareSocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatShareSocialViewController.m; sourceTree = "<group>"; };
+		87D8BBD71BA160950049CC00 /* WeChatShareSocialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeChatShareSocialViewController.xib; sourceTree = "<group>"; };
 		87DABF4D1B7D801A0051DE31 /* QuestionAnalysizeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionAnalysizeController.h; sourceTree = "<group>"; };
 		87DABF4E1B7D801A0051DE31 /* QuestionAnalysizeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionAnalysizeController.m; sourceTree = "<group>"; };
 		87DABF4F1B7D801A0051DE31 /* QuestionAnalysizeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionAnalysizeController.xib; sourceTree = "<group>"; };
@@ -998,6 +1003,9 @@
 				87E2AF0C1B855E92002FC28A /* WechatShareViewController.h */,
 				87E2AF0D1B855E92002FC28A /* WechatShareViewController.m */,
 				87E2AF0E1B855E92002FC28A /* WechatShareViewController.xib */,
+				87D8BBD51BA160950049CC00 /* WeChatShareSocialViewController.h */,
+				87D8BBD61BA160950049CC00 /* WeChatShareSocialViewController.m */,
+				87D8BBD71BA160950049CC00 /* WeChatShareSocialViewController.xib */,
 			);
 			name = WechatShare;
 			sourceTree = "<group>";
@@ -1159,6 +1167,7 @@
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				873EAE811B949A3200445728 /* SuggestionKeepViewController.xib in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
+				87D8BBD91BA160950049CC00 /* WeChatShareSocialViewController.xib in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */,
 				87FAFCEC1B8B7508000CB8F4 /* DetailReplyCell.xib in Resources */,
@@ -1243,6 +1252,7 @@
 				87E2AB621B78AFA3001ED07F /* AvatarCell.m in Sources */,
 				874249921B798D0600F6DB69 /* TeethDetailThreeController.m in Sources */,
 				87911F511B8B500A000E9218 /* SocialDetailTwoCell.m in Sources */,
+				87D8BBD81BA160950049CC00 /* WeChatShareSocialViewController.m in Sources */,
 				87C1EED21B8F5D2A00CA191E /* FirstCeBaiViewController.m in Sources */,
 				870A65DD1B77227100A51B26 /* AppDelegate.m in Sources */,
 				87E2AB5D1B7884CF001ED07F /* QRCodeAnimator.m in Sources */,
