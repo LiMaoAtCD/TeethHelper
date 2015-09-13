@@ -11,6 +11,8 @@
 #import <SVProgressHUD.h>
 #import "NetworkManager.h"
 #import "AccountManager.h"
+#import "QuestionsConfigFile.h"
+
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nickNameTextField;
@@ -148,8 +150,23 @@
                     [SVProgressHUD showSuccessWithStatus:@"注册成功"];
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self dismissViewControllerAnimated:YES completion:nil];
+//                        [self dismissViewControllerAnimated:NO completion:nil];
+//                        
+//                        [QuestionsConfigFile setCompletedInitialQuestions:NO];
+//                        [AccountManager setCompletedFirstCeBai:NO];
+//                        [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+//
+                         [QuestionsConfigFile setCompletedInitialQuestions:NO];
+                        [AccountManager setCompletedFirstCeBai:NO];
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+                        
+                        [self dismissViewControllerAnimated:YES completion:^{
+                            [QuestionsConfigFile setCompletedInitialQuestions:NO];
+                            [AccountManager setCompletedFirstCeBai:NO];
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+                        
+                        }];
+
                     });
                     
                 } else if ([responseObject[@"status"] integerValue] == 1008){
@@ -255,9 +272,6 @@
         [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
         
     } else {
-        _count = 60;
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
-        [self.timer fire];
         
         [SVProgressHUD showWithStatus:@"正在获取验证码"];
 
@@ -265,6 +279,11 @@
             NSLog(@"responseObject:%@",responseObject);
             if ([responseObject[@"status"] integerValue] == 2000) {
                 [SVProgressHUD showSuccessWithStatus:@"验证码获取成功"];
+                
+                _count = 60;
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+                [self.timer fire];
+
             } else if ([responseObject[@"status"] integerValue] == 3002){
                 [SVProgressHUD showErrorWithStatus:@"该手机号码已经注册"];
             }

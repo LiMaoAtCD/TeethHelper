@@ -119,9 +119,7 @@
         
     } else {
         //TODO : 获取验证码
-        _count = 60;
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
-        [self.timer fire];
+     
         
         [SVProgressHUD showWithStatus:@"正在获取验证码"];
         [NetworkManager FetchForgetVerifyCode:self.phone withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -130,6 +128,9 @@
             if ([responseObject[@"status"] integerValue] == 2000) {
                 [SVProgressHUD showSuccessWithStatus:@"验证码获取成功"];
                 
+                _count = 60;
+                self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+                [self.timer fire];
                 
             } else if([responseObject[@"status"] integerValue] == 3001){
                 [SVProgressHUD showErrorWithStatus:@"该手机号码尚未注册"];
