@@ -11,6 +11,7 @@
 #import "RS_SliderView.h"
 #import <Masonry.h>
 #import "TeethStateConfigureFile.h"
+#import "AccountManager.h"
 
 @interface QuestionTwoViewController ()<RSliderViewDelegate>
 
@@ -86,6 +87,7 @@
     
     [TeethStateConfigureFile setGender:0];
 
+    [AccountManager setgender:@"男"];
     
 }
 
@@ -107,10 +109,13 @@
     
     if (sender.value > 0.5) {
         [TeethStateConfigureFile setGender:1];
+        [AccountManager setgender:@"女"];
+
         [sender setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
         }];
     } else{
         [TeethStateConfigureFile setGender:0];
+        [AccountManager setgender:@"男"];
 
         [sender setValue:0.0 withAnimation:YES completion:^(BOOL finished) {
             

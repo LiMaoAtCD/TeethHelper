@@ -87,6 +87,8 @@
     }];
     
     self.isStrongWill = YES;
+    [TeethStateConfigureFile WillStrong:YES];
+
 }
 -(void)sliderValueChanged:(RS_SliderView *)sender {
     if (sender.value < 0.5) {

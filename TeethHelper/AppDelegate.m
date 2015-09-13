@@ -64,7 +64,7 @@
     if (!isLogin) {
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
         _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"LoginSuccess" object:nil];
+       
 
         self.window.rootViewController = _loginVC;
         [self.window makeKeyAndVisible];
@@ -77,6 +77,8 @@
     [WXApi registerApp:@"wxc213130fe4f9b110"];
     
     [self configRate];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"LoginSuccess" object:nil];
     
     return YES;
 }
