@@ -67,46 +67,79 @@ static const NSInteger PageSize = 20;
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self loadMoreData];
     }];
+    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    
 
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    
+//    [self loadData];
     [self.tableView.header beginRefreshing];
+
 
 }
 -(void)loadData{
+//    [NetworkManager fetchPostsByStartIndex:0 pageSize:PageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        [self.tableView.header endRefreshing];
+//
+//        if ([responseObject[@"status"] integerValue] == 2000) {
+//            NSArray *data = responseObject[@"data"];
+//            //判断是不是第一次
+//            
+//            if (self.dataItems.count == 0) {
+//                //第一次
+//                self.dataItems = [data mutableCopy];
+//                [self.tableView reloadData];
+//                self.currentIndex = self.dataItems.count;
+//                
+//                if (self.currentIndex < PageSize) {
+//                    [self.tableView.footer noticeNoMoreData];
+//                }
+//            } else{
+//                if (data.count > 0) {
+//                    if ([self.dataItems[0][@"createTime"] isEqualToString:data[0][@"createTime"]]) {
+//                        //如果没有新数据
+//                    } else{
+//                        self.dataItems = [data mutableCopy];
+//                        self.currentIndex = self.dataItems.count;
+//                        [self.tableView reloadData];
+//                        [self.tableView.footer resetNoMoreData];
+//                    }
+//                }
+//            }
+//        } else {
+//            [SVProgressHUD showErrorWithStatus:@"获取失败"];
+//        }
+//    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+//        [self.tableView.header endRefreshing];
+//    }];
+    
     [NetworkManager fetchPostsByStartIndex:0 pageSize:PageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.tableView.header endRefreshing];
-
+        
         if ([responseObject[@"status"] integerValue] == 2000) {
             NSArray *data = responseObject[@"data"];
             //判断是不是第一次
             
-            if (self.dataItems.count == 0) {
-                //第一次
-                self.dataItems = [data mutableCopy];
+            self.dataItems = [data mutableCopy];
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
-                self.currentIndex = self.dataItems.count;
-                
-                if (self.currentIndex < PageSize) {
-                    [self.tableView.footer noticeNoMoreData];
-                }
-            } else{
-                if (data.count > 0) {
-                    if ([self.dataItems[0][@"createTime"] isEqualToString:data[0][@"createTime"]]) {
-                        //如果没有新数据
-                    } else{
-                        self.dataItems = [data mutableCopy];
-                        self.currentIndex = self.dataItems.count;
-                        [self.tableView reloadData];
-                        [self.tableView.footer resetNoMoreData];
-                    }
-                }
+
+//            });
+            
+            self.currentIndex = self.dataItems.count;
+            
+            if (self.currentIndex < PageSize) {
+                [self.tableView.footer noticeNoMoreData];
             }
         } else {
             [SVProgressHUD showErrorWithStatus:@"获取失败"];

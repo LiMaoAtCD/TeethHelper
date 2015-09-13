@@ -281,7 +281,12 @@
         
         cell.nameLabel.text = nickName;
 //        cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.comments] placeholderImage:<#(UIImage *)#>
-        [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.comments[indexPath.row][@"avatar"]] placeholderImage:[UIImage imageNamed:@"img_head"]];
+        if ([self.comments[indexPath.row][@"avatar"] isEqualToString:@""]) {
+            cell.avatarImageView.image = [UIImage imageNamed:@"img_head"];
+        } else{
+            [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:self.comments[indexPath.row][@"avatar"]] placeholderImage:[UIImage imageNamed:@"img_head"]];
+        }
+        
         
         NSString *dateString = self.comments[indexPath.row][@"createTime"];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -398,6 +403,11 @@
             [SVProgressHUD showSuccessWithStatus:@"回复成功"];
             
             [self addCommentsToLocalDataSources:comment];
+            self.numberOfComments++;
+
+            
+            [self.tableView reloadData];
+            
         } else{
             [SVProgressHUD showErrorWithStatus:@"回复失败"];
 
@@ -419,6 +429,10 @@
     
     NSString *avatar = [AccountManager getAvatarUrlString];
     
+    if (avatar == nil) {
+        avatar = @"";
+    }
+
 //    NSString *createTime = [NSDate date];
     
     NSDateFormatter *formatter =[[NSDateFormatter alloc] init];
@@ -439,9 +453,17 @@
     
     
     
+    
+    
     [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.comments.count - 1 inSection:1]] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.comments.count - 1 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+
     [self.tableView endUpdates];
+    
+    
+    
+    
 //    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.comments.count - 1 inSection:1] atScrollPosition:UITableViewScrollPositionNone animated:YES];
 
     
