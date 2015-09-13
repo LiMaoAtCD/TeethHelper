@@ -298,6 +298,8 @@
                     //测白已完成，没有做问卷
                     
                     ProjectCompletedQuesitonController *questionVC = [[ProjectCompletedQuesitonController alloc] initWithNibName:@"ProjectCompletedQuesitonController" bundle:nil];
+                    questionVC.hidesBottomBarWhenPushed = YES;
+
                     [self.navigationController pushViewController:questionVC animated:YES];
                     
                 } else{

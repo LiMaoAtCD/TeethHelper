@@ -1564,13 +1564,13 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="KtL-9b-Tj1"/>
+                                        <exclude reference="6lw-im-JfR"/>
+                                        <exclude reference="Sac-Rb-ss7"/>
+                                        <exclude reference="kU0-M7-u4g"/>
                                         <exclude reference="NvY-8U-gZI"/>
                                         <exclude reference="g27-Wg-6HQ"/>
                                         <exclude reference="1la-i2-1iv"/>
                                         <exclude reference="Ek9-yA-ANf"/>
-                                        <exclude reference="6lw-im-JfR"/>
-                                        <exclude reference="Sac-Rb-ss7"/>
-                                        <exclude reference="kU0-M7-u4g"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -1581,13 +1581,13 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="KtL-9b-Tj1"/>
+                                        <include reference="6lw-im-JfR"/>
+                                        <include reference="Sac-Rb-ss7"/>
+                                        <include reference="kU0-M7-u4g"/>
                                         <include reference="NvY-8U-gZI"/>
                                         <include reference="g27-Wg-6HQ"/>
                                         <exclude reference="1la-i2-1iv"/>
                                         <include reference="Ek9-yA-ANf"/>
-                                        <include reference="6lw-im-JfR"/>
-                                        <include reference="Sac-Rb-ss7"/>
-                                        <include reference="kU0-M7-u4g"/>
                                     </mask>
                                 </variation>
                             </view>
