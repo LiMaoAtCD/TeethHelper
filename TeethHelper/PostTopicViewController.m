@@ -82,6 +82,7 @@
     self.textView.textColor =[UIColor lightGrayColor];
     self.textView.text = @"请填写内容...";
     
+    
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
     tapGesture.numberOfTapsRequired = 1; //点击次数
     tapGesture.numberOfTouchesRequired = 1; //点击手指数
@@ -168,10 +169,6 @@
         make.height.equalTo(@72);
     }];
 
-    
-    
-    
-    
 }
 
 
@@ -255,6 +252,16 @@
 
 #pragma mark -textView delegate
 
+-(void)textViewDidChange:(UITextView *)textView{
+    NSInteger number = [textView.text length];
+    if (number > 255) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"字符个数不能大于255" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        textView.text = [textView.text substringToIndex:255];
+        number = 255;
+    }
+}
+
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
     textView.textColor = [UIColor blackColor];
     if ([textView.text isEqualToString:@"请填写内容..."]) {
@@ -271,14 +278,14 @@
     }
 }
 
--(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    
-    if (textView.text.length > 255) {
-        textView.text  =  [textView.text substringToIndex:255];
-    }
-    
-    return YES;
-}
+//-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+//    
+//    if (textView.text.length > 255) {
+//        textView.text  =  [textView.text substringToIndex:255];
+//    }
+//    
+//    return YES;
+//}
 
 #pragma mark - 发布
 
@@ -372,5 +379,7 @@
         }
     }
 }
+
+
 
 @end

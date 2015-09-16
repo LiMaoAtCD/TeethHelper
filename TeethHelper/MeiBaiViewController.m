@@ -283,6 +283,13 @@
             NSInteger completedCuredays = [MeiBaiConfigFile getCompletedCureDays];
             NSInteger completedkeepdays = [MeiBaiConfigFile getCompletedKeepDays];
             
+            if (completedCuredays >= 100) {
+                completedCuredays = 99;
+            }
+            if (completedkeepdays >= 100) {
+                completedkeepdays = 99;
+            }
+            
             self.gray1View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedCuredays];
             self.gray2View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedkeepdays];
             
