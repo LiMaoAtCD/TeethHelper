@@ -60,8 +60,6 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    
-   
-    
+
 }
 @end

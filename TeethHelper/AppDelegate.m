@@ -492,7 +492,6 @@
         message.description = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
         [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
     }
-//    message.title = @"纽米";
     
     [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
 

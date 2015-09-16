@@ -25,6 +25,9 @@
 #import "AccountManager.h"
 
 
+#import "SatisfiedNavigationController.h"
+
+
 @interface MeiBaiViewController ()
 
 @property (nonatomic, strong) AlienView *alienView;
@@ -379,6 +382,14 @@
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络出错"];
     }];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+//    SatisfiedNavigationController *satisfiedVC = [[SatisfiedNavigationController alloc] init];
+    
+//    [self presentViewController:satisfiedVC animated:YES completion:nil];
 }
 
 
