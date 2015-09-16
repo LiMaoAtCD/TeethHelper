@@ -189,7 +189,7 @@
 -(void)shareToFriendsZone:(UIButton *)button{
     AppDelegate *delegate  =(AppDelegate*)[UIApplication sharedApplication].delegate;
     
-    [delegate sendLinkContent:NO];
+    [delegate sendLinkContent2:NO withWhiteDU:self.whiteDu beatRate:self.beatRate];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -197,7 +197,7 @@
 -(void)shareToFriends:(UIButton *)button{
     AppDelegate *delegate  =(AppDelegate*)[UIApplication sharedApplication].delegate;
     
-    [delegate sendLinkContent:YES];
+    [delegate sendLinkContent2:YES withWhiteDU:self.whiteDu beatRate:self.beatRate];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

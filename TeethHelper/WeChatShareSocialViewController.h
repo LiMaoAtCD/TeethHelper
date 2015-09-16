@@ -18,4 +18,9 @@
 
 @property (nonatomic, weak) id<ShareToSocialDelegate> delegate;
 
+@property (nonatomic, copy) NSString *whiteDu;
+@property (nonatomic, copy) NSString *beatRate;
+
+
+
 @end

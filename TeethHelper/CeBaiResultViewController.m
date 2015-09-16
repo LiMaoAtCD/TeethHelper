@@ -38,12 +38,7 @@
     
     //TODO:通过SDK获得白度值
     self.Level = 7;
-    
-    
-    
-    
-    
-    
+
     if (![AccountManager isCompletedFirstCeBai]) {
         
         //未完成首次测白,完成，保存图片，保存初次测白等级
@@ -150,9 +145,7 @@
             make.right.equalTo(self.view.mas_right).offset(-20);
             make.height.equalTo(@45);
         }];
-        
-        
-        
+
     } else{
         //展示对比图片
         
@@ -336,6 +329,11 @@
     
     WeChatShareSocialViewController *wechatShare = [[WeChatShareSocialViewController alloc] initWithNibName:@"WeChatShareSocialViewController" bundle:nil];
     wechatShare.delegate = self;
+    
+    
+    wechatShare.whiteDu = [NSString stringWithFormat:@"N%ld",self.Level];
+    wechatShare.beatRate = [self beatRateFromLevel:self.Level];
+
     wechatShare.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
     [self showDetailViewController:wechatShare sender:self];

@@ -160,7 +160,12 @@
 -(void)shareToFriendsZone:(UIButton *)button{
     AppDelegate *delegate  =(AppDelegate*)[UIApplication sharedApplication].delegate;
     
-    [delegate sendLinkContent:NO];
+    if (self.isMainShare) {
+        [delegate sendLinkContent1:NO withProcessedDays:_days];
+    } else{
+        [delegate sendLinkContent:NO];
+    }
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -168,7 +173,11 @@
 -(void)shareToFriends:(UIButton *)button{
     AppDelegate *delegate  =(AppDelegate*)[UIApplication sharedApplication].delegate;
 
-    [delegate sendLinkContent:YES];
+    if (self.isMainShare) {
+        [delegate sendLinkContent1:YES withProcessedDays:_days];
+    } else{
+        [delegate sendLinkContent:YES];
+    }
     
     [self dismissViewControllerAnimated:YES completion:nil];
 

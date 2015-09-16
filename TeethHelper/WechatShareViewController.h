@@ -10,4 +10,9 @@
 
 @interface WechatShareViewController : UIViewController
 
+@property (nonatomic, assign) BOOL isMainShare;
+
+@property (nonatomic, assign) NSInteger days;
+
+
 @end

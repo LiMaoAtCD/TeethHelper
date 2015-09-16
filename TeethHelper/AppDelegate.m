@@ -449,12 +449,12 @@
     
     if (session) {
         message.title = @"纽米";
-        message.description = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
-        [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
+        message.description = @"我刚买了牙齿美白神器Nummi很酷的哟!白白的牙齿期待ing!";
+        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
     } else{
-        message.title = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
-        message.description = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
-        [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
+        message.title = @"我刚买了Nummi牙齿美白神器很酷的哟！白白的牙齿期待ing!";
+//        message.description = @"我刚买了牙齿美白神器Nummi很酷的哟！白白的牙齿期待ing!";
+        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
     }
     
     WXWebpageObject *ext = [WXWebpageObject object];
@@ -484,17 +484,17 @@
         message.title = @"纽米";
         NSString *description = [NSString stringWithFormat:@"小nu计划进行第%ld天 今天我又Nummi啦！用起来很方便,感觉也很棒！白白的牙齿期待ing!",days];
         message.description = description;
-        [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
+        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
     } else{
-        NSString *title = [NSString stringWithFormat:@"小nu计划进行第%ld天 今天我又Nummi啦！用起来很方便,感觉也很棒！白白的牙齿期待ing!",days];
+        NSString *title = [NSString stringWithFormat:@"小nu计划之%ld今天我又Nummi啦！白白的牙齿期待ing!",days];
 
         message.title = title;
         message.description = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
-        [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
+        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
     }
 //    message.title = @"纽米";
     
-    [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
+    [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
 
     
     WXWebpageObject *ext = [WXWebpageObject object];
@@ -522,7 +522,7 @@
     
     if (session) {
         message.title = @"纽米";
-        NSString *description = [NSString stringWithFormat:@"我今天的牙齿的白度是 %@ 我击败了全国%@的人，你要不要也测一个？",du,rate];
+        NSString *description = [NSString stringWithFormat:@"我今天的牙齿的白度是 %@ 我击败了全国%@的人！你要不要也测一个？",du,rate];
         message.description = description;
         [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
     } else{
@@ -530,11 +530,11 @@
         
         message.title = title;
 //        message.description = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
-        [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
+        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
     }
     //    message.title = @"纽米";
     
-    [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
+    [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
     
     
     WXWebpageObject *ext = [WXWebpageObject object];

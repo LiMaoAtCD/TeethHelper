@@ -398,7 +398,6 @@
 
 -(void)postComment:(NSString *)comment{
     [NetworkManager replyToID:self.topicDetail[@"id"] ByCommentContent:comment WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
         if ([responseObject[@"status"] integerValue] == 2000) {
             [SVProgressHUD showSuccessWithStatus:@"回复成功"];
             
@@ -455,11 +454,11 @@
     
     
     
-    [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.comments.count - 1 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-
-    [self.tableView endUpdates];
+//    [self.tableView beginUpdates];
+//    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.comments.count - 1 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+//    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+//
+//    [self.tableView endUpdates];
     
     
     

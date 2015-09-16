@@ -294,9 +294,6 @@
             self.gray2View.daysLabel.text = [NSString stringWithFormat:@"%ld",(long)completedkeepdays];
             
             
-            
-            
-            
             if ([[data allKeys] containsObject:@"white"]) {
                 //有未完成的计划
                 NSDictionary *temp = data[@"white"];
@@ -370,8 +367,6 @@
                                 [MessageConfigureFile setQuestionNotificationDelayMinute:delayTime];
                             }
                         }
-                        
-                        
                     }
                 }
             } else{
@@ -403,7 +398,8 @@
     WechatShareViewController *wechatShare = [[WechatShareViewController alloc] initWithNibName:@"WechatShareViewController" bundle:nil];
     
     wechatShare.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    
+    wechatShare.isMainShare = YES;
+    wechatShare.days = [MeiBaiConfigFile getProcessDays];
     [self showDetailViewController:wechatShare sender:self];
 }
 
