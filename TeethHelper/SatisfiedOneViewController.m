@@ -28,6 +28,10 @@
 @property (nonatomic,strong) NSMutableArray *threeViewArrays;
 
 
+@property (nonatomic,assign) NSInteger answer1;
+@property (nonatomic,assign) NSInteger answer2;
+@property (nonatomic,assign) NSInteger answer3;
+@property (nonatomic,strong) NSString *otherString;
 
 
 @end

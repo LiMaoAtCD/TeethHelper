@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -172,7 +173,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="XFw-iL-q5d" kind="show" id="W9U-wg-6ah"/>
+                                    <segue destination="XFw-iL-q5d" kind="show" animates="NO" id="W9U-wg-6ah"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q1:请问您目前是哪个年龄段?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vI0-EK-O7F">
@@ -286,7 +287,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="mtV-9y-Ftk" kind="show" id="hlT-tt-CXJ"/>
+                                    <segue destination="mtV-9y-Ftk" kind="show" animates="NO" id="hlT-tt-CXJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOK-Nq-iWs">
@@ -588,7 +589,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="CzJ-Xu-e3b" kind="show" id="qRF-rk-zzY"/>
+                                    <segue destination="CzJ-Xu-e3b" kind="show" animates="NO" id="qRF-rk-zzY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAz-UH-WXr">
@@ -1037,7 +1038,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="23b-q1-PAO" kind="show" id="gQS-Fu-NTB"/>
+                                    <segue destination="23b-q1-PAO" kind="show" animates="NO" id="gQS-Fu-NTB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5f-Uc-67S">
