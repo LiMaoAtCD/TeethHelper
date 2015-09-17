@@ -448,7 +448,7 @@
     WXMediaMessage *message = [WXMediaMessage message];
     
     if (session) {
-        message.title = @"纽米";
+        message.title = @"Nummi";
         message.description = @"我刚买了牙齿美白神器Nummi很酷的哟!白白的牙齿期待ing!";
         [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
     } else{
@@ -481,7 +481,7 @@
     WXMediaMessage *message = [WXMediaMessage message];
     
     if (session) {
-        message.title = @"纽米";
+        message.title = @"Nummi";
         NSString *description = [NSString stringWithFormat:@"小nu计划进行第%ld天 今天我又Nummi啦！用起来很方便,感觉也很棒！白白的牙齿期待ing!",days];
         message.description = description;
         [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
@@ -520,7 +520,7 @@
     WXMediaMessage *message = [WXMediaMessage message];
     
     if (session) {
-        message.title = @"纽米";
+        message.title = @"Nummi";
         NSString *description = [NSString stringWithFormat:@"我今天的牙齿的白度是 %@ 我击败了全国%@的人！你要不要也测一个？",du,rate];
         message.description = description;
         [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
