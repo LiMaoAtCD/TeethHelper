@@ -1,38 +1,34 @@
 //
-//  SatisfiedOneViewController.m
+//  SatisfiedTwoViewController.m
 //  TeethHelper
 //
-//  Created by AlienLi on 15/9/16.
+//  Created by AlienLi on 15/9/17.
 //  Copyright (c) 2015年 MarcoLi. All rights reserved.
 //
 
-#import "SatisfiedOneViewController.h"
-#import "Utils.h"
-#import <Masonry.h>
-
-#import "QuestionOneView.h"
 #import "SatisfiedTwoViewController.h"
+#import <Masonry.h>
+#import "Utils.h"
+#import "QuestionOneView.h"
+#import "SatistiedThreeViewController.h"
 
-
-@interface SatisfiedOneViewController ()
+@interface SatisfiedTwoViewController ()
 
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *contentView;
-
 @property (nonatomic,strong) NSMutableArray *oneViewArrays;
-@property (nonatomic,strong) NSMutableArray *twoViewArrays;
-
+@property (nonatomic,strong) NSMutableArray *towViewArrays;
 
 @end
 
-@implementation SatisfiedOneViewController
+@implementation SatisfiedTwoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [Utils ConfigNavigationBarWithTitle:@"问卷调查" onViewController:self];
+    [Utils ConfigNavigationBarWithTitle:@"问卷" onViewController:self];
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem new];
     
@@ -41,15 +37,13 @@
     [self configMainView1];
     [self configMainView2];
     [self configMainView3];
-
-
 }
 
 -(void)configRightNavigationItem{
     
-    UIButton *popButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+    UIButton *popButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40,20)];
     
-    [popButton setBackgroundImage:[UIImage imageNamed:@"Question_naviclose_normal"] forState:UIControlStateNormal];
+    [popButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"X" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:24.0]}] forState:UIControlStateNormal];
     [popButton addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:popButton];
@@ -73,7 +67,7 @@
     label2.textColor = [UIColor blackColor];
     label2.font = [UIFont systemFontOfSize:12.0];
     label2.textAlignment = NSTextAlignmentCenter;
-
+    
     [grayView addSubview:label2];
     
     
@@ -102,9 +96,8 @@
 -(void)configMainView2{
     
     UIView *arrowView = [[UIView alloc] initWithFrame:CGRectZero];
+    arrowView.backgroundColor = [UIColor greenColor];
     [self.view addSubview:arrowView];
-    
-    
     
     [arrowView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(60);
@@ -114,14 +107,12 @@
     }];
     
     UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    arrowImageView.image = [UIImage imageNamed:@"quesiton_once_arrow0"];
+    arrowImageView.image = [UIImage imageNamed:@"quesiton_once_arrow1"];
     [arrowView addSubview:arrowImageView];
     
     [arrowImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(arrowView);
     }];
-    
-    
     
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectZero];
     label1.text = @"测白部分";
@@ -138,22 +129,22 @@
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectZero];
     label2.text = @"治疗管理";
     label2.textColor = [UIColor whiteColor];
-
+    
     label2.font = [UIFont systemFontOfSize:14.0];
     [arrowView addSubview:label2];
     
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(arrowView.mas_centerX).multipliedBy(1.0);
         make.centerY.equalTo(arrowView.mas_centerY);
-
+        
     }];
-
+    
     
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectZero];
     label3.text = @"社区";
     label3.font = [UIFont systemFontOfSize:14.0];
     label3.textColor = [UIColor whiteColor];
-
+    
     [arrowView addSubview:label3];
     
     [label3 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -183,9 +174,18 @@
     
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.scrollView);
+        //        make.bottom.equalTo(self.scrollView.mas_bottom).offset(300);
         make.width.equalTo(self.scrollView);
+        //        make.top.equalTo(self.scrollView.mas_top);
+        //        make.left.equalTo(self.scrollView.mas_left);
+        //        make.right.equalTo(self.scrollView.mas_right);
         make.height.equalTo(@800);
+        //        make.bottom.equalTo(self.scrollView.mas_bottom).offset(200);
     }];
+    
+    
+    
+    
     
     //第一题
     [self configFirstQuestionView];
@@ -195,7 +195,7 @@
     [self configThirdQuestionView];
     
     [self configNextButton];
-
+    
     
 }
 
@@ -286,16 +286,16 @@
     //
     NSArray *labels = @[@"满意",@"比较满意",@"一般",@"不满意"];
     
-    self.twoViewArrays = [NSMutableArray array];
+    self.towViewArrays = [NSMutableArray array];
     
     for (int i = 0 ; i < labels.count; i++) {
         
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex2:)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex:)];
         QuestionOneView *view = [[QuestionOneView alloc] initWithLabel:labels[i]];
         view.tag = i;
         [view addGestureRecognizer:tap];
         [self.contentView addSubview:view];
-        [self.twoViewArrays addObject:view];
+        [self.towViewArrays addObject:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@200);
@@ -321,18 +321,6 @@
     
 }
 
--(void)selectIndex2:(UITapGestureRecognizer *)tap{
-    [self.twoViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        QuestionOneView *view = obj;
-        if (idx == tap.view.tag) {
-            [view didSelectionAtIndex:Selected];
-            
-        } else{
-            [view didSelectionAtIndex:Normal];
-        }
-    }];
-}
-
 //第三题
 -(void)configThirdQuestionView{
     UILabel * question3 = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -347,12 +335,12 @@
         make.left.equalTo(self.contentView).offset(20);
         make.right.equalTo(self.contentView).offset(-20);
         make.height.equalTo(@30);
-//        make.bottom.equalTo(self.contentView.mas_bottom).offset(0);
+        //        make.bottom.equalTo(self.contentView.mas_bottom).offset(0);
     }];
     //
-    NSArray *labels = @[@"简化操作过程",@"提高准确度",@"其他(请注明)"];
+    NSArray *labels = @[@"简化操作过程",@"提高准确度",@"其他_____"];
     
-    self.twoViewArrays = [NSMutableArray array];
+    self.towViewArrays = [NSMutableArray array];
     
     for (int i = 0 ; i < labels.count; i++) {
         
@@ -361,7 +349,7 @@
         view.tag = i;
         [view addGestureRecognizer:tap];
         [self.contentView addSubview:view];
-        [self.twoViewArrays addObject:view];
+        [self.towViewArrays addObject:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@200);
@@ -414,6 +402,7 @@
 -(void)close:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 
 - (void)didReceiveMemoryWarning {
