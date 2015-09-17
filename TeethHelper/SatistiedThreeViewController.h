@@ -10,4 +10,20 @@
 
 @interface SatistiedThreeViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger firstpage_answer1;
+@property (nonatomic, assign) NSInteger firstpage_answer2;
+
+@property (nonatomic, assign) BOOL firstpage_answer3_1;
+@property (nonatomic, assign) BOOL firstpage_answer3_2;
+@property (nonatomic, assign) BOOL firstpage_answer3_3;
+
+
+@property (nonatomic,strong) NSString *firstpage_otherString1;
+
+
+@property (nonatomic, assign) NSInteger secondpage_answer1;
+@property (nonatomic, assign) NSInteger secondpage_answer2;
+@property (nonatomic, assign) NSInteger secondpage_answer3;
+
+
 @end

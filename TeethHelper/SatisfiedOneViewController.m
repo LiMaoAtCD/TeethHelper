@@ -30,8 +30,16 @@
 
 @property (nonatomic,assign) NSInteger answer1;
 @property (nonatomic,assign) NSInteger answer2;
-@property (nonatomic,assign) NSInteger answer3;
+
+
+@property (nonatomic, assign) BOOL answer3_1;
+@property (nonatomic, assign) BOOL answer3_2;
+@property (nonatomic, assign) BOOL answer3_3;
+
+
 @property (nonatomic,strong) NSString *otherString;
+
+
 
 
 @end
@@ -261,6 +269,8 @@
         }
     }];
     
+    self.answer1 = 0;
+    
 }
 //第2题相关
 
@@ -304,7 +314,7 @@
         }];
     }
     
-    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.twoViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         QuestionOneView *view = obj;
         if (idx == 0) {
             [view didSelectionAtIndex:Selected];
@@ -313,6 +323,9 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    
+    self.answer2 = 0;
+
     
 }
 
@@ -329,8 +342,6 @@
         make.top.equalTo(self.contentView.mas_top).offset(380);
         make.left.equalTo(self.contentView).offset(20);
         make.right.equalTo(self.contentView).offset(-20);
-        make.height.equalTo(@30);
-//        make.bottom.equalTo(self.contentView.mas_bottom).offset(0);
     }];
     //
     NSArray *labels = @[@"简化操作过程",@"提高准确度",@"其他(请注明)"];
@@ -350,23 +361,13 @@
             make.width.equalTo(@200);
             make.left.equalTo(self.contentView.mas_left).offset(50);
             make.height.equalTo(@30);
-            make.top.equalTo(self.contentView).offset(410 + i * 40);
+            make.top.equalTo(self.contentView).offset(420 + i * 40);
             if ([Utils isiPhone4]) {
                 make.height.equalTo(@25);
                 make.top.equalTo(self.contentView).offset(250 + i * 30);
             }
         }];
     }
-    
-    [self.threeViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        QuestionOneView *view = obj;
-        if (idx == 0) {
-            [view didSelectionAtIndex:Selected];
-            
-        } else{
-            [view didSelectionAtIndex:Normal];
-        }
-    }];
     
     
     self.textView = [[UITextView alloc] initWithFrame:CGRectZero];
@@ -397,6 +398,16 @@
     
     return YES;
 }
+-(void)textViewDidChange:(UITextView *)textView{
+    self.otherString = textView.text;
+}
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    if (self.answer3_3 == YES) {
+        return YES;
+    } else{
+        return NO;
+    }
+}
 
 
 -(void)selectIndex:(UITapGestureRecognizer *)tap{
@@ -405,10 +416,13 @@
         if (idx == tap.view.tag) {
             [view didSelectionAtIndex:Selected];
             
+            
         } else{
             [view didSelectionAtIndex:Normal];
         }
     }];
+    
+    self.answer1 = tap.view.tag;
 }
 -(void)selectIndex2:(UITapGestureRecognizer *)tap{
     [self.twoViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -420,17 +434,56 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    
+    self.answer2 = tap.view.tag;
+
 }
 -(void)selectIndex3:(UITapGestureRecognizer *)tap{
-    [self.threeViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        QuestionOneView *view = obj;
-        if (idx == tap.view.tag) {
-            [view didSelectionAtIndex:Selected];
-            
-        } else{
-            [view didSelectionAtIndex:Normal];
+    
+    QuestionOneView *view = self.threeViewArrays[tap.view.tag];
+    
+    switch (tap.view.tag) {
+        case 0:
+        {
+            if (self.answer3_1 == YES) {
+                self.answer3_1 = NO;
+                [view didSelectionAtIndex:Normal];
+            } else{
+                self.answer3_1 = YES;
+                [view didSelectionAtIndex:Selected];
+            }
         }
-    }];
+            break;
+        case 1:
+        {
+            if (self.answer3_2 == YES) {
+            self.answer3_2 = NO;
+            [view didSelectionAtIndex:Normal];
+        } else{
+            self.answer3_2 = YES;
+            [view didSelectionAtIndex:Selected];
+        }
+            
+        }
+            break;
+        case 2:
+        {
+            if (self.answer3_3 == YES) {
+                self.answer3_3 = NO;
+                [view didSelectionAtIndex:Normal];
+                self.textView.text = nil;
+                [self.textView resignFirstResponder];
+            } else{
+                self.answer3_3 = YES;
+                [view didSelectionAtIndex:Selected];
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 -(void)configNextButton{
@@ -452,9 +505,44 @@
 
 -(void)twoQuestion:(id)sender{
     
-    SatisfiedTwoViewController *twoVC = [[SatisfiedTwoViewController alloc] initWithNibName:@"SatisfiedTwoViewController" bundle:nil];
     
-    [self.navigationController pushViewController:twoVC animated:NO];
+    if (self.answer3_1 == NO && self.answer3_2 == NO && self.answer3_3 == NO
+        
+        ) {
+        //提示选择
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"请完善相关问卷,再进行一下步操作吧" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alert addAction:action];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    } else if(self.answer3_1 == NO && self.answer3_2 == NO && self.answer3_3 == YES && self.otherString == nil){
+        //提示选择
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"请完善相关问卷,再进行一下步操作吧" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alert addAction:action];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    } else{
+        SatisfiedTwoViewController *twoVC = [[SatisfiedTwoViewController alloc] initWithNibName:@"SatisfiedTwoViewController" bundle:nil];
+        twoVC.firstpage_answer1 = self.answer1;
+        twoVC.firstpage_answer2 = self.answer2;
+        twoVC.firstpage_answer3_1 = self.answer3_1;
+        twoVC.firstpage_answer3_2 = self.answer3_2;
+        twoVC.firstpage_answer3_3 = self.answer3_3;
+        twoVC.firstpage_otherString1 = self.otherString;
+        
+        [self.navigationController pushViewController:twoVC animated:NO];
+    }
 }
 
 

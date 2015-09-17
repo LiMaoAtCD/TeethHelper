@@ -247,6 +247,8 @@
         }
     }];
     
+    self.secondpage_answer1 = 0;
+    
 }
 
 -(void)selectIndex:(UITapGestureRecognizer *)tap{
@@ -254,11 +256,12 @@
         QuestionOneView *view = obj;
         if (idx == tap.view.tag) {
             [view didSelectionAtIndex:Selected];
-            
         } else{
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.secondpage_answer1 = tap.view.tag;
+
 }
 
 //第2题相关
@@ -312,6 +315,8 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.secondpage_answer2 = 0;
+
     
 }
 
@@ -325,6 +330,8 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.secondpage_answer2 = tap.view.tag;
+
 }
 
 //第3题相关
@@ -378,6 +385,7 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.secondpage_answer3 = 0;
     
 }
 
@@ -391,6 +399,8 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.secondpage_answer3 = tap.view.tag;
+
 }
 
 
@@ -414,7 +424,25 @@
 
 
 -(void)threeQuestion:(id)sender{
+    
+    
+    
+    
+    
     SatistiedThreeViewController *threeVC = [[SatistiedThreeViewController alloc] initWithNibName:@"SatistiedThreeViewController" bundle:nil];
+    
+    threeVC.firstpage_answer1 = self.firstpage_answer1;
+    threeVC.firstpage_answer2 = self.firstpage_answer2;
+    threeVC.firstpage_answer3_1 = self.firstpage_answer3_1;
+    threeVC.firstpage_answer3_2 = self.firstpage_answer3_2;
+    threeVC.firstpage_answer3_3 = self.firstpage_answer3_3;
+    threeVC.firstpage_otherString1 = self.firstpage_otherString1;
+
+    threeVC.secondpage_answer1 = self.secondpage_answer1;
+    threeVC.secondpage_answer2 = self.secondpage_answer2;
+    threeVC.secondpage_answer3 = self.secondpage_answer3;
+
+    
     
     [self.navigationController pushViewController:threeVC animated:NO];
 
