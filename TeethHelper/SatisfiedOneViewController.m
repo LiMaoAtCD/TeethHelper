@@ -14,14 +14,20 @@
 #import "SatisfiedTwoViewController.h"
 
 
-@interface SatisfiedOneViewController ()
+@interface SatisfiedOneViewController ()<UITextViewDelegate>
 
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *contentView;
+@property (nonatomic, strong) UITextView *textView;
+
+
 
 @property (nonatomic,strong) NSMutableArray *oneViewArrays;
 @property (nonatomic,strong) NSMutableArray *twoViewArrays;
+@property (nonatomic,strong) NSMutableArray *threeViewArrays;
+
+
 
 
 @end
@@ -184,7 +190,7 @@
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.scrollView);
         make.width.equalTo(self.scrollView);
-        make.height.equalTo(@800);
+        make.height.equalTo(@900);
     }];
     
     //第一题
@@ -252,21 +258,6 @@
     }];
     
 }
-
--(void)selectIndex:(UITapGestureRecognizer *)tap{
-    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        QuestionOneView *view = obj;
-        if (idx == tap.view.tag) {
-            [view didSelectionAtIndex:Selected];
-            
-        } else{
-            [view didSelectionAtIndex:Normal];
-        }
-    }];
-}
-
-
-
 //第2题相关
 
 -(void)configSecondQuestionView{
@@ -321,18 +312,6 @@
     
 }
 
--(void)selectIndex2:(UITapGestureRecognizer *)tap{
-    [self.twoViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        QuestionOneView *view = obj;
-        if (idx == tap.view.tag) {
-            [view didSelectionAtIndex:Selected];
-            
-        } else{
-            [view didSelectionAtIndex:Normal];
-        }
-    }];
-}
-
 //第三题
 -(void)configThirdQuestionView{
     UILabel * question3 = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -352,16 +331,16 @@
     //
     NSArray *labels = @[@"简化操作过程",@"提高准确度",@"其他(请注明)"];
     
-    self.twoViewArrays = [NSMutableArray array];
+    self.threeViewArrays = [NSMutableArray array];
     
     for (int i = 0 ; i < labels.count; i++) {
         
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex:)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex3:)];
         QuestionOneView *view = [[QuestionOneView alloc] initWithLabel:labels[i]];
         view.tag = i;
         [view addGestureRecognizer:tap];
         [self.contentView addSubview:view];
-        [self.twoViewArrays addObject:view];
+        [self.threeViewArrays addObject:view];
         
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@200);
@@ -375,9 +354,73 @@
         }];
     }
     
-    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [self.threeViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         QuestionOneView *view = obj;
         if (idx == 0) {
+            [view didSelectionAtIndex:Selected];
+            
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
+    
+    
+    self.textView = [[UITextView alloc] initWithFrame:CGRectZero];
+    
+    [self.contentView addSubview:self.textView];
+    
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView.mas_top).offset(550);
+        make.left.equalTo(self.contentView.mas_left).offset(50);
+        make.width.equalTo(@200);
+        make.height.equalTo(@60);
+    }];
+    self.textView.layer.borderWidth = 1.0;
+    self.textView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.textView.keyboardType=  UIKeyboardAppearanceDefault;
+    self.textView.returnKeyType = UIReturnKeyDone;
+    self.textView.delegate = self;
+    
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView{
+    return YES;
+}
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+    }
+    
+    return YES;
+}
+
+
+-(void)selectIndex:(UITapGestureRecognizer *)tap{
+    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == tap.view.tag) {
+            [view didSelectionAtIndex:Selected];
+            
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
+}
+-(void)selectIndex2:(UITapGestureRecognizer *)tap{
+    [self.twoViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == tap.view.tag) {
+            [view didSelectionAtIndex:Selected];
+            
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
+}
+-(void)selectIndex3:(UITapGestureRecognizer *)tap{
+    [self.threeViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == tap.view.tag) {
             [view didSelectionAtIndex:Selected];
             
         } else{
@@ -392,18 +435,18 @@
     [self.contentView addSubview:nextButton];
     [nextButton setTitle:@"下一步" forState:UIControlStateNormal];
     [nextButton setBackgroundImage:[UIImage imageNamed:@"bg_green"] forState:UIControlStateNormal];
-    [nextButton addTarget:self action:@selector(next:) forControlEvents:UIControlEventTouchUpInside];
+    [nextButton addTarget:self action:@selector(twoQuestion:) forControlEvents:UIControlEventTouchUpInside];
     
     
     [nextButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left).offset(50);
         make.right.equalTo(self.contentView.mas_right).offset(-50);
         make.height.equalTo(@40);
-        make.top.equalTo(self.contentView).offset(600);
+        make.top.equalTo(self.contentView).offset(660);
     }];
 }
 
--(void)next:(id)sender{
+-(void)twoQuestion:(id)sender{
     
     SatisfiedTwoViewController *twoVC = [[SatisfiedTwoViewController alloc] initWithNibName:@"SatisfiedTwoViewController" bundle:nil];
     
