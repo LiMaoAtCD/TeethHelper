@@ -26,4 +26,16 @@
 @property (nonatomic, assign) NSInteger secondpage_answer3;
 
 
+@property (nonatomic, assign) NSInteger thirdpage_answer1;
+@property (nonatomic, strong) NSString* thirdpage_string1;
+
+@property (nonatomic, assign) NSInteger thirdpage_answer2;
+@property (nonatomic, assign) NSInteger thirdpage_answer3;
+@property (nonatomic, strong) NSString* thirdpage_string3;
+
+@property (nonatomic, assign) NSInteger thirdpage_answer4;
+
+
+
+
 @end

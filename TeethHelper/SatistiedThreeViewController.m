@@ -25,6 +25,9 @@
 @property (nonatomic,strong) UITextView *textView1;
 @property (nonatomic,strong) UITextView *textView2;
 
+
+
+
 @end
 
 @implementation SatistiedThreeViewController
@@ -180,7 +183,7 @@
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.scrollView);
         make.width.equalTo(self.scrollView);
-        make.height.equalTo(@900);
+        make.height.equalTo(@930);
     }];
     
     
@@ -253,6 +256,7 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.thirdpage_answer1 = 0;
     
     self.textView1 = [[UITextView alloc] initWithFrame:CGRectZero];
     
@@ -271,8 +275,6 @@
     self.textView1.delegate = self;
 
 }
-
-
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
@@ -280,6 +282,25 @@
     
     return YES;
 }
+-(void)textViewDidChange:(UITextView *)textView{
+    if (textView == self.textView1) {
+        self.thirdpage_string1 = textView.text;
+    } else{
+        self.thirdpage_string3 = textView.text;
+    }
+}
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+    if (self.thirdpage_answer1 == 3 && textView == self.textView1) {
+        return YES;
+    } else if(self.thirdpage_answer3 == 2 && textView == self.textView2){
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+
+
 //第2题相关
 
 -(void)configSecondQuestionView{
@@ -330,6 +351,7 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.thirdpage_answer2 = 0;
     
 }
 
@@ -381,6 +403,8 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.thirdpage_answer3 = 0;
+
     
     
     self.textView2 = [[UITextView alloc] initWithFrame:CGRectZero];
@@ -408,14 +432,13 @@
     UILabel * question2 = [[UILabel alloc] initWithFrame:CGRectZero];
     question2.textColor = [UIColor blackColor];
     question2.text = @"Q4:您希望通过网上平台可以找到牙科诊所及牙医进行诊治吗?";
-    
+    question2.numberOfLines = 0;
     [self.contentView addSubview:question2];
     
     [question2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView.mas_top).offset(650);
+        make.top.equalTo(self.contentView.mas_top).offset(660);
         make.left.equalTo(self.contentView).offset(20);
         make.right.equalTo(self.contentView).offset(-20);
-        make.height.equalTo(@30);
     }];
     //
     NSArray *labels = @[@"非常需要",@"一般",@"不太需要"];
@@ -435,7 +458,7 @@
             make.width.equalTo(@200);
             make.left.equalTo(self.contentView.mas_left).offset(50);
             make.height.equalTo(@30);
-            make.top.equalTo(self.contentView).offset(670 + i * 40);
+            make.top.equalTo(self.contentView).offset(700 + i * 40);
             if ([Utils isiPhone4]) {
                 make.height.equalTo(@25);
                 make.top.equalTo(self.contentView).offset(250 + i * 30);
@@ -452,6 +475,8 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.thirdpage_answer4 = 0;
+
     
 }
 
@@ -465,6 +490,17 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    
+    self.thirdpage_answer1 = tap.view.tag;
+    
+    if (tap.view.tag != 3) {
+        self.thirdpage_string1 = nil;
+        self.textView1.text = nil;
+        [self.textView1 resignFirstResponder];
+        
+    } else{
+        
+    }
 }
 -(void)selectIndex2:(UITapGestureRecognizer *)tap{
     [self.twoViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -476,6 +512,8 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.thirdpage_answer2 = tap.view.tag;
+
 }
 -(void)selectIndex3:(UITapGestureRecognizer *)tap{
     [self.threeViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -487,6 +525,17 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.thirdpage_answer3 = tap.view.tag;
+    
+    if (tap.view.tag != 2) {
+        self.thirdpage_string3 = nil;
+        self.textView2.text = nil;
+        [self.textView2 resignFirstResponder];
+
+    } else{
+        
+    }
+
 }
 
 -(void)selectIndex4:(UITapGestureRecognizer *)tap{
@@ -499,6 +548,8 @@
             [view didSelectionAtIndex:Normal];
         }
     }];
+    self.thirdpage_answer4 = tap.view.tag;
+
 }
 
 
@@ -515,7 +566,7 @@
         make.left.equalTo(self.contentView.mas_left).offset(50);
         make.right.equalTo(self.contentView.mas_right).offset(-50);
         make.height.equalTo(@40);
-        make.top.equalTo(self.contentView).offset(800);
+        make.top.equalTo(self.contentView).offset(850);
     }];
 }
 
