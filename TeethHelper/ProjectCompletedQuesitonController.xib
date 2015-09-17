@@ -183,11 +183,11 @@
                     <exclude reference="aSy-1s-5mo"/>
                 </mask>
                 <mask key="constraints">
+                    <exclude reference="3If-8l-Nxd"/>
                     <exclude reference="9GD-Gu-kb3"/>
                     <exclude reference="M5i-S5-v1G"/>
                     <exclude reference="UyE-ja-5y8"/>
                     <exclude reference="aWI-Ln-paC"/>
-                    <exclude reference="3If-8l-Nxd"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -196,11 +196,11 @@
                     <include reference="aSy-1s-5mo"/>
                 </mask>
                 <mask key="constraints">
+                    <include reference="3If-8l-Nxd"/>
                     <include reference="9GD-Gu-kb3"/>
                     <include reference="M5i-S5-v1G"/>
                     <include reference="UyE-ja-5y8"/>
                     <include reference="aWI-Ln-paC"/>
-                    <include reference="3If-8l-Nxd"/>
                 </mask>
             </variation>
         </view>

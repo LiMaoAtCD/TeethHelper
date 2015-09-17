@@ -9,7 +9,17 @@
 #import "SatisfiedOneViewController.h"
 #import "Utils.h"
 #import <Masonry.h>
+
+#import "QuestionOneView.h"
 @interface SatisfiedOneViewController ()
+
+
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIView *contentView;
+
+@property (nonatomic,strong) NSMutableArray *oneViewArrays;
+@property (nonatomic,strong) NSMutableArray *towViewArrays;
+
 
 @end
 
@@ -140,21 +150,222 @@
 
 -(void)configMainView3{
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
     
-    scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 500);
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.alwaysBounceHorizontal = NO;
+    [self.view addSubview:self.scrollView];
     
-    [self.view addSubview:scrollView];
-    
-    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.top.equalTo(self.view).offset(100);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     
+    self.contentView = [[UIView alloc] initWithFrame:CGRectZero];
+    
+    [self.scrollView addSubview:_contentView];
+    
+    [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.scrollView);
+//        make.bottom.equalTo(self.scrollView.mas_bottom).offset(300);
+        make.width.equalTo(self.scrollView);
+//        make.top.equalTo(self.scrollView.mas_top);
+//        make.left.equalTo(self.scrollView.mas_left);
+//        make.right.equalTo(self.scrollView.mas_right);
+        make.height.equalTo(@800);
+//        make.bottom.equalTo(self.scrollView.mas_bottom).offset(200);
+    }];
     
     
+    
+    
+    
+    //第一题
+    [self configFirstQuestionView];
+    //第二题
+    [self configSecondQuestionView];
+    //第三题
+    [self configThirdQuestionView];
+
+    
+}
+
+//第1题相关
+
+-(void)configFirstQuestionView{
+    
+    UILabel * question1 = [[UILabel alloc] initWithFrame:CGRectZero];
+    question1.textColor = [UIColor blackColor];
+    question1.text = @"Q1:请问您对测白的操作过程满意吗?";
+    
+    [self.contentView addSubview:question1];
+    
+    [question1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView.mas_top).offset(10);
+        make.left.equalTo(self.contentView).offset(20);
+        make.right.equalTo(self.contentView).offset(-20);
+        make.height.equalTo(@30);
+    }];
+    //
+    NSArray *labels = @[@"满意",@"比较满意",@"一般",@"不满意"];
+    
+    self.oneViewArrays = [NSMutableArray array];
+    
+    for (int i = 0 ; i < labels.count; i++) {
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex:)];
+        QuestionOneView *view = [[QuestionOneView alloc] initWithLabel:labels[i]];
+        view.tag = i;
+        [view addGestureRecognizer:tap];
+        [self.contentView addSubview:view];
+        [self.oneViewArrays addObject:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@200);
+            make.left.equalTo(self.contentView.mas_left).offset(50);
+            make.height.equalTo(@30);
+            make.top.equalTo(self.contentView).offset(40 + i * 40);
+            if ([Utils isiPhone4]) {
+                make.height.equalTo(@25);
+                make.top.equalTo(self.contentView).offset(250 + i * 30);
+            }
+        }];
+    }
+    
+    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == 0) {
+            [view didSelectionAtIndex:Selected];
+            
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
+    
+}
+
+-(void)selectIndex:(UITapGestureRecognizer *)tap{
+    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == tap.view.tag) {
+            [view didSelectionAtIndex:Selected];
+            
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
+}
+
+
+
+//第2题相关
+
+-(void)configSecondQuestionView{
+    
+    UILabel * question2 = [[UILabel alloc] initWithFrame:CGRectZero];
+    question2.textColor = [UIColor blackColor];
+    question2.text = @"Q2:请问您对测白的结果显示满意吗?";
+    
+    [self.contentView addSubview:question2];
+    
+    [question2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView.mas_top).offset(200);
+        make.left.equalTo(self.contentView).offset(20);
+        make.right.equalTo(self.contentView).offset(-20);
+        make.height.equalTo(@30);
+    }];
+    //
+    NSArray *labels = @[@"满意",@"比较满意",@"一般",@"不满意"];
+    
+    self.towViewArrays = [NSMutableArray array];
+    
+    for (int i = 0 ; i < labels.count; i++) {
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex:)];
+        QuestionOneView *view = [[QuestionOneView alloc] initWithLabel:labels[i]];
+        view.tag = i;
+        [view addGestureRecognizer:tap];
+        [self.contentView addSubview:view];
+        [self.towViewArrays addObject:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@200);
+            make.left.equalTo(self.contentView.mas_left).offset(50);
+            make.height.equalTo(@30);
+            make.top.equalTo(self.contentView).offset(230 + i * 40);
+            if ([Utils isiPhone4]) {
+                make.height.equalTo(@25);
+                make.top.equalTo(self.contentView).offset(250 + i * 30);
+            }
+        }];
+    }
+    
+    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == 0) {
+            [view didSelectionAtIndex:Selected];
+            
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
+    
+}
+
+//第三题
+-(void)configThirdQuestionView{
+    UILabel * question3 = [[UILabel alloc] initWithFrame:CGRectZero];
+    question3.textColor = [UIColor blackColor];
+    question3.numberOfLines = 0;
+    question3.text = @"Q3:您希望测白过程需要什么样的改进?";
+    
+    [self.contentView addSubview:question3];
+    
+    [question3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView.mas_top).offset(380);
+        make.left.equalTo(self.contentView).offset(20);
+        make.right.equalTo(self.contentView).offset(-20);
+        make.height.equalTo(@30);
+//        make.bottom.equalTo(self.contentView.mas_bottom).offset(0);
+    }];
+    //
+    NSArray *labels = @[@"简化操作过程",@"提高准确度",@"其他_____"];
+    
+    self.towViewArrays = [NSMutableArray array];
+    
+    for (int i = 0 ; i < labels.count; i++) {
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectIndex:)];
+        QuestionOneView *view = [[QuestionOneView alloc] initWithLabel:labels[i]];
+        view.tag = i;
+        [view addGestureRecognizer:tap];
+        [self.contentView addSubview:view];
+        [self.towViewArrays addObject:view];
+        
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@200);
+            make.left.equalTo(self.contentView.mas_left).offset(50);
+            make.height.equalTo(@30);
+            make.top.equalTo(self.contentView).offset(410 + i * 40);
+            if ([Utils isiPhone4]) {
+                make.height.equalTo(@25);
+                make.top.equalTo(self.contentView).offset(250 + i * 30);
+            }
+        }];
+    }
+    
+    [self.oneViewArrays enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        QuestionOneView *view = obj;
+        if (idx == 0) {
+            [view didSelectionAtIndex:Selected];
+            
+        } else{
+            [view didSelectionAtIndex:Normal];
+        }
+    }];
+
 }
 
 

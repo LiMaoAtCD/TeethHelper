@@ -118,12 +118,9 @@
     
     
     [self configFirstQuestionView];
-    
-    
+
     [Utils ConfigNavigationBarWithTitle:@"问卷" onViewController:self];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
-    
-    
 }
 
 //第1题相关

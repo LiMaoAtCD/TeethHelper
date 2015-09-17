@@ -387,9 +387,9 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-//    SatisfiedNavigationController *satisfiedVC = [[SatisfiedNavigationController alloc] init];
+    SatisfiedNavigationController *satisfiedVC = [[SatisfiedNavigationController alloc] init];
     
-//    [self presentViewController:satisfiedVC animated:YES completion:nil];
+    [self presentViewController:satisfiedVC animated:YES completion:nil];
 }
 
 
