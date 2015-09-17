@@ -178,7 +178,7 @@
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.scrollView);
         make.width.equalTo(self.scrollView);
-        make.height.equalTo(@800);
+        make.height.equalTo(@650);
     }];
     
     
@@ -408,7 +408,7 @@
         make.left.equalTo(self.contentView.mas_left).offset(50);
         make.right.equalTo(self.contentView.mas_right).offset(-50);
         make.height.equalTo(@40);
-        make.top.equalTo(self.contentView).offset(660);
+        make.top.equalTo(self.contentView).offset(550);
     }];
 }
 

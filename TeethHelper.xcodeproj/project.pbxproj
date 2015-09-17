@@ -22,6 +22,7 @@
 		870A660F1B772FEB00A51B26 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A660E1B772FEB00A51B26 /* Utils.m */; };
 		870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */; };
 		870A66161B77321900A51B26 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66151B77321900A51B26 /* AccountManager.m */; };
+		87338D221BAAF99E0067E1EA /* SatisfiedConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */; settings = {ASSET_TAGS = (); }; };
 		873B75B11B773984002D7871 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B01B773984002D7871 /* RegisterViewController.m */; };
 		873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B31B7739B8002D7871 /* ForgetPasswordViewController.m */; };
 		873B75B71B773E42002D7871 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B61B773E42002D7871 /* NetworkManager.m */; };
@@ -196,6 +197,8 @@
 		870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRGB.m"; sourceTree = "<group>"; };
 		870A66141B77321900A51B26 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		870A66151B77321900A51B26 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
+		87338D201BAAF99E0067E1EA /* SatisfiedConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatisfiedConfigFile.h; sourceTree = "<group>"; };
+		87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SatisfiedConfigFile.m; sourceTree = "<group>"; };
 		873B75AF1B773984002D7871 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		873B75B01B773984002D7871 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		873B75B21B7739B8002D7871 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
@@ -789,6 +792,8 @@
 				8795B0301BAA68B400EC088A /* SatistiedThreeViewController.h */,
 				8795B0311BAA68B400EC088A /* SatistiedThreeViewController.m */,
 				8795B0321BAA68B400EC088A /* SatistiedThreeViewController.xib */,
+				87338D201BAAF99E0067E1EA /* SatisfiedConfigFile.h */,
+				87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */,
 			);
 			name = SatisfiedInvestgation;
 			sourceTree = "<group>";
@@ -1362,6 +1367,7 @@
 				8761F4521B8DD6300061A59E /* ProtocolAgreementViewController.m in Sources */,
 				870A66031B7722B500A51B26 /* LoginViewController.m in Sources */,
 				87E2AB491B7796D8001ED07F /* CeBaiHistoryCell.m in Sources */,
+				87338D221BAAF99E0067E1EA /* SatisfiedConfigFile.m in Sources */,
 				87F428A11B92A09800F0CD46 /* ProductConfigFile.m in Sources */,
 				877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */,
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
