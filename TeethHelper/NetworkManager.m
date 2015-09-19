@@ -337,4 +337,19 @@
 
 }
 
++(void)uploadSatisfiedQuestionAnswers:(NSArray *)answer1 WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    [answer1 enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *answer = obj;
+        dictionary[[NSString stringWithFormat:@"q%ld",idx + 1]] = answer;
+    }];
+    
+    NSString *url = @"http://www.7wang523.com/teeth-api/questionnaire";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
 @end

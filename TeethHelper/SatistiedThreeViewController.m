@@ -12,6 +12,9 @@
 #import "QuestionOneView.h"
 #import "SatistiedThreeViewController.h"
 
+#import "NetworkManager.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+
 @interface SatistiedThreeViewController ()<UITextViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -571,10 +574,267 @@
 }
 
 -(void)finishQuestions:(id)sender{
+
+    NSArray *answers = [self createAnswersArray];
+    
+    [SVProgressHUD showWithStatus:@"正在提交问卷结果"];
+    [NetworkManager uploadSatisfiedQuestionAnswers:answers WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"satisfied_quesitons"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+        
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD dismiss];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"satisfied_quesitons"];
+
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    }];
+    
+}
+
+-(NSArray *)createAnswersArray{
+    NSMutableArray *arr = [NSMutableArray array];
+    switch (self.firstpage_answer1) {
+        case 0:
+        {
+            arr[0] = @"满意";
+        }
+            break;
+            
+        case 1:
+        {
+             arr[0] = @"比较满意";
+        }
+            break;
+            
+        case 2:
+        {
+             arr[0] = @"一般";
+        }
+            break;
+            
+        case 3:
+        {
+             arr[0] = @"不满意";
+        }
+            break;
+    }
+    
+    switch (self.firstpage_answer2) {
+        case 0:
+        {
+            arr[1] = @"满意";
+        }
+            break;
+            
+        case 1:
+        {
+            arr[1] = @"比较满意";
+        }
+            break;
+            
+        case 2:
+        {
+            arr[1] = @"一般";
+        }
+            break;
+            
+        case 3:
+        {
+            arr[1] = @"不满意";
+        }
+            break;
+    }
+    NSString *answerThreeString = [NSString string];
+    if (self.firstpage_answer3_1) {
+        answerThreeString =[answerThreeString stringByAppendingString:@"简化操作过程;"];
+    }
+    if (self.firstpage_answer3_2) {
+        answerThreeString =[answerThreeString stringByAppendingString:@"提高准确度;"];
+    }
+    if (self.firstpage_answer3_3) {
+        answerThreeString = [answerThreeString stringByAppendingString:self.firstpage_otherString1];
+    }
+    
+    arr[2] = answerThreeString;
+    
+    switch (self.secondpage_answer1) {
+        case 0:
+        {
+            arr[3] = @"满意";
+        }
+            break;
+            
+        case 1:
+        {
+            arr[3] = @"比较满意";
+        }
+            break;
+            
+        case 2:
+        {
+            arr[3] = @"一般";
+        }
+            break;
+            
+        case 3:
+        {
+            arr[3] = @"不满意";
+        }
+            break;
+    }
+    
+    switch (self.secondpage_answer2) {
+        case 0:
+        {
+            arr[4] = @"满意";
+        }
+            break;
+            
+        case 1:
+        {
+            arr[4] = @"比较满意";
+        }
+            break;
+            
+        case 2:
+        {
+            arr[4] = @"一般";
+        }
+            break;
+            
+        case 3:
+        {
+            arr[4] = @"不满意";
+        }
+            break;
+    }
+    
+    switch (self.secondpage_answer3) {
+        case 0:
+        {
+            arr[5] = @"不需要";
+        }
+            break;
+            
+        case 1:
+        {
+            arr[5] = @"增加更多管理选择";
+        }
+            break;
+            
+        case 2:
+        {
+            arr[5] = @"减少目前的管理选择";
+        }
+            break;
+    }
+    
+    
+    
+    switch (self.thirdpage_answer1) {
+        case 0:
+        {
+            arr[6] = @"更多的美白信息";
+        }
+            break;
+            
+        case 1:
+        {
+            arr[6] = @"（网上商城）能够直接购买美白产品";
+        }
+            break;
+            
+        case 2:
+        {
+            arr[6] = @"（网上商城）能够购买其他保健产品";
+        }
+            break;
+            
+        case 3:
+        {
+            arr[6] = self.thirdpage_string1;
+        }
+            break;
+    }
+    
+    switch (self.thirdpage_answer2) {
+        case 0:
+        {
+            arr[7] = @"希望";
+        }
+            break;
+            
+        case 1:
+        {
+            arr[7] = @"不希望";
+        }
+            break;
+            
+        case 2:
+        {
+            arr[7] = @"无所谓";
+        }
+            break;
+    }
+    switch (self.thirdpage_answer3) {
+        case 0:
+        {
+            arr[8] = @"口腔健康";
+        }
+            break;
+            
+        case 1:
+        {
+            arr[8] = @"口腔疾病治疗";
+        }
+            break;
+            
+        case 2:
+        {
+            arr[8] = self.thirdpage_string3;
+        }
+            break;
+    }
+    
+    switch (self.thirdpage_answer4) {
+        case 0:
+        {
+            arr[9] = @"非常需要";
+        }
+            break;
+            
+        case 1:
+        {
+            arr[9] = @"一般";
+        }
+            break;
+            
+        case 2:
+        {
+            arr[9] =@"不太需要";
+        }
+            break;
+    }
+    
+    
+    
+    
+    
+    
+    return arr;
     
 }
 
 -(void)close:(id)sender{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"satisfied_quesitons"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

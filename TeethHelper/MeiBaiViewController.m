@@ -387,9 +387,53 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    SatisfiedNavigationController *satisfiedVC = [[SatisfiedNavigationController alloc] init];
     
-    [self presentViewController:satisfiedVC animated:YES completion:nil];
+    NSDate *lastDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"satisfied_question_date"];
+    NSDate *nowDate = [NSDate date];
+    
+    if (lastDate == nil) {
+        NSInteger days = [[NSUserDefaults standardUserDefaults] integerForKey:@"satisfied_quesitons_count"];
+        
+        days++;
+        [[NSUserDefaults standardUserDefaults] setInteger:days forKey:@"satisfied_quesitons_count"];
+        [[NSUserDefaults standardUserDefaults] setObject:nowDate forKey:@"satisfied_question_date"];
+    }else{
+        double timezoneFix = [NSTimeZone localTimeZone].secondsFromGMT;
+        if (
+            (int)(([nowDate timeIntervalSince1970] + timezoneFix)/(24*3600)) -
+            (int)(([lastDate timeIntervalSince1970] + timezoneFix)/(24*3600))
+            != 0)
+        {
+            NSInteger days = [[NSUserDefaults standardUserDefaults] integerForKey:@"satisfied_quesitons_count"];
+            
+            days++;
+            [[NSUserDefaults standardUserDefaults] setInteger:days forKey:@"satisfied_quesitons_count"];
+            [[NSUserDefaults standardUserDefaults] setObject:nowDate forKey:@"satisfied_question_date"];
+            
+            if (days == 6) {
+                
+                if (![[NSUserDefaults standardUserDefaults] boolForKey:@"satisfied_quesitons"]) {
+                    SatisfiedNavigationController *satisfiedVC = [[SatisfiedNavigationController alloc] init];
+                    
+                    [self presentViewController:satisfiedVC animated:YES completion:nil];
+                    
+                }
+            }
+            
+        }
+
+    }
+    
+
+
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"satisfied_quesitons"] && 5 == 5) {
+//        SatisfiedNavigationController *satisfiedVC = [[SatisfiedNavigationController alloc] init];
+//        
+//        [self presentViewController:satisfiedVC animated:YES completion:nil];
+//
+//    }
+    
+    
 }
 
 

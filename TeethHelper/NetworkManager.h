@@ -299,4 +299,8 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 //切换当前计划
 +(void)SwitchCurrentProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+
+//上传满意度问卷答案
++(void)uploadSatisfiedQuestionAnswers:(NSArray *)answer1 WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end

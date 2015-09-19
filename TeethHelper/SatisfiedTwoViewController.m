@@ -202,6 +202,7 @@
     UILabel * question1 = [[UILabel alloc] initWithFrame:CGRectZero];
     question1.textColor = [UIColor blackColor];
     question1.text = @"Q1:请问您对治疗管理的操作过称满意吗?";
+    question1.numberOfLines = 0;
     
     [self.contentView addSubview:question1];
     
@@ -209,7 +210,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(10);
         make.left.equalTo(self.contentView).offset(20);
         make.right.equalTo(self.contentView).offset(-20);
-        make.height.equalTo(@30);
+//        make.height.equalTo(@30);
     }];
 
     NSArray *labels = @[@"满意",@"比较满意",@"一般",@"不满意"];
@@ -449,6 +450,8 @@
 }
 
 -(void)close:(id)sender{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"satisfied_quesitons"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

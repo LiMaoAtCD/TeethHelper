@@ -544,6 +544,8 @@
 
 
 -(void)close:(id)sender{
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"satisfied_quesitons"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
