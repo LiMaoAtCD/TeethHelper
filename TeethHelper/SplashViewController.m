@@ -12,7 +12,6 @@
 
 @property (nonatomic, strong) UIScrollView *splashView;
 
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -39,12 +38,12 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     
-    self.splashView.contentSize = CGSizeMake(screenWidth * 3, 1);
+    self.splashView.contentSize = CGSizeMake(screenWidth * 4, 1);
     
     
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(i * screenWidth, 0, screenWidth, screenHeight)];
-        imageview.image = [UIImage imageNamed:@"temp"];
+        imageview.image = [UIImage imageNamed:[NSString stringWithFormat:@"splash_%d",i+1]];
         [self.splashView addSubview:imageview];
     }
     
@@ -52,26 +51,14 @@
     
     [button addTarget:self action:@selector(endSplash:) forControlEvents:UIControlEventTouchUpInside];
     
-    button.frame = CGRectMake(2.5 * screenWidth - 50, screenHeight  - 100, 100, 50);
-    
-    button.backgroundColor = [UIColor redColor];
+    button.frame = CGRectMake(3.5 * screenWidth - 100, screenHeight - 150, 200, 100);
+    [button setTitle:@"立即开启" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor clearColor];
     [self.splashView addSubview:button];
 
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    CGFloat screenWidth =[UIScreen mainScreen].bounds.size.width;
 
-    if (scrollView.contentOffset.x >= 0 && scrollView.contentOffset.x < screenWidth) {
-        self.pageControl.currentPage = 0;
-    } else if(scrollView.contentOffset.x >= screenWidth && scrollView.contentOffset.x < 2 * screenWidth){
-        self.pageControl.currentPage = 1;
-
-    } else{
-        self.pageControl.currentPage = 2;
-
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -79,12 +66,12 @@
 }
 
 -(void)endSplash:(id)sender{
-    [UIView animateWithDuration:1.0 animations:^{
-        self.view.transform = CGAffineTransformMakeScale(2.0, 2.0);
-        self.view.alpha = 0.5;
-    } completion:^(BOOL finished) {
+//    [UIView animateWithDuration:0.3 animations:^{
+////        self.view.transform = CGAffineTransformMakeScale(2.0, 2.0);
+//        self.view.alpha = 0.5;
+//    } completion:^(BOOL finished) {
         [self dismissViewControllerAnimated:NO completion:nil];
-    }];
+//    }];
     
 }
 

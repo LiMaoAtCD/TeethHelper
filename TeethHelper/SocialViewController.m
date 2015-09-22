@@ -138,9 +138,9 @@ static const NSInteger PageSize = 20;
             
             self.currentIndex = self.dataItems.count;
             
-            if (self.currentIndex < PageSize) {
-                [self.tableView.footer noticeNoMoreData];
-            }
+//            if (self.currentIndex < PageSize) {
+                [self.tableView.footer resetNoMoreData];
+//            }
         } else {
             [SVProgressHUD showErrorWithStatus:@"获取失败"];
         }
@@ -160,6 +160,7 @@ static const NSInteger PageSize = 20;
             NSArray *data = responseObject[@"data"];
             [self.dataItems addObjectsFromArray:data];
 
+//            self.automaticallyAdjustsScrollViewInsets = NO;
             [self.tableView reloadData];
             self.currentIndex += data.count;
             

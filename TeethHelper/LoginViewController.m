@@ -202,7 +202,6 @@
 
 -(BOOL)validityCheck{
 //    if (self.phone is) {
-//        <#statements#>
 //    }
     
     if (![Utils isValidCellphoneNumber:self.phone]) {
