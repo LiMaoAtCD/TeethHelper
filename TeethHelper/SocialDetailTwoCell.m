@@ -12,6 +12,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.contentOneImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.contentTwoImageView.contentMode = UIViewContentModeScaleAspectFit;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

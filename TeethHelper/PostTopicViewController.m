@@ -52,7 +52,6 @@
     [self configTextView];
     
     self.picker = [[UIImagePickerController alloc] init];
-    self.picker.allowsEditing = YES;
     self.picker.delegate = self;
     
     
@@ -211,7 +210,7 @@
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
-    UIImage *tempImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *tempImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     switch (self.currentButtonTag) {
         case 1:

@@ -100,8 +100,12 @@ static const NSInteger pageSize = 20;
     
     NSString *timeString = [formatter stringFromDate:createTime];
     
-    NSString *totalTime = self.dataItems[indexPath.row][@"totalTime"];
-    NSString *times = self.dataItems[indexPath.row][@"no"];
+//    NSString *totalTime = self.dataItems[indexPath.row][@"totalTime"];
+    NSString *totalTime = [NSString stringWithFormat:@"%@ 分钟",self.dataItems[indexPath.row][@"totalTime"]];
+
+    
+//    NSString *times = self.dataItems[indexPath.row][@"no"];
+    NSString *times = [NSString stringWithFormat:@"%@ 次",self.dataItems[indexPath.row][@"no"]];
 
     cell.dateLabel.text = dateString;
     cell.timeLabel.text = timeString;
