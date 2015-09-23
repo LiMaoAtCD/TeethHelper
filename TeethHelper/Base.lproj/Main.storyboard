@@ -1155,10 +1155,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PB6-rG-rc9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PB6-rG-rc9">
                                 <rect key="frame" x="0.0" y="50" width="600" height="450"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="area" translatesAutoresizingMaskIntoConstraints="NO" id="MGV-NY-n2z">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="area" translatesAutoresizingMaskIntoConstraints="NO" id="MGV-NY-n2z">
                                         <rect key="frame" x="180" y="73" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="U4R-tb-LqW"/>
@@ -1241,7 +1241,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="牙齿及嘴唇区域" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmE-nI-3yc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="牙齿及嘴唇区域" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmE-nI-3yc">
                                         <rect key="frame" x="232" y="126" width="136" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="136" id="Zvb-Sm-pNF">
@@ -1270,7 +1270,7 @@
                                     </constraint>
                                     <constraint firstItem="lmE-nI-3yc" firstAttribute="centerX" secondItem="MGV-NY-n2z" secondAttribute="centerX" id="Z3i-ve-Mxp"/>
                                     <constraint firstItem="MGV-NY-n2z" firstAttribute="top" secondItem="PB6-rG-rc9" secondAttribute="top" constant="73" id="ZF4-2P-26N">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="150"/>
                                     </constraint>
                                     <constraint firstAttribute="bottom" secondItem="M9x-i1-vU8" secondAttribute="bottom" constant="8" id="jfk-XU-UVP">
                                         <variation key="heightClass=regular-widthClass=compact" constant="20"/>
@@ -1278,7 +1278,9 @@
                                     <constraint firstAttribute="centerX" secondItem="MGV-NY-n2z" secondAttribute="centerX" id="s6T-5A-wpl"/>
                                     <constraint firstItem="DBk-g2-Zvo" firstAttribute="leading" secondItem="PB6-rG-rc9" secondAttribute="leading" constant="8" id="saT-Fm-YsI"/>
                                     <constraint firstAttribute="trailing" secondItem="8bX-Lz-kQ2" secondAttribute="trailing" constant="8" id="vRa-30-WGL"/>
-                                    <constraint firstItem="lmE-nI-3yc" firstAttribute="centerY" secondItem="MGV-NY-n2z" secondAttribute="centerY" constant="-0.5" id="wsW-Po-Gsk"/>
+                                    <constraint firstItem="lmE-nI-3yc" firstAttribute="centerY" secondItem="MGV-NY-n2z" secondAttribute="centerY" constant="-0.5" id="wsW-Po-Gsk">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
