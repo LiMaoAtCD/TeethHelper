@@ -256,8 +256,8 @@
     if (number > 255) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"字符个数不能大于255" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
-        textView.text = [textView.text substringToIndex:255];
-        number = 255;
+        textView.text = [textView.text substringToIndex:253];
+        number = 253;
     }
 }
 
@@ -271,7 +271,7 @@
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
-    if (textView.text.length<1) {
+    if (textView.text.length < 1) {
         textView.text = @"请填写内容...";
         textView.textColor = [UIColor lightGrayColor];
     }

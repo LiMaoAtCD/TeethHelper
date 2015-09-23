@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -849,6 +850,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lVk-B6-ai7" id="zeC-EL-TuW">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="73.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="opean_nor" translatesAutoresizingMaskIntoConstraints="NO" id="Hbf-WD-eUh">
@@ -1016,7 +1018,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_video" translatesAutoresizingMaskIntoConstraints="NO" id="0dY-rj-bOR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_video" translatesAutoresizingMaskIntoConstraints="NO" id="0dY-rj-bOR">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="800" id="GYx-Og-MtO">
@@ -1066,12 +1068,12 @@
                             <constraint firstAttribute="trailing" secondItem="0dY-rj-bOR" secondAttribute="trailing" constant="-11" id="CQx-4b-Zt2">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                             </constraint>
+                            <constraint firstItem="0dY-rj-bOR" firstAttribute="top" secondItem="XXH-3v-t8B" secondAttribute="bottom" constant="30" id="Gda-Sf-D9f">
+                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="Xc5-zV-Jbn" firstAttribute="centerX" secondItem="0dY-rj-bOR" secondAttribute="centerX" id="IgN-u1-FZR"/>
                             <constraint firstItem="0dY-rj-bOR" firstAttribute="leading" secondItem="8hR-MX-0wR" secondAttribute="leading" constant="-21" id="Nwf-dx-Bbt">
                                 <variation key="heightClass=regular-widthClass=compact" constant="8"/>
-                            </constraint>
-                            <constraint firstItem="0dY-rj-bOR" firstAttribute="top" secondItem="8hR-MX-0wR" secondAttribute="topMargin" id="T6x-9P-yzU">
-                                <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="Xc5-zV-Jbn" firstAttribute="centerY" secondItem="0dY-rj-bOR" secondAttribute="centerY" id="ljE-8X-0L8"/>
                         </constraints>
@@ -1081,11 +1083,11 @@
                                 <exclude reference="Xc5-zV-Jbn"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="CQx-4b-Zt2"/>
+                                <exclude reference="Gda-Sf-D9f"/>
+                                <exclude reference="Nwf-dx-Bbt"/>
                                 <exclude reference="IgN-u1-FZR"/>
                                 <exclude reference="ljE-8X-0L8"/>
-                                <exclude reference="CQx-4b-Zt2"/>
-                                <exclude reference="Nwf-dx-Bbt"/>
-                                <exclude reference="T6x-9P-yzU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1094,11 +1096,11 @@
                                 <include reference="Xc5-zV-Jbn"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="CQx-4b-Zt2"/>
+                                <include reference="Gda-Sf-D9f"/>
+                                <include reference="Nwf-dx-Bbt"/>
                                 <include reference="IgN-u1-FZR"/>
                                 <include reference="ljE-8X-0L8"/>
-                                <include reference="CQx-4b-Zt2"/>
-                                <include reference="Nwf-dx-Bbt"/>
-                                <include reference="T6x-9P-yzU"/>
                             </mask>
                         </variation>
                     </view>
@@ -1130,6 +1132,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UXm-Dx-hF7" id="q7w-m6-O5w">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="78.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gys-eE-5sR">

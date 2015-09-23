@@ -1436,8 +1436,22 @@
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="xhJ-7D-ChB" secondAttribute="centerY" id="Sf6-ik-DK4"/>
                                     <constraint firstAttribute="height" constant="100" id="UV3-PZ-7ja"/>
+                                    <constraint firstItem="xhJ-7D-ChB" firstAttribute="leading" secondItem="0Tn-02-CRA" secondAttribute="leading" constant="67" id="d2M-eM-qHL">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                    </constraint>
                                     <constraint firstAttribute="centerX" secondItem="xhJ-7D-ChB" secondAttribute="centerX" constant="118" id="obl-LP-XjL"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="d2M-eM-qHL"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="d2M-eM-qHL"/>
+                                        <exclude reference="obl-LP-XjL"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGr-hV-Mty">
                                 <rect key="frame" x="264" y="513" width="73" height="73"/>
@@ -1486,18 +1500,18 @@
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="SgQ-es-vf3" secondAttribute="trailing" constant="13" id="JpW-9Q-rx4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="c6M-NP-PUg" secondAttribute="trailing" constant="-16" id="KIl-8Y-BBX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PB6-rG-rc9" secondAttribute="trailing" constant="-16" id="T1F-Qn-cGK"/>
+                            <constraint firstAttribute="trailing" secondItem="PB6-rG-rc9" secondAttribute="trailing" id="T1F-Qn-cGK"/>
                             <constraint firstItem="qGr-hV-Mty" firstAttribute="centerY" secondItem="0Tn-02-CRA" secondAttribute="centerY" constant="-0.5" id="U6H-RG-pbK"/>
                             <constraint firstItem="0Tn-02-CRA" firstAttribute="top" secondItem="PB6-rG-rc9" secondAttribute="bottom" constant="-100" id="UXS-2G-Dul">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="PB6-rG-rc9" firstAttribute="leading" secondItem="het-8C-OOz" secondAttribute="leadingMargin" constant="-16" id="chs-yP-XHX"/>
+                            <constraint firstItem="PB6-rG-rc9" firstAttribute="leading" secondItem="het-8C-OOz" secondAttribute="leading" id="chs-yP-XHX"/>
                             <constraint firstItem="PB6-rG-rc9" firstAttribute="top" secondItem="c6M-NP-PUg" secondAttribute="bottom" constant="-30" id="ci2-Ox-6MJ">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="0Tn-02-CRA" firstAttribute="centerY" secondItem="SgQ-es-vf3" secondAttribute="centerY" constant="0.5" id="ctO-es-PE0"/>
                             <constraint firstItem="1pH-eZ-8jb" firstAttribute="top" secondItem="0Tn-02-CRA" secondAttribute="bottom" id="gvL-VK-OpQ"/>
-                            <constraint firstItem="c6M-NP-PUg" firstAttribute="leading" secondItem="het-8C-OOz" secondAttribute="leadingMargin" constant="-16" id="gya-fa-dMT"/>
+                            <constraint firstItem="c6M-NP-PUg" firstAttribute="leading" secondItem="het-8C-OOz" secondAttribute="leading" id="gya-fa-dMT"/>
                             <constraint firstItem="c6M-NP-PUg" firstAttribute="top" secondItem="het-8C-OOz" secondAttribute="topMargin" id="jSV-aC-PrF"/>
                             <constraint firstItem="1pH-eZ-8jb" firstAttribute="top" secondItem="PB6-rG-rc9" secondAttribute="bottom" constant="100" id="mAz-kx-Nyk">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
