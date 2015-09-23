@@ -54,7 +54,9 @@
                     [ProductConfigFile setProductGuideSourceThumb:temp[@"thumb"]];
 
                 } else{
-                    [ProductConfigFile setMeiBaiJiaoourceThumb:temp[@"source"]];
+                    [ProductConfigFile setMeiBaiJiaoourceThumb:temp[@"thumb"]];
+                    [ProductConfigFile setMeiBaiJiaoource:temp[@"source"]];
+
                 }
             }];
             

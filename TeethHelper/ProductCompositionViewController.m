@@ -80,7 +80,7 @@
     compositionVC.toRevealImage = [UIImage imageNamed:[NSString stringWithFormat:@"pdc_%ld",indexPath.row]];
     
     if (indexPath.row == 4) {
-        compositionVC.meibaijiaoURL = [ProductConfigFile getMeiBaiJiaoourceThumb];
+        compositionVC.meibaijiaoURL = [ProductConfigFile getMeiBaiJiaoource];
     }
     
   

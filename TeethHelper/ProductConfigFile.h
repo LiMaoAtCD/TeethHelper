@@ -25,5 +25,8 @@
 +(void)setMeiBaiJiaoourceThumb:(NSString *)url;
 +(NSString *)getMeiBaiJiaoourceThumb;
 
++(void)setMeiBaiJiaoource:(NSString *)url;
++(NSString *)getMeiBaiJiaoource;
+
 
 @end

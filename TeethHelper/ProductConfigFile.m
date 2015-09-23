@@ -58,7 +58,17 @@
 +(NSString *)getMeiBaiJiaoourceThumb{
     NSString *temp = [[NSUserDefaults standardUserDefaults] objectForKey:@"product_meibaijiao_thumb"];
     return temp;
+}
+
++(void)setMeiBaiJiaoource:(NSString *)url{
+    [[NSUserDefaults standardUserDefaults] setObject:url forKey:@"product_meibaijiao"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+}
++(NSString *)getMeiBaiJiaoource{
     
+    NSString *temp = [[NSUserDefaults standardUserDefaults] objectForKey:@"product_meibaijiao"];
+    return temp;
 
 }
 
