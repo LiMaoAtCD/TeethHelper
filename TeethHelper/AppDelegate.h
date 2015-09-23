@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
--(void)sendLinkContent:(BOOL)session;
+//-(void)sendLinkContent:(BOOL)session;
 
 
 /**
