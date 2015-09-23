@@ -23,12 +23,14 @@
 
 #import <Appirater.h>
 
-#import "WXApi.h"
+//#import "WXApi.h"
 
 #import "ProductConfigFile.h"
 
 
-@interface AppDelegate ()<WXApiDelegate>
+//@interface AppDelegate ()<WXApiDelegate>
+@interface AppDelegate ()
+
 
 @property (nonatomic, strong) MainTabBarController *tabarController;
 @property (nonatomic, strong) LoginNavigationController *loginVC;
@@ -74,7 +76,7 @@
         [self loginSuccess:nil];
         
     }
-    [WXApi registerApp:@"wxc213130fe4f9b110"];
+//    [WXApi registerApp:@"wxc213130fe4f9b110"];
     
     [self configRate];
     
@@ -413,147 +415,147 @@
 
 
 
-#pragma mark - 微信登录相关
-
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [WXApi handleOpenURL:url delegate:self];
-}
-
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [WXApi handleOpenURL:url delegate:self];
-
-}
-
-
--(void) onResp:(BaseResp*)resp
-{
-    if([resp isKindOfClass:[SendMessageToWXResp class]])
-    {
-        //分享
-    }
-    else if([resp isKindOfClass:[SendAuthResp class]])
-    {
-         //微信登录
-//        SendAuthResp *temp = (SendAuthResp*)resp;
-        
-//        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
-//        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
-    }
-  
-}
-
-
-- (void) sendLinkContent:(BOOL)session
-{
-    WXMediaMessage *message = [WXMediaMessage message];
-    
-    if (session) {
-        message.title = @"Nummi";
-        message.description = @"我刚买了牙齿美白神器Nummi很酷的哟!白白的牙齿期待ing!";
-        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
-    } else{
-        message.title = @"我刚买了Nummi牙齿美白神器很酷的哟！白白的牙齿期待ing!";
-//        message.description = @"我刚买了牙齿美白神器Nummi很酷的哟！白白的牙齿期待ing!";
-        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
-    }
-    
-    WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
-    
-    message.mediaObject = ext;
-    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
-    
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    
-    if (session) {
-        req.scene = WXSceneSession;
-    } else{
-        req.scene = WXSceneTimeline;
-    }
-
-    
-    [WXApi sendReq:req];
-}
-
--(void)sendLinkContent1:(BOOL)session withProcessedDays:(NSInteger)days{
-    WXMediaMessage *message = [WXMediaMessage message];
-    
-    if (session) {
-        message.title = @"Nummi";
-        NSString *description = [NSString stringWithFormat:@"小nu计划进行第%ld天 今天我又Nummi啦！用起来很方便,感觉也很棒！白白的牙齿期待ing!",days];
-        message.description = description;
-        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
-    } else{
-        NSString *title = [NSString stringWithFormat:@"小nu计划之%ld今天我又Nummi啦！白白的牙齿期待ing!",days];
-
-        message.title = title;
-        message.description = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
-        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
-    }
-    
-    [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
-
-    
-    WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
-    
-    message.mediaObject = ext;
-    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
-    
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    
-    if (session) {
-        req.scene = WXSceneSession;
-    } else{
-        req.scene = WXSceneTimeline;
-    }
-    
-    
-    [WXApi sendReq:req];
-}
-
--(void)sendLinkContent2:(BOOL)session withWhiteDU:(NSString *)du beatRate:(NSString*)rate{
-    WXMediaMessage *message = [WXMediaMessage message];
-    
-    if (session) {
-        message.title = @"Nummi";
-        NSString *description = [NSString stringWithFormat:@"我今天的牙齿的白度是 %@ 我击败了全国%@的人！你要不要也测一个？",du,rate];
-        message.description = description;
-        [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
-    } else{
-        NSString *title = [NSString stringWithFormat:@"我今天的牙齿的白度是 %@ 我击败了全国%@的人，你要不要也测一个？",du,rate];
-        
-        message.title = title;
+//#pragma mark - 微信登录相关
+//
+//-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+//    return [WXApi handleOpenURL:url delegate:self];
+//}
+//
+//-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+//    return [WXApi handleOpenURL:url delegate:self];
+//
+//}
+//
+//
+//-(void) onResp:(BaseResp*)resp
+//{
+//    if([resp isKindOfClass:[SendMessageToWXResp class]])
+//    {
+//        //分享
+//    }
+//    else if([resp isKindOfClass:[SendAuthResp class]])
+//    {
+//         //微信登录
+////        SendAuthResp *temp = (SendAuthResp*)resp;
+//        
+////        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
+////        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
+//    }
+//  
+//}
+//
+//
+//- (void) sendLinkContent:(BOOL)session
+//{
+//    WXMediaMessage *message = [WXMediaMessage message];
+//    
+//    if (session) {
+//        message.title = @"Nummi";
+//        message.description = @"我刚买了牙齿美白神器Nummi很酷的哟!白白的牙齿期待ing!";
+//        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
+//    } else{
+//        message.title = @"我刚买了Nummi牙齿美白神器很酷的哟！白白的牙齿期待ing!";
+////        message.description = @"我刚买了牙齿美白神器Nummi很酷的哟！白白的牙齿期待ing!";
+//        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
+//    }
+//    
+//    WXWebpageObject *ext = [WXWebpageObject object];
+//    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+//    
+//    message.mediaObject = ext;
+//    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
+//    
+//    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+//    req.bText = NO;
+//    req.message = message;
+//    
+//    if (session) {
+//        req.scene = WXSceneSession;
+//    } else{
+//        req.scene = WXSceneTimeline;
+//    }
+//
+//    
+//    [WXApi sendReq:req];
+//}
+//
+//-(void)sendLinkContent1:(BOOL)session withProcessedDays:(NSInteger)days{
+//    WXMediaMessage *message = [WXMediaMessage message];
+//    
+//    if (session) {
+//        message.title = @"Nummi";
+//        NSString *description = [NSString stringWithFormat:@"小nu计划进行第%ld天 今天我又Nummi啦！用起来很方便,感觉也很棒！白白的牙齿期待ing!",days];
+//        message.description = description;
+//        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
+//    } else{
+//        NSString *title = [NSString stringWithFormat:@"小nu计划之%ld今天我又Nummi啦！白白的牙齿期待ing!",days];
+//
+//        message.title = title;
 //        message.description = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
-        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
-    }
-    
-    [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
-    
-    
-    WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
-    
-    message.mediaObject = ext;
-    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
-    
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    
-    if (session) {
-        req.scene = WXSceneSession;
-    } else{
-        req.scene = WXSceneTimeline;
-    }
-    
-    
-    [WXApi sendReq:req];
-}
+//        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
+//    }
+//    
+//    [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
+//
+//    
+//    WXWebpageObject *ext = [WXWebpageObject object];
+//    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+//    
+//    message.mediaObject = ext;
+//    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
+//    
+//    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+//    req.bText = NO;
+//    req.message = message;
+//    
+//    if (session) {
+//        req.scene = WXSceneSession;
+//    } else{
+//        req.scene = WXSceneTimeline;
+//    }
+//    
+//    
+//    [WXApi sendReq:req];
+//}
+//
+//-(void)sendLinkContent2:(BOOL)session withWhiteDU:(NSString *)du beatRate:(NSString*)rate{
+//    WXMediaMessage *message = [WXMediaMessage message];
+//    
+//    if (session) {
+//        message.title = @"Nummi";
+//        NSString *description = [NSString stringWithFormat:@"我今天的牙齿的白度是 %@ 我击败了全国%@的人！你要不要也测一个？",du,rate];
+//        message.description = description;
+//        [message setThumbImage:[UIImage imageNamed:@"ShareThumb.jpg"]];
+//    } else{
+//        NSString *title = [NSString stringWithFormat:@"我今天的牙齿的白度是 %@ 我击败了全国%@的人，你要不要也测一个？",du,rate];
+//        
+//        message.title = title;
+////        message.description = @"我刚刚买了牙齿美白神器Nummi,很酷的哟！白白的牙齿期待ing！你也想要一个吗？";
+//        [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
+//    }
+//    
+//    [message setThumbImage:[UIImage imageNamed:@"share_normal.jpg"]];
+//    
+//    
+//    WXWebpageObject *ext = [WXWebpageObject object];
+//    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+//    
+//    message.mediaObject = ext;
+//    message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
+//    
+//    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+//    req.bText = NO;
+//    req.message = message;
+//    
+//    if (session) {
+//        req.scene = WXSceneSession;
+//    } else{
+//        req.scene = WXSceneTimeline;
+//    }
+//    
+//    
+//    [WXApi sendReq:req];
+//}
 
 
 #pragma mark -app 评分

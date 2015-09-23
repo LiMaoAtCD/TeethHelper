@@ -96,8 +96,6 @@
 		8795B02F1BAA688E00EC088A /* SatisfiedTwoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8795B02D1BAA688E00EC088A /* SatisfiedTwoViewController.xib */; };
 		8795B0331BAA68B400EC088A /* SatistiedThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8795B0311BAA68B400EC088A /* SatistiedThreeViewController.m */; };
 		8795B0341BAA68B400EC088A /* SatistiedThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8795B0321BAA68B400EC088A /* SatistiedThreeViewController.xib */; };
-		87BA16E51B97F32D006158D6 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87BA16E11B97F32D006158D6 /* libWeChatSDK.a */; };
-		87BA16E61B97F32D006158D6 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 87BA16E21B97F32D006158D6 /* read_me.txt */; };
 		87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */; };
 		87BE0D381B82CCAC001E0D30 /* SocialNoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */; };
 		87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */; };
@@ -327,10 +325,6 @@
 		8795B0301BAA68B400EC088A /* SatistiedThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatistiedThreeViewController.h; sourceTree = "<group>"; };
 		8795B0311BAA68B400EC088A /* SatistiedThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SatistiedThreeViewController.m; sourceTree = "<group>"; };
 		8795B0321BAA68B400EC088A /* SatistiedThreeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SatistiedThreeViewController.xib; sourceTree = "<group>"; };
-		87BA16E11B97F32D006158D6 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		87BA16E21B97F32D006158D6 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
-		87BA16E31B97F32D006158D6 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		87BA16E41B97F32D006158D6 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		87BBCDC81B8872E1009130F1 /* ImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropperViewController.h; sourceTree = "<group>"; };
 		87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropperViewController.m; sourceTree = "<group>"; };
 		87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNoImageCell.h; sourceTree = "<group>"; };
@@ -441,7 +435,6 @@
 			files = (
 				87C1EECE1B8F465D00CA191E /* libc++.dylib in Frameworks */,
 				87C1EEC71B8F45C800CA191E /* libz.dylib in Frameworks */,
-				87BA16E51B97F32D006158D6 /* libWeChatSDK.a in Frameworks */,
 				87C1EECD1B8F462900CA191E /* libsqlite3.0.dylib in Frameworks */,
 				87C1EECB1B8F461400CA191E /* SystemConfiguration.framework in Frameworks */,
 				7C42B4A7085D0D96715AF090 /* libPods-TeethHelper.a in Frameworks */,
@@ -474,7 +467,6 @@
 		870A65CB1B77227100A51B26 = {
 			isa = PBXGroup;
 			children = (
-				87BA16E01B97F32D006158D6 /* SDKExport */,
 				870A65D61B77227100A51B26 /* TeethHelper */,
 				870A65F01B77227100A51B26 /* TeethHelperTests */,
 				870A65D51B77227100A51B26 /* Products */,
@@ -838,17 +830,6 @@
 			name = InitialQuestions;
 			sourceTree = "<group>";
 		};
-		87BA16E01B97F32D006158D6 /* SDKExport */ = {
-			isa = PBXGroup;
-			children = (
-				87BA16E11B97F32D006158D6 /* libWeChatSDK.a */,
-				87BA16E21B97F32D006158D6 /* read_me.txt */,
-				87BA16E31B97F32D006158D6 /* WXApi.h */,
-				87BA16E41B97F32D006158D6 /* WXApiObject.h */,
-			);
-			path = SDKExport;
-			sourceTree = "<group>";
-		};
 		87DABF4C1B7D7F610051DE31 /* QuestionAnswers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1194,7 +1175,6 @@
 				873EAE8B1B949A6800445728 /* SuggestStanstardViewController.xib in Resources */,
 				87911F4D1B8B4FF5000E9218 /* SocialDetailOneCell.xib in Resources */,
 				87465BBD1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib in Resources */,
-				87BA16E61B97F32D006158D6 /* read_me.txt in Resources */,
 				873B75D01B774338002D7871 /* Product.storyboard in Resources */,
 				870A65E31B77227100A51B26 /* Main.storyboard in Resources */,
 				8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */,
