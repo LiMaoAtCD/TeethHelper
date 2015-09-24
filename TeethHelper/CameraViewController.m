@@ -14,7 +14,9 @@
 
 typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
-@interface CameraViewController ()<RSKImageCropViewControllerDataSource>
+@interface CameraViewController () <RSKImageCropViewControllerDataSource, RSKImageCropViewControllerDelegate>
+
+//@interface CameraViewController ()<RSKImageCropViewControllerDataSource>
 
 @property (strong,nonatomic) AVCaptureSession *captureSession;//负责输入和输出设置之间的数据传递
 @property (strong,nonatomic) AVCaptureDeviceInput *captureDeviceInput;//负责从AVCaptureDevice获得输入数据
@@ -57,9 +59,9 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     AVCaptureDevice *captureDevice=[self getCameraDeviceWithPosition:AVCaptureDevicePositionBack];//取得后置摄像头
     if (!captureDevice) {
         NSLog(@"取得前置摄像头时出现问题.");
-        ImageCropperViewController *cropper  =[[ImageCropperViewController alloc] initWithImage:[UIImage imageNamed:@"splash_1"] cropMode:RSKImageCropModeCustom];
-        cropper.dataSource = self;
-        [self.navigationController pushViewController:cropper animated:YES];
+//        ImageCropperViewController *cropper  =[[ImageCropperViewController alloc] initWithImage:[UIImage imageNamed:@"splash_1"] cropMode:RSKImageCropModeCustom];
+//        cropper.dataSource = self;
+//        [self.navigationController pushViewController:cropper animated:YES];
         
         return;
     }
@@ -539,7 +541,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
                                  maskSize.height);
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    maskRect = CGRectMake(0, 100, width, 100);
+    maskRect = CGRectMake(0, 50, width, 100);
     
     return maskRect;
 }
@@ -590,7 +592,23 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 - (CGRect)imageCropViewControllerCustomMovementRect:(RSKImageCropViewController *)controller
 {
     // If the image is not rotated, then the movement rect coincides with the mask rect.
-    return controller.maskRect;
+//    return controller.maskRect;
+    
+    
+    if ([UIScreen mainScreen].bounds.size.width == 320) {
+//        return     CGRect     maskRect = CGRectMake(0, 200, 375, 100);
+        return controller.maskRect;
+    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+      
+        return  CGRectMake(0, 100, 375, 100);
+
+    } else if ([UIScreen mainScreen].bounds.size.width > 375){
+        
+        return  CGRectMake(0, 120, 375, 100);
+    }
+
+    
+    return  controller.maskRect;
 }
 
 

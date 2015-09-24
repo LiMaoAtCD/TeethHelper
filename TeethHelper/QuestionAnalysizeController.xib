@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionAnalysizeController">
@@ -233,7 +234,7 @@
                                     <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                 </constraint>
                                 <constraint firstAttribute="width" constant="26" id="uaa-5B-Hwg">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="33"/>
+                                    <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                 </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -268,14 +269,18 @@
                         </constraint>
                         <constraint firstItem="mjy-BG-COG" firstAttribute="leading" secondItem="Zon-64-kUQ" secondAttribute="trailing" constant="2" id="H3k-yj-KEs"/>
                         <constraint firstItem="kpu-rd-2tR" firstAttribute="centerY" secondItem="eEN-lh-idd" secondAttribute="centerY" constant="0.5" id="KtG-Q0-gmR"/>
-                        <constraint firstItem="kpu-rd-2tR" firstAttribute="leading" secondItem="eEN-lh-idd" secondAttribute="trailing" constant="10" id="N8d-dF-VBi"/>
+                        <constraint firstItem="kpu-rd-2tR" firstAttribute="leading" secondItem="eEN-lh-idd" secondAttribute="trailing" constant="10" id="N8d-dF-VBi">
+                            <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                        </constraint>
                         <constraint firstItem="mjy-BG-COG" firstAttribute="centerY" secondItem="eEN-lh-idd" secondAttribute="centerY" constant="-3" id="OOd-us-Nyv">
                             <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                         </constraint>
                         <constraint firstItem="mjy-BG-COG" firstAttribute="centerY" secondItem="Zon-64-kUQ" secondAttribute="centerY" constant="0.5" id="OfC-Sn-rWh">
                             <variation key="heightClass=regular-widthClass=compact" constant="-3"/>
                         </constraint>
-                        <constraint firstItem="eEN-lh-idd" firstAttribute="leading" secondItem="4dd-Sh-Jas" secondAttribute="trailing" constant="8" id="Xhh-Ym-mU2"/>
+                        <constraint firstItem="eEN-lh-idd" firstAttribute="leading" secondItem="4dd-Sh-Jas" secondAttribute="trailing" constant="8" id="Xhh-Ym-mU2">
+                            <variation key="heightClass=regular-widthClass=compact" constant="7"/>
+                        </constraint>
                         <constraint firstItem="4dd-Sh-Jas" firstAttribute="centerY" secondItem="Zon-64-kUQ" secondAttribute="centerY" constant="0.25" id="XoH-9Q-avy">
                             <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                         </constraint>
@@ -385,7 +390,7 @@
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="dSE-ex-Er3"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="lXd-R3-P7S"/>
                                 <constraint firstAttribute="width" constant="26" id="utC-Td-yMb">
-                                    <variation key="heightClass=regular-widthClass=compact" constant="33"/>
+                                    <variation key="heightClass=regular-widthClass=compact" constant="36"/>
                                 </constraint>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -437,12 +442,16 @@
                         <constraint firstItem="VjU-4d-7tP" firstAttribute="centerY" secondItem="rPH-pT-p8H" secondAttribute="centerY" constant="-0.5" id="ERf-aX-Sib">
                             <variation key="heightClass=regular-widthClass=compact" constant="4"/>
                         </constraint>
-                        <constraint firstItem="rPH-pT-p8H" firstAttribute="leading" secondItem="VjU-4d-7tP" secondAttribute="trailing" constant="8" id="H5Y-FE-zfd"/>
+                        <constraint firstItem="rPH-pT-p8H" firstAttribute="leading" secondItem="VjU-4d-7tP" secondAttribute="trailing" constant="8" id="H5Y-FE-zfd">
+                            <variation key="heightClass=regular-widthClass=compact" constant="7"/>
+                        </constraint>
                         <constraint firstItem="rPH-pT-p8H" firstAttribute="centerY" secondItem="Uzf-Fj-Eup" secondAttribute="centerY" constant="0.5" id="JPI-vc-r0O"/>
                         <constraint firstItem="VjU-4d-7tP" firstAttribute="leading" secondItem="9s1-l1-vz4" secondAttribute="leading" constant="14" id="LT7-nY-qcd">
                             <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                         </constraint>
-                        <constraint firstItem="Uzf-Fj-Eup" firstAttribute="leading" secondItem="rPH-pT-p8H" secondAttribute="trailing" constant="8" id="VJq-db-bRl"/>
+                        <constraint firstItem="Uzf-Fj-Eup" firstAttribute="leading" secondItem="rPH-pT-p8H" secondAttribute="trailing" constant="8" id="VJq-db-bRl">
+                            <variation key="heightClass=regular-widthClass=compact" constant="6"/>
+                        </constraint>
                         <constraint firstAttribute="height" constant="77" id="XuA-Uh-FxK"/>
                         <constraint firstItem="VjU-4d-7tP" firstAttribute="centerY" secondItem="Uzf-Fj-Eup" secondAttribute="centerY" constant="3" id="ifm-1F-Lmj">
                             <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
