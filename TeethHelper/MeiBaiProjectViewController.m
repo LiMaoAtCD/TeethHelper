@@ -47,6 +47,10 @@
             
             self.processDay = [responseObject[@"data"][@"processed"] integerValue];
             self.planID = [responseObject[@"data"][@"id"] integerValue];
+        }else if ([responseObject[@"status"] integerValue] == 1002){
+            
+            [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+            
         } else{
             [SVProgressHUD showErrorWithStatus:@"当前美白计划获取失败"];
         }
@@ -279,6 +283,10 @@
             
                 [self.tableView reloadData];
 
+            }else if ([responseObject[@"status"] integerValue] == 1002){
+                
+                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                
             } else{
                 [SVProgressHUD showErrorWithStatus:@"切换失败"];
             }
@@ -315,6 +323,10 @@
                     [MeiBaiConfigFile setCurrentProject:ENHANCE];
                     [self.tableView reloadData];
 
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 } else{
                     [SVProgressHUD showErrorWithStatus:@"切换失败"];
                 }
@@ -333,6 +345,10 @@
                     [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
                     [self.tableView reloadData];
 
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 } else{
                     [SVProgressHUD showErrorWithStatus:@"切换失败"];
                 }
@@ -350,6 +366,10 @@
                     [MeiBaiConfigFile setCurrentProject:GENTLE];
                     [self.tableView reloadData];
 
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 } else{
                     [SVProgressHUD showErrorWithStatus:@"切换失败"];
                 }
@@ -368,6 +388,10 @@
                     
                     [self.tableView reloadData];
 
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 } else{
                     [SVProgressHUD showErrorWithStatus:@"切换失败"];
                 }
@@ -393,6 +417,10 @@
                 [MeiBaiConfigFile setCureTimesEachDay:(3 + index)];
                 [self.tableView reloadData];
 
+            }else if ([responseObject[@"status"] integerValue] == 1002){
+                
+                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                
             } else{
                 [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
             }
@@ -410,6 +438,10 @@
                     [MeiBaiConfigFile setNeedCureDays:(3 + index)];
                     [self.tableView reloadData];
 
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 } else{
                     [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
                 }
@@ -426,6 +458,10 @@
                     [MeiBaiConfigFile setNeedCureDays:(self.processDay + index)];
                     [self.tableView reloadData];
 
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 } else{
                     [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
                 }

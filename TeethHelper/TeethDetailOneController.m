@@ -119,6 +119,10 @@
                                     [self.navigationController popViewControllerAnimated:YES];
 
                                 });
+                            }else if ([responseObject[@"status"] integerValue] == 1002){
+                                
+                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                                
                             } else{
                                 [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
                             }
@@ -148,6 +152,10 @@
                                     [self.navigationController popViewControllerAnimated:YES];
                                     
                                 });
+                            }else if ([responseObject[@"status"] integerValue] == 1002){
+                                
+                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                                
                             } else{
                                 [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
                             }
@@ -176,6 +184,10 @@
                                     [self.navigationController popViewControllerAnimated:YES];
                                     
                                 });
+                            }else if ([responseObject[@"status"] integerValue] == 1002){
+                                
+                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                                
                             } else{
                                 [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
                             }
@@ -204,6 +216,10 @@
                                     [self.navigationController popViewControllerAnimated:YES];
                                     
                                 });
+                            }else if ([responseObject[@"status"] integerValue] == 1002){
+                                
+                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                                
                             } else{
                                 [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
                             }

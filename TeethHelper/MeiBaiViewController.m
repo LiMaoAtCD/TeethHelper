@@ -375,6 +375,10 @@
             } else{
                 //没有未完成的计划
             }
+        }else if ([responseObject[@"status"] integerValue] == 1002){
+            
+            [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+            
         } else{
             
             
@@ -490,6 +494,10 @@
                     [MessageConfigureFile setQuestionNotificationDelayMinute:delayTime];
                 }
             }
+        }else if ([responseObject[@"status"] integerValue] == 1002){
+            
+            [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+            
         } else{
             [SVProgressHUD showErrorWithStatus:@"美白计划启动失败"];
         }

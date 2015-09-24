@@ -321,6 +321,10 @@
                 } else if([responseObject[@"status"] integerValue] == 1004){
                     [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
                     
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 }else{
                     [SVProgressHUD showErrorWithStatus:@"发布失败,稍后再试吧"];
                 }
@@ -340,6 +344,10 @@
                     [self.navigationController popViewControllerAnimated:YES];
                 } else if([responseObject[@"status"] integerValue] == 1004){
                     [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 }else{
                     [SVProgressHUD showErrorWithStatus:@"发布失败,稍后再试吧"];
                 }
@@ -368,6 +376,10 @@
                     [self.navigationController popViewControllerAnimated:YES];
                 } else if([responseObject[@"status"] integerValue] == 1004){
                     [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
+                }else if ([responseObject[@"status"] integerValue] == 1002){
+                    
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                    
                 }else{
                     [SVProgressHUD showErrorWithStatus:@"发布失败,稍后再试吧"];
                 }

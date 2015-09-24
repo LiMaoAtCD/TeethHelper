@@ -378,6 +378,10 @@
 
                 [AccountManager setCompletedFirstCeBai:YES];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+            }else if ([responseObject[@"status"] integerValue] == 1002){
+                
+                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                
             } else{
                 
                 [SVProgressHUD showErrorWithStatus:@"测白结果记录失败"];
@@ -398,6 +402,10 @@
                 
                 [SVProgressHUD dismiss];
                 [self.navigationController popToRootViewControllerAnimated:YES];
+            }else if ([responseObject[@"status"] integerValue] == 1002){
+                
+                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                
             } else{
                 [SVProgressHUD showErrorWithStatus:@"测白结果记录失败"];
             }

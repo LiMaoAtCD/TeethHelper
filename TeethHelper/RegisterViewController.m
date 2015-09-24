@@ -181,7 +181,7 @@
                 } else if ([responseObject[@"status"] integerValue] == 1001){
                     [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
                 } else if ([responseObject[@"status"] integerValue] == 1002){
-                    [SVProgressHUD showErrorWithStatus:@"无效的访问令牌"];
+                    [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                 } else if ([responseObject[@"status"] integerValue] == 1003){
                     [SVProgressHUD showErrorWithStatus:@"无权访问"];
                 } else if ([responseObject[@"status"] integerValue] == 1004){
