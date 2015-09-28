@@ -351,5 +351,14 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
 }
++(void)CancelMeiBaiProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+//    http://www.7wang523.com/teeth-api/white/cancel
+
+    NSString *URL = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/white/cancel?accessToken=%@",[AccountManager getTokenID]];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:URL parameters:nil success:completionHandler failure:failHandler];
+}
+
 
 @end

@@ -22,6 +22,10 @@
 @property (nonatomic, strong) UIButton *imageButton2;
 @property (nonatomic, strong) UIButton *imageButton3;
 
+@property (nonatomic, assign) BOOL isimagechoosed1;
+@property (nonatomic, assign) BOOL isimagechoosed2;
+@property (nonatomic, assign) BOOL isimagechoosed3;
+
 @property (nonatomic, strong) UIImage *toPostImage1;
 @property (nonatomic, strong) UIImage *toPostImage2;
 @property (nonatomic, strong) UIImage *toPostImage3;
@@ -172,21 +176,48 @@
 
 
 -(void)chooseImageForPost:(UIButton*)button{
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Setting" bundle:nil];
-    AvatarViewController *avatar = [sb instantiateViewControllerWithIdentifier:@"AvatarViewController"];
-    avatar.delegate = self;
-    [self showDetailViewController:avatar sender:self];
-    
     if (button.tag == 1) {
-        self.currentButtonTag = 1;
-    
+        if (_isimagechoosed1 == NO) {
+            self.currentButtonTag = 1;
+            
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+            AvatarViewController *avatar = [sb instantiateViewControllerWithIdentifier:@"AvatarViewController"];
+            avatar.delegate = self;
+            [self showDetailViewController:avatar sender:self];
+
+        } else{
+            _isimagechoosed1 = NO;
+            self.toPostImage1 = nil;
+            [self.imageButton1 setImage:[UIImage imageNamed:@"social_imageupload_normal"] forState:UIControlStateNormal];
+        }
     } else if (button.tag == 2){
-        self.currentButtonTag = 2;
-
-    } else{
-        self.currentButtonTag = 3;
-
+        if (_isimagechoosed2 == NO) {
+            self.currentButtonTag = 2;
+            
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+            AvatarViewController *avatar = [sb instantiateViewControllerWithIdentifier:@"AvatarViewController"];
+            avatar.delegate = self;
+            [self showDetailViewController:avatar sender:self];
+            
+        } else{
+            _isimagechoosed2 = NO;
+            self.toPostImage2 = nil;
+            [self.imageButton2 setImage:[UIImage imageNamed:@"social_imageupload_normal"] forState:UIControlStateNormal];
+        }
+    } else if (button.tag == 3){
+        if (_isimagechoosed3 == NO) {
+            self.currentButtonTag = 3;
+            
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Setting" bundle:nil];
+            AvatarViewController *avatar = [sb instantiateViewControllerWithIdentifier:@"AvatarViewController"];
+            avatar.delegate = self;
+            [self showDetailViewController:avatar sender:self];
+            
+        } else{
+            _isimagechoosed3 = NO;
+            self.toPostImage3 = nil;
+            [self.imageButton3 setImage:[UIImage imageNamed:@"social_imageupload_normal"] forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -221,6 +252,7 @@
             self.toPostImage1 = tempImage;
             self.toPostImage2 = nil;
             self.toPostImage3 = nil;
+            self.isimagechoosed1 = YES;
         }
             break;
         case 2:
@@ -229,6 +261,7 @@
             self.imageButton3.hidden = NO;
             self.toPostImage2 = tempImage;
             self.toPostImage3 = nil;
+            self.isimagechoosed2 = YES;
 
 
         }
@@ -237,6 +270,7 @@
         {
             [self.imageButton3 setImage:tempImage forState:UIControlStateNormal];
             self.toPostImage3 = tempImage;
+            self.isimagechoosed3 = YES;
 
         }
             break;
@@ -254,10 +288,22 @@
 -(void)textViewDidChange:(UITextView *)textView{
     NSInteger number = [textView.text length];
     if (number > 255) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"字符个数不能大于255" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
+        
         textView.text = [textView.text substringToIndex:253];
         number = 253;
+
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"字符个数不能大于255" preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction *sure  =[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alertController addAction:sure];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        
     }
 }
 
@@ -277,14 +323,6 @@
     }
 }
 
-//-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-//    
-//    if (textView.text.length > 255) {
-//        textView.text  =  [textView.text substringToIndex:255];
-//    }
-//    
-//    return YES;
-//}
 
 #pragma mark - 发布
 

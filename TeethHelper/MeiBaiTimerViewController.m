@@ -118,7 +118,19 @@
     self.totalCount = _previousSeconds;
 }
 -(void)pop{
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    [SVProgressHUD showWithStatus:@"正在取消当前美白计划"];
+    [NetworkManager CancelMeiBaiProjectWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } else{
+            
+        }
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+
+    }];
 }
 
 -(void)share:(UIButton*)button{

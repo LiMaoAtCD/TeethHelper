@@ -185,10 +185,19 @@
 -(void)textViewDidChange:(UITextView *)textView{
     NSInteger number = [textView.text length];
     if (number > 255) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"字符个数不能大于255" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
         textView.text = [textView.text substringToIndex:253];
         number = 253;
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"字符个数不能大于255" preferredStyle:UIAlertControllerStyleAlert];
+        
+        
+        UIAlertAction *sure  =[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alertController addAction:sure];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 

@@ -303,4 +303,13 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 //上传满意度问卷答案
 +(void)uploadSatisfiedQuestionAnswers:(NSArray *)answer1 WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+
+/**
+ *  取消美白计划
+ *
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)CancelMeiBaiProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end
