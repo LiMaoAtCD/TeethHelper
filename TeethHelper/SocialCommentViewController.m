@@ -181,13 +181,15 @@
     }
 }
 
--(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    
-    if (textView.text.length > 255) {
-        textView.text  =  [textView.text substringToIndex:255];
+
+-(void)textViewDidChange:(UITextView *)textView{
+    NSInteger number = [textView.text length];
+    if (number > 255) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"字符个数不能大于255" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        textView.text = [textView.text substringToIndex:253];
+        number = 253;
     }
-    
-    return YES;
 }
 
 

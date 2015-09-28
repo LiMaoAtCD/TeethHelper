@@ -169,6 +169,8 @@
         case 5:{
             //地址
             AddressViewController *addressVC = [sb instantiateViewControllerWithIdentifier:@"AddressViewController"];
+            addressVC.address = [AccountManager getAddress];
+            
             [self.navigationController pushViewController:addressVC animated:YES];
 
         }

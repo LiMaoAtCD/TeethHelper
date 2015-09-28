@@ -68,6 +68,8 @@ static const NSInteger PageSize = 20;
         [self loadMoreData];
     }];
     
+    [self.tableView.header beginRefreshing];
+
 
 }
 
@@ -82,7 +84,6 @@ static const NSInteger PageSize = 20;
     [super viewDidAppear:animated];
     
 //    [self loadData];
-    [self.tableView.header beginRefreshing];
 
 
 }

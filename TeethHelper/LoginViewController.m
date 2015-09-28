@@ -77,6 +77,15 @@
     [super viewDidAppear:animated];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    self.passwordTextField.text = nil;
+    self.phoneTextField.text = nil;
+    self.password = nil;
+    self.phone = nil;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

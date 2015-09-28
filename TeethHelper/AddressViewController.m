@@ -15,7 +15,7 @@
 @interface AddressViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
-@property (nonatomic, copy) NSString *address;
+//@property (nonatomic, copy) NSString *address;
 @end
 
 @implementation AddressViewController
@@ -26,6 +26,7 @@
     [Utils ConfigNavigationBarWithTitle:@"编辑" onViewController:self];
     [self configRightNavigationItem];
     [self.addressTextField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+    self.addressTextField.text = self.address;
     
 }
 -(void)textFieldEditChanged:(UITextField *)textField{
