@@ -574,9 +574,9 @@
     [Appirater setDebug:NO];
 
     [Appirater setAppId:@"770699556"];
-    [Appirater setDaysUntilPrompt:5];
+    [Appirater setDaysUntilPrompt:0];
     [Appirater setUsesUntilPrompt:0];
-    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setSignificantEventsUntilPrompt:5];
     [Appirater setTimeBeforeReminding:40];
     [Appirater appLaunched:YES];
     [Appirater setCustomAlertTitle:@""];
@@ -584,5 +584,7 @@
     [Appirater setCustomAlertRateButtonTitle:@"去评分"];
     [Appirater setCustomAlertCancelButtonTitle:@"不,谢谢"];
     [Appirater setCustomAlertRateLaterButtonTitle:@"稍后再去"];
+//    [Appirater setCustomAlertRateLaterButtonTitle:nil];
+
 }
 @end

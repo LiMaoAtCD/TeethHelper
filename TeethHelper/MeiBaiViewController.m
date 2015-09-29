@@ -18,7 +18,6 @@
 #import "WechatShareViewController.h"
 #import "ProjectCompletedQuesitonController.h"
 
-#import <Appirater.h>
 
 #import "NetworkManager.h"
 #import <SVProgressHUD.h>
@@ -464,8 +463,6 @@
 
 -(void)beginMeibaiProject:(id)sender{
     
-    //记录美白次数
-    [Appirater userDidSignificantEvent:YES];
     
     //上传服务器，开始计时
     [SVProgressHUD showWithStatus:@"正在启动美白计划"];

@@ -23,6 +23,7 @@
 #import "SuggestStanstardViewController.h"
 
 #import "MessageConfigureFile.h"
+#import <Appirater.h>
 
 @interface ProjectCompletedQuesitonController ()<RSliderViewDelegate>
 
@@ -384,8 +385,11 @@
     
     [NetworkManager CompletedMeibaiQuestionByTotalTime:ans1String feel:ans2String WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"responseobejct : %@",responseObject);
         if ([responseObject[@"status"] integerValue] == 2000) {
+            
+            //记录美白次数
+            [Appirater userDidSignificantEvent:YES];
+
             
             //如果完成问卷，不弹出问卷提醒了
             [MessageConfigureFile cancelQuestionNotification];
