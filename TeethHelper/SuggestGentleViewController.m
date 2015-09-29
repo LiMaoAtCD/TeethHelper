@@ -145,7 +145,7 @@
             [MeiBaiConfigFile setCurrentProject:GENTLE];
             [SVProgressHUD dismiss];
             
-        }else if ([responseObject[@"status"] integerValue] == 1002){
+        }else if ([responseObject[@"status"] integerValue] == 1012){
             
             [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
             

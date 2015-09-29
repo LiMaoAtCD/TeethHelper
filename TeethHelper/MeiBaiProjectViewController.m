@@ -47,7 +47,7 @@
             
             self.processDay = [responseObject[@"data"][@"processed"] integerValue];
             self.planID = [responseObject[@"data"][@"id"] integerValue];
-        }else if ([responseObject[@"status"] integerValue] == 1002){
+        }else if ([responseObject[@"status"] integerValue] == 1012){
             
             [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
             
@@ -283,7 +283,7 @@
             
                 [self.tableView reloadData];
 
-            }else if ([responseObject[@"status"] integerValue] == 1002){
+            }else if ([responseObject[@"status"] integerValue] == 1012){
                 
                 [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                 
@@ -323,7 +323,7 @@
                     [MeiBaiConfigFile setCurrentProject:ENHANCE];
                     [self.tableView reloadData];
 
-                }else if ([responseObject[@"status"] integerValue] == 1002){
+                }else if ([responseObject[@"status"] integerValue] == 1012){
                     
                     [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                     
@@ -345,7 +345,7 @@
                     [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
                     [self.tableView reloadData];
 
-                }else if ([responseObject[@"status"] integerValue] == 1002){
+                }else if ([responseObject[@"status"] integerValue] == 1012){
                     
                     [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                     
@@ -366,7 +366,7 @@
                     [MeiBaiConfigFile setCurrentProject:GENTLE];
                     [self.tableView reloadData];
 
-                }else if ([responseObject[@"status"] integerValue] == 1002){
+                }else if ([responseObject[@"status"] integerValue] == 1012){
                     
                     [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                     
@@ -388,7 +388,7 @@
                     
                     [self.tableView reloadData];
 
-                }else if ([responseObject[@"status"] integerValue] == 1002){
+                }else if ([responseObject[@"status"] integerValue] == 1012){
                     
                     [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                     
@@ -417,7 +417,7 @@
                 [MeiBaiConfigFile setCureTimesEachDay:(3 + index)];
                 [self.tableView reloadData];
 
-            }else if ([responseObject[@"status"] integerValue] == 1002){
+            }else if ([responseObject[@"status"] integerValue] == 1012){
                 
                 [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                 
@@ -438,7 +438,7 @@
                     [MeiBaiConfigFile setNeedCureDays:(3 + index)];
                     [self.tableView reloadData];
 
-                }else if ([responseObject[@"status"] integerValue] == 1002){
+                }else if ([responseObject[@"status"] integerValue] == 1012){
                     
                     [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                     
@@ -458,7 +458,7 @@
                     [MeiBaiConfigFile setNeedCureDays:(self.processDay + index)];
                     [self.tableView reloadData];
 
-                }else if ([responseObject[@"status"] integerValue] == 1002){
+                }else if ([responseObject[@"status"] integerValue] == 1012){
                     
                     [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                     

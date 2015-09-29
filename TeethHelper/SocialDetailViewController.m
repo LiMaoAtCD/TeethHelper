@@ -116,7 +116,7 @@
                 [self.tableView reloadData];
 
             });
-        }else if ([responseObject[@"status"] integerValue] == 1002){
+        }else if ([responseObject[@"status"] integerValue] == 1012){
             
             [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
             
@@ -360,7 +360,7 @@
                 self.replyVC.likeLabel.text = @"赞过了";
                 self.replyVC.likeImageView.image = [UIImage imageNamed:@"social_like_click"];
                 [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-            }else if ([responseObject[@"status"] integerValue] == 1002){
+            }else if ([responseObject[@"status"] integerValue] == 1012){
                 
                 [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
                 
@@ -415,7 +415,7 @@
             
             [self.tableView reloadData];
             
-        }else if ([responseObject[@"status"] integerValue] == 1002){
+        }else if ([responseObject[@"status"] integerValue] == 1012){
             
             [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
             
