@@ -73,10 +73,24 @@
             make.height.equalTo(@115);
         }];
         
+        UIImageView * watermark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_watermark"]];
+        
+        
+        
+        [mainImageView addSubview:watermark];
+        [watermark mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(mainImageView.mas_top).offset(4);
+            make.right.equalTo(mainImageView.mas_right).offset(-4);
+            make.height.equalTo(@60);
+            make.height.equalTo(@21);
+
+        }];
+        
+        
         UIImageView *comparsionImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         comparsionImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"check_N%ld",self.Level]];
         
-        comparsionImageView.contentMode = UIViewContentModeScaleAspectFit;
+//        comparsionImageView.contentMode = UIViewContentModeScaleAspectFit;
         
         [imageBGView addSubview:comparsionImageView];
         
@@ -117,7 +131,6 @@
         
         UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectZero];
         
-//        label3.text = @"击败了全国99%的人";
         label3.text = [NSString stringWithFormat:@"击败了全国%@的人",[self beatRateFromLevel:self.Level]];
 
         label3.textAlignment = NSTextAlignmentCenter;
@@ -187,6 +200,20 @@
             make.height.equalTo(@115);
         }];
         
+        
+        UIImageView * watermark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_watermark"]];
+        
+        
+        
+        [mainImageView addSubview:watermark];
+        [watermark mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(mainImageView.mas_top).offset(4);
+            make.right.equalTo(mainImageView.mas_right).offset(-4);
+            make.height.equalTo(@60);
+            make.height.equalTo(@21);
+            
+        }];
+        
         UIImageView *comparsionImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         comparsionImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"check_N%ld",[MeiBaiConfigFile firstCeBaiLevel]]];
         
@@ -236,6 +263,20 @@
             make.left.equalTo(imageBGView2.mas_left).offset(4);
             make.right.equalTo(imageBGView2.mas_right).offset(-4);
             make.height.equalTo(@115);
+        }];
+        
+        
+        UIImageView * watermark2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_watermark"]];
+        
+        
+        
+        [mainImageView2 addSubview:watermark2];
+        [watermark2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(mainImageView2.mas_top).offset(4);
+            make.right.equalTo(mainImageView2.mas_right).offset(-4);
+            make.height.equalTo(@60);
+            make.height.equalTo(@21);
+            
         }];
         
         UIImageView *comparsionImageView2 = [[UIImageView alloc] initWithFrame:CGRectZero];
@@ -358,6 +399,7 @@
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 #pragma mark - 点击完成
 
 - (IBAction)done:(id)sender {
