@@ -405,27 +405,36 @@
 }
 
 -(void)postComment:(NSString *)comment{
-    [NetworkManager replyToID:self.topicDetail[@"id"] ByCommentContent:comment WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 2000) {
-            [SVProgressHUD showSuccessWithStatus:@"回复成功"];
-            
-            [self addCommentsToLocalDataSources:comment];
-            self.numberOfComments++;
+    
+    NSString *temp = [comment stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-            
-            [self.tableView reloadData];
-            
-        }else if ([responseObject[@"status"] integerValue] == 1012){
-            
-            [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
-            
-        } else{
-            [SVProgressHUD showErrorWithStatus:@"回复失败"];
+    if ([temp length] == 0) {
+        [SVProgressHUD showErrorWithStatus:@"评论不能为空"];
+    } else{
+        [NetworkManager replyToID:self.topicDetail[@"id"] ByCommentContent:comment WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                [SVProgressHUD showSuccessWithStatus:@"回复成功"];
+                
+                [self addCommentsToLocalDataSources:comment];
+                self.numberOfComments++;
+                
+                
+                [self.tableView reloadData];
+                
+            }else if ([responseObject[@"status"] integerValue] == 1012){
+                
+                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:@"回复失败"];
+                
+            }
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        }];
 
-        }
-    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错"];
-    }];
+    }
+    
 }
 
 -(void)addCommentsToLocalDataSources:(NSString*)comment{

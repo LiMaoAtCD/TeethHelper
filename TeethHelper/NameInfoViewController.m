@@ -44,7 +44,8 @@
     
     [self.nameTextField resignFirstResponder];
     
-    if (self.name == nil) {
+    NSString *temp = [self.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (self.name == nil|| [temp length]== 0) {
         [SVProgressHUD showErrorWithStatus:@"昵称不可为空"];
     } else{
         [SVProgressHUD showWithStatus:@"正在修改"];

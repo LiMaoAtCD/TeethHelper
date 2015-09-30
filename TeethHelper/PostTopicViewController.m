@@ -328,7 +328,9 @@
 
 -(void)postTopic:(id)sender{
     
-    if ([self.textView.text isEqualToString:@""] ||[self.textView.text isEqualToString:@"请填写内容..."] ) {
+    NSString *temp = [self.textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    if ([self.textView.text isEqualToString:@""] ||[self.textView.text isEqualToString:@"请填写内容..."]|| [temp length] == 0) {
         //没有填写内容
         if (self.toPostImage1 == nil&&self.toPostImage2 == nil&&self.toPostImage3 == nil) {
             //提示需要填写内容
