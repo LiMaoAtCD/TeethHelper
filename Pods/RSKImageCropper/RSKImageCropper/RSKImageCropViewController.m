@@ -522,6 +522,8 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     }
     
     self.imageScrollView.contentOffset = contentOffset;
+    
+    
 }
 
 - (void)resetFrame
@@ -671,6 +673,7 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     CGAffineTransform transform = self.imageScrollView.transform;
     self.imageScrollView.transform = CGAffineTransformIdentity;
     self.imageScrollView.frame = frame;
+
     self.imageScrollView.transform = transform;
 }
 
@@ -851,6 +854,18 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         CGRect cropRect = self.cropRect;
+//        if ([UIScreen mainScreen].bounds.size.width == 320) {
+//            cropRect = self.cropRect;
+//        } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+//            
+//             cropRect = CGRectMake(self.cropRect.origin.x, self.cropRect.origin.y - 150, self.cropRect.size.width, self.cropRect.size.height);
+//
+//            
+//        }
+//        else if ([UIScreen mainScreen].bounds.size.width > 375){
+//            cropRect = CGRectMake(self.cropRect.origin.x, self.cropRect.origin.y - 150, self.cropRect.size.width, self.cropRect.size.height);
+//        }
+
         CGFloat rotationAngle = self.rotationAngle;
         
         UIImage *croppedImage = [self croppedImage:self.originalImage cropMode:self.cropMode cropRect:cropRect rotationAngle:rotationAngle zoomScale:self.imageScrollView.zoomScale maskPath:self.maskPath applyMaskToCroppedImage:self.applyMaskToCroppedImage];
