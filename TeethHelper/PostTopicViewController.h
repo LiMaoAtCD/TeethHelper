@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PostItemDelegate <NSObject>
+
+-(void)refreshTableView;
+
+@end
+
 @interface PostTopicViewController : UIViewController
+
+@property (nonatomic, weak) id<PostItemDelegate> delegate;
 
 @end

@@ -20,13 +20,15 @@
 
 #import "SocialDetailViewController.h"
 
-@interface SocialViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface SocialViewController ()<UITableViewDelegate, UITableViewDataSource,PostItemDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *dataItems;
 
 @property (nonatomic, assign) NSInteger currentIndex;
+
+@property (nonatomic, assign) BOOL isNeedRefresh;
 
 
 
@@ -77,14 +79,18 @@ static const NSInteger PageSize = 20;
     [super viewWillAppear:animated];
     
     
+    
 
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-//    [self loadData];
-
+    
+    if (self.isNeedRefresh) {
+        [self.tableView.header beginRefreshing];
+        self.isNeedRefresh = NO;
+    }
 
 }
 -(void)loadData{
@@ -381,7 +387,12 @@ static const NSInteger PageSize = 20;
 -(void)publishTopic:(id)sender{
     PostTopicViewController *postVC = [[PostTopicViewController alloc] initWithNibName:@"PostTopicViewController" bundle:nil];
     postVC.hidesBottomBarWhenPushed = YES;
+    postVC.delegate = self;
     [self.navigationController pushViewController:postVC animated:YES];
+}
+
+-(void)refreshTableView{
+    self.isNeedRefresh = YES;
 }
 
 

@@ -355,6 +355,11 @@
             [NetworkManager publishTextContent:nil withImages:array WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"%@",responseObject);
                 if ([responseObject[@"status"] integerValue] == 2000) {
+                    
+                    if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
+                        [self.delegate refreshTableView];
+                    }
+                    
                     [SVProgressHUD showSuccessWithStatus:@"发布成功"];
                     [self.navigationController popViewControllerAnimated:YES];
                     
@@ -381,6 +386,10 @@
             [NetworkManager publishTextContent:self.textView.text WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
                 if ([responseObject[@"status"] integerValue] == 2000) {
                     [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+                    if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
+                        [self.delegate refreshTableView];
+                    }
+                    
                     [self.navigationController popViewControllerAnimated:YES];
                 } else if([responseObject[@"status"] integerValue] == 1004){
                     [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
