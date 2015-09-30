@@ -59,9 +59,9 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     AVCaptureDevice *captureDevice=[self getCameraDeviceWithPosition:AVCaptureDevicePositionBack];//取得后置摄像头
     if (!captureDevice) {
         NSLog(@"取得前置摄像头时出现问题.");
-//        ImageCropperViewController *cropper  =[[ImageCropperViewController alloc] initWithImage:[UIImage imageNamed:@"splash_1"] cropMode:RSKImageCropModeCustom];
-//        cropper.dataSource = self;
-//        [self.navigationController pushViewController:cropper animated:YES];
+        ImageCropperViewController *cropper  =[[ImageCropperViewController alloc] initWithImage:[UIImage imageNamed:@"splash_1"] cropMode:RSKImageCropModeCustom];
+        cropper.dataSource = self;
+        [self.navigationController pushViewController:cropper animated:YES];
         
         return;
     }
@@ -541,7 +541,20 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
                                  maskSize.height);
     
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    
+    
     maskRect = CGRectMake(0, 50, width, 100);
+    
+//    if ([UIScreen mainScreen].bounds.size.width == 320) {
+//        maskRect = CGRectMake(0, 50, width, 100);
+//    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+//
+//        maskRect = CGRectMake(0, 70, width, 100);
+//    } else if ([UIScreen mainScreen].bounds.size.width > 375){
+//
+//        maskRect = CGRectMake(0, 100, width, 100);
+//    }
+
     
     return maskRect;
 }
@@ -594,9 +607,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     // If the image is not rotated, then the movement rect coincides with the mask rect.
 //    return controller.maskRect;
     
-    
+//    
     if ([UIScreen mainScreen].bounds.size.width == 320) {
-//        return     CGRect     maskRect = CGRectMake(0, 200, 375, 100);
         return controller.maskRect;
     } else if ([UIScreen mainScreen].bounds.size.width == 375) {
       
