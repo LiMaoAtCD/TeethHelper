@@ -137,7 +137,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     } else if ([UIScreen mainScreen].bounds.size.width == 375) {
         
         [areaImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_viewContainer.mas_top).offset(170);
+            make.top.equalTo(_viewContainer.mas_top).offset(180);
             make.centerX.equalTo(_viewContainer.mas_centerX);
             make.height.equalTo(@128);
             make.width.equalTo(@240);
