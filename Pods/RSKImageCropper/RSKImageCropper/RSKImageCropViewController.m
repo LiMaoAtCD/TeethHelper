@@ -414,6 +414,8 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     if (![_maskPath isEqual:maskPath]) {
         _maskPath = maskPath;
         
+//        CGRect tempRect = CGRectMake(self.overlayView.frame.origin.x, self.overlayView.frame.origin.y, self.overlayView.frame.size.width, self.overlayView.frame.size.height + 300);
+        
         UIBezierPath *clipPath = [UIBezierPath bezierPathWithRect:self.overlayView.frame];
         [clipPath appendPath:maskPath];
         clipPath.usesEvenOddFillRule = YES;

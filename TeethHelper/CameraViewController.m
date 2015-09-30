@@ -12,6 +12,8 @@
 #import "ImageEditViewController.h"
 #import "ImageCropperViewController.h"
 
+#import <Masonry.h>
+
 typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 @interface CameraViewController () <RSKImageCropViewControllerDataSource, RSKImageCropViewControllerDelegate>
@@ -61,6 +63,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
         NSLog(@"取得前置摄像头时出现问题.");
         ImageCropperViewController *cropper  =[[ImageCropperViewController alloc] initWithImage:[UIImage imageNamed:@"splash_1"] cropMode:RSKImageCropModeCustom];
         cropper.dataSource = self;
+        cropper.avoidEmptySpaceAroundImage = YES;
         [self.navigationController pushViewController:cropper animated:YES];
         
         return;
@@ -97,7 +100,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //    _captureVideoPreviewLayer.frame=CGRectMake(layer.bounds.origin.x, layer.bounds.origin.y, layer.bounds.size.width, layer.bounds.size.height + 20);
     _captureVideoPreviewLayer.frame=self.view.bounds;
 
-    NSLog(@"%f,%f,%f,%f",_captureVideoPreviewLayer.frame.origin.x,_captureVideoPreviewLayer.frame.origin.y,_captureVideoPreviewLayer.frame.size.width,_captureVideoPreviewLayer.frame.size.height );
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
 
@@ -115,6 +117,44 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     
     //先隐藏视图
 //    self.view.alpha = 0.0;
+    
+    
+    UIImageView *areaImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"area"]];
+    
+    [self.viewContainer addSubview:areaImageView];
+    
+    
+    
+    if ([UIScreen mainScreen].bounds.size.width == 320) {
+        
+        [areaImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_viewContainer.mas_top).offset(150);
+            make.centerX.equalTo(_viewContainer.mas_centerX);
+            make.height.equalTo(@128);
+            make.width.equalTo(@240);
+
+        }];
+    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+        
+        [areaImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_viewContainer.mas_top).offset(170);
+            make.centerX.equalTo(_viewContainer.mas_centerX);
+            make.height.equalTo(@128);
+            make.width.equalTo(@240);
+            
+        }];
+
+    } else if ([UIScreen mainScreen].bounds.size.width > 375){
+        
+        [areaImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(_viewContainer.mas_top).offset(220);
+            make.centerX.equalTo(_viewContainer.mas_centerX);
+            make.height.equalTo(@128);
+            make.width.equalTo(@240);
+            
+        }];
+    }
+   
 
 }
 
@@ -543,16 +583,18 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     
     
-    maskRect = CGRectMake(0, 50, width, 100);
+    maskRect = CGRectMake(0, 150, width, 100);
+    
+
     
 //    if ([UIScreen mainScreen].bounds.size.width == 320) {
 //        maskRect = CGRectMake(0, 50, width, 100);
 //    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
 //
-//        maskRect = CGRectMake(0, 70, width, 100);
+//        maskRect = CGRectMake(0, 150, width, 100);
 //    } else if ([UIScreen mainScreen].bounds.size.width > 375){
 //
-//        maskRect = CGRectMake(0, 100, width, 100);
+//        maskRect = CGRectMake(0, 300, width, 100);
 //    }
 
     
@@ -562,37 +604,23 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 // Returns a custom path for the mask.
 - (UIBezierPath *)imageCropViewControllerCustomMaskPath:(RSKImageCropViewController *)controller
 {
-//    CGRect rect = controller.maskRect;
-//    
-//    CGFloat radius = 50;
-//    CGMutablePathRef roundedTrianglePath = CGPathCreateMutable();
-//    CGPathMoveToPoint(roundedTrianglePath, NULL,
-//                      radius,
-//                      CGRectGetMinY(rect));
-//    
-//    
-//    CGPathAddArc(roundedTrianglePath, NULL,
-//                 CGRectGetMaxX(rect) - radius, CGRectGetMaxY(rect) - radius,
-//                 radius,
-//                 -0.5 * M_PI, 0.5 *M_PI,
-//                 NO);
-//    
-//    CGPathAddArc(roundedTrianglePath, NULL,
-//                 radius, CGRectGetMinY(rect) + radius,
-//                 radius,
-//                 0.5 * M_PI, 1.5 *M_PI,
-//                 NO);
-//    
-//    CGPathCloseSubpath(roundedTrianglePath);
-//    UIBezierPath *path = [UIBezierPath bezierPathWithCGPath:roundedTrianglePath];
-//    
-//    CGPathRelease(roundedTrianglePath);
-//    
-//    return path;
+
     
     CGRect rect = controller.maskRect;
     CGFloat radius = 50;
-//    const CGFloat lineWidth = 20;
+    
+    CGRect temp;
+    
+//    if ([UIScreen mainScreen].bounds.size.width == 320) {
+//        temp = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+//    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+//        
+//        temp = CGRectMake(rect.origin.x, rect.origin.y - 60, rect.size.width, rect.size.height);
+//    } else if ([UIScreen mainScreen].bounds.size.width > 375){
+//        
+//        temp = CGRectMake(rect.origin.x, rect.origin.y - 150, rect.size.width, rect.size.height);
+//    }
+    
     
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, 40 , 0 )
                                                     cornerRadius:radius];
@@ -608,20 +636,24 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //    return controller.maskRect;
     
 //    
-    if ([UIScreen mainScreen].bounds.size.width == 320) {
-        return controller.maskRect;
-    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
-      
-        return  CGRectMake(0, 100, 375, 100);
-
-    } else if ([UIScreen mainScreen].bounds.size.width > 375){
-        
-        return  CGRectMake(0, 120, 375, 100);
-    }
+//    if ([UIScreen mainScreen].bounds.size.width == 320) {
+//        return controller.maskRect;
+//    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+//      
+//        return  CGRectMake(0, 120, [UIScreen mainScreen].bounds.size.width, 100);
+//
+//    } else if ([UIScreen mainScreen].bounds.size.width > 375){
+//        
+//        return  CGRectMake(0, 120, [UIScreen mainScreen].bounds.size.width, 100);
+//    }
+    
+    
 
     
     return  controller.maskRect;
 }
+
+
 
 
 @end
