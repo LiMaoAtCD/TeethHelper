@@ -28,7 +28,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 @property (weak, nonatomic) IBOutlet UIView *viewContainer;
 @property (weak, nonatomic) IBOutlet UIButton *takeButton;//拍照按钮
 @property (weak, nonatomic) IBOutlet UIImageView *focusCursor; //聚焦光标
-@property (weak, nonatomic) IBOutlet UILabel *teethLabel;
+@property (strong, nonatomic) IBOutlet UILabel *teethLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *flashButton;
 
@@ -154,7 +154,21 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             
         }];
     }
-   
+    
+    self.teethLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    
+    self.teethLabel.text = @"牙齿及嘴唇区域";
+    self.teethLabel.font = [UIFont boldSystemFontOfSize:20.0];
+    self.teethLabel.textColor = [UIColor lightGrayColor];
+    
+    [areaImageView addSubview:self.teethLabel];
+    
+    [self.teethLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(areaImageView.mas_centerX);
+        make.centerY.equalTo(areaImageView.mas_centerY);
+        make.height.equalTo(@24);
+        make.width.equalTo(@140);
+    }];
 
 }
 

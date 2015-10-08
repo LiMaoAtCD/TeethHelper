@@ -58,19 +58,20 @@
             make.top.equalTo(self.view.mas_top).offset(74);
             make.left.equalTo(self.view.mas_left).offset(20);
             make.right.equalTo(self.view.mas_right).offset(-20);
-            make.height.equalTo(@150);
+            make.height.equalTo(@125);
         }];
         
         UIImageView *mainImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         mainImageView.image = self.image;
-        
+        mainImageView.contentMode = UIViewContentModeScaleAspectFit;
+
         [imageBGView addSubview:mainImageView];
         
         [mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(imageBGView.mas_top).offset(4);
+            make.top.equalTo(imageBGView.mas_top).offset(0);
             make.left.equalTo(imageBGView.mas_left).offset(4);
             make.right.equalTo(imageBGView.mas_right).offset(-4);
-            make.height.equalTo(@115);
+            make.height.equalTo(@95);
         }];
         
         UIImageView * watermark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_watermark"]];
@@ -185,19 +186,20 @@
             make.top.equalTo(use_before_label.mas_bottom).offset(4);
             make.left.equalTo(self.view.mas_left).offset(20);
             make.right.equalTo(self.view.mas_right).offset(-20);
-            make.height.equalTo(@150);
+            make.height.equalTo(@125);
         }];
         
         UIImageView *mainImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         mainImageView.image = [self loadImage];
-    
+        mainImageView.contentMode = UIViewContentModeScaleAspectFit;
+
         [imageBGView addSubview:mainImageView];
         
         [mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(imageBGView.mas_top).offset(4);
+            make.top.equalTo(imageBGView.mas_top).offset(0);
             make.left.equalTo(imageBGView.mas_left).offset(4);
             make.right.equalTo(imageBGView.mas_right).offset(-4);
-            make.height.equalTo(@115);
+            make.height.equalTo(@95);
         }];
         
         
@@ -250,19 +252,19 @@
             make.top.equalTo(use_after_label.mas_bottom).offset(4);
             make.left.equalTo(self.view.mas_left).offset(20);
             make.right.equalTo(self.view.mas_right).offset(-20);
-            make.height.equalTo(@150);
+            make.height.equalTo(@125);
         }];
         
         UIImageView *mainImageView2 = [[UIImageView alloc] initWithFrame:CGRectZero];
         mainImageView2.image = self.image;
-        
+        mainImageView2.contentMode = UIViewContentModeScaleAspectFit;
         [imageBGView2 addSubview:mainImageView2];
         
         [mainImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(imageBGView2.mas_top).offset(4);
+            make.top.equalTo(imageBGView2.mas_top).offset(0);
             make.left.equalTo(imageBGView2.mas_left).offset(4);
             make.right.equalTo(imageBGView2.mas_right).offset(-4);
-            make.height.equalTo(@115);
+            make.height.equalTo(@95);
         }];
         
         
