@@ -22,6 +22,12 @@
 		870A660F1B772FEB00A51B26 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A660E1B772FEB00A51B26 /* Utils.m */; };
 		870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */; };
 		870A66161B77321900A51B26 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66151B77321900A51B26 /* AccountManager.m */; };
+		872F0EC21BDFCBF800AFDA57 /* 203128680611052296.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872F0EBC1BDFCBF800AFDA57 /* 203128680611052296.jpg */; };
+		872F0EC31BDFCBF800AFDA57 /* code.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872F0EBD1BDFCBF800AFDA57 /* code.jpg */; };
+		872F0EC41BDFCBF800AFDA57 /* result.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872F0EBE1BDFCBF800AFDA57 /* result.jpg */; };
+		872F0EC51BDFCBF800AFDA57 /* tooth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872F0EBF1BDFCBF800AFDA57 /* tooth.jpg */; };
+		872F0EC61BDFCBF800AFDA57 /* ToothProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 872F0EC01BDFCBF800AFDA57 /* ToothProcess.cpp */; };
+		872F0EC91BDFCC6200AFDA57 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872F0EC81BDFCC6200AFDA57 /* opencv2.framework */; };
 		87338D221BAAF99E0067E1EA /* SatisfiedConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */; };
 		873B75B11B773984002D7871 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B01B773984002D7871 /* RegisterViewController.m */; };
 		873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B31B7739B8002D7871 /* ForgetPasswordViewController.m */; };
@@ -197,6 +203,14 @@
 		870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRGB.m"; sourceTree = "<group>"; };
 		870A66141B77321900A51B26 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		870A66151B77321900A51B26 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
+		872F0EBC1BDFCBF800AFDA57 /* 203128680611052296.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 203128680611052296.jpg; sourceTree = "<group>"; };
+		872F0EBD1BDFCBF800AFDA57 /* code.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = code.jpg; sourceTree = "<group>"; };
+		872F0EBE1BDFCBF800AFDA57 /* result.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = result.jpg; sourceTree = "<group>"; };
+		872F0EBF1BDFCBF800AFDA57 /* tooth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tooth.jpg; sourceTree = "<group>"; };
+		872F0EC01BDFCBF800AFDA57 /* ToothProcess.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToothProcess.cpp; sourceTree = "<group>"; };
+		872F0EC11BDFCBF800AFDA57 /* ToothProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToothProcess.h; sourceTree = "<group>"; };
+		872F0EC71BDFCC1900AFDA57 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		872F0EC81BDFCC6200AFDA57 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		87338D201BAAF99E0067E1EA /* SatisfiedConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatisfiedConfigFile.h; sourceTree = "<group>"; };
 		87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SatisfiedConfigFile.m; sourceTree = "<group>"; };
 		873B75AF1B773984002D7871 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -440,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87C1EECE1B8F465D00CA191E /* libc++.dylib in Frameworks */,
+				872F0EC91BDFCC6200AFDA57 /* opencv2.framework in Frameworks */,
 				87C1EEC71B8F45C800CA191E /* libz.dylib in Frameworks */,
 				8772B3841BB2B5C900F9C1A0 /* libWeChatSDK.a in Frameworks */,
 				87C1EECD1B8F462900CA191E /* libsqlite3.0.dylib in Frameworks */,
@@ -474,6 +489,10 @@
 		870A65CB1B77227100A51B26 = {
 			isa = PBXGroup;
 			children = (
+				872F0EC81BDFCC6200AFDA57 /* opencv2.framework */,
+				872F0EBB1BDFCBF800AFDA57 /* testData */,
+				872F0EC01BDFCBF800AFDA57 /* ToothProcess.cpp */,
+				872F0EC11BDFCBF800AFDA57 /* ToothProcess.h */,
 				8772B37F1BB2B5C900F9C1A0 /* SDKExport */,
 				870A65D61B77227100A51B26 /* TeethHelper */,
 				870A65F01B77227100A51B26 /* TeethHelperTests */,
@@ -597,6 +616,18 @@
 				870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */,
 			);
 			name = HexToRGB;
+			sourceTree = "<group>";
+		};
+		872F0EBB1BDFCBF800AFDA57 /* testData */ = {
+			isa = PBXGroup;
+			children = (
+				872F0EC71BDFCC1900AFDA57 /* Global.h */,
+				872F0EBC1BDFCBF800AFDA57 /* 203128680611052296.jpg */,
+				872F0EBD1BDFCBF800AFDA57 /* code.jpg */,
+				872F0EBE1BDFCBF800AFDA57 /* result.jpg */,
+				872F0EBF1BDFCBF800AFDA57 /* tooth.jpg */,
+			);
+			path = testData;
 			sourceTree = "<group>";
 		};
 		873B75B81B773F7D002D7871 /* FirstTab */ = {
@@ -1200,6 +1231,7 @@
 				8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
+				872F0EC21BDFCBF800AFDA57 /* 203128680611052296.jpg in Resources */,
 				87F4289E1B91978000F0CD46 /* PostToSocialController.xib in Resources */,
 				8795B0341BAA68B400EC088A /* SatistiedThreeViewController.xib in Resources */,
 				87F73F751B8CA42D005705AA /* SocialCommentViewController.xib in Resources */,
@@ -1212,11 +1244,14 @@
 				87F0FC971B980CE900147DF3 /* MeiBaiTimerViewController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				873EAE811B949A3200445728 /* SuggestionKeepViewController.xib in Resources */,
+				872F0EC51BDFCBF800AFDA57 /* tooth.jpg in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				87D8BBD91BA160950049CC00 /* WeChatShareSocialViewController.xib in Resources */,
+				872F0EC41BDFCBF800AFDA57 /* result.jpg in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */,
 				87FAFCEC1B8B7508000CB8F4 /* DetailReplyCell.xib in Resources */,
+				872F0EC31BDFCBF800AFDA57 /* code.jpg in Resources */,
 				87911F521B8B500A000E9218 /* SocialDetailTwoCell.xib in Resources */,
 				873EAE861B949A4200445728 /* SuggestGentleViewController.xib in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
@@ -1313,6 +1348,7 @@
 				87D533FB1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
+				872F0EC61BDFCBF800AFDA57 /* ToothProcess.cpp in Sources */,
 				87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */,
 				8745C8D71B807EA400272FB4 /* MeiBaiThreeCell.m in Sources */,
 				8785F8F51B7C49560051B29B /* QuestionOneViewController.m in Sources */,
@@ -1510,6 +1546,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: agent liam (ZCQZ824KK4)";
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TeethHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1531,6 +1571,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: agent liam (ZCQZ824KK4)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TeethHelper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
