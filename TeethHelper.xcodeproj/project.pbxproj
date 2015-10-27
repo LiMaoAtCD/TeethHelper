@@ -22,7 +22,7 @@
 		870A660F1B772FEB00A51B26 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A660E1B772FEB00A51B26 /* Utils.m */; };
 		870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */; };
 		870A66161B77321900A51B26 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66151B77321900A51B26 /* AccountManager.m */; };
-		87338D221BAAF99E0067E1EA /* SatisfiedConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */; settings = {ASSET_TAGS = (); }; };
+		87338D221BAAF99E0067E1EA /* SatisfiedConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */; };
 		873B75B11B773984002D7871 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B01B773984002D7871 /* RegisterViewController.m */; };
 		873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B31B7739B8002D7871 /* ForgetPasswordViewController.m */; };
 		873B75B71B773E42002D7871 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B61B773E42002D7871 /* NetworkManager.m */; };
@@ -63,8 +63,8 @@
 		875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875D24441B8884350068AA2B /* CeBaiResultViewController.xib */; };
 		8761F4521B8DD6300061A59E /* ProtocolAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */; };
 		8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */ = {isa = PBXBuildFile; fileRef = 8761F4571B8DDAEA0061A59E /* meiya_.html */; };
-		8772B3841BB2B5C900F9C1A0 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8772B3801BB2B5C900F9C1A0 /* libWeChatSDK.a */; settings = {ASSET_TAGS = (); }; };
-		8772B3851BB2B5C900F9C1A0 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8772B3811BB2B5C900F9C1A0 /* read_me.txt */; settings = {ASSET_TAGS = (); }; };
+		8772B3841BB2B5C900F9C1A0 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8772B3801BB2B5C900F9C1A0 /* libWeChatSDK.a */; };
+		8772B3851BB2B5C900F9C1A0 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8772B3811BB2B5C900F9C1A0 /* read_me.txt */; };
 		877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8778802E1B8A063600BAF13D /* PostTopicViewController.m */; };
 		877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8778802F1B8A063600BAF13D /* PostTopicViewController.xib */; };
 		877B051A1B8AB4E000D5ECF1 /* SocialDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877B05181B8AB4E000D5ECF1 /* SocialDetailViewController.m */; };
@@ -1155,7 +1155,7 @@
 				TargetAttributes = {
 					870A65D31B77227100A51B26 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = CMK99GW5P5;
+						DevelopmentTeam = 6VM92FE78A;
 					};
 					870A65EC1B77227100A51B26 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1549,6 +1549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SCHINDLER (CHINA) ELEVATOR CO.,LTD. (6VM92FE78A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1561,6 +1562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.guoguang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6afe64f5-c880-481f-a772-67cf0a9860c7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeethHelper.app/TeethHelper";
 			};
 			name = Debug;
@@ -1569,6 +1571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SCHINDLER (CHINA) ELEVATOR CO.,LTD. (6VM92FE78A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1577,6 +1580,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.guoguang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6afe64f5-c880-481f-a772-67cf0a9860c7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TeethHelper.app/TeethHelper";
 			};
 			name = Release;
