@@ -19,6 +19,9 @@
 
 #import "WeChatShareSocialViewController.h"
 
+#import "ToothProcess.h"
+#import "Global.h"
+
 @interface CeBaiResultViewController ()<ShareToSocialDelegate>
 
 
@@ -37,7 +40,27 @@
     [self configRightNavigationItem];
     
     //TODO:通过SDK获得白度值
-    self.Level = 7;
+    
+    NSString  *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
+    
+    [UIImageJPEGRepresentation(self.image,1.0) writeToFile:imagePath atomically:YES];
+    
+
+    NSString  *imageCodePathFile = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
+
+//    NSString *imageCodePathFile = [[NSBundle mainBundle] pathForResource:@"xxx" ofType:@"jpg"];
+    
+    const char *codePathFile = [imageCodePathFile UTF8String];
+    
+    IplImage *imageCode = cvLoadImage(codePathFile,1);
+    
+    int matchIndex = ToothColorMatch(imageCode);
+    
+    
+//    IplImage *inputImage = cvLoadImage()
+//    int level = ToothProcess();
+    
+    self.Level = matchIndex;
 
     if (![AccountManager isCompletedFirstCeBai]) {
         

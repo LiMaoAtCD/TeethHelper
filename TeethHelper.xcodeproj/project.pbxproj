@@ -65,7 +65,7 @@
 		87465BBD1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87465BBB1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib */; };
 		874F73661B86181B00429C3D /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874F73651B86181B00429C3D /* CameraViewController.m */; };
 		874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874F73681B8618A200429C3D /* ImageEditViewController.m */; };
-		875D24451B8884350068AA2B /* CeBaiResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875D24431B8884350068AA2B /* CeBaiResultViewController.m */; };
+		875D24451B8884350068AA2B /* CeBaiResultViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 875D24431B8884350068AA2B /* CeBaiResultViewController.mm */; };
 		875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875D24441B8884350068AA2B /* CeBaiResultViewController.xib */; };
 		8761F4521B8DD6300061A59E /* ProtocolAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */; };
 		8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */ = {isa = PBXBuildFile; fileRef = 8761F4571B8DDAEA0061A59E /* meiya_.html */; };
@@ -280,7 +280,7 @@
 		874F73671B8618A200429C3D /* ImageEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEditViewController.h; sourceTree = "<group>"; };
 		874F73681B8618A200429C3D /* ImageEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEditViewController.m; sourceTree = "<group>"; };
 		875D24421B8884350068AA2B /* CeBaiResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeBaiResultViewController.h; sourceTree = "<group>"; };
-		875D24431B8884350068AA2B /* CeBaiResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiResultViewController.m; sourceTree = "<group>"; };
+		875D24431B8884350068AA2B /* CeBaiResultViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CeBaiResultViewController.mm; sourceTree = "<group>"; };
 		875D24441B8884350068AA2B /* CeBaiResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CeBaiResultViewController.xib; sourceTree = "<group>"; };
 		8761F4501B8DD6300061A59E /* ProtocolAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolAgreementViewController.h; sourceTree = "<group>"; };
 		8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolAgreementViewController.m; sourceTree = "<group>"; };
@@ -657,7 +657,7 @@
 				87BBCDC81B8872E1009130F1 /* ImageCropperViewController.h */,
 				87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */,
 				875D24421B8884350068AA2B /* CeBaiResultViewController.h */,
-				875D24431B8884350068AA2B /* CeBaiResultViewController.m */,
+				875D24431B8884350068AA2B /* CeBaiResultViewController.mm */,
 				875D24441B8884350068AA2B /* CeBaiResultViewController.xib */,
 				87F4289A1B91978000F0CD46 /* PostToSocialController.h */,
 				87F4289B1B91978000F0CD46 /* PostToSocialController.m */,
@@ -1355,7 +1355,7 @@
 				87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */,
 				87F73F741B8CA42D005705AA /* SocialCommentViewController.m in Sources */,
 				87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */,
-				875D24451B8884350068AA2B /* CeBaiResultViewController.m in Sources */,
+				875D24451B8884350068AA2B /* CeBaiResultViewController.mm in Sources */,
 				87D534011B7ADF6300F3D6BE /* MeiBaiTwoCell.m in Sources */,
 				870A660B1B7724B400A51B26 /* MainTabBarController.m in Sources */,
 				870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */,
