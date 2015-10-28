@@ -110,12 +110,25 @@
     
     [self.view addSubview:beginProjectButton];
     
-    [beginProjectButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.alienView.mas_bottom).offset(15);
-        make.width.equalTo(@150);
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.height.equalTo(@35);
-    }];
+    
+    if ([UIScreen mainScreen].bounds.size.width >= 375.0) {
+        
+        [beginProjectButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.alienView.mas_bottom).offset(40);
+            make.width.equalTo(@200);
+            make.centerX.equalTo(self.view.mas_centerX);
+            make.height.equalTo(@45);
+        }];
+
+    } else{
+        [beginProjectButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.alienView.mas_bottom).offset(15);
+            make.width.equalTo(@150);
+            make.centerX.equalTo(self.view.mas_centerX);
+            make.height.equalTo(@35);
+        }];
+
+    }
     
     UILabel *completedLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     completedLabel.text = @"已完成计划";
@@ -124,12 +137,26 @@
     completedLabel.font = [UIFont systemFontOfSize:14.0];
     [self.view addSubview:completedLabel];
     
-    [completedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(beginProjectButton.mas_bottom).offset(10);
-        make.height.equalTo(@20);
-        make.left.equalTo(self.view.mas_left).offset(0);
-        make.right.equalTo(self.view.mas_centerX).offset(0);
-    }];
+
+    if ([UIScreen mainScreen].bounds.size.width >= 375.0) {
+        
+        [completedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(beginProjectButton.mas_bottom).offset(30);
+            make.height.equalTo(@20);
+            make.left.equalTo(self.view.mas_left).offset(0);
+            make.right.equalTo(self.view.mas_centerX).offset(0);
+        }];
+    } else{
+        [completedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(beginProjectButton.mas_bottom).offset(10);
+            make.height.equalTo(@20);
+            make.left.equalTo(self.view.mas_left).offset(0);
+            make.right.equalTo(self.view.mas_centerX).offset(0);
+        }];
+    }
+    
+    
+    
     
     _currentProjectLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     
