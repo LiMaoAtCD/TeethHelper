@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void(^alertBlock)(void);
+
 @interface Utils : NSObject
 
 +(void)ConfigNavigationBarWithTitle:(NSString*)title onViewController:(UIViewController *)viewController;
@@ -18,4 +20,6 @@
 +(BOOL)isiPhone4;
 +(BOOL)isValidCellphoneNumber:(NSString *)phoneNumber;
 +(BOOL)isValidPassword:(NSString*)password;
+
++(void)showAlertMessage:(NSString*)message onViewController:(UIViewController *)viewController withCompletionHandler:(alertBlock)handler;
 @end

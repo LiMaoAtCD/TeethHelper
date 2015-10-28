@@ -45,7 +45,6 @@
     
     [self configTextFields];
     
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
 
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"_first_launch"];
@@ -217,13 +216,39 @@
 //    if (self.phone is) {
 //    }
     
+    if (self.phone == nil || [self.phone isEqualToString:@""]) {
+        [Utils showAlertMessage:@"请输入正确的手机号码" onViewController:self withCompletionHandler:nil];
+    }
+    
     if (![Utils isValidCellphoneNumber:self.phone]) {
-        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+//        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号码"];
+        
+        [Utils showAlertMessage:@"请输入正确的手机号码" onViewController:self withCompletionHandler:^{
+            
+            self.phone = nil;
+            [self.phoneTextField becomeFirstResponder];
+            
+        }];
+        
         return NO;
     }
     
+    if (self.password == nil || [self.password isEqualToString:@""]) {
+        [Utils showAlertMessage:@"请输入密码" onViewController:self withCompletionHandler:nil];
+    }
+
+    
     if(![Utils isValidPassword:self.password]){
-        [SVProgressHUD showErrorWithStatus:@"密码为6-16位字母或数字"];
+//        [SVProgressHUD showErrorWithStatus:@"密码为6-16位字母或数字"];
+        
+        [Utils showAlertMessage:@"密码为6-16位字母或数字" onViewController:self withCompletionHandler:^{
+            
+            self.password = nil;
+            [self.passwordTextField becomeFirstResponder];
+        }];
+        
+        
+        
         return NO;
     }
     

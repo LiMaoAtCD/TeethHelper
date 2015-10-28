@@ -138,24 +138,44 @@
 }
 
 -(void)logout:(UIButton *)button{
-    [AccountManager setLogin:NO];
-    [AccountManager setAvatarUrlString:nil];
-    [AccountManager setName:nil];
-    [AccountManager setgender:nil];
-    [AccountManager setAddress:nil];
-    [AccountManager setTokenID:nil];
-    [AccountManager setBirthDay:nil];
-    [AccountManager setPassword:nil];
-    [AccountManager setCellphoneNumber:nil];
     
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [AccountManager setLogin:NO];
+        [AccountManager setAvatarUrlString:nil];
+        [AccountManager setName:nil];
+        [AccountManager setgender:nil];
+        [AccountManager setAddress:nil];
+        [AccountManager setTokenID:nil];
+        [AccountManager setBirthDay:nil];
+        [AccountManager setPassword:nil];
+        [AccountManager setCellphoneNumber:nil];
+        
+        
+        
+        UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Login" bundle:nil];
+        LoginNavigationController *loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+        
+        [self showDetailViewController:loginVC sender:self];
+        [self.tabBarController setSelectedIndex:0];
 
+    }];
     
-    UIStoryboard *sb =[UIStoryboard storyboardWithName:@"Login" bundle:nil];
-    LoginNavigationController *loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
     
-    [self showDetailViewController:loginVC sender:self];
-    [self.tabBarController setSelectedIndex:0];
-
+    [alert addAction:confirmAction];
+    [alert addAction:cancelAction];
+    
+    
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
     
 }
 
