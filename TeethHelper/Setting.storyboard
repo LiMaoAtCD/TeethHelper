@@ -2058,20 +2058,13 @@
                                                         <constraint firstAttribute="height" constant="40" id="8vt-J9-4c3"/>
                                                         <constraint firstAttribute="width" constant="40" id="naO-Lp-DLW"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="20"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="8vt-J9-4c3"/>
                                                             <exclude reference="naO-Lp-DLW"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="239" y="12" width="40" height="40"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="8vt-J9-4c3"/>
                                                             <include reference="naO-Lp-DLW"/>
@@ -2169,8 +2162,7 @@
                                                             <exclude reference="Dnl-0d-2rI"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="100" y="16" width="179" height="21"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="Dnl-0d-2rI"/>
                                                         </mask>
