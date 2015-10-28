@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstCeBaiViewController">
@@ -16,20 +17,24 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cebai_bg_img" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-DZ-lUT">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <animations/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6W-j2-TLy">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_green" translatesAutoresizingMaskIntoConstraints="NO" id="fIH-Uo-OVb">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <animations/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请按照要求带好开口器，准备测白" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8E-v8-oae">
                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="7g8-fd-2ld"/>
@@ -73,6 +78,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deG-UN-wgU">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.38823529410000002" green="0.70980392160000005" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Ayp-cN-HrG"/>
@@ -99,6 +105,7 @@
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cebai_jiantou" translatesAutoresizingMaskIntoConstraints="NO" id="QjF-mx-gen">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="17" id="JHd-t8-fuc"/>
                         <constraint firstAttribute="height" constant="17" id="YZa-E5-svx"/>
@@ -117,6 +124,7 @@
                     </variation>
                 </imageView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="a5d-DZ-lUT" firstAttribute="top" secondItem="F6W-j2-TLy" secondAttribute="bottom" constant="2" id="1NV-S2-2a4">
@@ -150,20 +158,20 @@
                     <exclude reference="QjF-mx-gen"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="iaU-yO-adL"/>
-                    <exclude reference="ku3-Hi-x6Z"/>
-                    <exclude reference="zy5-iG-xaD"/>
-                    <exclude reference="1NV-S2-2a4"/>
-                    <exclude reference="1b5-tC-loO"/>
-                    <exclude reference="47G-zZ-thh"/>
-                    <exclude reference="NLA-WH-twN"/>
-                    <exclude reference="ZjR-Bq-drB"/>
                     <exclude reference="55O-F8-tFA"/>
                     <exclude reference="RaM-Ox-Qr3"/>
                     <exclude reference="bMa-e9-YvM"/>
                     <exclude reference="c1E-VM-gdn"/>
                     <exclude reference="BQB-qz-X0C"/>
                     <exclude reference="eUg-Wa-sZb"/>
+                    <exclude reference="1NV-S2-2a4"/>
+                    <exclude reference="1b5-tC-loO"/>
+                    <exclude reference="47G-zZ-thh"/>
+                    <exclude reference="NLA-WH-twN"/>
+                    <exclude reference="ZjR-Bq-drB"/>
+                    <exclude reference="iaU-yO-adL"/>
+                    <exclude reference="ku3-Hi-x6Z"/>
+                    <exclude reference="zy5-iG-xaD"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -174,20 +182,20 @@
                     <include reference="QjF-mx-gen"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="iaU-yO-adL"/>
-                    <include reference="ku3-Hi-x6Z"/>
-                    <include reference="zy5-iG-xaD"/>
-                    <include reference="1NV-S2-2a4"/>
-                    <exclude reference="1b5-tC-loO"/>
-                    <include reference="47G-zZ-thh"/>
-                    <exclude reference="NLA-WH-twN"/>
-                    <include reference="ZjR-Bq-drB"/>
                     <include reference="55O-F8-tFA"/>
                     <include reference="RaM-Ox-Qr3"/>
                     <include reference="bMa-e9-YvM"/>
                     <include reference="c1E-VM-gdn"/>
                     <include reference="BQB-qz-X0C"/>
                     <include reference="eUg-Wa-sZb"/>
+                    <include reference="1NV-S2-2a4"/>
+                    <exclude reference="1b5-tC-loO"/>
+                    <include reference="47G-zZ-thh"/>
+                    <exclude reference="NLA-WH-twN"/>
+                    <include reference="ZjR-Bq-drB"/>
+                    <include reference="iaU-yO-adL"/>
+                    <include reference="ku3-Hi-x6Z"/>
+                    <include reference="zy5-iG-xaD"/>
                 </mask>
             </variation>
         </view>
