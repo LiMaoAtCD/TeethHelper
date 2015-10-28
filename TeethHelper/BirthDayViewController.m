@@ -30,6 +30,9 @@
     
 //    self.birthday = [formatter stringFromDate:[NSDate date]];
     self.birthday = [NSDate date];
+    
+    
+    [self.datePicker setMaximumDate:[NSDate date]];
 }
 -(void)datePick:(UIDatePicker *)picker{
 //    self.birthday = [picker date];
