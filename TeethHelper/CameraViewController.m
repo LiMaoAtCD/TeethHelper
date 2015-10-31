@@ -58,7 +58,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
         _captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
     }
     //获得输入设备
-    AVCaptureDevice *captureDevice=[self getCameraDeviceWithPosition:AVCaptureDevicePositionBack];//取得后置摄像头
+    AVCaptureDevice *captureDevice=[self getCameraDeviceWithPosition:AVCaptureDevicePositionFront];//取得后置摄像头
     if (!captureDevice) {
         NSLog(@"取得前置摄像头时出现问题.");
         ImageCropperViewController *cropper  =[[ImageCropperViewController alloc] initWithImage:[UIImage imageNamed:@"splash_1"] cropMode:RSKImageCropModeCustom];
@@ -159,7 +159,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     
     self.teethLabel.text = @"牙齿及嘴唇区域";
     self.teethLabel.font = [UIFont boldSystemFontOfSize:20.0];
-    self.teethLabel.textColor = [UIColor lightGrayColor];
+    self.teethLabel.textColor = [UIColor redColor];
     
     [areaImageView addSubview:self.teethLabel];
     
@@ -177,12 +177,12 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     [self.captureSession startRunning];
 
     
-    //牙齿提示语消失
-    [UIView animateWithDuration:1.0 delay:5.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.teethLabel.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        
-    }];
+//    //牙齿提示语消失
+//    [UIView animateWithDuration:1.0 delay:5.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//        self.teethLabel.alpha = 0.0;
+//    } completion:^(BOOL finished) {
+//        
+//    }];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
