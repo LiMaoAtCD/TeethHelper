@@ -1453,7 +1453,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="153" y="11.5" width="159" height="21"/>
+                                                        <rect key="frame" x="153" y="11" width="159" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="gIV-4h-0fe"/>
                                                         </mask>
@@ -2058,6 +2058,12 @@
                                                         <constraint firstAttribute="height" constant="40" id="8vt-J9-4c3"/>
                                                         <constraint firstAttribute="width" constant="40" id="naO-Lp-DLW"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="8vt-J9-4c3"/>
