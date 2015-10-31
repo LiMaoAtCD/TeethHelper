@@ -42,7 +42,7 @@
                                 border:[UIColor colorWithRed:168.0/255.0 green:168.0/255.0 blue:168.0/255.0 alpha:1.0]];
     [self.view addSubview:_horSlider];
     
-    [_horSlider setValue:1.0 withAnimation:YES completion:^(BOOL finished) {
+    [_horSlider setValue:1.0 withAnimation:NO completion:^(BOOL finished) {
         
     }];
     [_horSlider mas_makeConstraints:^(MASConstraintMaker *make) {

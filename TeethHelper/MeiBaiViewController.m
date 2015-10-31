@@ -111,7 +111,7 @@
     [self.view addSubview:beginProjectButton];
     
     
-    if ([UIScreen mainScreen].bounds.size.width >= 375.0) {
+    if ([UIScreen mainScreen].bounds.size.width == 375.0) {
         
         [beginProjectButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.alienView.mas_bottom).offset(40);
@@ -120,6 +120,14 @@
             make.height.equalTo(@45);
         }];
 
+    }else if ([UIScreen mainScreen].bounds.size.width > 375.0){
+        
+        [beginProjectButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.alienView.mas_bottom).offset(60);
+            make.width.equalTo(@200);
+            make.centerX.equalTo(self.view.mas_centerX);
+            make.height.equalTo(@45);
+        }];
     } else{
         [beginProjectButton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.alienView.mas_bottom).offset(15);
@@ -138,10 +146,18 @@
     [self.view addSubview:completedLabel];
     
 
-    if ([UIScreen mainScreen].bounds.size.width >= 375.0) {
+    if ([UIScreen mainScreen].bounds.size.width == 375.0) {
         
         [completedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(beginProjectButton.mas_bottom).offset(30);
+            make.height.equalTo(@20);
+            make.left.equalTo(self.view.mas_left).offset(0);
+            make.right.equalTo(self.view.mas_centerX).offset(0);
+        }];
+    }else if ([UIScreen mainScreen].bounds.size.width > 375.0){
+        
+        [completedLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(beginProjectButton.mas_bottom).offset(40);
             make.height.equalTo(@20);
             make.left.equalTo(self.view.mas_left).offset(0);
             make.right.equalTo(self.view.mas_centerX).offset(0);
