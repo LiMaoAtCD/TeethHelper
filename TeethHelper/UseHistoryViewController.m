@@ -100,9 +100,18 @@ static const NSInteger pageSize = 20;
     
     NSString *timeString = [formatter stringFromDate:createTime];
     
-//    NSString *totalTime = self.dataItems[indexPath.row][@"totalTime"];
-    NSString *totalTime = [NSString stringWithFormat:@"%@ 分钟",self.dataItems[indexPath.row][@"totalTime"]];
+    NSString *totalTime = self.dataItems[indexPath.row][@"totalTime"];
+    
+    NSString *treatTime = self.dataItems[indexPath.row][@"treatmentTime"];
+    
+    NSString *totalShowTime;
+    if ([totalTime integerValue] >= [treatTime integerValue]) {
+        totalShowTime = [NSString stringWithFormat:@"%@ 分钟",self.dataItems[indexPath.row][@"treatmentTime"]];
+    } else{
+        totalShowTime = [NSString stringWithFormat:@"%@ 分钟",self.dataItems[indexPath.row][@"totalTime"]];
 
+    }
+    
     
 //    NSString *times = self.dataItems[indexPath.row][@"no"];
     NSString *times = [NSString stringWithFormat:@"%@ 次",self.dataItems[indexPath.row][@"no"]];
@@ -110,7 +119,7 @@ static const NSInteger pageSize = 20;
     cell.dateLabel.text = dateString;
     cell.timeLabel.text = timeString;
     cell.useTimesLabel.text = times;
-    cell.totalTimeLabel.text = totalTime;
+    cell.totalTimeLabel.text = totalShowTime;
 
     
     return cell;
