@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *contentThreeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *loveLabel;
+
 @end

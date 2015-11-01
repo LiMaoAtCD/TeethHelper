@@ -21,4 +21,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *loveLabel;
+
+
+
+
+
 @end

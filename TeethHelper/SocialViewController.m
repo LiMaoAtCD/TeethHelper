@@ -272,6 +272,8 @@ static const NSInteger PageSize = 20;
         cell.cotentLabel.text = temp[@"content"];
         cell.nameLabel.text = temp[@"nickName"];
         
+        cell.loveLabel.text = [NSString stringWithFormat:@"%ld",[temp[@"loves"] integerValue]];
+        
         if (images.count == 1) {
             [cell.contentOneImageView sd_setImageWithURL:[NSURL URLWithString:images[0][@"thumb"]] placeholderImage:nil];
             cell.contentTwoImageView.image = nil;
@@ -338,6 +340,9 @@ static const NSInteger PageSize = 20;
             cell.timeStampLabel.text = timestamp;
         }
         cell.commentsLabel.text  = [NSString stringWithFormat:@"%ld", [temp[@"callbacks"] integerValue]];
+        
+        cell.loveLabel.text = [NSString stringWithFormat:@"%ld",[temp[@"loves"] integerValue]];
+
 
         cell.contentLabel.text = temp[@"content"];
         cell.nameLabel.text = temp[@"nickName"];
