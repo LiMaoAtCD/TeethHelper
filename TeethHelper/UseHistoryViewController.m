@@ -172,7 +172,7 @@ static const NSInteger pageSize = 20;
     [NetworkManager fetchUseHistoryStartIndex:self.currentIndex andPageSize:pageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.tableView.header endRefreshing];
         
-        NSLog(@"response %@",responseObject);
+//        NSLog(@"response %@",responseObject);
         
         if ([responseObject[@"status"] integerValue] == 2000) {
             NSArray *data = responseObject[@"data"];

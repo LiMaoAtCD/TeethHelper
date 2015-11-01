@@ -24,6 +24,8 @@
 @property (nonatomic, assign) NSInteger count;
 @property (nonatomic, strong) NSTimer *timer;
 
+@property (nonatomic, copy) NSString *standardVerifyCode;
+
 
 @end
 
@@ -110,6 +112,13 @@
 
         return NO;
     }
+    
+    if (![_verifyCode isEqualToString:self.standardVerifyCode]) {
+        [SVProgressHUD showErrorWithStatus:@"验证码错误"];
+        return NO;
+
+    }
+    
     return YES;
 }
 
@@ -125,6 +134,8 @@
         [NetworkManager FetchForgetVerifyCode:self.phone withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"%@",responseObject);
             
+            
+            self.standardVerifyCode = responseObject[@"data"];
             if ([responseObject[@"status"] integerValue] == 2000) {
                 [SVProgressHUD showSuccessWithStatus:@"验证码获取成功"];
                 
