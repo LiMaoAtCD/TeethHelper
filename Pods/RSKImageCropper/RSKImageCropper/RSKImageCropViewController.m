@@ -546,7 +546,10 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     } else {
         zoomScale = CGRectGetWidth(self.view.bounds) / self.originalImage.size.width;
     }
-    self.imageScrollView.zoomScale = zoomScale;
+    //这里修改大点，操他妈的客户
+    self.imageScrollView.zoomScale = zoomScale + 0.1;
+//    self.imageScrollView.zoomScale = 0.45;
+
 }
 
 - (NSArray *)intersectionPointsOfLineSegment:(RSKLineSegment)lineSegment withRect:(CGRect)rect
