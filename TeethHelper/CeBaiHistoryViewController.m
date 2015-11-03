@@ -48,9 +48,19 @@ static const NSInteger pageSize = 20;
         [self fetchMoreData];
 
     }];
+    
+    //重置按钮
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    [rightButton addTarget:self action:@selector(reset:) forControlEvents:UIControlEventTouchUpInside];
+    [rightButton setTitle:@"重置" forState:UIControlStateNormal];
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 
 }
-
+-(void)reset:(id)sender{
+    //TODO：重置
+    
+}
 -(void)pop{
     [self.navigationController popViewControllerAnimated:YES];
 }
