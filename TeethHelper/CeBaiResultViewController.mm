@@ -47,10 +47,12 @@
     
 
     NSString  *imageCodePathFile = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
-
-//    NSString *imageCodePathFile = [[NSBundle mainBundle] pathForResource:@"xxx" ofType:@"jpg"];
     
-    const char *codePathFile = [imageCodePathFile UTF8String];
+    NSString *imageForTesting = [[NSBundle mainBundle] pathForResource:@"tooth" ofType:@"jpg"];
+    
+    const char *codePathFile = [imageForTesting UTF8String];
+
+//    const char *codePathFile = [imageCodePathFile UTF8String];
     
     IplImage *imageCode = cvLoadImage(codePathFile,1);
     
