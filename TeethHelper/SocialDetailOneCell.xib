@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -17,6 +17,7 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp" translatesAutoresizingMaskIntoConstraints="NO" id="mhl-p0-CBu">
                         <rect key="frame" x="8" y="8" width="40" height="41"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="5rC-Gk-bHo"/>
                             <constraint firstAttribute="height" constant="42.5" id="8w4-aj-Qqg">
@@ -26,7 +27,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="20"/>
+                                <integer key="value" value="3"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <variation key="default">
@@ -44,6 +45,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我擦擦较大" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yiv-kp-NJO">
                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="Brk-pI-Vny"/>
                             <constraint firstAttribute="height" constant="23" id="Iom-TC-s4H"/>
@@ -66,6 +68,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="楼主" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6vb-ky-TDi">
                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.38823529410000002" green="0.70980392160000005" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="34" id="3ps-N7-tN5"/>
@@ -95,6 +98,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="social_female" translatesAutoresizingMaskIntoConstraints="NO" id="4ME-xN-CnP">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="11" id="Hou-Vd-2Cp"/>
                             <constraint firstAttribute="height" constant="11" id="hKq-DJ-v78"/>
@@ -120,6 +124,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1楼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exd-go-uZG">
                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="26" id="Axd-w2-jRk"/>
                             <constraint firstAttribute="height" constant="15" id="yaT-Au-1G8"/>
@@ -142,12 +147,14 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大方哈快解放等哈看风景" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAq-ML-VE4">
                         <rect key="frame" x="8" y="61" width="304" height="63"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhr-pO-YjP">
                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="NrJ-oz-CiD"/>
                             <constraint firstAttribute="width" constant="16" id="v1t-A3-kHw"/>
@@ -170,6 +177,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csb-NQ-1zk">
                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="17" id="49U-Ey-bUH"/>
                             <constraint firstAttribute="width" constant="16" id="Ew7-fI-USh"/>
@@ -192,6 +200,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="social_comments" translatesAutoresizingMaskIntoConstraints="NO" id="txi-HP-k4H">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="14" id="maG-v8-nzm"/>
                             <constraint firstAttribute="height" constant="13" id="r5Z-Sz-i75"/>
@@ -211,6 +220,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="social_like_detail" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-hm-aq7">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="14" id="5Hf-0U-BjN"/>
                             <constraint firstAttribute="height" constant="13" id="I8R-Bs-JBk"/>
@@ -235,6 +245,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FcU-LM-eNE">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="FcU-LM-eNE" secondAttribute="height" multiplier="3:4" id="DuK-s6-Gf2"/>
                             <constraint firstAttribute="height" constant="239" id="qom-1v-mrg">
@@ -255,6 +266,7 @@
                         </variation>
                     </imageView>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="exd-go-uZG" firstAttribute="centerY" secondItem="4ME-xN-CnP" secondAttribute="centerY" constant="-3" id="03q-T4-bJ7">
                         <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -348,40 +360,40 @@
                         <exclude reference="FcU-LM-eNE"/>
                     </mask>
                     <mask key="constraints">
-                        <exclude reference="PuP-ET-czd"/>
-                        <exclude reference="nGn-9w-GbK"/>
+                        <exclude reference="BTG-RL-Kdc"/>
+                        <exclude reference="jHp-eB-E1r"/>
+                        <exclude reference="s9k-ke-XUb"/>
+                        <exclude reference="zyI-de-DDr"/>
+                        <exclude reference="FBK-tq-Fta"/>
+                        <exclude reference="fSH-Cw-bbb"/>
+                        <exclude reference="piT-eJ-SQf"/>
+                        <exclude reference="sGY-EN-1EI"/>
                         <exclude reference="I81-Qh-0My"/>
                         <exclude reference="Q9T-UI-Fc5"/>
+                        <exclude reference="9JS-i0-RCs"/>
+                        <exclude reference="BDn-sp-A77"/>
+                        <exclude reference="UVc-7d-uzI"/>
+                        <exclude reference="03q-T4-bJ7"/>
+                        <exclude reference="OOj-gu-lx8"/>
+                        <exclude reference="Xxn-If-hoc"/>
+                        <exclude reference="vb4-Vw-NoJ"/>
+                        <exclude reference="PuP-ET-czd"/>
+                        <exclude reference="nGn-9w-GbK"/>
                         <exclude reference="23k-xR-X5x"/>
                         <exclude reference="YF3-Fr-mDe"/>
                         <exclude reference="aTM-rK-zbZ"/>
                         <exclude reference="jcB-lq-2wF"/>
+                        <exclude reference="tZn-2g-oN6"/>
                         <exclude reference="Aw5-Zt-55e"/>
                         <exclude reference="FoK-at-N1e"/>
                         <exclude reference="JFC-Cg-fC4"/>
                         <exclude reference="QWy-Of-kUk"/>
                         <exclude reference="mvE-qg-aIm"/>
                         <exclude reference="wJT-ua-WgV"/>
-                        <exclude reference="BTG-RL-Kdc"/>
-                        <exclude reference="jHp-eB-E1r"/>
-                        <exclude reference="s9k-ke-XUb"/>
-                        <exclude reference="zyI-de-DDr"/>
-                        <exclude reference="tZn-2g-oN6"/>
-                        <exclude reference="03q-T4-bJ7"/>
-                        <exclude reference="OOj-gu-lx8"/>
-                        <exclude reference="Xxn-If-hoc"/>
-                        <exclude reference="vb4-Vw-NoJ"/>
                         <exclude reference="7n7-ew-9IO"/>
                         <exclude reference="OaT-6g-3rx"/>
-                        <exclude reference="9JS-i0-RCs"/>
-                        <exclude reference="BDn-sp-A77"/>
-                        <exclude reference="UVc-7d-uzI"/>
                         <exclude reference="Ebi-pg-o5g"/>
                         <exclude reference="G27-C3-3cV"/>
-                        <exclude reference="FBK-tq-Fta"/>
-                        <exclude reference="fSH-Cw-bbb"/>
-                        <exclude reference="piT-eJ-SQf"/>
-                        <exclude reference="sGY-EN-1EI"/>
                     </mask>
                 </variation>
                 <variation key="heightClass=regular-widthClass=compact">
@@ -399,43 +411,44 @@
                         <include reference="FcU-LM-eNE"/>
                     </mask>
                     <mask key="constraints">
-                        <include reference="PuP-ET-czd"/>
-                        <include reference="nGn-9w-GbK"/>
+                        <include reference="BTG-RL-Kdc"/>
+                        <include reference="jHp-eB-E1r"/>
+                        <include reference="s9k-ke-XUb"/>
+                        <include reference="zyI-de-DDr"/>
+                        <include reference="FBK-tq-Fta"/>
+                        <include reference="fSH-Cw-bbb"/>
+                        <include reference="piT-eJ-SQf"/>
+                        <include reference="sGY-EN-1EI"/>
                         <include reference="I81-Qh-0My"/>
                         <include reference="Q9T-UI-Fc5"/>
+                        <include reference="9JS-i0-RCs"/>
+                        <include reference="BDn-sp-A77"/>
+                        <exclude reference="UVc-7d-uzI"/>
+                        <include reference="03q-T4-bJ7"/>
+                        <include reference="OOj-gu-lx8"/>
+                        <include reference="Xxn-If-hoc"/>
+                        <exclude reference="vb4-Vw-NoJ"/>
+                        <include reference="PuP-ET-czd"/>
+                        <include reference="nGn-9w-GbK"/>
                         <exclude reference="23k-xR-X5x"/>
                         <include reference="YF3-Fr-mDe"/>
                         <include reference="aTM-rK-zbZ"/>
                         <include reference="jcB-lq-2wF"/>
+                        <include reference="tZn-2g-oN6"/>
                         <include reference="Aw5-Zt-55e"/>
                         <include reference="FoK-at-N1e"/>
                         <exclude reference="JFC-Cg-fC4"/>
                         <exclude reference="QWy-Of-kUk"/>
                         <exclude reference="mvE-qg-aIm"/>
                         <exclude reference="wJT-ua-WgV"/>
-                        <include reference="BTG-RL-Kdc"/>
-                        <include reference="jHp-eB-E1r"/>
-                        <include reference="s9k-ke-XUb"/>
-                        <include reference="zyI-de-DDr"/>
-                        <include reference="tZn-2g-oN6"/>
-                        <include reference="03q-T4-bJ7"/>
-                        <include reference="OOj-gu-lx8"/>
-                        <include reference="Xxn-If-hoc"/>
-                        <exclude reference="vb4-Vw-NoJ"/>
                         <include reference="7n7-ew-9IO"/>
                         <exclude reference="OaT-6g-3rx"/>
-                        <include reference="9JS-i0-RCs"/>
-                        <include reference="BDn-sp-A77"/>
-                        <exclude reference="UVc-7d-uzI"/>
                         <include reference="Ebi-pg-o5g"/>
                         <include reference="G27-C3-3cV"/>
-                        <include reference="FBK-tq-Fta"/>
-                        <include reference="fSH-Cw-bbb"/>
-                        <include reference="piT-eJ-SQf"/>
-                        <include reference="sGY-EN-1EI"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="avatarImageView" destination="mhl-p0-CBu" id="ARx-PN-kdI"/>
                 <outlet property="commentsLabel" destination="Rhr-pO-YjP" id="FIX-fT-kRx"/>
