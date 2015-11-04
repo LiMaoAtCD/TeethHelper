@@ -165,7 +165,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     
     [self.teethLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(areaImageView.mas_centerX);
-        make.centerY.equalTo(areaImageView.mas_centerY);
+        make.bottom.equalTo(areaImageView.mas_top).offset(-8);
         make.height.equalTo(@24);
         make.width.equalTo(@140);
     }];
@@ -233,7 +233,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             //获取数据
             NSData *imageData=[AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             UIImage *image=[UIImage imageWithData:imageData];
-//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
 //            CGRect rect = CGRectMake(0,
 //                                     0,
