@@ -22,11 +22,6 @@
 		870A660F1B772FEB00A51B26 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A660E1B772FEB00A51B26 /* Utils.m */; };
 		870A66131B7730CD00A51B26 /* UIColor+HexRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */; };
 		870A66161B77321900A51B26 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A66151B77321900A51B26 /* AccountManager.m */; };
-		872F0EC21BDFCBF800AFDA57 /* 203128680611052296.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872F0EBC1BDFCBF800AFDA57 /* 203128680611052296.jpg */; };
-		872F0EC31BDFCBF800AFDA57 /* code.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872F0EBD1BDFCBF800AFDA57 /* code.jpg */; };
-		872F0EC41BDFCBF800AFDA57 /* result.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872F0EBE1BDFCBF800AFDA57 /* result.jpg */; };
-		872F0EC51BDFCBF800AFDA57 /* tooth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872F0EBF1BDFCBF800AFDA57 /* tooth.jpg */; };
-		872F0EC61BDFCBF800AFDA57 /* ToothProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 872F0EC01BDFCBF800AFDA57 /* ToothProcess.cpp */; };
 		872F0EC91BDFCC6200AFDA57 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872F0EC81BDFCC6200AFDA57 /* opencv2.framework */; };
 		87338D221BAAF99E0067E1EA /* SatisfiedConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */; };
 		873B75B11B773984002D7871 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75B01B773984002D7871 /* RegisterViewController.m */; };
@@ -69,8 +64,6 @@
 		875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875D24441B8884350068AA2B /* CeBaiResultViewController.xib */; };
 		8761F4521B8DD6300061A59E /* ProtocolAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */; };
 		8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */ = {isa = PBXBuildFile; fileRef = 8761F4571B8DDAEA0061A59E /* meiya_.html */; };
-		876D53A31BE88A20006D2745 /* 2test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 876D53A21BE88A20006D2745 /* 2test.jpg */; };
-		876D53A71BE88CCA006D2745 /* 3test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 876D53A61BE88CCA006D2745 /* 3test.jpg */; };
 		8772B3841BB2B5C900F9C1A0 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8772B3801BB2B5C900F9C1A0 /* libWeChatSDK.a */; };
 		8772B3851BB2B5C900F9C1A0 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8772B3811BB2B5C900F9C1A0 /* read_me.txt */; };
 		877880301B8A063600BAF13D /* PostTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8778802E1B8A063600BAF13D /* PostTopicViewController.m */; };
@@ -83,6 +76,7 @@
 		877C54371BA98CFC003D3E23 /* SatisfiedNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877C54361BA98CFC003D3E23 /* SatisfiedNavigationController.m */; };
 		878108C51B7B907A000A735F /* AlienView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C41B7B907A000A735F /* AlienView.m */; };
 		878108C81B7B934A000A735F /* ALienGrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 878108C71B7B934A000A735F /* ALienGrayView.m */; };
+		87827CD41BF21AEE00951009 /* ToothProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87827CD21BF21AEE00951009 /* ToothProcess.cpp */; };
 		8785F8B51B7C26F20051B29B /* AlienTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8B41B7C26F20051B29B /* AlienTimerView.m */; };
 		8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8785F8EE1B7C46840051B29B /* Questions.storyboard */; };
 		8785F8F21B7C46B20051B29B /* InitialNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8785F8F11B7C46B20051B29B /* InitialNavigationController.m */; };
@@ -205,13 +199,6 @@
 		870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRGB.m"; sourceTree = "<group>"; };
 		870A66141B77321900A51B26 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		870A66151B77321900A51B26 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
-		872F0EBC1BDFCBF800AFDA57 /* 203128680611052296.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 203128680611052296.jpg; sourceTree = "<group>"; };
-		872F0EBD1BDFCBF800AFDA57 /* code.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = code.jpg; sourceTree = "<group>"; };
-		872F0EBE1BDFCBF800AFDA57 /* result.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = result.jpg; sourceTree = "<group>"; };
-		872F0EBF1BDFCBF800AFDA57 /* tooth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tooth.jpg; sourceTree = "<group>"; };
-		872F0EC01BDFCBF800AFDA57 /* ToothProcess.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToothProcess.cpp; sourceTree = "<group>"; };
-		872F0EC11BDFCBF800AFDA57 /* ToothProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToothProcess.h; sourceTree = "<group>"; };
-		872F0EC71BDFCC1900AFDA57 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		872F0EC81BDFCC6200AFDA57 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		87338D201BAAF99E0067E1EA /* SatisfiedConfigFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SatisfiedConfigFile.h; sourceTree = "<group>"; };
 		87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SatisfiedConfigFile.m; sourceTree = "<group>"; };
@@ -287,8 +274,6 @@
 		8761F4501B8DD6300061A59E /* ProtocolAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolAgreementViewController.h; sourceTree = "<group>"; };
 		8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolAgreementViewController.m; sourceTree = "<group>"; };
 		8761F4571B8DDAEA0061A59E /* meiya_.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meiya_.html; sourceTree = "<group>"; };
-		876D53A21BE88A20006D2745 /* 2test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2test.jpg; sourceTree = "<group>"; };
-		876D53A61BE88CCA006D2745 /* 3test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3test.jpg; sourceTree = "<group>"; };
 		8772B3801BB2B5C900F9C1A0 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		8772B3811BB2B5C900F9C1A0 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		8772B3821BB2B5C900F9C1A0 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -310,6 +295,9 @@
 		878108C41B7B907A000A735F /* AlienView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlienView.m; sourceTree = "<group>"; };
 		878108C61B7B934A000A735F /* ALienGrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALienGrayView.h; sourceTree = "<group>"; };
 		878108C71B7B934A000A735F /* ALienGrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALienGrayView.m; sourceTree = "<group>"; };
+		87827CD11BF21AEE00951009 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		87827CD21BF21AEE00951009 /* ToothProcess.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToothProcess.cpp; sourceTree = "<group>"; };
+		87827CD31BF21AEE00951009 /* ToothProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToothProcess.h; sourceTree = "<group>"; };
 		8785F8B31B7C26F20051B29B /* AlienTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlienTimerView.h; sourceTree = "<group>"; };
 		8785F8B41B7C26F20051B29B /* AlienTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlienTimerView.m; sourceTree = "<group>"; };
 		8785F8EE1B7C46840051B29B /* Questions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
@@ -493,10 +481,8 @@
 		870A65CB1B77227100A51B26 = {
 			isa = PBXGroup;
 			children = (
+				87827CD01BF21AD400951009 /* DetectTeeth */,
 				872F0EC81BDFCC6200AFDA57 /* opencv2.framework */,
-				872F0EBB1BDFCBF800AFDA57 /* testData */,
-				872F0EC01BDFCBF800AFDA57 /* ToothProcess.cpp */,
-				872F0EC11BDFCBF800AFDA57 /* ToothProcess.h */,
 				8772B37F1BB2B5C900F9C1A0 /* SDKExport */,
 				870A65D61B77227100A51B26 /* TeethHelper */,
 				870A65F01B77227100A51B26 /* TeethHelperTests */,
@@ -620,20 +606,6 @@
 				870A66121B7730CD00A51B26 /* UIColor+HexRGB.m */,
 			);
 			name = HexToRGB;
-			sourceTree = "<group>";
-		};
-		872F0EBB1BDFCBF800AFDA57 /* testData */ = {
-			isa = PBXGroup;
-			children = (
-				876D53A61BE88CCA006D2745 /* 3test.jpg */,
-				876D53A21BE88A20006D2745 /* 2test.jpg */,
-				872F0EC71BDFCC1900AFDA57 /* Global.h */,
-				872F0EBC1BDFCBF800AFDA57 /* 203128680611052296.jpg */,
-				872F0EBD1BDFCBF800AFDA57 /* code.jpg */,
-				872F0EBE1BDFCBF800AFDA57 /* result.jpg */,
-				872F0EBF1BDFCBF800AFDA57 /* tooth.jpg */,
-			);
-			path = testData;
 			sourceTree = "<group>";
 		};
 		873B75B81B773F7D002D7871 /* FirstTab */ = {
@@ -844,6 +816,16 @@
 				87338D211BAAF99E0067E1EA /* SatisfiedConfigFile.m */,
 			);
 			name = SatisfiedInvestgation;
+			sourceTree = "<group>";
+		};
+		87827CD01BF21AD400951009 /* DetectTeeth */ = {
+			isa = PBXGroup;
+			children = (
+				87827CD11BF21AEE00951009 /* Global.h */,
+				87827CD21BF21AEE00951009 /* ToothProcess.cpp */,
+				87827CD31BF21AEE00951009 /* ToothProcess.h */,
+			);
+			name = DetectTeeth;
 			sourceTree = "<group>";
 		};
 		8785F8AA1B7C0D4D0051B29B /* MeiBaiProject */ = {
@@ -1230,8 +1212,6 @@
 				870A66071B7722D600A51B26 /* Login.storyboard in Resources */,
 				8795B02F1BAA688E00EC088A /* SatisfiedTwoViewController.xib in Resources */,
 				873EAE8B1B949A6800445728 /* SuggestStanstardViewController.xib in Resources */,
-				876D53A71BE88CCA006D2745 /* 3test.jpg in Resources */,
-				876D53A31BE88A20006D2745 /* 2test.jpg in Resources */,
 				87911F4D1B8B4FF5000E9218 /* SocialDetailOneCell.xib in Resources */,
 				87465BBD1B818FA800EA40C7 /* ProjectCompletedQuesitonController.xib in Resources */,
 				873B75D01B774338002D7871 /* Product.storyboard in Resources */,
@@ -1239,7 +1219,6 @@
 				8761F4581B8DDAEA0061A59E /* meiya_.html in Resources */,
 				870A65E81B77227100A51B26 /* LaunchScreen.xib in Resources */,
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
-				872F0EC21BDFCBF800AFDA57 /* 203128680611052296.jpg in Resources */,
 				87F4289E1B91978000F0CD46 /* PostToSocialController.xib in Resources */,
 				8795B0341BAA68B400EC088A /* SatistiedThreeViewController.xib in Resources */,
 				87F73F751B8CA42D005705AA /* SocialCommentViewController.xib in Resources */,
@@ -1252,14 +1231,11 @@
 				87F0FC971B980CE900147DF3 /* MeiBaiTimerViewController.xib in Resources */,
 				870A65E51B77227100A51B26 /* Images.xcassets in Resources */,
 				873EAE811B949A3200445728 /* SuggestionKeepViewController.xib in Resources */,
-				872F0EC51BDFCBF800AFDA57 /* tooth.jpg in Resources */,
 				87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */,
 				87D8BBD91BA160950049CC00 /* WeChatShareSocialViewController.xib in Resources */,
-				872F0EC41BDFCBF800AFDA57 /* result.jpg in Resources */,
 				8785F8EF1B7C46840051B29B /* Questions.storyboard in Resources */,
 				87E2AF101B855E92002FC28A /* WechatShareViewController.xib in Resources */,
 				87FAFCEC1B8B7508000CB8F4 /* DetailReplyCell.xib in Resources */,
-				872F0EC31BDFCBF800AFDA57 /* code.jpg in Resources */,
 				87911F521B8B500A000E9218 /* SocialDetailTwoCell.xib in Resources */,
 				873EAE861B949A4200445728 /* SuggestGentleViewController.xib in Resources */,
 				87E2AB461B77585B001ED07F /* Setting.storyboard in Resources */,
@@ -1356,7 +1332,7 @@
 				87D533FB1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m in Sources */,
 				873B75CD1B7742EF002D7871 /* ProductIntroduceViewController.m in Sources */,
 				87E2AB411B7757BA001ED07F /* UseHistoryViewController.m in Sources */,
-				872F0EC61BDFCBF800AFDA57 /* ToothProcess.cpp in Sources */,
+				87827CD41BF21AEE00951009 /* ToothProcess.cpp in Sources */,
 				87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */,
 				8745C8D71B807EA400272FB4 /* MeiBaiThreeCell.m in Sources */,
 				8785F8F51B7C49560051B29B /* QuestionOneViewController.m in Sources */,
@@ -1552,7 +1528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: agent liam (ZCQZ824KK4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: agent liam (ZV4Q34HL7X)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1568,7 +1544,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threeti.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f4a1c351-8520-4c77-92da-04387eb4d970";
+				PROVISIONING_PROFILE = "8cabc3c1-897d-4fe5-ba7d-0c72c6e04985";
 			};
 			name = Debug;
 		};
@@ -1578,7 +1554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: agent liam (ZCQZ824KK4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: agent liam (ZV4Q34HL7X)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1593,7 +1569,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threeti.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f4a1c351-8520-4c77-92da-04387eb4d970";
+				PROVISIONING_PROFILE = "8cabc3c1-897d-4fe5-ba7d-0c72c6e04985";
 			};
 			name = Release;
 		};

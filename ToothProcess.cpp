@@ -1065,38 +1065,47 @@ int ToothSegmentation::GetMatchResult()
 /********************************************************************************
 *
 *					外部程序调用的函数（外部接口）
-*					by Hu yangyang 2015/10/26
+*					by Hu yangyang 2015/11/10
 *
 ********************************************************************************/
 //匹配结果索引返回值(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)->色标美白标尺(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)表示检测成功；
 //为-1时表示检测失败，需重新拍照
-//inputimage 为app端截取出来的图像
-int ToothColorMatch(IplImage* inputimage)
+//in 为app端截取出来的图像
+int ToothColorMatch(IplImage* in)
 {
+	cvSetImageROI(in,cvRect(in->width/7,0,in->width*5/7,in->height));
+	IplImage* inputimage = cvCreateImage(cvGetSize(in),8,3);
+	cvCopy(in,inputimage);
+	cvResetImageROI(in);
+
 	//根据牙齿、色标相对比例位置提取色标ROI和牙齿ROI
 	/*
-	张韬给出的比例值：
-	牙齿高度为45%（取0-45%）
-	色标高度为25%（取45%-70%）
-	左右长度为70%（取15%-85%的范围）
+	牙齿ROI：拍照框尺寸(w*h)
+	色标ROI：拍照框下边界1.5倍h（w*1.5h）
 	*/
 	//toothRoI表示牙齿ROI
-	cvSetImageROI(inputimage,cvRect(inputimage->width*0.15,0,inputimage->width*0.7,inputimage->height*0.45));
-	IplImage* imageToothROI = cvCreateImage(cvGetSize(inputimage),8,3);
-	cvCopy(inputimage,imageToothROI);
+	cvSetImageROI(inputimage,cvRect(0,0,inputimage->width,inputimage->height*0.4));
+	IplImage* imageToothROI1 = cvCreateImage(cvGetSize(inputimage),8,3);
+	cvCopy(inputimage,imageToothROI1);
 	cvResetImageROI(inputimage);
 
+	//各边均往内缩1/10
+	cvSetImageROI(imageToothROI1,cvRect(imageToothROI1->width/10,imageToothROI1->height/10,imageToothROI1->width*0.8,imageToothROI1->height*0.8));
+	IplImage* imageToothROI = cvCreateImage(cvGetSize(imageToothROI1),8,3);
+	cvCopy(imageToothROI1,imageToothROI);
+	cvResetImageROI(imageToothROI1);
+
 	//code表示色标ROI
-	cvSetImageROI(inputimage,cvRect(inputimage->width*0.15,inputimage->height*0.45,inputimage->width*0.7,inputimage->height*0.25));
+	cvSetImageROI(inputimage,cvRect(0,inputimage->height*0.4,inputimage->width,inputimage->height*0.6));
 	IplImage* imageCode = cvCreateImage(cvGetSize(inputimage),8,3);
 	cvCopy(inputimage,imageCode);
 	cvResetImageROI(inputimage);
 
 	//show
-	/*cvShowImage("tooth",imageToothROI);
-	cvShowImage("code",imageCode);
-	cvSaveImage("testData\\tooth.jpg",imageToothROI);
-	cvSaveImage("testData\\code.jpg",imageCode);*/
+	//cvShowImage("tooth",imageToothROI);
+	//cvShowImage("code",imageCode);
+	//cvSaveImage("testData\\tooth.jpg",imageToothROI);
+	//cvSaveImage("testData\\code.jpg",imageCode);
 
 	int resultIndex = -1;
 
@@ -1124,5 +1133,7 @@ int ToothColorMatch(IplImage* inputimage)
 	}
 	cvReleaseImage(&imageCode);
 	cvReleaseImage(&imageToothROI);
+	cvReleaseImage(&imageToothROI1);
+	cvReleaseImage(&inputimage);
 	return resultIndex;
 }
