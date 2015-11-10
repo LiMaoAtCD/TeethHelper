@@ -775,7 +775,7 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     if (imageOrientation == UIImageOrientationRight || imageOrientation == UIImageOrientationRightMirrored) {
         cropRect.origin.x = y;
         cropRect.origin.y = round(imageSize.width - CGRectGetWidth(cropRect) - x);
-        cropRect.size.width = height;
+        cropRect.size.width = height * 2.5;
         cropRect.size.height = width;
     } else if (imageOrientation == UIImageOrientationLeft || imageOrientation == UIImageOrientationLeftMirrored) {
         cropRect.origin.x = round(imageSize.height - CGRectGetHeight(cropRect) - y);
