@@ -11,5 +11,8 @@
 @interface CeBaiResultViewController : UIViewController
 
 
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIImage *imageForTesting;
+
+@property (nonatomic, strong) UIImage *imageForDisplay;
+
 @end

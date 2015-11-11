@@ -43,7 +43,7 @@
     
     NSString  *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
     
-    [UIImageJPEGRepresentation(self.image,1.0) writeToFile:imagePath atomically:YES];
+    [UIImageJPEGRepresentation(self.imageForTesting,1.0) writeToFile:imagePath atomically:YES];
     
 
     NSString  *imageCodePathFile = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
@@ -69,7 +69,7 @@
         //未完成首次测白,完成，保存图片，保存初次测白等级
 
         [MeiBaiConfigFile setFirstCebaiLevel:self.Level];
-        [self saveImage:self.image];
+        [self saveImage:self.imageForDisplay];
 
         //未完成首次测白，展示一张图片
         //
@@ -87,7 +87,7 @@
         }];
         
         UIImageView *mainImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        mainImageView.image = self.image;
+        mainImageView.image = self.imageForDisplay;
         mainImageView.contentMode = UIViewContentModeScaleAspectFit;
 
         [imageBGView addSubview:mainImageView];
@@ -281,7 +281,7 @@
         }];
         
         UIImageView *mainImageView2 = [[UIImageView alloc] initWithFrame:CGRectZero];
-        mainImageView2.image = self.image;
+        mainImageView2.image = self.imageForDisplay;
         mainImageView2.contentMode = UIViewContentModeScaleAspectFit;
         [imageBGView2 addSubview:mainImageView2];
         
@@ -416,7 +416,7 @@
         if (image != nil) {
             postVC.firstImage = image;
         }
-        postVC.secondImage = self.image;
+        postVC.secondImage = self.imageForDisplay;
         postVC.beatRateString = [self beatRateFromLevel:self.Level];
     
         postVC.levelString = [NSString stringWithFormat:@"N%ld",self.Level];
@@ -439,7 +439,7 @@
         
         [SVProgressHUD showWithStatus:@"正在记录结果"];
         
-        [NetworkManager uploadCeBaiisFirst:@"true" file:self.image color:[NSString stringWithFormat:@"N%ld",self.Level] defeat:arr[0] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [NetworkManager uploadCeBaiisFirst:@"true" file:self.imageForDisplay color:[NSString stringWithFormat:@"N%ld",self.Level] defeat:arr[0] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             if ([responseObject[@"status"] integerValue] == 2000) {
                 
@@ -466,7 +466,7 @@
         
         [SVProgressHUD showWithStatus:@"正在记录结果"];
 
-        [NetworkManager uploadCeBaiisFirst:nil file:self.image color:[NSString stringWithFormat:@"N%ld",self.Level] defeat:arr[0] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [NetworkManager uploadCeBaiisFirst:nil file:self.imageForDisplay color:[NSString stringWithFormat:@"N%ld",self.Level] defeat:arr[0] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
             if ([responseObject[@"status"] integerValue] == 2000) {
                 
                 [SVProgressHUD dismiss];

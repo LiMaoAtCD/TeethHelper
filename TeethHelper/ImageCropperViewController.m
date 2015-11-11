@@ -117,9 +117,20 @@
     
     
     CeBaiResultViewController *resultVC = [[CeBaiResultViewController alloc] initWithNibName:@"CeBaiResultViewController" bundle:nil];
-    resultVC.image= croppedImage;
+    resultVC.imageForTesting= croppedImage;
+//    resultVC.imageForDisplay = image2;
+
     [self.navigationController pushViewController:resultVC animated:YES];
     
+}
+
+- (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage CropedImage2:(UIImage*)image2 usingCropRect:(CGRect)cropRect{
+    
+    CeBaiResultViewController *resultVC = [[CeBaiResultViewController alloc] initWithNibName:@"CeBaiResultViewController" bundle:nil];
+    resultVC.imageForTesting= croppedImage;
+    resultVC.imageForDisplay = image2;
+    [self.navigationController pushViewController:resultVC animated:YES];
+
 }
 
 

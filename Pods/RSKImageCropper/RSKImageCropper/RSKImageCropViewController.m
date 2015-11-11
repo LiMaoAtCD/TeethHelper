@@ -762,6 +762,97 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
     }
 }
 
+
+- (UIImage *)croppedImageForShow:(UIImage *)image cropMode:(RSKImageCropMode)cropMode cropRect:(CGRect)cropRect rotationAngle:(CGFloat)rotationAngle zoomScale:(CGFloat)zoomScale maskPath:(UIBezierPath *)maskPath applyMaskToCroppedImage:(BOOL)applyMaskToCroppedImage
+{
+    // Step 1: check and correct the crop rect.
+    CGSize imageSize = image.size;
+    CGFloat x = CGRectGetMinX(cropRect);
+    CGFloat y = CGRectGetMinY(cropRect);
+    CGFloat width = CGRectGetWidth(cropRect);
+    CGFloat height = CGRectGetHeight(cropRect);
+    
+    UIImageOrientation imageOrientation = image.imageOrientation;
+    if (imageOrientation == UIImageOrientationRight || imageOrientation == UIImageOrientationRightMirrored) {
+        cropRect.origin.x = y;
+        cropRect.origin.y = round(imageSize.width - CGRectGetWidth(cropRect) - x);
+        cropRect.size.width = height;
+        cropRect.size.height = width;
+    } else if (imageOrientation == UIImageOrientationLeft || imageOrientation == UIImageOrientationLeftMirrored) {
+        cropRect.origin.x = round(imageSize.height - CGRectGetHeight(cropRect) - y);
+        cropRect.origin.y = x;
+        cropRect.size.width = height;
+        cropRect.size.height = width;
+    } else if (imageOrientation == UIImageOrientationDown || imageOrientation == UIImageOrientationDownMirrored) {
+        cropRect.origin.x = round(imageSize.width - CGRectGetWidth(cropRect) - x);
+        cropRect.origin.y = round(imageSize.height - CGRectGetHeight(cropRect) - y);
+    }
+    
+    CGFloat imageScale = image.scale;
+    cropRect = CGRectApplyAffineTransform(cropRect, CGAffineTransformMakeScale(imageScale, imageScale));
+    
+    // Step 2: create an image using the data contained within the specified rect.
+    CGImageRef croppedCGImage = CGImageCreateWithImageInRect(image.CGImage, cropRect);
+    UIImage *croppedImage = [UIImage imageWithCGImage:croppedCGImage scale:imageScale orientation:imageOrientation];
+    CGImageRelease(croppedCGImage);
+    
+    // Step 3: fix orientation of the cropped image.
+    croppedImage = [croppedImage fixOrientation];
+    imageOrientation = croppedImage.imageOrientation;
+    
+    // Step 4: If current mode is `RSKImageCropModeSquare` and the image is not rotated
+    // or mask should not be applied to the image after cropping and the image is not rotated,
+    // we can return the cropped image immediately.
+    // Otherwise, we must further process the image.
+    if ((cropMode == RSKImageCropModeSquare || !applyMaskToCroppedImage) && rotationAngle == 0.0) {
+        // Step 5: return the cropped image immediately.
+        return croppedImage;
+    } else {
+        // Step 5: create a new context.
+        CGSize maskSize = CGRectIntegral(maskPath.bounds).size;
+        CGSize contextSize = CGSizeMake(ceil(maskSize.width / zoomScale),
+                                        ceil(maskSize.height / zoomScale));
+        UIGraphicsBeginImageContextWithOptions(contextSize, NO, imageScale);
+        
+        // Step 6: apply the mask if needed.
+        if (applyMaskToCroppedImage) {
+            // 6a: scale the mask to the size of the crop rect.
+            UIBezierPath *maskPathCopy = [maskPath copy];
+            CGFloat scale = 1 / zoomScale;
+            [maskPathCopy applyTransform:CGAffineTransformMakeScale(scale, scale)];
+            
+            // 6b: move the mask to the top-left.
+            CGPoint translation = CGPointMake(-CGRectGetMinX(maskPathCopy.bounds),
+                                              -CGRectGetMinY(maskPathCopy.bounds));
+            [maskPathCopy applyTransform:CGAffineTransformMakeTranslation(translation.x, translation.y)];
+            
+            // 6c: apply the mask.
+            [maskPathCopy addClip];
+        }
+        
+        // Step 7: rotate the cropped image if needed.
+        if (rotationAngle != 0) {
+            croppedImage = [croppedImage rotateByAngle:rotationAngle];
+        }
+        
+        // Step 8: draw the cropped image.
+        CGPoint point = CGPointMake(round((contextSize.width - croppedImage.size.width) * 0.5f),
+                                    round((contextSize.height - croppedImage.size.height) * 0.5f));
+        [croppedImage drawAtPoint:point];
+        
+        // Step 9: get the cropped image affter processing from the context.
+        croppedImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        // Step 10: remove the context.
+        UIGraphicsEndImageContext();
+        
+        croppedImage = [UIImage imageWithCGImage:croppedImage.CGImage scale:imageScale orientation:imageOrientation];
+        
+        // Step 11: return the cropped image affter processing.
+        return croppedImage;
+    }
+}
+
 - (UIImage *)croppedImage:(UIImage *)image cropMode:(RSKImageCropMode)cropMode cropRect:(CGRect)cropRect rotationAngle:(CGFloat)rotationAngle zoomScale:(CGFloat)zoomScale maskPath:(UIBezierPath *)maskPath applyMaskToCroppedImage:(BOOL)applyMaskToCroppedImage
 {
     // Step 1: check and correct the crop rect.
@@ -875,12 +966,27 @@ static const CGFloat kLayoutImageScrollViewAnimationDuration = 0.25;
         
         UIImage *croppedImage = [self croppedImage:self.originalImage cropMode:self.cropMode cropRect:cropRect rotationAngle:rotationAngle zoomScale:self.imageScrollView.zoomScale maskPath:self.maskPath applyMaskToCroppedImage:self.applyMaskToCroppedImage];
         
+        UIImage *croppedImage2 = [self croppedImageForShow:self.originalImage cropMode:self.cropMode cropRect:cropRect rotationAngle:rotationAngle zoomScale:self.imageScrollView.zoomScale maskPath:self.maskPath applyMaskToCroppedImage:self.applyMaskToCroppedImage];
+
         dispatch_async(dispatch_get_main_queue(), ^{
-            if ([self.delegate respondsToSelector:@selector(imageCropViewController:didCropImage:usingCropRect:rotationAngle:)]) {
-                [self.delegate imageCropViewController:self didCropImage:croppedImage usingCropRect:cropRect rotationAngle:rotationAngle];
-            } else if ([self.delegate respondsToSelector:@selector(imageCropViewController:didCropImage:usingCropRect:)]) {
-                [self.delegate imageCropViewController:self didCropImage:croppedImage usingCropRect:cropRect];
+            
+//            if ([self.delegate respondsToSelector:@selector(imageCropViewController:didCropImage:usingCropRect:rotationAngle:)]) {
+//                [self.delegate imageCropViewController:self didCropImage:croppedImage usingCropRect:cropRect rotationAngle:rotationAngle];
+//            } else if ([self.delegate respondsToSelector:@selector(imageCropViewController:didCropImage:usingCropRect:)]) {
+//                [self.delegate imageCropViewController:self didCropImage:croppedImage usingCropRect:cropRect];
+//            }
+            
+            if ([self.delegate respondsToSelector:@selector(imageCropViewController:didCropImage:CropedImage2:usingCropRect:)]) {
+                [self.delegate imageCropViewController:self didCropImage:croppedImage CropedImage2:croppedImage2 usingCropRect:cropRect];
             }
+            
+            
+            
+//            if ([self.delegate respondsToSelector:@selector(imageCropViewController:didCropImage:usingCropRect:rotationAngle:)]) {
+//                [self.delegate imageCropViewController:self didCropImage:croppedImage usingCropRect:cropRect rotationAngle:rotationAngle];
+//            } else if ([self.delegate respondsToSelector:@selector(imageCropViewController:didCropImage:usingCropRect:)]) {
+//                [self.delegate imageCropViewController:self didCropImage:croppedImage usingCropRect:cropRect];
+//            }
         });
     });
 }
