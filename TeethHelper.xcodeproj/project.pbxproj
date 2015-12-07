@@ -1194,7 +1194,7 @@
 				TargetAttributes = {
 					870A65D31B77227100A51B26 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 6VM92FE78A;
+						DevelopmentTeam = CMK99GW5P5;
 					};
 					870A65EC1B77227100A51B26 = {
 						CreatedOnToolsVersion = 6.4;
@@ -1552,7 +1552,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: agent liam (ZV4Q34HL7X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1568,7 +1569,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threeti.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8cabc3c1-897d-4fe5-ba7d-0c72c6e04985";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1578,7 +1579,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: agent liam (ZV4Q34HL7X)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1593,7 +1595,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threeti.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8cabc3c1-897d-4fe5-ba7d-0c72c6e04985";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

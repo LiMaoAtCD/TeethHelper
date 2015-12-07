@@ -233,7 +233,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             //获取数据
             NSData *imageData=[AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             UIImage *image=[UIImage imageWithData:imageData];
-//            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
 //            CGRect rect = CGRectMake(0,
 //                                     0,
@@ -618,8 +617,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 // Returns a custom path for the mask.
 - (UIBezierPath *)imageCropViewControllerCustomMaskPath:(RSKImageCropViewController *)controller
 {
-
-    
     CGRect rect = controller.maskRect;
     CGFloat radius = 50;
     
@@ -660,10 +657,6 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //        
 //        return  CGRectMake(0, 120, [UIScreen mainScreen].bounds.size.width, 100);
 //    }
-    
-    
-
-    
     return  controller.maskRect;
 }
 
