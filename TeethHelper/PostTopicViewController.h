@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SocialRefreshDelegate.h"
+//@protocol PostItemDelegate <NSObject>
+//
+//-(void)refreshTableView;
 
-@protocol PostItemDelegate <NSObject>
-
--(void)refreshTableView;
-
-@end
+//@end
 
 @interface PostTopicViewController : UIViewController
 
-@property (nonatomic, weak) id<PostItemDelegate> delegate;
+@property (nonatomic, weak) id<SocialRefreshDelegate> delegate;
 
 @end

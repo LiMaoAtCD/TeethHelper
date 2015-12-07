@@ -168,6 +168,15 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 +(void)fetchTopicDetailByTopicID:(NSString*)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
 /**
+ *  删除帖子
+ *
+ *  @param topicID           帖子ID
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)deleteTopicByID:(NSString *)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+/**
  *  点赞
  *
  *  @param topicID           帖子ID

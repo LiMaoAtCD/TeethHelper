@@ -67,13 +67,6 @@
 
     //title
     [Utils ConfigNavigationBarWithTitle:@"主题详情" onViewController:self];
-     //分享按钮
-    UIImage *image = [UIImage imageNamed:@"social_share_pressed"];
-    UIButton *publish = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
-    [publish setImage:image forState:UIControlStateNormal];
-    [publish setImage:[UIImage imageNamed:@"social_share_normal"] forState:UIControlStateHighlighted];
-    [publish addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:publish];
     //头像
     if ([[self.topicDetail allKeys] containsObject:@"avatar"]) {
         self.avatarURL = self.topicDetail[@"avatar"];
@@ -112,6 +105,36 @@
             self.gender = responseObject[@"data"][@"sex"];
             self.comments =[responseObject[@"data"][@"comments"] mutableCopy];
             self.numberOfLikes = [responseObject[@"data"][@"loves"] integerValue];
+            
+            BOOL isCancelable = responseObject[@"data"][@"canDelete"];
+            
+            
+            if (isCancelable) {
+                
+                UIImage *imageOfDeletion = [UIImage imageNamed:@"btn_delete_normal"];
+                UIButton *delete = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
+                [delete setImage:imageOfDeletion forState:UIControlStateNormal];
+                [delete setImage:[UIImage imageNamed:@"btn_delete_pressed"] forState:UIControlStateHighlighted];
+                [delete addTarget:self action:@selector(deleteThisTopic:) forControlEvents:UIControlEventTouchUpInside];
+                
+                UIImage *imageOfShare = [UIImage imageNamed:@"social_share_pressed"];
+                UIButton *publish = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
+                [publish setImage:imageOfShare forState:UIControlStateNormal];
+                [publish setImage:[UIImage imageNamed:@"social_share_normal"] forState:UIControlStateHighlighted];
+                [publish addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
+                self.navigationItem.rightBarButtonItems  = @[[[UIBarButtonItem alloc] initWithCustomView:publish],[[UIBarButtonItem alloc] initWithCustomView:delete]];
+                
+            } else{
+                //分享按钮
+                UIImage *image = [UIImage imageNamed:@"social_share_pressed"];
+                UIButton *publish = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
+                [publish setImage:image forState:UIControlStateNormal];
+                [publish setImage:[UIImage imageNamed:@"social_share_normal"] forState:UIControlStateHighlighted];
+                [publish addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
+                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:publish];
+            }
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
 
@@ -168,6 +191,28 @@
     wechat.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
     [self presentViewController:wechat animated:YES completion:nil];
+}
+
+-(void)deleteThisTopic:(id)sender {
+    
+    [NetworkManager deleteTopicByID:self.topicDetail[@"id"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            
+            if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
+                [self.delegate refreshTableView];
+            }
+            
+            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }else if ([responseObject[@"status"] integerValue] == 1012){
+            [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+        } else{
+            [SVProgressHUD showErrorWithStatus:@"回复失败"];
+        }
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

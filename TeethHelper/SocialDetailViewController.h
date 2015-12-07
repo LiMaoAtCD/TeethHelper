@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SocialRefreshDelegate.h"
 
 @interface SocialDetailViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *topicDetail;
+
+@property (nonatomic, weak) id<SocialRefreshDelegate> delegate;
 
 
 @end

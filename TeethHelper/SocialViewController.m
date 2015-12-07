@@ -19,8 +19,8 @@
 #import <UIImageView+WebCache.h>
 
 #import "SocialDetailViewController.h"
-
-@interface SocialViewController ()<UITableViewDelegate, UITableViewDataSource,PostItemDelegate>
+#import "SocialRefreshDelegate.h"
+@interface SocialViewController ()<UITableViewDelegate, UITableViewDataSource,SocialRefreshDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

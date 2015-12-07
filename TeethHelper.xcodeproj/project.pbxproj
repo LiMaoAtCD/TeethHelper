@@ -278,6 +278,7 @@
 		8761F4501B8DD6300061A59E /* ProtocolAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolAgreementViewController.h; sourceTree = "<group>"; };
 		8761F4511B8DD6300061A59E /* ProtocolAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolAgreementViewController.m; sourceTree = "<group>"; };
 		8761F4571B8DDAEA0061A59E /* meiya_.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = meiya_.html; sourceTree = "<group>"; };
+		876BBFBF1C15B3A500EEB741 /* SocialRefreshDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialRefreshDelegate.h; sourceTree = "<group>"; };
 		8772B3801BB2B5C900F9C1A0 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		8772B3811BB2B5C900F9C1A0 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		8772B3821BB2B5C900F9C1A0 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -663,6 +664,7 @@
 				87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */,
 				877B05161B8AB4CA00D5ECF1 /* SocialDetail */,
 				877880291B8A05FF00BAF13D /* PostTopic */,
+				876BBFBF1C15B3A500EEB741 /* SocialRefreshDelegate.h */,
 			);
 			name = ThirdTab;
 			sourceTree = "<group>";

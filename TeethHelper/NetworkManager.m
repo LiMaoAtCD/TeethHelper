@@ -183,6 +183,15 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url parameters:dictionary success:completionHandler failure:failHandler];
 }
++(void)deleteTopicByID:(NSString *)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    NSString *url = [NSString stringWithFormat:@"http://www.7wang523.com/teeth-api/topic/del/%@",topicID];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
 
 +(void)LikeTopicByID:(NSString*)topicID WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
 //    http://www.7wang523.com/teeth-api/topic/2/love
