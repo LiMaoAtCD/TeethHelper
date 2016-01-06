@@ -321,4 +321,14 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  */
 +(void)CancelMeiBaiProjectWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+/**
+ *  修改密码
+ *
+ *  @param oldPwd            旧密码
+ *  @param password          新密码
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)editPasswordFromOld:(NSString *)oldPwd toNewPassword:(NSString *)password WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end

@@ -371,5 +371,18 @@
     [manager GET:URL parameters:nil success:completionHandler failure:failHandler];
 }
 
++(void)editPasswordFromOld:(NSString *)oldPwd toNewPassword:(NSString *)password WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"oldPass"] = oldPwd;
+    dictionary[@"newPass"] = password;
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+
+    NSString *url = @"http://www.7wang523.com/teeth-api/password/change";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
 
 @end
