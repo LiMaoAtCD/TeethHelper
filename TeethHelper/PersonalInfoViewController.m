@@ -17,6 +17,7 @@
 #import "NameInfoViewController.h"
 #import "PhoneInfoViewController.h"
 #import "AddressViewController.h"
+#import "NewPasswordViewController.h"
 
 #import "Utils.h"
 #import "AccountManager.h"
@@ -38,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.item =@[@"头像",@"昵称",@"性别",@"出生年月",@"手机号",@"通讯地址"];
+    self.item =@[@"头像",@"昵称",@"性别",@"出生年月",@"手机号",@"通讯地址",@"修改密码"];
     [Utils ConfigNavigationBarWithTitle:@"个人信息" onViewController:self];
     
     self.tableView.backgroundView = [UIView new];
@@ -116,6 +117,8 @@
 //            地址
             NSString *address = [AccountManager getAddress];
             cell.contentLabel.text = address;
+        } else {
+            
         }
         
         return cell;
@@ -175,6 +178,12 @@
 
         }
             break;
+            case 6:
+        {
+            NewPasswordViewController *newPassword = [sb instantiateViewControllerWithIdentifier:@"NewPasswordViewController"];
+            
+            [self.navigationController pushViewController:newPassword animated:YES];
+        }
 
             
         default:
