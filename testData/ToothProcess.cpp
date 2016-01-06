@@ -3,7 +3,7 @@
 /********************************************************************************
 *
 *					色卡检测：ColorCodeDetection类方法实现
-*					by Hu yangyang 2015/10/26
+*					by Hu yangyang 2015/12/16
 *
 ********************************************************************************/
 ColorCodeDetection::ColorCodeDetection(IplImage* in)
@@ -719,7 +719,7 @@ CvScalar ColorCodeDetection::GetToothTemplateColor()
 /********************************************************************************
 *
 *					牙齿与颜色匹配检测：ToothSegmentation类方法实现
-*					by Hu yangyang 2015/10/26
+*					by Hu yangyang 2015/12/16
 *
 ********************************************************************************/
 ToothSegmentation::ToothSegmentation(IplImage* imageToothROI1,CvScalar templateColor1)
@@ -746,19 +746,24 @@ ToothSegmentation::~ToothSegmentation()
 
 void ToothSegmentation::Initialize()
 {
-	cvLine(imageToothROI,cvPoint(imageToothROI->width/3,10),cvPoint(imageToothROI->width*2/3,10),templateColor,2);
+	//cvLine(imageToothROI,cvPoint(imageToothROI->width/3,10),cvPoint(imageToothROI->width*2/3,10),templateColor,2);
+
+	//cvShowImage("imageToothROI",imageToothROI);
 
 	grayImage = cvCreateImage(cvGetSize(imageToothROI),imageToothROI->depth,1);
 	cvCvtColor(imageToothROI,grayImage,CV_BGR2GRAY);
 
 	biImage = cvCreateImage(cvGetSize(imageToothROI),imageToothROI->depth,1);
-	cvThreshold(grayImage, biImage, 60, 255, CV_THRESH_BINARY_INV| CV_THRESH_OTSU);
+	cvThreshold(grayImage, biImage, 60, 255, CV_THRESH_BINARY_INV| CV_THRESH_OTSU);//有待进一步改进
 
-	cvLine(biImage,cvPoint(biImage->width/3,10),cvPoint(biImage->width*2/3,10),CV_RGB(0,0,0),2);
+	//cvShowImage("biImage",biImage);
+
+	//cvLine(biImage,cvPoint(biImage->width/3,10),cvPoint(biImage->width*2/3,10),CV_RGB(0,0,0),2);
 
 	tootEllipseMask = cvCreateImage(cvGetSize(imageToothROI),imageToothROI->depth,1);
 	cvZero(tootEllipseMask);
 	segToothEllipse();
+	//cvShowImage("ellipse",tootEllipseMask);
 }
 
 void ToothSegmentation::segToothEllipse()
@@ -826,6 +831,8 @@ void ToothSegmentation::Segment()
 	imageClusterResult = cvCreateImage(cvGetSize(imageToothROI),8,3);
 	ColorImageClusterByKMeans2(imageMouth_lab,tootEllipseMask,imageClusterResult,maxClusters);
 
+	//cvShowImage("imageClusterResult",imageClusterResult);
+
 	toothMask = cvCreateImage(cvGetSize(imageToothROI),8,1);
 	cvZero(toothMask);
 	for (int y=0;y<imageClusterResult->height;y++)
@@ -841,6 +848,8 @@ void ToothSegmentation::Segment()
 
 	cvSmooth(toothMask,toothMask,CV_MEDIAN,3);
 
+	//cvShowImage("toothMask",toothMask);
+
 	toothFull = cvCloneImage(imageToothROI);
 	for (int y=0;y<toothMask->height;y++)
 	{
@@ -853,23 +862,28 @@ void ToothSegmentation::Segment()
 		}
 	}
 
+	//cvShowImage("toothFull",toothFull);
+
 	CvRect frontToothRect = ExtractToothFrontFour();
 	frontToothRect.x += frontToothRect.width/3;
 	frontToothRect.width = frontToothRect.width/3;
 
 	frontToothRect.y += frontToothRect.height/5;
-	frontToothRect.height = frontToothRect.height*3/10;//取上下四颗牙时*3/5，只取上两颗牙时*3/10
+	frontToothRect.height = frontToothRect.height*3/5;//取上下四颗牙时*3/5，只取上两颗牙时*3/10
 
 	cvSetImageROI(toothMask,frontToothRect);
 	toothFrontFourMask = cvCreateImage(cvGetSize(toothMask),8,1);
 	cvCopy(toothMask,toothFrontFourMask);
 	cvResetImageROI(toothMask);
 
+	//cvShowImage("toothFrontFourMask",toothFrontFourMask);
 
 	cvSetImageROI(toothFull,frontToothRect);
 	toothFrontFour = cvCreateImage(cvGetSize(toothFull),8,3);
 	cvCopy(toothFull,toothFrontFour);
 	cvResetImageROI(toothFull);
+
+	//cvShowImage("toothFrontFour",toothFrontFour);
 
 	ExtractToothColorFeature();
 }
@@ -935,11 +949,11 @@ void ToothSegmentation::ColorImageClusterByKMeans2(const IplImage* imageSrc,IplI
 	
 	cvKMeans2(samples,cluster_count,labels,cvTermCriteria(CV_TERMCRIT_EPS+CV_TERMCRIT_ITER,100,1.0),1,0,0,NULL,0);
 	
-	int num[3] ={0};
+	int num[maxClusters] ={0};
 	CvScalar color_label[maxClusters];
-	color_label[0] = CV_RGB(255,0,0);
-	color_label[1] = CV_RGB(0,255,0);
-	color_label[2] = CV_RGB(0,0,255);
+	color_label[0] = CV_RGB(255,0,0);//R
+	color_label[1] = CV_RGB(0,255,0);//G
+	//color_label[2] = CV_RGB(0,0,255);
 	k = 0;
 	for (int y=0;y<imageSrc->height;y++)
 	{
@@ -959,17 +973,13 @@ void ToothSegmentation::ColorImageClusterByKMeans2(const IplImage* imageSrc,IplI
 		}
 	}
 
-	if (num[0]>=num[1]&&num[0]>=num[2])
+	if (num[0]>=num[1])
 	{
 		toothClusterLabel = 2;
 	}
-	else if (num[1]>=num[0]&&num[1]>=num[2])
+	else if (num[1]>=num[0])
 	{
 		toothClusterLabel = 1;
-	}
-	else if (num[2]>=num[0]&&num[2]>=num[1])
-	{
-		toothClusterLabel = 0;
 	}
 
 	cvReleaseMat(&samples);
@@ -1035,6 +1045,8 @@ void ToothSegmentation::ExtractToothColorFeature()
 		}
 	}
 
+	//cvShowImage("toothFrontFourR",toothFrontFour);
+
 	toothColorFeature = cvAvg(toothFrontFour,toothFrontFourMask);
 
 	cvReleaseImage(&toothFrontFourGray);
@@ -1065,7 +1077,7 @@ int ToothSegmentation::GetMatchResult()
 /********************************************************************************
 *
 *					外部程序调用的函数（外部接口）
-*					by Hu yangyang 2015/11/10
+*					by Hu yangyang 2015/12/16
 *
 ********************************************************************************/
 //匹配结果索引返回值(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)->色标美白标尺(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)表示检测成功；
