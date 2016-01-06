@@ -45,7 +45,7 @@
     
     [UIImageJPEGRepresentation(self.imageForTesting,1.0) writeToFile:imagePath atomically:YES];
     
-//    UIImageWriteToSavedPhotosAlbum(self.imageForTesting, nil, nil, nil);
+    UIImageWriteToSavedPhotosAlbum(self.imageForTesting, nil, nil, nil);
 
 
     NSString  *imageCodePathFile = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
