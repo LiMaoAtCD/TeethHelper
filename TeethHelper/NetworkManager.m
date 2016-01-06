@@ -236,6 +236,8 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     if (isFirst) {
         dictionary[@"isFirst"] = @"true";
+    } else {
+        dictionary[@"isFirst"] = @"false";
     }
     
     dictionary[@"color"] = color;

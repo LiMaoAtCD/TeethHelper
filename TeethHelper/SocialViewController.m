@@ -379,7 +379,7 @@ static const NSInteger PageSize = 20;
     SocialDetailViewController *detail = [sb instantiateViewControllerWithIdentifier:@"SocialDetailViewController"];
     
     detail.hidesBottomBarWhenPushed = YES;
-    
+    detail.delegate = self;
     detail.topicDetail = self.dataItems[indexPath.row];
     
     [self.navigationController pushViewController:detail animated:YES];

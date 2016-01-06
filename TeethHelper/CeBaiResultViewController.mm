@@ -66,7 +66,7 @@
     
     self.Level = matchIndex;
 
-    if (![AccountManager isCompletedFirstCeBai]) {
+    if (![AccountManager isCompletedFirstCeBai]|| [AccountManager NeedResetFirstCeBai]) {
         
         //未完成首次测白,完成，保存图片，保存初次测白等级
 
@@ -399,11 +399,8 @@
     
     WeChatShareSocialViewController *wechatShare = [[WeChatShareSocialViewController alloc] initWithNibName:@"WeChatShareSocialViewController" bundle:nil];
     wechatShare.delegate = self;
-    
-    
     wechatShare.whiteDu = [NSString stringWithFormat:@"N%ld",self.Level];
     wechatShare.beatRate = [self beatRateFromLevel:self.Level];
-
     wechatShare.modalPresentationStyle = UIModalPresentationOverCurrentContext;
     
     [self showDetailViewController:wechatShare sender:self];
@@ -411,18 +408,15 @@
 
 -(void)didShareToSocialClicked{
     
-        PostToSocialController *postVC = [[PostToSocialController alloc] initWithNibName:@"PostToSocialController" bundle:nil];
-    
-        UIImage *image = [self loadImage];
-    
-        if (image != nil) {
-            postVC.firstImage = image;
-        }
-        postVC.secondImage = self.imageForDisplay;
-        postVC.beatRateString = [self beatRateFromLevel:self.Level];
-    
-        postVC.levelString = [NSString stringWithFormat:@"N%ld",self.Level];
-        [self.navigationController pushViewController:postVC animated:YES];
+    PostToSocialController *postVC = [[PostToSocialController alloc] initWithNibName:@"PostToSocialController" bundle:nil];
+    UIImage *image = [self loadImage];
+    if (image != nil) {
+        postVC.firstImage = image;
+    }
+    postVC.secondImage = self.imageForDisplay;
+    postVC.beatRateString = [self beatRateFromLevel:self.Level];
+    postVC.levelString = [NSString stringWithFormat:@"N%ld",self.Level];
+    [self.navigationController pushViewController:postVC animated:YES];
 }
 
 -(void)pop{
@@ -436,7 +430,7 @@
     NSString *rate = [self beatRateFromLevel:self.Level];
     NSArray *arr = [rate componentsSeparatedByString:@"%"];
 
-    if (![AccountManager isCompletedFirstCeBai]) {
+    if (![AccountManager isCompletedFirstCeBai]|| [AccountManager NeedResetFirstCeBai]) {
         //首次测白，保存图片，并跳转至首页
         
         [SVProgressHUD showWithStatus:@"正在记录结果"];
@@ -446,9 +440,10 @@
             if ([responseObject[@"status"] integerValue] == 2000) {
                 
                 [SVProgressHUD dismiss];
-
                 [AccountManager setCompletedFirstCeBai:YES];
+                [AccountManager NeedResetFirstCeBai:NO];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+                
             }else if ([responseObject[@"status"] integerValue] == 1012){
                 
                 [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];

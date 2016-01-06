@@ -12,7 +12,11 @@
 #import "NetworkManager.h"
 #import <MJRefresh.h>
 #import <SVProgressHUD.h>
-@interface CeBaiHistoryViewController ()<UITableViewDelegate, UITableViewDataSource>
+#import "CameraViewController.h"
+#import "ImageEditViewController.h"
+#import "AccountManager.h"
+
+@interface CeBaiHistoryViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -58,12 +62,21 @@ static const NSInteger pageSize = 20;
 
 }
 -(void)reset:(id)sender{
-    //TODO：重置
     
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
+    cameraVC.delegate = self;
+    cameraVC.hidesBottomBarWhenPushed = YES;
+    [AccountManager NeedResetFirstCeBai:YES];
+    
+    [self.navigationController pushViewController:cameraVC animated:YES];
 }
+
 -(void)pop{
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -223,12 +236,25 @@ static const NSInteger pageSize = 20;
     times.textAlignment = NSTextAlignmentCenter;
     
     [view addSubview:times];
-    
-
     return view;
+}
 
+-(void)getPhotoFromCamera:(UIImage *)image{
+    
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    ImageEditViewController *editorVC = [sb instantiateViewControllerWithIdentifier:@"ImageEditViewController"];
+    
+    editorVC.sourceImage  = image;
+    editorVC.hidesBottomBarWhenPushed = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.navigationController pushViewController:editorVC animated:YES];
+        
+    });
     
 }
+
 
 
 /*

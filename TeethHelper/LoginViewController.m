@@ -145,7 +145,7 @@
                     [AccountManager setAvatarUrlString:temp[@"avatar"]];
                 }
                 
-                [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+//                [SVProgressHUD showSuccessWithStatus:@"登录成功"];
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
@@ -153,7 +153,8 @@
                 
             } else if ([responseObject[@"status"] integerValue] == 1001){
                 //校验出错
-                [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
+//                [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
+                [Utils showAlertMessage:@"密码错误" onViewController:self withCompletionHandler:nil];
                 
             } else if ([responseObject[@"status"] integerValue] == 1012){
                 

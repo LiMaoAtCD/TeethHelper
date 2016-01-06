@@ -125,8 +125,19 @@
 +(void)setBirthDay:(NSString*)birthday{
     [[NSUserDefaults standardUserDefaults] setObject:birthday forKey:@"user_birthday"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(BOOL)NeedResetFirstCeBai{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    BOOL islogin = [defaults boolForKey:@"Account_reset_cebai"];
+    return islogin;
+}
++(void)NeedResetFirstCeBai:(BOOL)reset{
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:reset forKey:@"Account_reset_cebai"];
+    [defaults synchronize];
 
 }
-
 
 @end

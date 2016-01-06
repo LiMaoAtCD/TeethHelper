@@ -51,4 +51,10 @@
 +(BOOL)isCompletedFirstCeBai;
 +(void)setCompletedFirstCeBai:(BOOL)completed;
 
+//是否完成首次测白
++(BOOL)NeedResetFirstCeBai;
++(void)NeedResetFirstCeBai:(BOOL)reset;
+
+
+
 @end
