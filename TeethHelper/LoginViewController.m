@@ -46,13 +46,7 @@
     [self configTextFields];
     
 
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"_first_launch"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        
-        [self addSplashView];
-    }
+ 
     
 }
 
@@ -211,15 +205,7 @@
 
 }
 
--(void)addSplashView{
-    
-    SplashViewController *splashVC = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-    
-    [self presentViewController:splashVC animated:NO completion:^{
-        
-    }];
 
-}
 
 -(BOOL)validityCheck{
 //    if (self.phone is) {

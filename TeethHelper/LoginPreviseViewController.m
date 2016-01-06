@@ -7,7 +7,7 @@
 //
 
 #import "LoginPreviseViewController.h"
-
+#import "SplashViewController.h"
 @interface LoginPreviseViewController ()
 
 @end
@@ -17,8 +17,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"_first_launch"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        
+        [self addSplashView];
+    }
 }
 
+-(void)addSplashView{
+    
+    SplashViewController *splashVC = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
+    
+    [self presentViewController:splashVC animated:NO completion:^{
+        
+    }];
+    
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     
