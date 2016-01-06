@@ -10,6 +10,11 @@
 #import "Utils.h"
 @interface NewPasswordViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *oldPasswordTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextfield;
+
+
 @end
 
 @implementation NewPasswordViewController
@@ -29,6 +34,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)changePassword:(id)sender {
+    
+    
+}
+
 
 /*
 #pragma mark - Navigation
