@@ -33,7 +33,7 @@
     // Do any additional setup after loading the view.
     
     [Utils ConfigNavigationBarWithTitle:@"登录" onViewController:self];
-    self.navigationItem.leftBarButtonItem = nil;
+//    self.navigationItem.leftBarButtonItem = nil;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
@@ -72,6 +72,14 @@
 
 }
 
+-(void)pop{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = NO;
+    [super viewWillAppear:animated];
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 }

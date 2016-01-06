@@ -94,6 +94,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.hidden = NO;
+    [super viewWillAppear:animated];
+}
+
 - (IBAction)registerUser:(id)sender {
     BOOL isvalid = [self validityCheck];
     if (isvalid) {

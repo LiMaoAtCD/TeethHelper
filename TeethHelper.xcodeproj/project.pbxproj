@@ -105,6 +105,7 @@
 		8795B0341BAA68B400EC088A /* SatistiedThreeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8795B0321BAA68B400EC088A /* SatistiedThreeViewController.xib */; };
 		87B89F181C3CCA8300A004DE /* ToothProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87B89F161C3CCA8300A004DE /* ToothProcess.cpp */; };
 		87B89F1C1C3CD0B200A004DE /* NewPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B89F1B1C3CD0B200A004DE /* NewPasswordViewController.m */; };
+		87B89F1F1C3CE8DD00A004DE /* LoginPreviseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B89F1E1C3CE8DD00A004DE /* LoginPreviseViewController.m */; };
 		87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */; };
 		87BE0D381B82CCAC001E0D30 /* SocialNoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D371B82CCAC001E0D30 /* SocialNoImageCell.m */; };
 		87BE0D3B1B82CCBD001E0D30 /* SocialImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87BE0D3A1B82CCBD001E0D30 /* SocialImageCell.m */; };
@@ -349,6 +350,8 @@
 		87B89F171C3CCA8300A004DE /* ToothProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToothProcess.h; path = testData/ToothProcess.h; sourceTree = "<group>"; };
 		87B89F1A1C3CD0B200A004DE /* NewPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPasswordViewController.h; sourceTree = "<group>"; };
 		87B89F1B1C3CD0B200A004DE /* NewPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPasswordViewController.m; sourceTree = "<group>"; };
+		87B89F1D1C3CE8DD00A004DE /* LoginPreviseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPreviseViewController.h; sourceTree = "<group>"; };
+		87B89F1E1C3CE8DD00A004DE /* LoginPreviseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPreviseViewController.m; sourceTree = "<group>"; };
 		87BBCDC81B8872E1009130F1 /* ImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropperViewController.h; sourceTree = "<group>"; };
 		87BBCDC91B8872E1009130F1 /* ImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropperViewController.m; sourceTree = "<group>"; };
 		87BE0D361B82CCAC001E0D30 /* SocialNoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialNoImageCell.h; sourceTree = "<group>"; };
@@ -565,6 +568,8 @@
 				870A66061B7722D600A51B26 /* Login.storyboard */,
 				870A65FE1B7722A500A51B26 /* LoginNavigationController.h */,
 				870A65FF1B7722A500A51B26 /* LoginNavigationController.m */,
+				87B89F1D1C3CE8DD00A004DE /* LoginPreviseViewController.h */,
+				87B89F1E1C3CE8DD00A004DE /* LoginPreviseViewController.m */,
 				870A66011B7722B500A51B26 /* LoginViewController.h */,
 				870A66021B7722B500A51B26 /* LoginViewController.m */,
 				877B4E3A1B7CD95D00E6720D /* SplashViewController.h */,
@@ -1438,6 +1443,7 @@
 				870A66161B77321900A51B26 /* AccountManager.m in Sources */,
 				874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */,
 				87BBCDCA1B8872E1009130F1 /* ImageCropperViewController.m in Sources */,
+				87B89F1F1C3CE8DD00A004DE /* LoginPreviseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
