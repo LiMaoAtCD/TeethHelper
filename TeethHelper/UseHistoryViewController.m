@@ -116,6 +116,14 @@ static const NSInteger pageSize = 20;
 //    NSString *times = self.dataItems[indexPath.row][@"no"];
     NSString *times = [NSString stringWithFormat:@"%@ 次",self.dataItems[indexPath.row][@"no"]];
 
+    if ([totalShowTime isEqualToString:@"- 分钟"]) {
+        totalShowTime = @"0 分钟";
+    }
+    if ([times isEqualToString:@"- 次"]) {
+        times = @"0 次";
+    }
+
+    
     cell.dateLabel.text = dateString;
     cell.timeLabel.text = timeString;
     cell.useTimesLabel.text = times;
