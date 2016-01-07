@@ -156,6 +156,7 @@
             } else if ([responseObject[@"status"] integerValue] == 1001){
                 //校验出错
 //                [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
+                [SVProgressHUD dismiss];
                 [Utils showAlertMessage:@"密码错误" onViewController:self withCompletionHandler:nil];
                 
             } else if ([responseObject[@"status"] integerValue] == 1012){

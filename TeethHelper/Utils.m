@@ -8,6 +8,7 @@
 
 #import "Utils.h"
 #import "UIColor+HexRGB.h"
+#import <SVProgressHUD.h>
 @implementation Utils
 
 +(void)ConfigNavigationBarWithTitle:(NSString*)title onViewController:(UIViewController *)viewController{
@@ -71,7 +72,8 @@
 }
 
 +(void)showAlertMessage:(NSString*)message onViewController:(UIViewController *)viewController withCompletionHandler:(alertBlock)handler{
-    
+    [SVProgressHUD dismiss];
+
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (handler) {
