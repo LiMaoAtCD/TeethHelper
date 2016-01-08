@@ -56,20 +56,39 @@
     
     UILabel *keepLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     
-    keepLabel.text = @"继续目前的计划";
-    keepLabel.textColor = [UIColor blackColor];
-    keepLabel.font = [UIFont systemFontOfSize:30.0];
-    keepLabel.textAlignment = NSTextAlignmentCenter;
-    
-    [self.view addSubview:keepLabel];
-    
-    [keepLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view);
-        make.right.equalTo(self.view);
-        make.centerY.equalTo(self.view.mas_centerY);
-        make.height.equalTo(@50);
+    if (_keepProject) {
+        keepLabel.text = @"继续目前的计划";
+        keepLabel.textColor = [UIColor blackColor];
+        keepLabel.font = [UIFont systemFontOfSize:30.0];
+        keepLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [self.view addSubview:keepLabel];
+        
+        [keepLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view);
+            make.right.equalTo(self.view);
+            make.centerY.equalTo(self.view.mas_centerY);
+            make.height.equalTo(@50);
+            
+        }];
 
-    }];
+    } else {
+        keepLabel.text = @"请减少每日美白次数。如果症状持续，暂停使用，待症状消失后再尝试从每日最少美白次数开始";
+        keepLabel.numberOfLines = 0;
+        keepLabel.textColor = [UIColor blackColor];
+        keepLabel.font = [UIFont systemFontOfSize:20.0];
+//        keepLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [self.view addSubview:keepLabel];
+        
+        [keepLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view.mas_leftMargin);
+            make.right.equalTo(self.view);
+            make.centerY.equalTo(self.view.mas_centerY);
+            make.height.equalTo(@100);
+            
+        }];
+    }
     
     UIButton *sure = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -86,7 +105,7 @@
         make.left.equalTo(self.view).offset(40);
         make.right.equalTo(self.view).offset(-40);
         make.height.equalTo(@45);
-        make.top.equalTo(keepLabel).offset(100);
+        make.top.equalTo(keepLabel.mas_bottom).offset(80);
 
 
     }];

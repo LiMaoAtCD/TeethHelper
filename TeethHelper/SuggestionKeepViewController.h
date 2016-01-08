@@ -10,4 +10,6 @@
 
 @interface SuggestionKeepViewController : UIViewController
 
+@property (nonatomic, assign) BOOL keepProject;
+
 @end
