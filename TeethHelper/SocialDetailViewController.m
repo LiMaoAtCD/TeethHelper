@@ -372,7 +372,7 @@
         }
         
         cell.floorLabel.text = [NSString stringWithFormat:@"%ld楼",indexPath.row + 2];
-        
+        [cell setNeedsUpdateConstraints];
         return cell;
     }
     
