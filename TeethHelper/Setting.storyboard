@@ -3226,6 +3226,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sHE-ft-XH1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uKW-lM-k0S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="box_password" translatesAutoresizingMaskIntoConstraints="NO" id="Avr-ef-aPg">
@@ -3362,22 +3363,22 @@
                                 <exclude reference="UFe-QK-GDx"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4fe-wG-lzU"/>
-                                <exclude reference="UzO-5H-9OF"/>
-                                <exclude reference="XxD-bq-ZgK"/>
-                                <exclude reference="Z3c-6Q-C11"/>
-                                <exclude reference="t1K-3c-v1Q"/>
-                                <exclude reference="xy0-mB-msH"/>
-                                <exclude reference="1aq-t9-Ifc"/>
-                                <exclude reference="Dcb-R3-iD6"/>
-                                <exclude reference="LbH-41-WkD"/>
                                 <exclude reference="FGs-s2-Xnv"/>
                                 <exclude reference="nLb-Jc-C9c"/>
                                 <exclude reference="oDb-qm-jqS"/>
+                                <exclude reference="Z3c-6Q-C11"/>
+                                <exclude reference="t1K-3c-v1Q"/>
+                                <exclude reference="xy0-mB-msH"/>
                                 <exclude reference="FYc-w0-LUY"/>
                                 <exclude reference="Krt-vV-OaZ"/>
                                 <exclude reference="OzK-wh-geB"/>
                                 <exclude reference="d5z-DE-nR4"/>
+                                <exclude reference="1aq-t9-Ifc"/>
+                                <exclude reference="Dcb-R3-iD6"/>
+                                <exclude reference="LbH-41-WkD"/>
+                                <exclude reference="4fe-wG-lzU"/>
+                                <exclude reference="UzO-5H-9OF"/>
+                                <exclude reference="XxD-bq-ZgK"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -3389,22 +3390,22 @@
                                 <include reference="UFe-QK-GDx"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4fe-wG-lzU"/>
-                                <include reference="UzO-5H-9OF"/>
-                                <include reference="XxD-bq-ZgK"/>
-                                <include reference="Z3c-6Q-C11"/>
-                                <include reference="t1K-3c-v1Q"/>
-                                <include reference="xy0-mB-msH"/>
-                                <include reference="1aq-t9-Ifc"/>
-                                <include reference="Dcb-R3-iD6"/>
-                                <include reference="LbH-41-WkD"/>
                                 <include reference="FGs-s2-Xnv"/>
                                 <include reference="nLb-Jc-C9c"/>
                                 <include reference="oDb-qm-jqS"/>
+                                <include reference="Z3c-6Q-C11"/>
+                                <include reference="t1K-3c-v1Q"/>
+                                <include reference="xy0-mB-msH"/>
                                 <include reference="FYc-w0-LUY"/>
                                 <include reference="Krt-vV-OaZ"/>
                                 <include reference="OzK-wh-geB"/>
                                 <include reference="d5z-DE-nR4"/>
+                                <include reference="1aq-t9-Ifc"/>
+                                <include reference="Dcb-R3-iD6"/>
+                                <include reference="LbH-41-WkD"/>
+                                <include reference="4fe-wG-lzU"/>
+                                <include reference="UzO-5H-9OF"/>
+                                <include reference="XxD-bq-ZgK"/>
                             </mask>
                         </variation>
                     </view>

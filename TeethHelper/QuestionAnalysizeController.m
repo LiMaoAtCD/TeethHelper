@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *verticalMargin;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *changedLabel;
 
 @end
 
@@ -45,7 +46,8 @@
         self.perTimeMinutesLabel.text = @"32";
         self.projectDayLabel.text = @"5";
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
-        
+        self.changedLabel.text = @"根据您的情况，建议到个人中心适当增加每日次数（时间）";
+
         //设置美白等级为4
 //        [MeiBaiConfigFile setCureTimesEachDay:4];
 //        [MeiBaiConfigFile setNeedCureDays:5];
@@ -53,29 +55,33 @@
 
         
     } else if (self.type == Enhance){
-        self.projectLabel.text = @"加强计划";
-        self.timesLabel.text =@"7";
-        self.perTimeMinutesLabel.text =@"56";
-        self.projectDayLabel.text =@"3";
+        self.projectLabel.text = @"标准计划";
+        self.timesLabel.text = @"4";
+        self.perTimeMinutesLabel.text = @"32";
+        self.projectDayLabel.text = @"5";
+        self.changedLabel.text = @"建议到个人中心适当增加每日次数（时间）";
+
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
         
         //设置美白等级为7
 //        [MeiBaiConfigFile setCureTimesEachDay:7];
 //        [MeiBaiConfigFile setNeedCureDays:3];
-        [MeiBaiConfigFile setCurrentProject:ENHANCE];
+        [MeiBaiConfigFile setCurrentProject:STANDARD];
 
 
     } else{
-        self.projectLabel.text = @"温柔计划";
-        self.timesLabel.text =@"3";
-        self.perTimeMinutesLabel.text =@"24";
-        self.projectDayLabel.text =@"10";
+        self.projectLabel.text = @"标准计划";
+        self.changedLabel.text = @"建议到个人中心减少每日次数（时间），同时可适当延长美白天数";
+
+        self.timesLabel.text = @"4";
+        self.perTimeMinutesLabel.text = @"32";
+        self.projectDayLabel.text = @"5";
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
         
         //设置美白等级为3
 //        [MeiBaiConfigFile setCureTimesEachDay:3];
 //        [MeiBaiConfigFile setNeedCureDays:10];
-        [MeiBaiConfigFile setCurrentProject:GENTLE];
+        [MeiBaiConfigFile setCurrentProject:STANDARD];
 
 
     }

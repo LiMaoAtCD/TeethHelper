@@ -233,61 +233,61 @@
         if ([responseObject[@"status"] integerValue] == 2000) {
             [SVProgressHUD dismiss];
             
-            if (answer2 == 2) {
-                //咨询牙医
-                QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
-                [self.navigationController pushViewController:noprojectVC animated:YES];
-                NSLog(@"牙医");
-            } else{
-                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
-                    analysizeVC.type = Standard;
-                    [self.navigationController pushViewController:analysizeVC animated:YES];
-                    NSLog(@"标准");
-                [QuestionsConfigFile setCompletedInitialQuestions:YES];
-
-            }
-//            if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
-//                //加强
-//                //分析结果跳转至相应界面
-//                
-//                
-//                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
-//                analysizeVC.type = Enhance;
-//                [self.navigationController pushViewController:analysizeVC animated:YES];
-//                NSLog(@"加强");
-//                
-//            } else if(answer1 == 2){
+//            if (answer2 == 2) {
 //                //咨询牙医
 //                QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
 //                [self.navigationController pushViewController:noprojectVC animated:YES];
 //                NSLog(@"牙医");
-//                
-//
-//                
-//            } else if(answer1 != 2 && answer2 == 0 && answer3 == 1){
-//                //温柔计划
-//                //分析结果跳转至相应界面
-//                
-//                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
-//                analysizeVC.type = Gentle;
-//                
-//                [self.navigationController pushViewController:analysizeVC animated:YES];
-//                NSLog(@"温柔");
-//                
 //            } else{
-//
-//                //标准
-//                //分析结果跳转至相应界面
-//                
 //                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
-//                analysizeVC.type = Standard;
-//                
-//                [self.navigationController pushViewController:analysizeVC animated:YES];
-//                NSLog(@"标准");
-//                
+//                    analysizeVC.type = Standard;
+//                    [self.navigationController pushViewController:analysizeVC animated:YES];
+//                    NSLog(@"标准");
+//                [QuestionsConfigFile setCompletedInitialQuestions:YES];
+//
 //            }
-//            [QuestionsConfigFile setCompletedInitialQuestions:YES];
-//        
+            if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
+                //加强
+                //分析结果跳转至相应界面
+                
+                
+                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+                analysizeVC.type = Enhance;
+                [self.navigationController pushViewController:analysizeVC animated:YES];
+                NSLog(@"加强");
+                
+            } else if(answer1 == 2){
+                //咨询牙医
+                QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
+                [self.navigationController pushViewController:noprojectVC animated:YES];
+                NSLog(@"牙医");
+                
+
+                
+            } else if(answer1 != 2 && answer2 == 0 && answer3 == 1){
+                //温柔计划
+                //分析结果跳转至相应界面
+                
+                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+                analysizeVC.type = Gentle;
+                
+                [self.navigationController pushViewController:analysizeVC animated:YES];
+                NSLog(@"温柔");
+                
+            } else{
+
+                //标准
+                //分析结果跳转至相应界面
+                
+                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+                analysizeVC.type = Standard;
+                
+                [self.navigationController pushViewController:analysizeVC animated:YES];
+                NSLog(@"标准");
+                
+            }
+            [QuestionsConfigFile setCompletedInitialQuestions:YES];
+        
         }else if ([responseObject[@"status"] integerValue] == 1012){
             
             [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];

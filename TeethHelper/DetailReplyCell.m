@@ -20,4 +20,9 @@
     // Configure the view for the selected state
 }
 
+-(BOOL)needsUpdateConstraints{
+    [super needsUpdateConstraints];
+    return YES;
+}
+
 @end
