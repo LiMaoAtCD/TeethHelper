@@ -110,7 +110,7 @@
             NSString *phone = [AccountManager getCellphoneNumber];
             
             cell.contentLabel.text = phone;
-            cell.accessoryType = UITableViewCellAccessoryNone;
+//            cell.accessoryType = UITableViewCellAccessoryNone;
             cell.contentLabel.textColor = [UIColor lightGrayColor];
             
         } else if (indexPath.row == 5){
