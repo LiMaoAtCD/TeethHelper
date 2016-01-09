@@ -81,160 +81,160 @@
             [TeethStateConfigureFile setTeethStateLevel:idx];
             
             
-            //获取当前牙齿等级
-            NSInteger answer1 = idx;
-            // 是否敏感
-            NSInteger answer2 = 0;
-            BOOL issensitive = [TeethStateConfigureFile isSensitive];
-            if (issensitive) {
-                answer2 = 0;
-            } else{
-                answer2 = 1;
-            }
-            //是否意愿强烈
-            NSInteger answer3 = 0;
-            if ([TeethStateConfigureFile isWillStrong]) {
-                answer3 = 0;
-            } else{
-                answer3 = 1;
-            }
-            NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
-            
-            
-            MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
-            if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
-                //提示修改至加强计划
-                if (project != ENHANCE && project != KEEP) {
-                    [self alertUserToModifyProject:ENHANCE withAlertHandler:^{
-                        //
-                        
-                        [SVProgressHUD showWithStatus:@"正在调整计划"];
-                        
-                        [NetworkManager ModifyProject:@"B" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-                            NSLog(@"response %@",responseObject);
-                            if ([responseObject[@"status"] integerValue] == 2000) {
-                                [MeiBaiConfigFile setCurrentProject:ENHANCE];
-                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
-                                    [self.navigationController popViewControllerAnimated:YES];
-
-                                });
-                            }else if ([responseObject[@"status"] integerValue] == 1012){
-                                
-                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
-                                
-                            } else{
-                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
-                            }
-                            
-                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
-                        }];
-
-                    }];
-
-                }
-                
-            } else if (answer1 == 2) {
-                //提示修改温柔计划,但是没有推送
-                if (project != GENTLE_NoNotification  && project != KEEP) {
-                    [self alertUserToModifyProject:GENTLE withAlertHandler:^{
-                        //
-                        [SVProgressHUD showWithStatus:@"正在调整计划"];
-                        
-                        [NetworkManager ModifyProject:@"F" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-                            NSLog(@"response %@",responseObject);
-                            if ([responseObject[@"status"] integerValue] == 2000) {
-                                [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
-                                
-                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
-                                    [self.navigationController popViewControllerAnimated:YES];
-                                    
-                                });
-                            }else if ([responseObject[@"status"] integerValue] == 1012){
-                                
-                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
-                                
-                            } else{
-                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
-                            }
-                            
-                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
-                        }];
-
-                    }];
-                    
-                }
-            } else if (answer1 != 2 && answer2 == 0 && answer2 == 1) {
-                //提示修改温柔计划
-                if (project != GENTLE  && project != KEEP) {
-                    [self alertUserToModifyProject:GENTLE withAlertHandler:^{
-                        //
-                        [SVProgressHUD showWithStatus:@"正在调整计划"];
-                        
-                        [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-                            NSLog(@"response %@",responseObject);
-                            if ([responseObject[@"status"] integerValue] == 2000) {
-                                [MeiBaiConfigFile setCurrentProject:GENTLE];
-                                
-                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
-                                    [self.navigationController popViewControllerAnimated:YES];
-                                    
-                                });
-                            }else if ([responseObject[@"status"] integerValue] == 1012){
-                                
-                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
-                                
-                            } else{
-                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
-                            }
-                            
-                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
-                        }];
-
-                     
-                    }];
-                    
-                }
-            } else{
-                //提示修改至标准计划
-                if (project != STANDARD  && project != KEEP) {
-                    [self alertUserToModifyProject:STANDARD withAlertHandler:^{
-                        //
-                        [SVProgressHUD showWithStatus:@"正在调整计划"];
-                        
-                        [NetworkManager ModifyProject:@"A" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-                            NSLog(@"response %@",responseObject);
-                            if ([responseObject[@"status"] integerValue] == 2000) {
-                                [MeiBaiConfigFile setCurrentProject:STANDARD];
-                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
-                                    [self.navigationController popViewControllerAnimated:YES];
-                                    
-                                });
-                            }else if ([responseObject[@"status"] integerValue] == 1012){
-                                
-                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
-                                
-                            } else{
-                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
-                            }
-                            
-                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
-                        }];
-
-
-                    }];
-                    
-                }
-            }
-            
-            //关闭保持计划
+//            //获取当前牙齿等级
+//            NSInteger answer1 = idx;
+//            // 是否敏感
+//            NSInteger answer2 = 0;
+//            BOOL issensitive = [TeethStateConfigureFile isSensitive];
+//            if (issensitive) {
+//                answer2 = 0;
+//            } else{
+//                answer2 = 1;
+//            }
+//            //是否意愿强烈
+//            NSInteger answer3 = 0;
+//            if ([TeethStateConfigureFile isWillStrong]) {
+//                answer3 = 0;
+//            } else{
+//                answer3 = 1;
+//            }
+//            NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
+//            
+//            
+//            MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+//            if (answer1 == 0 && answer2 == 1 && answer3 == 0) {
+//                //提示修改至加强计划
+//                if (project != ENHANCE && project != KEEP) {
+//                    [self alertUserToModifyProject:ENHANCE withAlertHandler:^{
+//                        //
+//                        
+//                        [SVProgressHUD showWithStatus:@"正在调整计划"];
+//                        
+//                        [NetworkManager ModifyProject:@"B" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                            NSLog(@"response %@",responseObject);
+//                            if ([responseObject[@"status"] integerValue] == 2000) {
+//                                [MeiBaiConfigFile setCurrentProject:ENHANCE];
+//                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+//                                    [self.navigationController popViewControllerAnimated:YES];
+//
+//                                });
+//                            }else if ([responseObject[@"status"] integerValue] == 1012){
+//                                
+//                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+//                                
+//                            } else{
+//                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
+//                            }
+//                            
+//                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//                        }];
+//
+//                    }];
+//
+//                }
+//                
+//            } else if (answer1 == 2) {
+//                //提示修改温柔计划,但是没有推送
+//                if (project != GENTLE_NoNotification  && project != KEEP) {
+//                    [self alertUserToModifyProject:GENTLE withAlertHandler:^{
+//                        //
+//                        [SVProgressHUD showWithStatus:@"正在调整计划"];
+//                        
+//                        [NetworkManager ModifyProject:@"F" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                            NSLog(@"response %@",responseObject);
+//                            if ([responseObject[@"status"] integerValue] == 2000) {
+//                                [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
+//                                
+//                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+//                                    [self.navigationController popViewControllerAnimated:YES];
+//                                    
+//                                });
+//                            }else if ([responseObject[@"status"] integerValue] == 1012){
+//                                
+//                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+//                                
+//                            } else{
+//                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
+//                            }
+//                            
+//                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//                        }];
+//
+//                    }];
+//                    
+//                }
+//            } else if (answer1 != 2 && answer2 == 0 && answer2 == 1) {
+//                //提示修改温柔计划
+//                if (project != GENTLE  && project != KEEP) {
+//                    [self alertUserToModifyProject:GENTLE withAlertHandler:^{
+//                        //
+//                        [SVProgressHUD showWithStatus:@"正在调整计划"];
+//                        
+//                        [NetworkManager ModifyProject:@"C" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                            NSLog(@"response %@",responseObject);
+//                            if ([responseObject[@"status"] integerValue] == 2000) {
+//                                [MeiBaiConfigFile setCurrentProject:GENTLE];
+//                                
+//                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+//                                    [self.navigationController popViewControllerAnimated:YES];
+//                                    
+//                                });
+//                            }else if ([responseObject[@"status"] integerValue] == 1012){
+//                                
+//                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+//                                
+//                            } else{
+//                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
+//                            }
+//                            
+//                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//                        }];
+//
+//                     
+//                    }];
+//                    
+//                }
+//            } else{
+//                //提示修改至标准计划
+//                if (project != STANDARD  && project != KEEP) {
+//                    [self alertUserToModifyProject:STANDARD withAlertHandler:^{
+//                        //
+//                        [SVProgressHUD showWithStatus:@"正在调整计划"];
+//                        
+//                        [NetworkManager ModifyProject:@"A" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                            NSLog(@"response %@",responseObject);
+//                            if ([responseObject[@"status"] integerValue] == 2000) {
+//                                [MeiBaiConfigFile setCurrentProject:STANDARD];
+//                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                                    [SVProgressHUD showSuccessWithStatus:@"美白计划调整成功"];
+//                                    [self.navigationController popViewControllerAnimated:YES];
+//                                    
+//                                });
+//                            }else if ([responseObject[@"status"] integerValue] == 1012){
+//                                
+//                                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+//                                
+//                            } else{
+//                                [SVProgressHUD showErrorWithStatus:@"美白计划调整失败，请稍后再试"];
+//                            }
+//                            
+//                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//                        }];
+//
+//
+//                    }];
+//                    
+//                }
+//            }
+//            
+//            //关闭保持计划
             
         } else{
             [view didCHangeColorType:Normal];
@@ -243,51 +243,51 @@
         
 }
 
-typedef void(^AlertBlock)(void);
-
--(void)alertUserToModifyProject:(MEIBAI_PROJECT)project withAlertHandler:(AlertBlock)block{
-    
-    NSString *string = @"根据您的选择建议调整至标准计划，是否调整？";
-    
-    NSString *actionString = @"调整至加强计划";
-    
-    if (project == ENHANCE) {
-        //加强
-        string = @"根据您的选择建议调整至加强计划，是否调整";
-        
-        actionString = @"调整至加强计划";
-
-
-    } else if (project == GENTLE) {
-        //温柔
-        string = @"根据您的选择建议调整至温柔计划，是否调整";
-        actionString = @"调整至温柔计划";
-
-
-    } else if (project == STANDARD) {
-        //标准
-        string = @"根据您的选择建议调整至标准计划，是否调整";
-        actionString = @"调整至标准计划";
-    }
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:string preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction *action1 = [UIAlertAction actionWithTitle:actionString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        if (block) {
-            block();
-        }
-    }];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-        
-    }];
-    
-    [alert addAction:action1];
-    [alert addAction:cancel];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-
-}
+//typedef void(^AlertBlock)(void);
+//
+//-(void)alertUserToModifyProject:(MEIBAI_PROJECT)project withAlertHandler:(AlertBlock)block{
+//    
+//    NSString *string = @"根据您的选择建议调整至标准计划，是否调整？";
+//    
+//    NSString *actionString = @"调整至加强计划";
+//    
+//    if (project == ENHANCE) {
+//        //加强
+//        string = @"根据您的选择建议调整至加强计划，是否调整";
+//        
+//        actionString = @"调整至加强计划";
+//
+//
+//    } else if (project == GENTLE) {
+//        //温柔
+//        string = @"根据您的选择建议调整至温柔计划，是否调整";
+//        actionString = @"调整至温柔计划";
+//
+//
+//    } else if (project == STANDARD) {
+//        //标准
+//        string = @"根据您的选择建议调整至标准计划，是否调整";
+//        actionString = @"调整至标准计划";
+//    }
+//    
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:string preferredStyle:UIAlertControllerStyleAlert];
+//    
+//    UIAlertAction *action1 = [UIAlertAction actionWithTitle:actionString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//        if (block) {
+//            block();
+//        }
+//    }];
+//    
+//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"返回" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+//        
+//    }];
+//    
+//    [alert addAction:action1];
+//    [alert addAction:cancel];
+//    
+//    [self presentViewController:alert animated:YES completion:nil];
+//
+//}
 
 -(void)pop{
     
