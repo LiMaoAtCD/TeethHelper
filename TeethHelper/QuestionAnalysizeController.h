@@ -12,6 +12,7 @@ typedef enum : NSUInteger {
     Standard,
     Gentle,
     Enhance,
+    Doctor
 } TeethProjectType;
 
 @interface QuestionAnalysizeController : UIViewController

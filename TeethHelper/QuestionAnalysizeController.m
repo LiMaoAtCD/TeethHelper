@@ -46,7 +46,7 @@
         self.perTimeMinutesLabel.text = @"32";
         self.projectDayLabel.text = @"5";
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
-        self.changedLabel.text = @"根据您的情况，建议到个人中心适当增加每日次数（时间）";
+        self.changedLabel.text = @"根据您的问卷调查，我们推荐您使用你标准计划，您也可以去个人中心调整计划";
 
         //设置美白等级为4
 //        [MeiBaiConfigFile setCureTimesEachDay:4];
@@ -59,7 +59,7 @@
         self.timesLabel.text = @"4";
         self.perTimeMinutesLabel.text = @"32";
         self.projectDayLabel.text = @"5";
-        self.changedLabel.text = @"建议到个人中心适当增加每日次数（时间）";
+        self.changedLabel.text = @"系统默认的计划为标准计划，根据您的情况，建议到个人中心适当增加每次次数(时间)";
 
         [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
         
@@ -68,10 +68,25 @@
 //        [MeiBaiConfigFile setNeedCureDays:3];
         [MeiBaiConfigFile setCurrentProject:STANDARD];
 
+    }  else if (self.type == Doctor){
+        self.projectLabel.text = @"标准计划";
+        self.timesLabel.text = @"4";
+        self.perTimeMinutesLabel.text = @"32";
+        self.projectDayLabel.text = @"5";
+        self.changedLabel.text = @"系统默认的计划为标准计划,请咨询专业牙医后再决定是否使用";
+        
+        [self.beginTimeButton setTitle:@"20:00" forState:UIControlStateNormal];
+        
+        //设置美白等级为7
+        //        [MeiBaiConfigFile setCureTimesEachDay:7];
+        //        [MeiBaiConfigFile setNeedCureDays:3];
+//        [MeiBaiConfigFile setCurrentProject:STANDARD];
+        [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
 
+        
     } else{
         self.projectLabel.text = @"标准计划";
-        self.changedLabel.text = @"建议到个人中心减少每日次数（时间），同时可适当延长美白天数";
+        self.changedLabel.text = @"系统默认的计划为标准计划,根据您的情况，建议到个人中心减少每日次数(时间)，同时可适当延长美白天数。";
 
         self.timesLabel.text = @"4";
         self.perTimeMinutesLabel.text = @"32";

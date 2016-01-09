@@ -258,9 +258,15 @@
                 
             } else if(answer1 == 2){
                 //咨询牙医
-                QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
-                [self.navigationController pushViewController:noprojectVC animated:YES];
-                NSLog(@"牙医");
+//                QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
+//                [self.navigationController pushViewController:noprojectVC animated:YES];
+//                NSLog(@"牙医");
+                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
+                analysizeVC.type = Doctor;
+                
+                [self.navigationController pushViewController:analysizeVC animated:YES];
+                NSLog(@"温柔");
+
                 
 
                 
