@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
-
+#import <SVProgressHUD.h>
 typedef void(^NetWorkHandler)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *error);
 

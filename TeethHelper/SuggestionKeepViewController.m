@@ -9,6 +9,9 @@
 #import "SuggestionKeepViewController.h"
 #import "Utils.h"
 #import <Masonry.h>
+#import "MeiBaiConfigFile.h"
+#import "NetworkManager.h"
+
 @interface SuggestionKeepViewController ()
 
 @end
@@ -114,7 +117,46 @@
 
 -(void)clickOver:(UIButton *)button{
     
-    [self.navigationController popToRootViewControllerAnimated:YES];
+//    NSInteger processedDays = [plan[@"processed"] integerValue];
+    NSInteger processDays = [MeiBaiConfigFile getProcessDays];
+    NSInteger days = [MeiBaiConfigFile getNeedCureDays];
+    
+    if ( processDays != days) {
+        //需要询问是否延长治疗计划
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"是否延长美白计划?" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *delay = [UIAlertAction actionWithTitle:@"延长" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [SVProgressHUD show];
+            [NetworkManager delayOrSwitchProject:@"delay" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD dismiss];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
+        }];
+        UIAlertAction *nodelay = [UIAlertAction actionWithTitle:@"不延长" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [SVProgressHUD show];
+            [NetworkManager delayOrSwitchProject:@"switch" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [SVProgressHUD dismiss];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+
+
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+
+            }];
+        }];
+        
+        [alertController addAction:delay];
+        [alertController addAction:nodelay];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+
+    }
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
