@@ -77,13 +77,13 @@
         keepLabel.numberOfLines = 0;
         keepLabel.textColor = [UIColor blackColor];
         keepLabel.font = [UIFont systemFontOfSize:20.0];
-//        keepLabel.textAlignment = NSTextAlignmentCenter;
+        keepLabel.textAlignment = NSTextAlignmentCenter;
         
         [self.view addSubview:keepLabel];
         
         [keepLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.view.mas_leftMargin);
-            make.right.equalTo(self.view);
+            make.left.equalTo(self.view.mas_leftMargin).offset(20);
+            make.right.equalTo(self.view).offset(-20);
             make.centerY.equalTo(self.view.mas_centerY);
             make.height.equalTo(@100);
             
