@@ -53,31 +53,80 @@
         //时间
         
         self.timerLabel= [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 90, self.bounds.size.height / 2 - 40, 190, 80)];
-        self.timerLabel.text = @"00'00\"";
+        self.timerLabel.text = @"0'00\"";
         self.timerLabel.textAlignment = NSTextAlignmentCenter;
         self.timerLabel.textColor = [UIColor colorWithRed:99.0/255 green:181./255 blue:180./255 alpha:1.0];
         //        self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:100.0];
         self.timerLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:50.0];
-        
-        [self addSubview:self.timerLabel];
 
+        [self addSubview:self.timerLabel];
+        
+        //类型
+        self.typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 50, self.bounds.size.height / 2 - 70, 140, 30)];
+        self.typeLabel.textAlignment = NSTextAlignmentCenter;
+        self.typeLabel.textColor = [UIColor colorWithRed:99.0/255 green:181./255 blue:180./255 alpha:1.0];
+        //        self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:100.0];
+        self.typeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0];
+        self.typeLabel.text = @"美白倒计时";
+
+        [self addSubview:self.typeLabel];
+        
+        UIImage *image = [UIImage imageNamed:@"icon_clock"];
+        UIImageView *clock = [[UIImageView alloc] initWithImage:image];
+        [self addSubview:clock];
+        clock.frame = CGRectMake(self.bounds.size.width / 2 - 60, self.bounds.size.height / 2 - 70, 30, 30);
+//        icon_clock
     }
     
     return self;
 }
 
 -(void)animateToSeconds:(NSInteger)seconds{
-    CGFloat maxSecond = 6000.0;
+    CGFloat maxSecond = 600.0;
     
     if (seconds < maxSecond) {
         
-        CGFloat rate =  (CGFloat)seconds / 6000;
-        self.lightGrayLayer2.strokeStart = 0;
-        self.lightGrayLayer2.strokeEnd = rate;
+        CGFloat rate =  (CGFloat)seconds / 600;
+//        self.lightGrayLayer2.strokeStart = 0;
+        self.lightGrayLayer2.strokeEnd = 1 - rate;
 
     }
     
 }
+
+static NSInteger maxSecond = 480;
+
+-(void)countdownToSecond:(NSInteger)seconds ForMaxSecond:(MeiBaiTimerType)type{
+
+    if ( type == MeiBaiTimerTypeGoing) {
+        self.lightGrayLayer2.strokeEnd = 1.0;
+        maxSecond = 8 * 60;
+        self.typeLabel.text = @"美白倒计时";
+
+    } else{
+        self.lightGrayLayer2.strokeEnd = 1.0;
+        maxSecond =  2 * 60;
+        self.typeLabel.text = @"换胶倒计时";
+
+    }
+    if (seconds <= maxSecond) {
+        CGFloat rate =  (CGFloat)seconds / maxSecond;
+        self.lightGrayLayer2.strokeEnd = 1 - rate;
+        
+//        2.显示对应时间
+        seconds = maxSecond - seconds;
+        
+        NSInteger minute = seconds / 60;
+        NSInteger second = seconds  - minute * 60;
+        NSString *theTime = [NSString stringWithFormat:@"%.1ld'%.2ld\"", minute, second];
+        //    self.alienView.timerLabel.text = theTime;
+        
+        self.timerLabel.text = theTime;
+    }
+    
+    
+}
+
 
 //-(void)animateArcFrom:(CGFloat)begin To:(CGFloat)End{
 //    if (End >= 1.0 || End < 0.0) {

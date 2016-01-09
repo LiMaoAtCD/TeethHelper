@@ -113,9 +113,9 @@
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"user_timer_previous"];
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"user_timer_previous"];
+//    
+//    [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
 
@@ -141,21 +141,21 @@
         [self fetchProductInfo];
     }
     
-    NSDate *previousDate =[[NSUserDefaults standardUserDefaults] objectForKey:@"user_timer_previous"];
-    
-    
-    NSDate *date = [NSDate date];
-    NSTimeInterval distanceBetweenDates = [date timeIntervalSinceDate:previousDate];
-    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user_timer_previous"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-
-
-    BOOL isTimerGoing  = [[NSUserDefaults standardUserDefaults] boolForKey:@"timer_view_going"];
-    
-    if (isTimerGoing) {
-        //从计时器页面进入的后台
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"kNotificationForResignAndActive" object:@{@"duration":@(distanceBetweenDates)}];
-    }
+//    NSDate *previousDate =[[NSUserDefaults standardUserDefaults] objectForKey:@"user_timer_previous"];
+//    
+//    
+//    NSDate *date = [NSDate date];
+//    NSTimeInterval distanceBetweenDates = [date timeIntervalSinceDate:previousDate];
+//    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user_timer_previous"];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+//
+//
+//    BOOL isTimerGoing  = [[NSUserDefaults standardUserDefaults] boolForKey:@"timer_view_going"];
+//    
+//    if (isTimerGoing) {
+//        //从计时器页面进入的后台
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"kNotificationForResignAndActive" object:@{@"duration":@(distanceBetweenDates)}];
+//    }
     
     
 }

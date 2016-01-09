@@ -395,10 +395,10 @@
                     } else{
                         //没有超过三倍时间，计时器继续计时
                         
-                        MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] init];
-                        projectVC.hidesBottomBarWhenPushed = YES;
-                        projectVC.previousSeconds = distanceBetweenDates;
-                        [self.navigationController pushViewController:projectVC animated:YES];
+//                        MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] init];
+//                        projectVC.hidesBottomBarWhenPushed = YES;
+//                        projectVC.previousSeconds = distanceBetweenDates;
+//                        [self.navigationController pushViewController:projectVC animated:YES];
                         
                         
                         //如果是治疗计划，判断问卷提醒是否开启了，如果开启了，计时3倍美白时间
@@ -506,6 +506,12 @@
 
 -(void)beginMeibaiProject:(id)sender{
     
+//    MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] initWithNibName:@"MeiBaiTimerViewController" bundle:nil];
+//    projectVC.hidesBottomBarWhenPushed = YES;
+//    projectVC.previousSeconds = 0;
+//    
+//    [self.navigationController pushViewController:projectVC animated:YES];
+//    
     
     //上传服务器，开始计时
     [SVProgressHUD showWithStatus:@"正在启动美白计划"];
