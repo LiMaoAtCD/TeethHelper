@@ -331,4 +331,13 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  */
 +(void)editPasswordFromOld:(NSString *)oldPwd toNewPassword:(NSString *)password WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+/**
+ *  美白计划延长& 进入保持计划
+ *
+ *  @param delayOrSwitch     delay or switch
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)delayOrSwitchProject:(NSString*)delayOrSwitch WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end

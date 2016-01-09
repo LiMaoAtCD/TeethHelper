@@ -384,5 +384,17 @@
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
++(void)delayOrSwitchProject:(NSString*)delayOrSwitch WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"type"] = delayOrSwitch;
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    NSString *url = @"http://www.7wang523.com/teeth-api/plan/delayOrSwitch";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
 
 @end
