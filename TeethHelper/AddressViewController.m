@@ -18,7 +18,6 @@
 @interface AddressViewController ()<TLCityPickerDelegate,GLDPopPickerDataSouce, GLDPopPickerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
-//@property (nonatomic, copy) NSString *address;
 
 @property (weak, nonatomic) IBOutlet UIView *addressPrefixView;
 
@@ -27,6 +26,8 @@
 
 @property (strong, nonatomic) GLDPopPicker *popPicker;
 
+@property (nonatomic, copy) NSString *province;
+@property (nonatomic, copy) NSString *city;
 
 @end
 
@@ -49,7 +50,18 @@
     popPicker.delegate = self;
     [self.view addSubview:popPicker];
     _popPicker = popPicker;
+    
+    
+    UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:dismissKeyboard];
 
+
+}
+
+-(void)dismissKeyboard{
+    [self.addressTextField resignFirstResponder];
+    
 }
 
 
@@ -64,7 +76,7 @@
 //    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
 //        
 //    }];
-
+    [self dismissKeyboard];
     [_popPicker showAddressPicker];
 
 }
@@ -91,7 +103,6 @@
         textField.text = [textField.text substringToIndex:50];
     }
     self.address = textField.text;
-    
     NSLog(@"address: %@",_address);
 }
 
@@ -106,6 +117,9 @@
         [SVProgressHUD showErrorWithStatus:@"地址不可为空"];
     } else{
         [SVProgressHUD showWithStatus:@"正在修改"];
+        
+        NSString *addressPrefix = [self.province stringByAppendingString:self.city];
+        self.address = [addressPrefix stringByAppendingString:self.address];
         [NetworkManager EditUserNickName:nil sex:nil birthday:nil address:self.address withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"%@",responseObject);
             if ([responseObject[@"status"] integerValue] == 2000) {
@@ -179,6 +193,11 @@
     self.provinceLabel.text = address.province;
     self.cityLabel.text = address.city;
 
+    self.province = address.province;
+    self.city = address.city;
+    
+    self.addressTextField.text = @"";
+    self.address = nil;
 //    _address = [NSString stringWithFormat:@"%@ %@ %@",address.province, address.city, address.district];
 //    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
 //    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
