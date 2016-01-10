@@ -46,6 +46,7 @@
 		873EAE8B1B949A6800445728 /* SuggestStanstardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 873EAE891B949A6800445728 /* SuggestStanstardViewController.xib */; };
 		873EAE8F1B949A9200445728 /* SuggestSuspendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EAE8D1B949A9200445728 /* SuggestSuspendViewController.m */; };
 		873EAE901B949A9200445728 /* SuggestSuspendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 873EAE8E1B949A9200445728 /* SuggestSuspendViewController.xib */; };
+		8740ED121C41FDC4001F2E8B /* MeibaiChangeOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8740ED111C41FDC4001F2E8B /* MeibaiChangeOneCell.m */; };
 		8742497D1B78E72500F6DB69 /* PhoneInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8742497C1B78E72500F6DB69 /* PhoneInfoViewController.m */; };
 		874249811B78E73500F6DB69 /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249801B78E73500F6DB69 /* AddressViewController.m */; };
 		874249851B78E74400F6DB69 /* NameInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874249841B78E74400F6DB69 /* NameInfoViewController.m */; };
@@ -116,6 +117,7 @@
 		87C1EED21B8F5D2A00CA191E /* FirstCeBaiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C1EED01B8F5D2A00CA191E /* FirstCeBaiViewController.m */; };
 		87C1EED31B8F5D2A00CA191E /* FirstCeBaiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C1EED11B8F5D2A00CA191E /* FirstCeBaiViewController.xib */; };
 		87C1EED61B8FFFEE00CA191E /* FirstCeBaiNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C1EED51B8FFFEE00CA191E /* FirstCeBaiNavigationController.m */; };
+		87C37B711C420F2300535A1A /* MeibaiChangeTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C37B701C420F2300535A1A /* MeibaiChangeTwoCell.m */; };
 		87D00AD81B7DCE3700C21378 /* QuestionNoProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */; };
 		87D00AD91B7DCE3700C21378 /* QuestionNoProjectController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */; };
 		87D533E91B79CA5F00F3D6BE /* MessageOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533E81B79CA5F00F3D6BE /* MessageOneCell.m */; };
@@ -247,6 +249,8 @@
 		873EAE8C1B949A9200445728 /* SuggestSuspendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestSuspendViewController.h; sourceTree = "<group>"; };
 		873EAE8D1B949A9200445728 /* SuggestSuspendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestSuspendViewController.m; sourceTree = "<group>"; };
 		873EAE8E1B949A9200445728 /* SuggestSuspendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestSuspendViewController.xib; sourceTree = "<group>"; };
+		8740ED101C41FDC4001F2E8B /* MeibaiChangeOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeibaiChangeOneCell.h; sourceTree = "<group>"; };
+		8740ED111C41FDC4001F2E8B /* MeibaiChangeOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeibaiChangeOneCell.m; sourceTree = "<group>"; };
 		8742497B1B78E72500F6DB69 /* PhoneInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneInfoViewController.h; sourceTree = "<group>"; };
 		8742497C1B78E72500F6DB69 /* PhoneInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneInfoViewController.m; sourceTree = "<group>"; };
 		8742497F1B78E73500F6DB69 /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
@@ -368,6 +372,8 @@
 		87C1EED11B8F5D2A00CA191E /* FirstCeBaiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstCeBaiViewController.xib; sourceTree = "<group>"; };
 		87C1EED41B8FFFEE00CA191E /* FirstCeBaiNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCeBaiNavigationController.h; sourceTree = "<group>"; };
 		87C1EED51B8FFFEE00CA191E /* FirstCeBaiNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCeBaiNavigationController.m; sourceTree = "<group>"; };
+		87C37B6F1C420F2300535A1A /* MeibaiChangeTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeibaiChangeTwoCell.h; sourceTree = "<group>"; };
+		87C37B701C420F2300535A1A /* MeibaiChangeTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeibaiChangeTwoCell.m; sourceTree = "<group>"; };
 		87D00AD51B7DCE3700C21378 /* QuestionNoProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionNoProjectController.h; sourceTree = "<group>"; };
 		87D00AD61B7DCE3700C21378 /* QuestionNoProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionNoProjectController.m; sourceTree = "<group>"; };
 		87D00AD71B7DCE3700C21378 /* QuestionNoProjectController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionNoProjectController.xib; sourceTree = "<group>"; };
@@ -972,6 +978,10 @@
 			children = (
 				87E2AB391B7757A2001ED07F /* MeiBaiProjectViewController.h */,
 				87E2AB3A1B7757A2001ED07F /* MeiBaiProjectViewController.m */,
+				8740ED101C41FDC4001F2E8B /* MeibaiChangeOneCell.h */,
+				8740ED111C41FDC4001F2E8B /* MeibaiChangeOneCell.m */,
+				87C37B6F1C420F2300535A1A /* MeibaiChangeTwoCell.h */,
+				87C37B701C420F2300535A1A /* MeibaiChangeTwoCell.m */,
 				87D533FC1B7ADF5600F3D6BE /* MeiBaiOneCell.h */,
 				87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */,
 				87D533FF1B7ADF6300F3D6BE /* MeiBaiTwoCell.h */,
@@ -1380,6 +1390,7 @@
 				87E2AB511B78786C001ED07F /* CompositionCell.m in Sources */,
 				8745C8D71B807EA400272FB4 /* MeiBaiThreeCell.m in Sources */,
 				8785F8F51B7C49560051B29B /* QuestionOneViewController.m in Sources */,
+				8740ED121C41FDC4001F2E8B /* MeibaiChangeOneCell.m in Sources */,
 				87E2AB381B775796001ED07F /* TeethStateViewController.m in Sources */,
 				87F73F741B8CA42D005705AA /* SocialCommentViewController.m in Sources */,
 				87E2AB711B78B91A001ED07F /* GenderViewController.m in Sources */,
@@ -1439,6 +1450,7 @@
 				873B75C41B774029002D7871 /* SocialViewController.m in Sources */,
 				8785F9041B7C64CB0051B29B /* QuestionsConfigFile.m in Sources */,
 				873B75B41B7739B8002D7871 /* ForgetPasswordViewController.m in Sources */,
+				87C37B711C420F2300535A1A /* MeibaiChangeTwoCell.m in Sources */,
 				877C54331BA989F2003D3E23 /* SatisfiedOneViewController.m in Sources */,
 				870A66161B77321900A51B26 /* AccountManager.m in Sources */,
 				874F73691B8618A200429C3D /* ImageEditViewController.m in Sources */,

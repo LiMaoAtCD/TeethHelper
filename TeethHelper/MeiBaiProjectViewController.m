@@ -8,6 +8,9 @@
 
 #import "MeiBaiProjectViewController.h"
 #import "MeiBaiOneCell.h"
+#import "MeibaiChangeOneCell.h"
+#import "MeibaiChangeTwoCell.h"
+
 #import "MeiBaiTwoCell.h"
 #import "MeiBaiThreeCell.h"
 
@@ -85,8 +88,10 @@
         [self.timesArr addObject:dayString];
     }
     
-    
-    
+//    MeibaiChangeOneCell
+    [self.tableView registerClass:[MeibaiChangeOneCell class] forCellReuseIdentifier:[MeibaiChangeOneCell identifier]];
+    [self.tableView registerClass:[MeibaiChangeTwoCell class] forCellReuseIdentifier:[MeibaiChangeTwoCell identifier]];
+    self.tableView.delaysContentTouches = NO;
     
 }
 
@@ -112,7 +117,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 1;
+        return 2;
     } else if(section == 1){
         return 2;
     } else{
@@ -123,20 +128,51 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        MeiBaiOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiOneCell" forIndexPath:indexPath];
-        cell.titleLabel.text = @"启用保持计划";
-
-       MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+//        MeiBaiOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeiBaiOneCell" forIndexPath:indexPath];
+//        cell.titleLabel.text = @"启用保持计划";
+//
+//       MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+//        
+//        
+//        if (project == KEEP) {
+//            cell.swither.on = YES;
+//        } else{
+//            cell.swither.on = NO;
+//        }
+//        [cell.swither addTarget:self action:@selector(changeKeepProject:) forControlEvents:UIControlEventValueChanged];
+//        
+//        return cell;
+       
         
-        
-        if (project == KEEP) {
-            cell.swither.on = YES;
+        if (indexPath.row == 0) {
+            MeibaiChangeOneCell *cell = [tableView dequeueReusableCellWithIdentifier:[MeibaiChangeOneCell identifier] forIndexPath:indexPath];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell setNeedsUpdateConstraints];
+            
+            MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+            if (project == KEEP) {
+                [cell setvalueTozeroOrOne:NO];
+            } else{
+                [cell setvalueTozeroOrOne:YES];
+            }
+            
+            
+            return cell;
         } else{
-            cell.swither.on = NO;
+            MeibaiChangeTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:[MeibaiChangeTwoCell identifier] forIndexPath:indexPath];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell setNeedsUpdateConstraints];
+            
+            MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+            if (project == KEEP) {
+                cell.addProjectButton.backgroundColor = [Utils commonColor];
+            } else{
+                cell.addProjectButton.backgroundColor = [UIColor lightGrayColor];
+            }
+            [cell.addProjectButton addTarget:self action:@selector(addProject) forControlEvents:UIControlEventTouchUpInside];
+            
+            return cell;
         }
-        [cell.swither addTarget:self action:@selector(changeKeepProject:) forControlEvents:UIControlEventValueChanged];
-        
-        return cell;
         
     } else{
         if (indexPath.section == 1 && indexPath.row == 0) {
@@ -205,11 +241,19 @@
     }
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        return 80;
+    }
+    return 60.0;
+
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.01;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
     
         if (indexPath.section == 1 && indexPath.row == 0) {
@@ -473,6 +517,30 @@
     
 }
 
+-(void)addProject{
+    MEIBAI_PROJECT project =  [MeiBaiConfigFile getCurrentProject];
+    if (project == KEEP) {
+        [NetworkManager ModifyProject:@"A" WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"response %@",responseObject);
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                [MeiBaiConfigFile setCurrentProject:STANDARD];
+                
+                [self.tableView reloadData];
+                
+            }else if ([responseObject[@"status"] integerValue] == 1012){
+                
+                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+                
+            } else{
+                [SVProgressHUD showErrorWithStatus:@"切换失败"];
+            }
+            
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        }];
+
+    }
+}
 
 
 @end
