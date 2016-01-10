@@ -12,8 +12,10 @@
 #import <SVProgressHUD.h>
 #import "AccountManager.h"
 #import "TLCityPickerController.h"
+#import "GLDPopPicker.h"
 
-@interface AddressViewController ()<TLCityPickerDelegate>
+
+@interface AddressViewController ()<TLCityPickerDelegate,GLDPopPickerDataSouce, GLDPopPickerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 //@property (nonatomic, copy) NSString *address;
@@ -22,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *provinceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+
+@property (strong, nonatomic) GLDPopPicker *popPicker;
 
 
 @end
@@ -39,6 +43,13 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectCity)];
     
     [self.addressPrefixView addGestureRecognizer:tap];
+    
+    GLDPopPicker *popPicker = [[GLDPopPicker alloc] init];
+    popPicker.dataSource = self;
+    popPicker.delegate = self;
+    [self.view addSubview:popPicker];
+    _popPicker = popPicker;
+
 }
 
 
@@ -53,6 +64,8 @@
 //    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:cityPickerVC] animated:YES completion:^{
 //        
 //    }];
+
+    [_popPicker showAddressPicker];
 
 }
 
@@ -149,4 +162,29 @@
 }
 */
 
+#pragma mark - GLDPopPicker delegate
+
+- (void)cancelAction
+{
+    NSLog(@"cancel");
+}
+
+- (void)doneAction
+{
+    NSLog(@"done");
+}
+
+- (void)popPicker:(GLDPopPicker *)popPicker didSelectedAddress:(ChinaAddressModel *)address
+{
+    self.provinceLabel.text = address.province;
+    self.cityLabel.text = address.city;
+
+//    _address = [NSString stringWithFormat:@"%@ %@ %@",address.province, address.city, address.district];
+//    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+//    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    //    [self.tableView reloadData];
+    
+    
+    
+}
 @end
