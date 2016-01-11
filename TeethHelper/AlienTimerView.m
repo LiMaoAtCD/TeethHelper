@@ -71,10 +71,10 @@
 
         [self addSubview:self.typeLabel];
         
-        UIImage *image = [UIImage imageNamed:@"icon_clock"];
+        UIImage *image = [UIImage imageNamed:@"icon_daojishi"];
         UIImageView *clock = [[UIImageView alloc] initWithImage:image];
         [self addSubview:clock];
-        clock.frame = CGRectMake(self.bounds.size.width / 2 - 60, self.bounds.size.height / 2 - 70, 30, 30);
+        clock.frame = CGRectMake(self.bounds.size.width / 2 - 60, self.bounds.size.height / 2 - 67, 22, 25);
 //        icon_clock
     }
     
