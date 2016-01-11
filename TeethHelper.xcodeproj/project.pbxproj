@@ -38,6 +38,7 @@
 		873B75D91B774CC9002D7871 /* NewGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75D81B774CC9002D7871 /* NewGuideViewController.m */; };
 		873B75DC1B774CEA002D7871 /* NoticeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75DB1B774CEA002D7871 /* NoticeViewController.m */; };
 		873B75DF1B775155002D7871 /* PersonalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 873B75DE1B775155002D7871 /* PersonalTableViewCell.m */; };
+		873CD6521C43D9DC0051A1B6 /* CeBaiAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873CD6511C43D9DC0051A1B6 /* CeBaiAlertController.m */; };
 		873EAE801B949A3200445728 /* SuggestionKeepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EAE7E1B949A3200445728 /* SuggestionKeepViewController.m */; };
 		873EAE811B949A3200445728 /* SuggestionKeepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 873EAE7F1B949A3200445728 /* SuggestionKeepViewController.xib */; };
 		873EAE851B949A4200445728 /* SuggestGentleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EAE831B949A4200445728 /* SuggestGentleViewController.m */; };
@@ -245,6 +246,8 @@
 		873B75DB1B774CEA002D7871 /* NoticeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeViewController.m; sourceTree = "<group>"; };
 		873B75DD1B775155002D7871 /* PersonalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalTableViewCell.h; sourceTree = "<group>"; };
 		873B75DE1B775155002D7871 /* PersonalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalTableViewCell.m; sourceTree = "<group>"; };
+		873CD6501C43D9DC0051A1B6 /* CeBaiAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeBaiAlertController.h; sourceTree = "<group>"; };
+		873CD6511C43D9DC0051A1B6 /* CeBaiAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CeBaiAlertController.m; sourceTree = "<group>"; };
 		873EAE7D1B949A3200445728 /* SuggestionKeepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionKeepViewController.h; sourceTree = "<group>"; };
 		873EAE7E1B949A3200445728 /* SuggestionKeepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionKeepViewController.m; sourceTree = "<group>"; };
 		873EAE7F1B949A3200445728 /* SuggestionKeepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionKeepViewController.xib; sourceTree = "<group>"; };
@@ -1021,6 +1024,8 @@
 			children = (
 				87E2AB3C1B7757B0001ED07F /* CeBaiHistoryViewController.h */,
 				87E2AB3D1B7757B0001ED07F /* CeBaiHistoryViewController.m */,
+				873CD6501C43D9DC0051A1B6 /* CeBaiAlertController.h */,
+				873CD6511C43D9DC0051A1B6 /* CeBaiAlertController.m */,
 				87E2AB471B7796D8001ED07F /* CeBaiHistoryCell.h */,
 				87E2AB481B7796D8001ED07F /* CeBaiHistoryCell.m */,
 			);
@@ -1480,6 +1485,7 @@
 				87FAFCEB1B8B7508000CB8F4 /* DetailReplyCell.m in Sources */,
 				87F0FC961B980CE900147DF3 /* MeiBaiTimerViewController.m in Sources */,
 				8785F9011B7C497A0051B29B /* QuestionFiveViewController.m in Sources */,
+				873CD6521C43D9DC0051A1B6 /* CeBaiAlertController.m in Sources */,
 				87911F471B8B4FD6000E9218 /* SocialDetailNoImageCell.m in Sources */,
 				8785F8B51B7C26F20051B29B /* AlienTimerView.m in Sources */,
 				874249811B78E73500F6DB69 /* AddressViewController.m in Sources */,

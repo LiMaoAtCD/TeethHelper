@@ -15,8 +15,9 @@
 #import "CameraViewController.h"
 #import "ImageEditViewController.h"
 #import "AccountManager.h"
+#import "CeBaiAlertController.h"
 
-@interface CeBaiHistoryViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoDelegate>
+@interface CeBaiHistoryViewController ()<UITableViewDelegate, UITableViewDataSource,PhotoDelegate,AlertSelectionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -63,13 +64,27 @@ static const NSInteger pageSize = 20;
 }
 -(void)reset:(id)sender{
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
-    cameraVC.delegate = self;
-    cameraVC.hidesBottomBarWhenPushed = YES;
-    [AccountManager NeedResetFirstCeBai:YES];
+    CeBaiAlertController * alert = [[UIStoryboard storyboardWithName:@"Setting" bundle:nil] instantiateViewControllerWithIdentifier:@"CeBaiAlertController"];
+    alert.delegate = self;
+    [self presentViewController:alert animated:NO completion:nil];
     
-    [self.navigationController pushViewController:cameraVC animated:YES];
+    
+  
+}
+
+-(void)didSelectedCancel:(BOOL)cancel{
+    if (cancel) {
+        
+    } else{
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
+        cameraVC.delegate = self;
+        cameraVC.hidesBottomBarWhenPushed = YES;
+        [AccountManager NeedResetFirstCeBai:YES];
+        
+        [self.navigationController pushViewController:cameraVC animated:YES];
+    }
 }
 
 -(void)pop{
@@ -255,6 +270,17 @@ static const NSInteger pageSize = 20;
     
 }
 
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self.dataItems removeObjectAtIndex:indexPath.row];
+        [self.tableView beginUpdates];
+        
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
+    }
+}
 
 
 /*
