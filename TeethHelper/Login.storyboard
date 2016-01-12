@@ -380,6 +380,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="K6x-Be-2N3" id="Jua-Xc-xWm"/>
                         <outlet property="phoneTextField" destination="XeL-en-sOa" id="CFb-GV-Coy"/>
+                        <outlet property="wexinLoginButton" destination="pfX-az-FfE" id="dxz-up-KIX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfR-IU-dbp" userLabel="First Responder" sceneMemberID="firstResponder"/>

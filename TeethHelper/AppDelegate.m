@@ -450,10 +450,10 @@
     else if([resp isKindOfClass:[SendAuthResp class]])
     {
          //微信登录
-//        SendAuthResp *temp = (SendAuthResp*)resp;
+        SendAuthResp *temp = (SendAuthResp*)resp;
         
-//        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
-//        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
+        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
+        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
     }
   
 }

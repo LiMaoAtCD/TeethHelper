@@ -13,18 +13,26 @@
 #import "SplashViewController.h"
 #import <SVProgressHUD.h>
 #import "NetworkManager.h"
+#import "WXApi.h"
+#import "WXApiManager.h"
+@interface LoginViewController ()<WXApiDelegate>
 
-@interface LoginViewController ()
-
+@property (nonatomic, assign) id<WXApiDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @property (nonatomic, copy) NSString *phone;
 @property (nonatomic, copy) NSString *password;
+@property (weak, nonatomic) IBOutlet UIButton *wexinLoginButton;
 
 
 @end
+
+
+static NSString *kAuthScope = @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact";
+static NSString *kAuthOpenID = @"wxc213130fe4f9b110";
+static NSString *kAuthState = @"xxx";
 
 @implementation LoginViewController
 
@@ -48,6 +56,16 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
  
     
+    if (![WXApi isWXAppInstalled]) {
+        self.wexinLoginButton.hidden = YES;
+    }
+    
+    [self.wexinLoginButton addTarget:self action:@selector(weixinLogin:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void)weixinLogin:(id)sender{
+    [self sendAuthRequestScope:kAuthScope State:kAuthState OpenID:kAuthOpenID InViewController:self];
 }
 
 -(void)configTextFields{
@@ -250,6 +268,45 @@
     
     
     return YES;
+}
+
+
+-(BOOL)sendAuthRequestScope:(NSString *)scope
+                       State:(NSString *)state
+                      OpenID:(NSString *)openID
+            InViewController:(UIViewController *)viewController {
+    SendAuthReq* req = [[SendAuthReq alloc] init];
+    req.scope = scope; // @"post_timeline,sns"
+    req.state = state;
+    req.openID = openID;
+    
+    return [WXApi sendAuthReq:req
+               viewController:viewController
+                     delegate:[WXApiManager sharedManager]];
+}
+
+
+
+-(void) onResp:(BaseResp*)resp
+{
+    if([resp isKindOfClass:[SendMessageToWXResp class]])
+    {
+        //分享
+    }
+    else if([resp isKindOfClass:[SendAuthResp class]])
+    {
+        //微信登录
+        //        SendAuthResp *temp = (SendAuthResp*)resp;
+        
+        //        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
+        //        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
+    }
+    
+}
+
+- (void)managerDidRecvAuthResponse:(SendAuthResp *)response {
+    NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", response.code, response.state, response.errCode];
+    NSLog(@"%@",strMsg);
 }
 
 @end
