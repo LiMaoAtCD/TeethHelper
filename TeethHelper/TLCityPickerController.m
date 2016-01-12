@@ -266,7 +266,7 @@
                 }
             }
             if (city == nil) {
-                NSLog(@"Not Found City: %@", self.locationCityID);
+//                NSLog(@"Not Found City: %@", self.locationCityID);
             }
             else {
                 [_localCityData addObject:city];
@@ -289,7 +289,7 @@
                 }
             }
             if (city == nil) {
-                NSLog(@"Not Found City: %@", str);
+//                NSLog(@"Not Found City: %@", str);
             }
             else {
                 [_hotCityData addObject:city];
@@ -312,7 +312,7 @@
                 }
             }
             if (city == nil) {
-                NSLog(@"Not Found City: %@", str);
+//                NSLog(@"Not Found City: %@", str);
             }
             else {
                 [_commonCityData addObject:city];

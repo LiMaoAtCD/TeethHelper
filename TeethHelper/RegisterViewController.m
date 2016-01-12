@@ -109,7 +109,7 @@
             
             [SVProgressHUD showWithStatus:@"正在注册"];
             [NetworkManager RegisterByNickname:self.name phone:self.phone password:self.password verifyCode:self.verifyCode withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"responseObject:%@",responseObject);
+                //NSLog(@"responseObject:%@",responseObject);
                 if ([responseObject[@"status"] integerValue] == 2000) {
                     //注册成功
                     NSDictionary *data = responseObject[@"data"];
@@ -282,7 +282,7 @@
         [SVProgressHUD showWithStatus:@"正在获取验证码"];
 
         [NetworkManager FetchVerifyCode:self.phone withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"responseObject:%@",responseObject);
+            //NSLog(@"responseObject:%@",responseObject);
             if ([responseObject[@"status"] integerValue] == 2000) {
                 [SVProgressHUD showSuccessWithStatus:@"验证码获取成功"];
                 
@@ -294,7 +294,7 @@
                 [SVProgressHUD showErrorWithStatus:@"该手机号码已经注册"];
             }
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"error %@",error);
+            //NSLog(@"error %@",error);
             [SVProgressHUD showErrorWithStatus:@"网络出错啦"];
         }];
     }
@@ -359,7 +359,7 @@
     if (textField == self.nickNameTextField) {
         //姓名
         self.name = textField.text;
-        NSLog(@"name: %@",self.name);
+//        //NSLog(@"name: %@",self.name);
     } else if (textField == self.phoneTextField) {
         //手机号码
         if (textField.text.length > 11) {
@@ -367,14 +367,14 @@
         }
         self.phone = textField.text;
         
-        NSLog(@"phone: %@",_phone);
+//        //NSLog(@"phone: %@",_phone);
     } else if (textField == self.verifyCodeTextField) {
         //验证码
 //        if (textField.text.length > 11) {
 //            textField.text = [textField.text substringToIndex:11];
 //        }
         self.verifyCode = textField.text;
-        NSLog(@"verify code: %@",_verifyCode);
+//        //NSLog(@"verify code: %@",_verifyCode);
         
     } else if(textField == self.passwordTextField){
         //密码
@@ -382,7 +382,7 @@
             textField.text = [textField.text substringToIndex:16];
         }
         self.password = textField.text;
-        NSLog(@"password: %@",_password);
+//        //NSLog(@"password: %@",_password);
 
     }else{
         //再次输入密码
@@ -390,7 +390,7 @@
             textField.text = [textField.text substringToIndex:16];
         }
         self.confirmPassword = textField.text;
-        NSLog(@"confirm password: %@",_confirmPassword);
+//        //NSLog(@"confirm password: %@",_confirmPassword);
 
     }
 

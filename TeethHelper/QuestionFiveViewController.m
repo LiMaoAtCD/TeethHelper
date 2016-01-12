@@ -166,7 +166,7 @@
         answer3 = 1;
     }
     
-    NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
+    //NSLog(@"answer1:%ld \n answer2: %ld \n answer3: %ld",answer1,answer2,answer3);
     
     
     
@@ -237,12 +237,12 @@
 //                //咨询牙医
 //                QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
 //                [self.navigationController pushViewController:noprojectVC animated:YES];
-//                NSLog(@"牙医");
+//                //NSLog(@"牙医");
 //            } else{
 //                QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
 //                    analysizeVC.type = Standard;
 //                    [self.navigationController pushViewController:analysizeVC animated:YES];
-//                    NSLog(@"标准");
+//                    //NSLog(@"标准");
 //                [QuestionsConfigFile setCompletedInitialQuestions:YES];
 //
 //            }
@@ -254,18 +254,18 @@
                 QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
                 analysizeVC.type = Enhance;
                 [self.navigationController pushViewController:analysizeVC animated:YES];
-                NSLog(@"加强");
+                //NSLog(@"加强");
                 
             } else if(answer1 == 2){
                 //咨询牙医
 //                QuestionNoProjectController *noprojectVC = [[QuestionNoProjectController alloc] initWithNibName:@"QuestionNoProjectController" bundle:nil];
 //                [self.navigationController pushViewController:noprojectVC animated:YES];
-//                NSLog(@"牙医");
+//                //NSLog(@"牙医");
                 QuestionAnalysizeController *analysizeVC = [[QuestionAnalysizeController alloc] initWithNibName:@"QuestionAnalysizeController" bundle:nil];
                 analysizeVC.type = Doctor;
                 
                 [self.navigationController pushViewController:analysizeVC animated:YES];
-                NSLog(@"温柔");
+                //NSLog(@"温柔");
 
                 
 
@@ -278,7 +278,7 @@
                 analysizeVC.type = Gentle;
                 
                 [self.navigationController pushViewController:analysizeVC animated:YES];
-                NSLog(@"温柔");
+                //NSLog(@"温柔");
                 
             } else{
 
@@ -289,7 +289,7 @@
                 analysizeVC.type = Standard;
                 
                 [self.navigationController pushViewController:analysizeVC animated:YES];
-                NSLog(@"标准");
+//                //NSLog(@"标准");
                 
             }
             [QuestionsConfigFile setCompletedInitialQuestions:YES];

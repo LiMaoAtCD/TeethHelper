@@ -110,7 +110,7 @@
     
     NSInteger level = [TeethStateConfigureFile teethLevel];
     
-    NSLog(@"level %ld",level);
+//    //NSLog(@"level %ld",level);
 
 }
 
@@ -150,7 +150,7 @@
             
             NSInteger level = [TeethStateConfigureFile teethLevel];
             
-            NSLog(@"level %ld",level);
+//            //NSLog(@"level %ld",level);
             
         }];
     } else if (sender.value >= 0.25 && sender.value < 0.5){
@@ -158,7 +158,7 @@
             [TeethStateConfigureFile setTeethStateLevel:1];
             NSInteger level = [TeethStateConfigureFile teethLevel];
             
-            NSLog(@"level %ld",level);
+//            //NSLog(@"level %ld",level);
 
         }];
     }else if (sender.value >= 0.5 && sender.value < 0.75){
@@ -166,7 +166,7 @@
             [TeethStateConfigureFile setTeethStateLevel:2];
             NSInteger level = [TeethStateConfigureFile teethLevel];
             
-            NSLog(@"level %ld",level);
+//            //NSLog(@"level %ld",level);
 
         }];
     }else{
@@ -174,7 +174,7 @@
             [TeethStateConfigureFile setTeethStateLevel:3];
             NSInteger level = [TeethStateConfigureFile teethLevel];
             
-            NSLog(@"level %ld",level);
+//            //NSLog(@"level %ld",level);
 
         }];
     }
