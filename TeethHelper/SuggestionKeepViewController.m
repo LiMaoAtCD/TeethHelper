@@ -121,7 +121,7 @@
     NSInteger processDays = [MeiBaiConfigFile getProcessDays];
     NSInteger days = [MeiBaiConfigFile getNeedCureDays];
     
-    if ( processDays == days) {
+    if ( processDays >= days) {
         //需要询问是否延长治疗计划
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"是否延长美白计划?" preferredStyle:UIAlertControllerStyleAlert];
         
@@ -153,6 +153,8 @@
         
         [self presentViewController:alertController animated:YES completion:nil];
 
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
     
     

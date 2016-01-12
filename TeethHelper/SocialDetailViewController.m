@@ -25,7 +25,6 @@
 #import "SocialDetailScrollToTopController.h"
 
 #import "AccountManager.h"
-
 @interface SocialDetailViewController ()<UITableViewDelegate, UITableViewDataSource,SocialLikeAndCommentDelegate,CommentDelegate,ScrollToTopDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -106,10 +105,10 @@
             self.comments =[responseObject[@"data"][@"comments"] mutableCopy];
             self.numberOfLikes = [responseObject[@"data"][@"loves"] integerValue];
             
-            BOOL isCancelable = responseObject[@"data"][@"canDelete"];
+            NSInteger isCancelable = [responseObject[@"data"][@"canDelete"] integerValue];
             
             
-            if (isCancelable) {
+            if (isCancelable == 1) {
                 
                 UIImage *imageOfDeletion = [UIImage imageNamed:@"btn_delete_normal"];
                 UIButton *delete = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20,18)];
@@ -195,24 +194,39 @@
 
 -(void)deleteThisTopic:(id)sender {
     
-    [NetworkManager deleteTopicByID:self.topicDetail[@"id"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject[@"status"] integerValue] == 2000) {
-            
-            if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
-                [self.delegate refreshTableView];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"确认删除这条帖子？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [NetworkManager deleteTopicByID:self.topicDetail[@"id"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                
+                if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
+                    [self.delegate refreshTableView];
+                }
+                
+                [SVProgressHUD showSuccessWithStatus:@"删除成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }else if ([responseObject[@"status"] integerValue] == 1012){
+                [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+            } else{
+                [SVProgressHUD showErrorWithStatus:@"回复失败"];
             }
-            
-            [SVProgressHUD showSuccessWithStatus:@"删除成功"];
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        }else if ([responseObject[@"status"] integerValue] == 1012){
-            [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
-        } else{
-            [SVProgressHUD showErrorWithStatus:@"回复失败"];
-        }
-    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        }];
+
     }];
+    
+    UIAlertAction *cacenl = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alert addAction:action];
+    [alert addAction:cacenl];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -405,6 +419,9 @@
                 self.replyVC.likeLabel.text = @"赞过了";
                 self.replyVC.likeImageView.image = [UIImage imageNamed:@"social_like_click"];
                 [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+                if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
+                    [self.delegate refreshTableView];
+                }
             }else if ([responseObject[@"status"] integerValue] == 1012){
                 
                 [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
@@ -465,6 +482,9 @@
                 
                 
                 [self.tableView reloadData];
+                if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
+                    [self.delegate refreshTableView];
+                }
                 
             }else if ([responseObject[@"status"] integerValue] == 1012){
                 

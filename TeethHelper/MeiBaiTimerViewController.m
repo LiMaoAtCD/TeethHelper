@@ -77,7 +77,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(timerCount:) userInfo:nil repeats:YES];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
 //    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"timer_view_going"];
@@ -246,7 +246,7 @@
     //圆形图
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat CircleMargin = 70;
-    self.alienView = [[AlienTimerView alloc] initWithFrame:CGRectMake(CircleMargin, 180, width - CircleMargin * 2, width - CircleMargin * 2)];
+    self.alienView = [[AlienTimerView alloc] initWithFrame:CGRectMake(CircleMargin, 240, width - CircleMargin * 2, width - CircleMargin * 2)];
     if ([Utils isiPhone4]) {
         CGFloat CircleMargin = 90;
         self.alienView = [[AlienTimerView alloc] initWithFrame:CGRectMake(CircleMargin, 180, width - CircleMargin * 2, width - CircleMargin * 2)];

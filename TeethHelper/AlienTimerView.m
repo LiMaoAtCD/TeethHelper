@@ -62,7 +62,7 @@
         [self addSubview:self.timerLabel];
         
         //类型
-        self.typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 50, self.bounds.size.height / 2 - 70, 140, 30)];
+        self.typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width / 2 - 50, self.bounds.size.height / 2 - 65, 140, 30)];
         self.typeLabel.textAlignment = NSTextAlignmentCenter;
         self.typeLabel.textColor = [UIColor colorWithRed:99.0/255 green:181./255 blue:180./255 alpha:1.0];
         //        self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:100.0];
@@ -74,7 +74,7 @@
         UIImage *image = [UIImage imageNamed:@"icon_daojishi"];
         UIImageView *clock = [[UIImageView alloc] initWithImage:image];
         [self addSubview:clock];
-        clock.frame = CGRectMake(self.bounds.size.width / 2 - 60, self.bounds.size.height / 2 - 67, 22, 25);
+        clock.frame = CGRectMake(self.bounds.size.width / 2 - 63, self.bounds.size.height / 2 - 67, 22, 25);
 //        icon_clock
     }
     
