@@ -365,7 +365,9 @@ static NSString *kAuthState = @"xxx";
 }
 
 
-
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 
