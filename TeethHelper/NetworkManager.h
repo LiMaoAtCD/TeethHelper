@@ -340,4 +340,12 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  */
 +(void)delayOrSwitchProject:(NSString*)delayOrSwitch WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
+/**
+ *  删除某记录
+ *
+ *  @param identifier        记录ID
+ *  @param completionHandler
+ *  @param failHandler
+ */
+-(void)deleteMeibaiRecordByID:(NSInteger)identifier WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 @end

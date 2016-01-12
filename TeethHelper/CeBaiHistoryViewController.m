@@ -279,6 +279,12 @@ static const NSInteger pageSize = 20;
         
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView endUpdates];
+        
+        [NetworkManager deleteTopicByID:self.dataItems[indexPath.row][@"id"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@",responseObject);
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
     }
 }
 
