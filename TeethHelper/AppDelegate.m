@@ -454,6 +454,31 @@
         
         NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
         NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
+        
+//        NSLog(@"%@",strMsg);
+        
+        [SVProgressHUD show];
+        [NetworkManager fetchweixinInfoByCode:temp.code WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+            
+            [NetworkManager fetchweixinUserInfoByCode:dic[@"access_token"] openID:dic[@"openid"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                NSDictionary *info = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"%@",info);
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"weixinlogin" object:nil userInfo:info];
+
+                
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                
+            }];
+            
+            
+
+        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+        }];
     }
   
 }

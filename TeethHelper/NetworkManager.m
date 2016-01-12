@@ -396,7 +396,7 @@
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
--(void)deleteMeibaiRecordByID:(NSInteger)identifier WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
++(void)deleteMeibaiRecordByID:(NSInteger)identifier WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     dictionary[@"id"] = @(identifier);
     dictionary[@"accessToken"] = [AccountManager getTokenID];
@@ -406,6 +406,36 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
++(void)fetchweixinInfoByCode:(NSString*)code WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    
+//    https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+//    AppSecret：bbdb666071abb4de0db81bb25cc72af7
+    NSString *url = @"https://api.weixin.qq.com/sns/oauth2/access_token?";
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"appid"] =@"wxc213130fe4f9b110";
+    dictionary[@"secret"] =@"bbdb666071abb4de0db81bb25cc72af7";
+
+    dictionary[@"code"] = code;
+    dictionary[@"grant_type"] =@"authorization_code";
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:url parameters:dictionary success:completionHandler failure:failHandler];
+    
+
+}
+
++(void)fetchweixinUserInfoByCode:(NSString*)access_token openID:(NSString *)openid WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSString *url = @"https://api.weixin.qq.com/sns/userinfo?";
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"access_token"] = access_token;
+    dictionary[@"openid"] = openid;
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager GET:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
 @end

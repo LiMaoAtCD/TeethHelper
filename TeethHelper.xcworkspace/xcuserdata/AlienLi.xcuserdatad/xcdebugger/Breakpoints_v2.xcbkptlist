@@ -36,12 +36,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeethHelper/LoginViewController.m"
-            timestampString = "474283827.778087"
+            timestampString = "474297717.5873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
-            landmarkName = "-managerDidRecvAuthResponse:"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-userWeixinlogin:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TeethHelper/LoginViewController.m"
+            timestampString = "474297719.938655"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-userWeixinlogin:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

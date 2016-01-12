@@ -15,9 +15,8 @@
 #import "NetworkManager.h"
 #import "WXApi.h"
 #import "WXApiManager.h"
-@interface LoginViewController ()<WXApiDelegate>
+@interface LoginViewController ()
 
-@property (nonatomic, assign) id<WXApiDelegate> delegate;
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -30,7 +29,9 @@
 @end
 
 
-static NSString *kAuthScope = @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact";
+//static NSString *kAuthScope = @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact,snsapi_userinfo";
+static NSString *kAuthScope = @"snsapi_userinfo";
+
 static NSString *kAuthOpenID = @"wxc213130fe4f9b110";
 static NSString *kAuthState = @"xxx";
 
@@ -62,8 +63,86 @@ static NSString *kAuthState = @"xxx";
     
     [self.wexinLoginButton addTarget:self action:@selector(weixinLogin:) forControlEvents:UIControlEventTouchUpInside];
     
-}
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userWeixinlogin:) name:@"weixinlogin" object:nil];
+    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"weixinlogin" object:nil userInfo:dic];
 
+}
+-(void)userWeixinlogin:(NSNotification*)notification {
+    NSDictionary *dic = notification.userInfo;
+    NSLog(@"%@",dic);
+    [SVProgressHUD showWithStatus:@"登录中"];
+    [NetworkManager ThirdLoginByThirdID:dic[@"unionid"] provider:@"WEIXIN" userAliasName:dic[@"nickname"] userAvatar:dic[@"headimgurl"] withCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"responseObject:%@",responseObject);
+        if ([responseObject[@"status"] integerValue] == 2000) {
+            //注册成功
+            NSDictionary *data = responseObject[@"data"];
+            NSDictionary *temp = data[@"user"];
+            
+            
+            //token
+            if ([[data allKeys] containsObject:@"accessToken"]) {
+                
+                [AccountManager setTokenID:data[@"accessToken"]];
+            }
+            if ([[temp allKeys] containsObject:@"nickName"]) {
+                //姓名
+                [AccountManager setName:temp[@"nickName"]];
+            }
+            if ([[temp allKeys] containsObject:@"sex"]) {
+                //性别
+                [AccountManager setgender:temp[@"sex"]];
+            }
+            if ([[temp allKeys] containsObject:@"birthday"]) {
+                //生日
+                
+                
+                NSString *yearString = [temp[@"birthday"] substringWithRange:NSMakeRange(0, 4)];
+                NSString *monthString = [temp[@"birthday"] substringWithRange:NSMakeRange(5, 2)];
+                NSString *dayString = [temp[@"birthday"] substringWithRange:NSMakeRange(8, 2)];
+                
+                NSString *tempBirthday = [NSString stringWithFormat:@"%@年%@月%@日",yearString,monthString,dayString];
+                
+                
+                [AccountManager setBirthDay:tempBirthday];
+            }
+            if ([[temp allKeys] containsObject:@"username"]) {
+                //手机号
+                [AccountManager setCellphoneNumber:temp[@"username"]];
+            }
+            if ([[temp allKeys] containsObject:@"address"]) {
+                //地址
+                [AccountManager setAddress:temp[@"address"]];
+            }
+            if ([[temp allKeys] containsObject:@"avatar"]) {
+                //头像
+                [AccountManager setAvatarUrlString:temp[@"avatar"]];
+            }
+            
+            //                [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
+            
+            
+        } else if ([responseObject[@"status"] integerValue] == 1001){
+            //校验出错
+            //                [SVProgressHUD showErrorWithStatus:@"用户名或密码错误"];
+            [SVProgressHUD dismiss];
+            [Utils showAlertMessage:@"密码错误" onViewController:self withCompletionHandler:nil];
+            
+        } else if ([responseObject[@"status"] integerValue] == 1012){
+            
+            [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
+            
+        }
+
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+    
+
+}
 -(void)weixinLogin:(id)sender{
     [self sendAuthRequestScope:kAuthScope State:kAuthState OpenID:kAuthOpenID InViewController:self];
 }
@@ -287,26 +366,7 @@ static NSString *kAuthState = @"xxx";
 
 
 
--(void) onResp:(BaseResp*)resp
-{
-    if([resp isKindOfClass:[SendMessageToWXResp class]])
-    {
-        //分享
-    }
-    else if([resp isKindOfClass:[SendAuthResp class]])
-    {
-        //微信登录
-        //        SendAuthResp *temp = (SendAuthResp*)resp;
-        
-        //        NSString *strTitle = [NSString stringWithFormat:@"Auth结果"];
-        //        NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", temp.code, temp.state, temp.errCode];
-    }
-    
-}
 
-- (void)managerDidRecvAuthResponse:(SendAuthResp *)response {
-    NSString *strMsg = [NSString stringWithFormat:@"code:%@,state:%@,errcode:%d", response.code, response.state, response.errCode];
-    NSLog(@"%@",strMsg);
-}
+
 
 @end

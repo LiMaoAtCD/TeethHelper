@@ -347,5 +347,19 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
  *  @param completionHandler
  *  @param failHandler
  */
--(void)deleteMeibaiRecordByID:(NSInteger)identifier WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
++(void)deleteMeibaiRecordByID:(NSInteger)identifier WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+/**
+ *  微信登陆认证
+ *
+ *  @param code              code
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)fetchweixinInfoByCode:(NSString*)code WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+//https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+
+//https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID
++(void)fetchweixinUserInfoByCode:(NSString*)access_token openID:(NSString *)openid WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end
