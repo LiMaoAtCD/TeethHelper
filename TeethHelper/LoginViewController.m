@@ -45,7 +45,7 @@
     
     [self configTextFields];
     
-
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
  
     
 }

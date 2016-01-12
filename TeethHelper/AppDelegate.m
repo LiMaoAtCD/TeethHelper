@@ -53,7 +53,7 @@
     [self configSVProgressHUD];
     //status bar 外观配置
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
+
     
     //初始化
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

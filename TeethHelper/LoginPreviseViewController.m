@@ -24,6 +24,9 @@
         
         [self addSplashView];
     }
+    
+    
+
 }
 
 -(void)addSplashView{
@@ -38,8 +41,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
     self.navigationController.navigationBar.hidden = YES;
     [super viewWillAppear:animated];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,5 +62,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 @end

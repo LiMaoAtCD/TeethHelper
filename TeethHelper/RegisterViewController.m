@@ -54,6 +54,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"注册" onViewController:self];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 
     [self registerForKeyboardNotifications];
     UITapGestureRecognizer *tap =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
