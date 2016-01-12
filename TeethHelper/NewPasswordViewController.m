@@ -56,6 +56,12 @@
 }
 
 - (IBAction)changePassword:(id)sender {
+    NSString *oldpassword = [AccountManager getPassword];
+    
+    if (![oldpassword isEqualToString:self.oldpwd]) {
+        [Utils showAlertMessage:@"原密码不正确，请重新输入" onViewController:self withCompletionHandler:nil];
+        return;
+    }
     
     if (self.oldpwd != nil && ![self.oldpwd isEqualToString:@""]&&
         self.newpwd != nil && ![self.newpwd isEqualToString:@""]

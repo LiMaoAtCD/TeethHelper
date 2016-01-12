@@ -244,8 +244,9 @@ static NSString *kAuthState = @"xxx";
                     [AccountManager setAvatarUrlString:temp[@"avatar"]];
                 }
                 
-//                [SVProgressHUD showSuccessWithStatus:@"登录成功"];
-                
+                [SVProgressHUD dismiss];
+                [AccountManager setPassword:self.password];
+
                 [self dismissViewControllerAnimated:YES completion:nil];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
             
