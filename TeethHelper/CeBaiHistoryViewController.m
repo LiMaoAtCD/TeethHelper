@@ -25,15 +25,31 @@
 
 @property (nonatomic, assign) NSInteger currentIndex;
 
+@property (nonatomic, strong) NSMutableArray *testArray;
+
 @end
 
-static const NSInteger pageSize = 20;
+static const NSInteger pageSize = 50;
 
 @implementation CeBaiHistoryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //test
+//    self.testArray  = [NSMutableArray array];
+//    
+//    for (int i = 0; i < 1000; i++) {
+//        
+//        NSString * color = [NSString stringWithFormat:@"N%d",i];
+//        
+//        NSDictionary *dic = @{@"color": color, @"createTime":@"2016-01-09 11:00:05",@"id":@(i)};
+//        [_testArray addObject:dic];
+//    }
+    
+    
+    
     self.tableView.tableFooterView = [UIView new];
     
     [Utils ConfigNavigationBarWithTitle:@"测白记录" onViewController:self];
@@ -51,6 +67,7 @@ static const NSInteger pageSize = 20;
     
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self fetchMoreData];
+//        [self fetchMokeMoreData];
 
     }];
     
@@ -62,8 +79,8 @@ static const NSInteger pageSize = 20;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
 
 }
+
 -(void)reset:(id)sender{
-    
     CeBaiAlertController * alert = [[UIStoryboard storyboardWithName:@"Setting" bundle:nil] instantiateViewControllerWithIdentifier:@"CeBaiAlertController"];
     alert.delegate = self;
     [self presentViewController:alert animated:NO completion:nil];
@@ -77,13 +94,20 @@ static const NSInteger pageSize = 20;
         
     } else{
         
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
-        cameraVC.delegate = self;
-        cameraVC.hidesBottomBarWhenPushed = YES;
-        [AccountManager NeedResetFirstCeBai:YES];
+        [Utils showAlertMessage:@"重置测白记录需要重新测白" onViewController:self withCompletionHandler:^{
+            
+            
+            
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
+            cameraVC.delegate = self;
+            cameraVC.hidesBottomBarWhenPushed = YES;
+            [AccountManager NeedResetFirstCeBai:YES];
+            
+            [self.navigationController pushViewController:cameraVC animated:YES];
+        }];
         
-        [self.navigationController pushViewController:cameraVC animated:YES];
+      
     }
 }
 
@@ -104,36 +128,26 @@ static const NSInteger pageSize = 20;
 
 
 -(void)fetchData{
-    [NetworkManager fetchCeBaiHistoryStartIndex:self.currentIndex andPageSize:pageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [NetworkManager fetchCeBaiHistoryStartIndex:0 andPageSize:pageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.tableView.header endRefreshing];
         
         NSLog(@"response %@",responseObject);
         
         if ([responseObject[@"status"] integerValue] == 2000) {
             NSArray *data = responseObject[@"data"];
-            //判断是不是第一次
+            self.dataItems = [data mutableCopy];
             
-            if (self.dataItems.count == 0) {
-                //第一次
-                self.dataItems = [data mutableCopy];
-                [self.tableView reloadData];
-                self.currentIndex = self.dataItems.count;
+            _currentIndex = data.count;
+            
+            [self.tableView reloadData];
+            
+            if (data.count < pageSize) {
                 
-                if (self.currentIndex < pageSize) {
-                    [self.tableView.footer noticeNoMoreData];
-                }
+                [self.tableView.footer noticeNoMoreData];
             } else{
-                if (data.count > 0) {
-                    if ([self.dataItems[0][@"createTime"] isEqualToString:data[0][@"createTime"]]) {
-                        //如果没有新数据
-                    } else{
-                        self.dataItems = [data mutableCopy];
-                        self.currentIndex = self.dataItems.count;
-                        [self.tableView reloadData];
-                        [self.tableView.footer resetNoMoreData];
-                    }
-                }
+                [self.tableView.footer resetNoMoreData];
             }
+        
         }else if ([responseObject[@"status"] integerValue] == 1012){
             
             [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
@@ -186,6 +200,8 @@ static const NSInteger pageSize = 20;
     }];
 
 }
+
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataItems.count;
@@ -274,29 +290,44 @@ static const NSInteger pageSize = 20;
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [self.dataItems removeObjectAtIndex:indexPath.row];
-        [self.tableView beginUpdates];
-        
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [self.tableView endUpdates];
-        
-        [NetworkManager deleteTopicByID:self.dataItems[indexPath.row][@"id"] WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"%@",responseObject);
+        [SVProgressHUD showWithStatus:@"正在删除"];
+        [NetworkManager deleteMeibaiRecordByID:[self.dataItems[indexPath.row][@"id"] integerValue]WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([responseObject[@"status"] integerValue] == 2000) {
+                
+                [self.dataItems removeObjectAtIndex:indexPath.row];
+                [self.tableView beginUpdates];
+                
+                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView endUpdates];
+            }
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
             
         }];
+        
     }
 }
 
 
-/*
-#pragma mark - Navigation
+-(void)fetchMokeData{
+    NSIndexSet *set = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(0, pageSize)];
+    NSArray *data = [self.testArray objectsAtIndexes:set];
+    [self.tableView.header endRefreshing];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    self.dataItems = [data mutableCopy];
+    
+    _currentIndex = data.count;
+    [self.tableView reloadData];
 }
-*/
 
+-(void)fetchMokeMoreData {
+    [self.tableView.footer endRefreshing];
+
+    NSIndexSet *set = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(_currentIndex  ,pageSize)];
+    NSArray *data = [self.testArray objectsAtIndexes:set];
+    [self.dataItems addObjectsFromArray:data];
+    
+    _currentIndex = data.count + _currentIndex;
+    
+    [self.tableView reloadData];
+}
 @end
