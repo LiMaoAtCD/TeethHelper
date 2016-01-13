@@ -119,7 +119,7 @@ static NSString *kAuthState = @"xxx";
                 [AccountManager setAvatarUrlString:temp[@"avatar"]];
             }
             
-            //                [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+            [SVProgressHUD dismiss];
             
             [self dismissViewControllerAnimated:YES completion:nil];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginSuccess" object:nil];
@@ -135,10 +135,13 @@ static NSString *kAuthState = @"xxx";
             
             [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
             
+        } else{
+            [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
+
         }
 
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:@"网络错误"];
     }];
     
 

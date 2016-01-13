@@ -27,7 +27,7 @@
 }
 
 +(void)ThirdLoginByThirdID:(NSString*)thirdId provider:(NSString *)provider userAliasName:(NSString *)userAliasName userAvatar:(NSString *)userAvatar withCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
-    NSDictionary *dictionary = @{@"thirdId":thirdId,@"provider":provider,@"userAliasName":userAliasName,@"userAvatar":userAvatar};
+    NSDictionary *dictionary = @{@"thirdId":thirdId,@"provider":provider,@"userAliasName":userAliasName,@"userAvatar":userAvatar,@"grantType":@"third"};
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:@"http://www.7wang523.com/teeth-api/auth/token" parameters:dictionary success:completionHandler failure:failHandler];
