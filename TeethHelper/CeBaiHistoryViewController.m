@@ -313,13 +313,15 @@ static const NSInteger pageSize = 50;
                 [self.tableView endUpdates];
                 
                 [SVProgressHUD dismiss];
+            } else if ([responseObject[@"status"] integerValue] == 3000) {
+                [SVProgressHUD showErrorWithStatus:@"不能删除此条记录，请点击重置按钮进行重置"];
             } else{
-                
+                [SVProgressHUD showErrorWithStatus:@"出错了，请稍后重试"];
+
             }
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
+            [SVProgressHUD showErrorWithStatus:@"网络出错"];
         }];
-        
     }
 }
 
