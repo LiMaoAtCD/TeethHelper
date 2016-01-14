@@ -119,6 +119,8 @@ static NSString *kAuthState = @"xxx";
                 [AccountManager setAvatarUrlString:temp[@"avatar"]];
             }
             
+            [AccountManager setName:dic[@"nickname"]];
+            
             [SVProgressHUD dismiss];
             
             [self dismissViewControllerAnimated:YES completion:nil];

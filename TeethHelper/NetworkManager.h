@@ -360,6 +360,23 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 //https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
 
 //https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID
+/**
+ *  获取微信用户信息
+ *
+ *  @param access_token      token
+ *  @param openid            openid
+ *  @param completionHandler
+ *  @param failHandler
+ */
 +(void)fetchweixinUserInfoByCode:(NSString*)access_token openID:(NSString *)openid WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
+/**
+ *  重置测白记录
+ *
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)resetCebaiWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 
 @end

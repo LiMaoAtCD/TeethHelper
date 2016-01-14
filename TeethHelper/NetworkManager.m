@@ -438,4 +438,15 @@
     [manager GET:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
++(void)resetCebaiWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    
+    NSString *url = @"http://www.7wang523.com/teeth-api/test/reset";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
+
 @end

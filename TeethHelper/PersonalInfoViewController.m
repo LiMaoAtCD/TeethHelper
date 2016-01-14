@@ -39,7 +39,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.item =@[@"头像",@"昵称",@"性别",@"出生年月",@"手机号",@"通讯地址",@"修改密码"];
+//    self.item =@[@"头像",@"昵称",@"性别",@"出生年月",@"手机号",@"通讯地址",@"修改密码"];
+    if ([AccountManager getCellphoneNumber] == nil) {
+        self.item =@[@"头像",@"昵称",@"性别",@"出生年月",@"通讯地址"];
+    } else{
+        self.item =@[@"头像",@"昵称",@"性别",@"出生年月",@"手机号",@"通讯地址",@"修改密码"];
+    }
+
     [Utils ConfigNavigationBarWithTitle:@"个人信息" onViewController:self];
     
     self.tableView.backgroundView = [UIView new];
@@ -81,7 +87,6 @@
             cell.avatarImageView.image = [UIImage imageNamed:@"img_head"];
         }
         return cell;
-        
     } else{
         InfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
         cell.titleLabel.text =self.item[indexPath.row];
@@ -102,17 +107,19 @@
         } else if (indexPath.row == 3){
             //出生年月
             NSString *birthday = [AccountManager getBirthday];
-            
             cell.contentLabel.text = birthday;
-            
-        } else if (indexPath.row == 4){
+        } else if (indexPath.row == 4 ){
 //            手机号
-            NSString *phone = [AccountManager getCellphoneNumber];
             
-            cell.contentLabel.text = phone;
-//            cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.contentLabel.textColor = [UIColor lightGrayColor];
-            
+            if ([AccountManager getCellphoneNumber] != nil) {
+                NSString *phone = [AccountManager getCellphoneNumber];
+                cell.contentLabel.text = phone;
+                cell.contentLabel.textColor = [UIColor lightGrayColor];
+            } else{
+                NSString *address = [AccountManager getAddress];
+                cell.contentLabel.text = address;
+            }
+           
         } else if (indexPath.row == 5){
 //            地址
             NSString *address = [AccountManager getAddress];
@@ -163,12 +170,17 @@
 
         }
             break;
-//        case 4:{
-//            //手机号
-//            PhoneInfoViewController *phoneVC = [sb instantiateViewControllerWithIdentifier:@"PhoneInfoViewController"];
-//            [self.navigationController pushViewController:phoneVC animated:YES];
-//        }
-//            break;
+        case 4:{
+            
+            if ([AccountManager getCellphoneNumber] == nil) {
+                //地址
+                AddressViewController *addressVC = [sb instantiateViewControllerWithIdentifier:@"AddressViewController"];
+                addressVC.address = [AccountManager getAddress];
+                
+                [self.navigationController pushViewController:addressVC animated:YES];
+            }
+        }
+            break;
         case 5:{
             //地址
             AddressViewController *addressVC = [sb instantiateViewControllerWithIdentifier:@"AddressViewController"];

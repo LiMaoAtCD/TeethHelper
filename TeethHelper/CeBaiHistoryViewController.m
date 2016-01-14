@@ -96,18 +96,30 @@ static const NSInteger pageSize = 50;
         
         [Utils showAlertMessage:@"重置测白记录需要重新测白" onViewController:self withCompletionHandler:^{
             
-            
-            
-            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
-            cameraVC.delegate = self;
-            cameraVC.hidesBottomBarWhenPushed = YES;
-            [AccountManager NeedResetFirstCeBai:YES];
-            
-            [self.navigationController pushViewController:cameraVC animated:YES];
+            [SVProgressHUD showWithStatus:@"正在重置"];
+            [NetworkManager resetCebaiWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+                if ([responseObject[@"status"] integerValue] == 2000) {
+                    
+                    [SVProgressHUD dismiss];
+                    [self.dataItems removeAllObjects];
+                    [self.tableView reloadData];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                        CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];
+                        cameraVC.delegate = self;
+                        cameraVC.hidesBottomBarWhenPushed = YES;
+                        [AccountManager NeedResetFirstCeBai:YES];
+                        
+                        [self.navigationController pushViewController:cameraVC animated:YES];
+                    });
+                } else{
+                    [SVProgressHUD showErrorWithStatus:@"重置失败，请稍后再试"];
+                }
+            } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            }];
         }];
-        
-      
     }
 }
 
@@ -299,6 +311,10 @@ static const NSInteger pageSize = 50;
                 
                 [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 [self.tableView endUpdates];
+                
+                [SVProgressHUD dismiss];
+            } else{
+                
             }
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
             
