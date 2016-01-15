@@ -523,16 +523,10 @@ typedef NS_ENUM(NSInteger, AddressType) {
                 
                 NSDictionary *cityDic = [dic objectForKey: [sortedArray objectAtIndex:0]];
                 _district = [[NSArray alloc] initWithArray: [cityDic objectForKey: [_city objectAtIndex:0]]];
-                
                 [_addressPickerView selectRow:0 inComponent:AddressTypeCity animated:YES];
-//                [_addressPickerView selectRow:0 inComponent:AddressTypeDistrict animated:YES];
                 [_addressPickerView reloadComponent:AddressTypeCity];
-//                [_addressPickerView reloadComponent:AddressTypeDistrict];
-                
                 province = [_province objectAtIndex:row];
                 city = [_city objectAtIndex:0];
-//                district = [_district objectAtIndex:0];
-                
             }
             else if (component == AddressTypeCity) {
                 NSString *provinceIndex = [NSString stringWithFormat: @"%ld", (unsigned long)[_province indexOfObject: _currentProvince]];
@@ -550,19 +544,14 @@ typedef NS_ENUM(NSInteger, AddressType) {
                     return (NSComparisonResult)NSOrderedSame;
                 }];
                 
-                NSDictionary *cityDic = [NSDictionary dictionaryWithDictionary: [dic objectForKey: [sortedArray objectAtIndex: row]]];
-                NSArray *cityKeyArray = [cityDic allKeys];
-                
-                _district = [[NSArray alloc] initWithArray: [cityDic objectForKey: [cityKeyArray objectAtIndex:0]]];
-//                [_addressPickerView selectRow: 0 inComponent: AddressTypeDistrict animated: YES];
-//                [_addressPickerView reloadComponent:AddressTypeDistrict];
-                
-                
-                city = [_city objectAtIndex:row];
-//                district = [_district objectAtIndex:0];
-                
+                if (sortedArray.count > 0 ) {
+                    NSDictionary *cityDic = [NSDictionary dictionaryWithDictionary: [dic objectForKey: [sortedArray objectAtIndex: row]]];
+                    NSArray *cityKeyArray = [cityDic allKeys];
+                    
+                    _district = [[NSArray alloc] initWithArray: [cityDic objectForKey: [cityKeyArray objectAtIndex:0]]];
+                    city = [_city objectAtIndex:row];
+                }
             }else if (component == AddressTypeDistrict) {
-                
                 district = [_district objectAtIndex:row];
             }
             

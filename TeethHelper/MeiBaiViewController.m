@@ -506,12 +506,6 @@
 
 -(void)beginMeibaiProject:(id)sender{
     
-//    MeiBaiTimerViewController * projectVC = [[MeiBaiTimerViewController alloc] initWithNibName:@"MeiBaiTimerViewController" bundle:nil];
-//    projectVC.hidesBottomBarWhenPushed = YES;
-//    projectVC.previousSeconds = 0;
-//    
-//    [self.navigationController pushViewController:projectVC animated:YES];
-//    
     
     //上传服务器，开始计时
     [SVProgressHUD showWithStatus:@"正在启动美白计划"];
@@ -533,11 +527,12 @@
                 if ([MessageConfigureFile isQuestionaireOpen]) {
                     
                     
-                   NSInteger timesADay =  [MeiBaiConfigFile getCureTimesEachDay];
+//                   NSInteger timesADay =  [MeiBaiConfigFile getCureTimesEachDay];
                     //需要延迟3倍,加3分钟为了防止本地时间比服务器时间早了，没有弹出问卷，弹出计时器了
-                    NSInteger delayTime = timesADay * 24 + 3;
+//                    NSInteger delayTime = timesADay * 24 + 3;
+//                    NSInteger delayTime = 3;
 
-                    [MessageConfigureFile setQuestionNotificationDelayMinute:delayTime];
+//                    [MessageConfigureFile setQuestionNotificationDelayMinute:delayTime];
                 }
             }
         }else if ([responseObject[@"status"] integerValue] == 1012){
