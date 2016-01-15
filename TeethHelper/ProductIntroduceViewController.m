@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"产品介绍" onViewController:self];
     self.navigationController.navigationBar.translucent = NO;
-    [self fetchProductInfo];
+//    [self fetchProductInfo];
     
 }
 
@@ -122,12 +122,7 @@
         default:
             break;
     }
-    
-    
-    
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

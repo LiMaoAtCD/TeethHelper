@@ -138,7 +138,7 @@
     if ([AccountManager isLogin]) {
         //获取首页数据
 //        [self fetchFirstPageData];
-        [self fetchProductInfo];
+//        [self fetchProductInfo];
     }
     
 //    NSDate *previousDate =[[NSUserDefaults standardUserDefaults] objectForKey:@"user_timer_previous"];

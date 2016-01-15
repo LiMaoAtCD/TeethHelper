@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"产品介绍" onViewController:self];
     
-    [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getProductIntroduceSourceThumb]] placeholderImage:[UIImage imageNamed:@"bg_video"]];
+//    [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getProductIntroduceSourceThumb]] placeholderImage:[UIImage imageNamed:@"bg_video"]];
 }
 
 -(void)pop{
