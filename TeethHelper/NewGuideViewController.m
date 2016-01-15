@@ -30,7 +30,7 @@
     [Utils ConfigNavigationBarWithTitle:@"新手指南" onViewController:self];
     
     
-    [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getProductGuideSourceThumb]] placeholderImage:[UIImage imageNamed:@"bg_video"]];
+//    [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getProductGuideSourceThumb]] placeholderImage:[UIImage imageNamed:@"bg_video"]];
 }
 
 -(void)pop{
