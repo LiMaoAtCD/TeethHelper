@@ -20,6 +20,8 @@
 
 #import "SocialDetailViewController.h"
 #import "SocialRefreshDelegate.h"
+#import "DateFormaterCenter.h"
+
 @interface SocialViewController ()<UITableViewDelegate, UITableViewDataSource,SocialRefreshDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -232,13 +234,10 @@ static const NSInteger PageSize = 20;
         }
         
         NSString *dateString = temp[@"createTime"];
-        
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        
+        NSDateFormatter *formatter = [DateFormaterCenter sharedDateFormatter].formatter;
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         
         NSDate *date = [formatter dateFromString:dateString];
-        
         
         if (date.secondsAgo <= 60) {
             cell.timeStampLabel.text = @"刚刚";
@@ -246,28 +245,39 @@ static const NSInteger PageSize = 20;
             cell.timeStampLabel.text =[NSString stringWithFormat:@"%ld分钟前",(long)date.minutesAgo];
         } else if (date.hoursAgo <= 24){
             cell.timeStampLabel.text =[NSString stringWithFormat:@"%ld小时前",(long)date.hoursAgo];
-        } else{
+        } else {
             
-            NSDateFormatter *MonthFormatter = [[NSDateFormatter alloc] init];
-            [MonthFormatter setDateFormat:@"MM"];
-            NSString *month = [MonthFormatter stringFromDate:date];
+            NSDateFormatter *dateFormatter = [DateFormaterCenter sharedDateFormatter].formatter;
+            NSDate *now = [NSDate date];
+
+            [dateFormatter setDateFormat:@"yyyy"];
+            NSString *nowYear = [dateFormatter stringFromDate:now];
+            NSString *year = [dateFormatter stringFromDate:date];
+
             
-            NSDateFormatter *DayFormatter = [[NSDateFormatter alloc] init];
-            [DayFormatter setDateFormat:@"dd"];
-            NSString *day = [DayFormatter stringFromDate:date];
-            
-            NSDateFormatter *hourFormatter = [[NSDateFormatter alloc] init];
-            [hourFormatter setDateFormat:@"HH"];
-            NSString *hour = [hourFormatter stringFromDate:date];
-            NSDateFormatter *MinuteFormatter = [[NSDateFormatter alloc] init];
-            [MinuteFormatter setDateFormat:@"mm"];
-            NSString *minute = [MinuteFormatter stringFromDate:date];
+            [dateFormatter setDateFormat:@"MM"];
+            NSString *month = [dateFormatter stringFromDate:date];
+            [dateFormatter setDateFormat:@"dd"];
+            NSString *day = [dateFormatter stringFromDate:date];
+            [dateFormatter setDateFormat:@"HH"];
+            NSString *hour = [dateFormatter stringFromDate:date];
+            [dateFormatter setDateFormat:@"mm"];
+            NSString *minute = [dateFormatter stringFromDate:date];
             
             
-            NSString *timestamp = [NSString stringWithFormat:@"%@月%@日 %@:%@",month,day,hour,minute];
+            NSString *timestamp;
+            if ([nowYear isEqualToString:year]) {
+                 timestamp = [NSString stringWithFormat:@"%@月%@日 %@:%@",month,day,hour,minute];
+            } else{
+                timestamp = [NSString stringWithFormat:@"%@年%@月%@日 %@:%@",year,month,day,hour,minute];
+            }
             
+            
+
             cell.timeStampLabel.text = timestamp;
+            
         }
+        
         cell.commentsLabel.text  = [NSString stringWithFormat:@"%ld", [temp[@"callbacks"] integerValue]];
         cell.cotentLabel.text = temp[@"content"];
         cell.nameLabel.text = temp[@"nickName"];
@@ -305,7 +315,7 @@ static const NSInteger PageSize = 20;
         
         NSString *dateString = temp[@"createTime"];
         
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        NSDateFormatter *formatter = [DateFormaterCenter sharedDateFormatter].formatter;
         
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         
@@ -319,18 +329,18 @@ static const NSInteger PageSize = 20;
             cell.timeStampLabel.text =[NSString stringWithFormat:@"%ld小时前",(long)date.hoursAgo];
         } else{
             
-            NSDateFormatter *MonthFormatter = [[NSDateFormatter alloc] init];
+            NSDateFormatter *MonthFormatter = [DateFormaterCenter sharedDateFormatter].formatter;
             [MonthFormatter setDateFormat:@"MM"];
             NSString *month = [MonthFormatter stringFromDate:date];
             
-            NSDateFormatter *DayFormatter = [[NSDateFormatter alloc] init];
+            NSDateFormatter *DayFormatter =[DateFormaterCenter sharedDateFormatter].formatter;
             [DayFormatter setDateFormat:@"dd"];
             NSString *day = [DayFormatter stringFromDate:date];
             
-            NSDateFormatter *hourFormatter = [[NSDateFormatter alloc] init];
+            NSDateFormatter *hourFormatter = [DateFormaterCenter sharedDateFormatter].formatter;
             [hourFormatter setDateFormat:@"HH"];
             NSString *hour = [hourFormatter stringFromDate:date];
-            NSDateFormatter *MinuteFormatter = [[NSDateFormatter alloc] init];
+            NSDateFormatter *MinuteFormatter = [DateFormaterCenter sharedDateFormatter].formatter;
             [MinuteFormatter setDateFormat:@"mm"];
             NSString *minute = [MinuteFormatter stringFromDate:date];
             

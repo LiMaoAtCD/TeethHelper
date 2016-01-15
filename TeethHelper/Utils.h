@@ -22,4 +22,6 @@ typedef void(^alertBlock)(void);
 +(BOOL)isValidPassword:(NSString*)password;
 
 +(void)showAlertMessage:(NSString*)message onViewController:(UIViewController *)viewController withCompletionHandler:(alertBlock)handler;
+
+
 @end
