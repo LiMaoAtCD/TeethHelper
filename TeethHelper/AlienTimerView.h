@@ -19,6 +19,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong)  CAShapeLayer *lightGrayLayer2;
 @property (nonatomic, strong)  UILabel *timerLabel;
 @property (nonatomic, strong)  UILabel *typeLabel;
+@property (nonatomic, strong)  UIImageView *clock;
+
 
 
 

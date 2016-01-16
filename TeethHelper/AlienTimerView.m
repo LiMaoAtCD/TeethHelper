@@ -8,6 +8,7 @@
 
 #import "AlienTimerView.h"
 #import "UIColor+HexRGB.h"
+#import <Masonry.h>
 @implementation AlienTimerView
 
 /*
@@ -26,7 +27,7 @@
         //灰底
         CAShapeLayer *lightGrayLayer = [CAShapeLayer layer];
         
-        UIBezierPath *backPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2) radius:(self.bounds.size.width / 2) startAngle:0 endAngle:2 *M_PI clockwise:YES];
+        UIBezierPath *backPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2) radius:(self.bounds.size.width / 2 - 5) startAngle:0 endAngle:2 *M_PI clockwise:YES];
         
         lightGrayLayer.path = backPath.CGPath;
         lightGrayLayer.lineWidth = 4.0;
@@ -68,17 +69,43 @@
         //        self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:100.0];
         self.typeLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0];
         self.typeLabel.text = @"美白倒计时";
+//        self.typeLabel.backgroundColor = [UIColor redColor];
 
         [self addSubview:self.typeLabel];
         
         UIImage *image = [UIImage imageNamed:@"icon_daojishi"];
-        UIImageView *clock = [[UIImageView alloc] initWithImage:image];
-        [self addSubview:clock];
-        clock.frame = CGRectMake(self.bounds.size.width / 2 - 63, self.bounds.size.height / 2 - 67, 22, 25);
+        self.clock = [[UIImageView alloc] initWithImage:image];
+        [self addSubview:self.clock];
+//        self.clock.backgroundColor = [UIColor redColor];
+        self.clock.frame = CGRectMake(self.bounds.size.width / 2 - 63, self.bounds.size.height / 2 - 67, 22, 25);
 //        icon_clock
+        
+        
     }
     
     return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    [self.timerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_centerY).multipliedBy(1.0);
+        make.centerX.equalTo(self.mas_centerX);
+    }];
+    [self.typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.mas_centerY).offset(-10);
+//        make.right.equalTo(self.mas_right).offset(-50);
+        make.centerX.equalTo(self.mas_centerX).multipliedBy(1.2);
+    }];
+    
+    [self.clock mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.typeLabel.mas_left).offset(-8);
+        make.centerY.equalTo(self.typeLabel.mas_centerY);
+        make.width.equalTo(@22);
+        make.height.equalTo(@25);
+    }];
+
 }
 
 -(void)animateToSeconds:(NSInteger)seconds{

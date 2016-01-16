@@ -496,6 +496,8 @@
 }
 
 -(void)share:(UIButton*)button{
+    
+    
     WechatShareViewController *wechatShare = [[WechatShareViewController alloc] initWithNibName:@"WechatShareViewController" bundle:nil];
     
     wechatShare.modalPresentationStyle = UIModalPresentationOverCurrentContext;
@@ -504,10 +506,18 @@
     [self showDetailViewController:wechatShare sender:self];
 }
 
+static int delayTouch = NO;
 -(void)beginMeibaiProject:(id)sender{
     
-    
+    if (delayTouch == YES) {
+        return;
+    }
     //上传服务器，开始计时
+    delayTouch = YES;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        delayTouch = NO;
+    });
     [SVProgressHUD showWithStatus:@"正在启动美白计划"];
     [NetworkManager BeginMeiBaiProjectWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         

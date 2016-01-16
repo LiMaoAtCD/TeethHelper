@@ -273,6 +273,8 @@
     dictionary[@"accessToken"] = [AccountManager getTokenID];
     NSString *url = @"http://www.7wang523.com/teeth-api/white/start";
     
+    NSLog(@"开始美白计划");
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url parameters:dictionary success:completionHandler failure:failHandler];
 }
