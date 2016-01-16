@@ -16,6 +16,8 @@
 
 #import "TeethStateConfigureFile.h"
 
+#import "NetworkManager.h"
+
 @interface TeethStateViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableVIew;
 
@@ -43,6 +45,57 @@
     
     [self.view layoutIfNeeded];
     [self.tableVIew reloadData];
+    
+    
+    
+
+    //获取当前牙齿等级
+    NSInteger answer1 = [TeethStateConfigureFile teethLevel];
+    NSString *health;
+
+    switch (answer1) {
+        case 0:
+            health = @"A";
+            break;
+        case 1: {
+            health = @"B";
+
+        }
+            break;
+        case 2: {
+            health = @"C";
+
+        }
+            break;
+        case 3: {
+            health = @"D";
+
+        }
+            break;
+        default:
+            break;
+    }
+    // 是否敏感
+    NSString* answer2 ;
+    BOOL issensitive = [TeethStateConfigureFile isSensitive];
+    if (issensitive) {
+        answer2 = @"A";
+    } else{
+        answer2 = @"B";
+    }
+    //是否意愿强烈
+    NSString* answer3 ;
+    if ([TeethStateConfigureFile isWillStrong]) {
+        answer3 = @"A";
+    } else{
+        answer3 = @"B";
+    }
+    
+    [NetworkManager modifyTeethStatus:health sensitived:answer2 intention:answer3 WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

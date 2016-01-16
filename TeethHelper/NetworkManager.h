@@ -379,4 +379,15 @@ typedef void(^NetWorkFailHandler)(AFHTTPRequestOperation *operation,NSError *err
 +(void)resetCebaiWithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
 
 
+/**
+ *  修改牙齿状况
+ *
+ *  @param health
+ *  @param sensitived
+ *  @param intention
+ *  @param completionHandler
+ *  @param failHandler
+ */
++(void)modifyTeethStatus:(NSString *)health sensitived:(NSString *)sensitived intention:(NSString*)intention WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler;
+
 @end

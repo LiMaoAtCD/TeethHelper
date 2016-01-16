@@ -449,4 +449,18 @@
     [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
 }
 
+
++(void)modifyTeethStatus:(NSString *)health sensitived:(NSString *)sensitived intention:(NSString*)intention WithCompletionHandler:(NetWorkHandler)completionHandler FailHandler:(NetWorkFailHandler)failHandler{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"accessToken"] = [AccountManager getTokenID];
+    dictionary[@"health"] = health;
+    dictionary[@"sensitived"] = sensitived;
+    dictionary[@"intention"] = intention;
+
+    NSString *url = @"http://www.7wang523.com/teeth-api/user/health/change";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager POST:url parameters:dictionary success:completionHandler failure:failHandler];
+}
 @end
