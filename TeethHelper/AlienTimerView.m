@@ -40,7 +40,7 @@
         //进度
         self.lightGrayLayer2 = [CAShapeLayer layer];
         
-        self.foreGroundPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2) radius:(self.bounds.size.width / 2) startAngle:-0.5 * M_PI endAngle: 1.5 * M_PI clockwise:YES];
+        self.foreGroundPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2) radius:(self.bounds.size.width / 2 - 5) startAngle:-0.5 * M_PI endAngle: 1.5 * M_PI clockwise:YES];
         
         self.lightGrayLayer2.path = self.foreGroundPath.CGPath;
         self.lightGrayLayer2.lineWidth = 6.0;

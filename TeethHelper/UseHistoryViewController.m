@@ -177,7 +177,7 @@ static const NSInteger pageSize = 20;
 
 
 -(void)fetchData{
-    [NetworkManager fetchUseHistoryStartIndex:self.currentIndex andPageSize:pageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [NetworkManager fetchUseHistoryStartIndex:0 andPageSize:pageSize WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self.tableView.header endRefreshing];
         
         
