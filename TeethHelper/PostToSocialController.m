@@ -11,6 +11,8 @@
 #import "NetworkManager.h"
 #import <SVProgressHUD.h>
 
+#import "AppDelegate.h"
+#import "MainTabBarController.h"
 
 #import <Masonry.h>
 @interface PostToSocialController ()<UITextViewDelegate>
@@ -33,7 +35,7 @@
     [self configRightNavigationItem];
     [self configTextView];
     
-    if (self.firstImage) {
+    if (!self.firstImage) {
         //如果不是第一次
         
         CGFloat width  = 278.0;
@@ -306,7 +308,11 @@
     [NetworkManager publishTextContent:content withImages:array WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject[@"status"] integerValue] == 2000) {
             [SVProgressHUD showSuccessWithStatus:@"发布成功"];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"kNeedSwitchToThree" object:nil];
+            
+            
         } else if([responseObject[@"status"] integerValue] == 1004){
             [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
         }else if ([responseObject[@"status"] integerValue] == 1012){

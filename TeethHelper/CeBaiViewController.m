@@ -9,7 +9,15 @@
 #import "CeBaiViewController.h"
 #import "CameraViewController.h"
 #import "ImageEditViewController.h"
+#import "AppDelegate.h"
+#import "MainTabBarController.h"
+
 @interface CeBaiViewController ()<PhotoDelegate>
+
+
+@property (nonatomic, assign) BOOL needSwitchToOne;
+@property (nonatomic, assign) BOOL needSwitchToThree;
+
 
 @end
 
@@ -21,6 +29,44 @@
     [Utils ConfigNavigationBarWithTitle:@"测白" onViewController:self];
     self.navigationItem.leftBarButtonItem = nil;
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needSwitchToOneMethod) name:@"kNeedSwitchToOne" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kNeedSwitchToThree) name:@"kNeedSwitchToThree" object:nil];
+
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)needSwitchToOneMethod{
+    
+    _needSwitchToOne = YES;
+}
+
+-(void)kNeedSwitchToThree{
+    _needSwitchToThree = YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    AppDelegate *delegate =  (AppDelegate *)[UIApplication sharedApplication].delegate;
+    MainTabBarController * vc = (MainTabBarController *)delegate.window.rootViewController;
+    
+    if (_needSwitchToOne) {
+    
+        vc.selectedIndex = 0;
+        
+        _needSwitchToOne = NO;
+    }
+    
+    if (_needSwitchToThree) {
+        vc.selectedIndex = 2;
+
+        _needSwitchToThree = NO;
+    }
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {

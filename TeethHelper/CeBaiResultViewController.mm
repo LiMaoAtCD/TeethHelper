@@ -22,6 +22,9 @@
 #import "ToothProcess.h"
 #import "Global.h"
 
+#import "MainTabBarController.h"
+#import "AppDelegate.h"
+
 @interface CeBaiResultViewController ()<ShareToSocialDelegate>
 
 
@@ -444,6 +447,8 @@
                 [AccountManager NeedResetFirstCeBai:NO];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
                 
+                
+                
             }else if ([responseObject[@"status"] integerValue] == 1012){
                 
                 [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
@@ -467,7 +472,11 @@
             if ([responseObject[@"status"] integerValue] == 2000) {
                 
                 [SVProgressHUD dismiss];
+                
                 [self.navigationController popToRootViewControllerAnimated:YES];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"kNeedSwitchToOne" object:nil];
+
             }else if ([responseObject[@"status"] integerValue] == 1012){
                 
                 [SVProgressHUD showErrorWithStatus:@"该账号已被锁定，请联系管理员"];
