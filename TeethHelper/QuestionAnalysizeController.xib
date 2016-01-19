@@ -60,7 +60,7 @@
                                     <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                 </constraint>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
@@ -110,11 +110,10 @@
                             <exclude reference="pjt-dX-w1G"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="4uy-Fi-67B"/>
-                            <exclude reference="JWS-MZ-cHZ"/>
-                            <exclude reference="V5V-go-FmD"/>
-                            <exclude reference="ZnB-d8-IB1"/>
-                            <exclude reference="lWc-OP-Is3"/>
+                            <exclude reference="0qJ-OY-pjP"/>
+                            <exclude reference="CSN-9V-uh3"/>
+                            <exclude reference="kAN-ub-4vZ"/>
+                            <exclude reference="z02-P8-SP1"/>
                             <exclude reference="4Lx-0m-Tcs"/>
                             <exclude reference="5Nb-cn-G1D"/>
                             <exclude reference="cw7-ll-1fI"/>
@@ -122,10 +121,11 @@
                             <exclude reference="qap-H7-4fN"/>
                             <exclude reference="wZZ-Ua-sb8"/>
                             <exclude reference="yQl-KM-ZCR"/>
-                            <exclude reference="0qJ-OY-pjP"/>
-                            <exclude reference="CSN-9V-uh3"/>
-                            <exclude reference="kAN-ub-4vZ"/>
-                            <exclude reference="z02-P8-SP1"/>
+                            <exclude reference="4uy-Fi-67B"/>
+                            <exclude reference="JWS-MZ-cHZ"/>
+                            <exclude reference="V5V-go-FmD"/>
+                            <exclude reference="ZnB-d8-IB1"/>
+                            <exclude reference="lWc-OP-Is3"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -136,11 +136,10 @@
                             <include reference="pjt-dX-w1G"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="4uy-Fi-67B"/>
-                            <include reference="JWS-MZ-cHZ"/>
-                            <include reference="V5V-go-FmD"/>
-                            <include reference="ZnB-d8-IB1"/>
-                            <include reference="lWc-OP-Is3"/>
+                            <include reference="0qJ-OY-pjP"/>
+                            <include reference="CSN-9V-uh3"/>
+                            <include reference="kAN-ub-4vZ"/>
+                            <include reference="z02-P8-SP1"/>
                             <exclude reference="4Lx-0m-Tcs"/>
                             <include reference="5Nb-cn-G1D"/>
                             <exclude reference="cw7-ll-1fI"/>
@@ -148,10 +147,11 @@
                             <include reference="qap-H7-4fN"/>
                             <include reference="wZZ-Ua-sb8"/>
                             <include reference="yQl-KM-ZCR"/>
-                            <include reference="0qJ-OY-pjP"/>
-                            <include reference="CSN-9V-uh3"/>
-                            <include reference="kAN-ub-4vZ"/>
-                            <include reference="z02-P8-SP1"/>
+                            <include reference="4uy-Fi-67B"/>
+                            <include reference="JWS-MZ-cHZ"/>
+                            <include reference="V5V-go-FmD"/>
+                            <include reference="ZnB-d8-IB1"/>
+                            <include reference="lWc-OP-Is3"/>
                         </mask>
                     </variation>
                 </view>
