@@ -104,6 +104,12 @@ static const NSInteger pageSize = 50;
                     [self.dataItems removeAllObjects];
                     [self.tableView reloadData];
                     
+                    //删除本地缓存图片
+                    NSFileManager * fileManager = [[NSFileManager alloc]init];
+                    NSString  *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/someImageName.png"];
+                    [fileManager removeItemAtPath:imagePath error:nil];
+
+                    
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                         CameraViewController *cameraVC = [sb instantiateViewControllerWithIdentifier:@"CameraViewController"];

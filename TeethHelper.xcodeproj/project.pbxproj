@@ -1693,7 +1693,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threeti.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c2556cf9-7014-4e30-94a4-cd62fcfb10eb";
 			};
 			name = Debug;
 		};
@@ -1719,7 +1719,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.threeti.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c2556cf9-7014-4e30-94a4-cd62fcfb10eb";
 			};
 			name = Release;
 		};

@@ -13,6 +13,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "AccountManager.h"
 
 #import <Masonry.h>
 @interface PostToSocialController ()<UITextViewDelegate>
@@ -310,6 +311,15 @@
             [SVProgressHUD showSuccessWithStatus:@"发布成功"];
             [self.navigationController popToRootViewControllerAnimated:YES];
         
+            
+            if (_firstImage == nil) {
+                [AccountManager setCompletedFirstCeBai:YES];
+                [AccountManager NeedResetFirstCeBai:NO];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+
+            }
+        
+
             [[NSNotificationCenter defaultCenter] postNotificationName:@"kNeedSwitchToThree" object:nil];
             
             

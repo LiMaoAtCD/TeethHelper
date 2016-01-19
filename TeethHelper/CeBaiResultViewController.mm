@@ -413,7 +413,7 @@
     
     PostToSocialController *postVC = [[PostToSocialController alloc] initWithNibName:@"PostToSocialController" bundle:nil];
     UIImage *image = [self loadImage];
-    if (image != nil) {
+    if ([AccountManager isCompletedFirstCeBai]) {
         postVC.firstImage = image;
     }
     postVC.secondImage = self.imageForDisplay;
@@ -493,8 +493,9 @@
 
 
 -(void)saveImage:(UIImage*)image{
+
     NSString  *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/someImageName.png"];
-    
+
     [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
 }
 
