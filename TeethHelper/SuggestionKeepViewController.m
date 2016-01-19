@@ -79,7 +79,7 @@
         keepLabel.text = @"请减少每日美白次数。如果症状持续，暂停使用，待症状消失后再尝试从每日最少美白次数开始";
         keepLabel.numberOfLines = 0;
         keepLabel.textColor = [UIColor blackColor];
-        keepLabel.font = [UIFont systemFontOfSize:20.0];
+        keepLabel.font = [UIFont systemFontOfSize:25.0];
         keepLabel.textAlignment = NSTextAlignmentCenter;
         
         [self.view addSubview:keepLabel];
@@ -88,7 +88,7 @@
             make.left.equalTo(self.view.mas_leftMargin).offset(20);
             make.right.equalTo(self.view).offset(-20);
             make.centerY.equalTo(self.view.mas_centerY);
-            make.height.equalTo(@100);
+            make.height.equalTo(@120);
             
         }];
     }
@@ -121,7 +121,7 @@
     NSInteger processDays = [MeiBaiConfigFile getProcessDays];
     NSInteger days = [MeiBaiConfigFile getNeedCureDays];
     
-    if ( processDays >= days) {
+    if ( processDays >= days - 1) {
         //需要询问是否延长治疗计划
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"是否延长美白计划?" preferredStyle:UIAlertControllerStyleAlert];
         
