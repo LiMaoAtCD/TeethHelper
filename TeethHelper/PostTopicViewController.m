@@ -240,8 +240,30 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize {
+    CGSize actSize = image.size;
+    float scale = actSize.width/actSize.height;
+    
+    if (scale < 1) {
+        newSize.height = newSize.width/scale;
+    } else {
+        newSize.width = newSize.height*scale;
+    }
+    
+    
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *tempImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    tempImage = [self scaleImage:tempImage toSize:CGSizeMake(320, 480)];
+    NSData *temp = UIImageJPEGRepresentation(tempImage, 0.1);
+    tempImage = [[UIImage alloc] initWithData:temp];
     
     switch (self.currentButtonTag) {
         case 1:

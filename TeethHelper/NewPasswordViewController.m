@@ -75,6 +75,9 @@
                 if ([responseObject[@"status"] integerValue] == 2000) {
                     [SVProgressHUD showSuccessWithStatus:@"修改成功"];
                     NSDictionary *data = responseObject[@"data"];
+                    
+                    [AccountManager setPassword:self.newpwd];
+
                     //token
                     if ([[data allKeys] containsObject:@"accessToken"]) {
                         [AccountManager setTokenID:data[@"accessToken"]];
