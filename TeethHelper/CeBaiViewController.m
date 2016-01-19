@@ -11,6 +11,7 @@
 #import "ImageEditViewController.h"
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "SecondHelpViewController.h"
 
 @interface CeBaiViewController ()<PhotoDelegate>
 
@@ -31,7 +32,22 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(needSwitchToOneMethod) name:@"kNeedSwitchToOne" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kNeedSwitchToThree) name:@"kNeedSwitchToThree" object:nil];
+    
+    UIButton *rightHelpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [rightHelpButton setTitle:@"帮助" forState:UIControlStateNormal];
+    
+    [rightHelpButton addTarget:self action:@selector(help) forControlEvents:UIControlEventTouchUpInside];
+    
+    rightHelpButton.frame = CGRectMake(0, 0, 60, 35);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightHelpButton];
 
+}
+
+-(void)help{
+    SecondHelpViewController *second = [[SecondHelpViewController alloc] initWithNibName:@"SecondHelpViewController" bundle:nil];
+    second.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:second animated:YES];
 }
 
 -(void)dealloc{

@@ -140,6 +140,8 @@
 		87D533FB1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533FA1B7ADF3E00F3D6BE /* MeiBaiConfigFile.m */; };
 		87D533FE1B7ADF5600F3D6BE /* MeiBaiOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */; };
 		87D534011B7ADF6300F3D6BE /* MeiBaiTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */; };
+		87D7687B1C4E253D00CE3575 /* SecondHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D768791C4E253D00CE3575 /* SecondHelpViewController.m */; };
+		87D7687C1C4E253D00CE3575 /* SecondHelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D7687A1C4E253D00CE3575 /* SecondHelpViewController.xib */; };
 		87D8BBD81BA160950049CC00 /* WeChatShareSocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D8BBD61BA160950049CC00 /* WeChatShareSocialViewController.m */; };
 		87D8BBD91BA160950049CC00 /* WeChatShareSocialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87D8BBD71BA160950049CC00 /* WeChatShareSocialViewController.xib */; };
 		87DABF501B7D801A0051DE31 /* QuestionAnalysizeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DABF4E1B7D801A0051DE31 /* QuestionAnalysizeController.m */; };
@@ -427,6 +429,9 @@
 		87D533FD1B7ADF5600F3D6BE /* MeiBaiOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiOneCell.m; sourceTree = "<group>"; };
 		87D533FF1B7ADF6300F3D6BE /* MeiBaiTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeiBaiTwoCell.h; sourceTree = "<group>"; };
 		87D534001B7ADF6300F3D6BE /* MeiBaiTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeiBaiTwoCell.m; sourceTree = "<group>"; };
+		87D768781C4E253D00CE3575 /* SecondHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondHelpViewController.h; sourceTree = "<group>"; };
+		87D768791C4E253D00CE3575 /* SecondHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondHelpViewController.m; sourceTree = "<group>"; };
+		87D7687A1C4E253D00CE3575 /* SecondHelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondHelpViewController.xib; sourceTree = "<group>"; };
 		87D8BBD51BA160950049CC00 /* WeChatShareSocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatShareSocialViewController.h; sourceTree = "<group>"; };
 		87D8BBD61BA160950049CC00 /* WeChatShareSocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeChatShareSocialViewController.m; sourceTree = "<group>"; };
 		87D8BBD71BA160950049CC00 /* WeChatShareSocialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeChatShareSocialViewController.xib; sourceTree = "<group>"; };
@@ -699,6 +704,9 @@
 				87F4289A1B91978000F0CD46 /* PostToSocialController.h */,
 				87F4289B1B91978000F0CD46 /* PostToSocialController.m */,
 				87F4289C1B91978000F0CD46 /* PostToSocialController.xib */,
+				87D768781C4E253D00CE3575 /* SecondHelpViewController.h */,
+				87D768791C4E253D00CE3575 /* SecondHelpViewController.m */,
+				87D7687A1C4E253D00CE3575 /* SecondHelpViewController.xib */,
 			);
 			name = SecondTab;
 			sourceTree = "<group>";
@@ -1342,6 +1350,7 @@
 				87DABF511B7D801A0051DE31 /* QuestionAnalysizeController.xib in Resources */,
 				87F4289E1B91978000F0CD46 /* PostToSocialController.xib in Resources */,
 				8795B0341BAA68B400EC088A /* SatistiedThreeViewController.xib in Resources */,
+				87D7687C1C4E253D00CE3575 /* SecondHelpViewController.xib in Resources */,
 				87F73F751B8CA42D005705AA /* SocialCommentViewController.xib in Resources */,
 				875D24461B8884350068AA2B /* CeBaiResultViewController.xib in Resources */,
 				877880311B8A063600BAF13D /* PostTopicViewController.xib in Resources */,
@@ -1419,6 +1428,7 @@
 				87E2AB3B1B7757A2001ED07F /* MeiBaiProjectViewController.m in Sources */,
 				8742497D1B78E72500F6DB69 /* PhoneInfoViewController.m in Sources */,
 				87E2AB6D1B78B8E9001ED07F /* BirthDayViewController.m in Sources */,
+				87D7687B1C4E253D00CE3575 /* SecondHelpViewController.m in Sources */,
 				870A65E01B77227100A51B26 /* ViewController.m in Sources */,
 				87D533F21B79EC9F00F3D6BE /* MessageTimeChooseController.m in Sources */,
 				8742498C1B798CE600F6DB69 /* TeethDetailOneController.m in Sources */,
