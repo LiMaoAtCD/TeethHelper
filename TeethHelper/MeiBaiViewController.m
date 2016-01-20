@@ -246,6 +246,10 @@
     }];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
@@ -254,7 +258,10 @@
         return;
     }
     
+    [SVProgressHUD showWithStatus:@""];
     [NetworkManager fetchFirstPageWithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD dismiss];
+
         if ([responseObject[@"status"] integerValue] == 2000) {
             NSDictionary *data = responseObject[@"data"];
             
@@ -426,7 +433,7 @@
             
         }
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
     }];
 }
 
@@ -554,7 +561,7 @@ static int delayTouch = NO;
         }
         
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
     }];
 }
 

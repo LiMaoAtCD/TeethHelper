@@ -139,7 +139,7 @@
             }
             
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络出错啦"];
+            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
         }];
     }
 

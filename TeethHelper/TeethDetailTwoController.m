@@ -124,7 +124,7 @@
 //                            }
 //                            
 //                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//                            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
 //                        }];
 //                        
 //                    }];
@@ -157,7 +157,7 @@
 //                            }
 //                            
 //                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//                            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
 //                        }];
 //                        
 //                    }];
@@ -189,7 +189,7 @@
 //                            }
 //                            
 //                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//                            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
 //                        }];
 //                        
 //                        
@@ -221,7 +221,7 @@
 //                            }
 //                            
 //                        } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-//                            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+//                            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
 //                        }];
 //                        
 //                        

@@ -132,7 +132,7 @@
                 [self.navigationController popToRootViewControllerAnimated:YES];
 
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
         }];
         UIAlertAction *nodelay = [UIAlertAction actionWithTitle:@"不延长" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -143,7 +143,7 @@
 
 
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
 
             }];
         }];

@@ -58,7 +58,7 @@
             [SVProgressHUD showErrorWithStatus:@"当前美白计划获取失败"];
         }
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
         
     }];
     
@@ -336,7 +336,7 @@
             }
             
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
         }];
     } else{
 //      加强，温柔，标准 根据 牙齿状况
@@ -376,7 +376,7 @@
                 }
                 
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
             
     
@@ -398,7 +398,7 @@
                 }
                 
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
 
         } else if (answer1 != 2 && answer2 == 0 && answer2 == 1) {
@@ -419,7 +419,7 @@
                 }
                 
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
 
         } else{
@@ -441,7 +441,7 @@
                 }
                 
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
 
 
@@ -469,7 +469,7 @@
                 [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
             }
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
         }];
         
     }else{
@@ -490,7 +490,7 @@
                     [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
                 }
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
             
 
@@ -510,7 +510,7 @@
                     [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
                 }
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
         }
     }
@@ -536,7 +536,7 @@
             }
             
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
         }];
 
     }

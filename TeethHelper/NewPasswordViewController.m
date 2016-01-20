@@ -89,7 +89,7 @@
                     [SVProgressHUD showErrorWithStatus:@"修改失败，请稍后再试"];
                 }
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
         }
     } else {

@@ -128,7 +128,7 @@ static const NSInteger PageSize = 20;
 //            [SVProgressHUD showErrorWithStatus:@"获取失败"];
 //        }
 //    } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+//        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅了"];
 //        [self.tableView.header endRefreshing];
 //    }];
     
@@ -158,7 +158,7 @@ static const NSInteger PageSize = 20;
             [SVProgressHUD showErrorWithStatus:@"获取失败"];
         }
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅了"];
         [self.tableView.header endRefreshing];
     }];
 }
@@ -194,7 +194,7 @@ static const NSInteger PageSize = 20;
         }
         
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅了"];
         [self.tableView.footer endRefreshing];
         
     }];

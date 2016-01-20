@@ -216,7 +216,7 @@ static const NSInteger pageSize = 20;
         }
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.tableView.header endRefreshing];
-        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
         
     }];
     
@@ -252,7 +252,7 @@ static const NSInteger pageSize = 20;
         }
         
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
         [self.tableView.footer endRefreshing];
         
     }];

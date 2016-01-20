@@ -123,7 +123,7 @@ static const NSInteger pageSize = 50;
                     [SVProgressHUD showErrorWithStatus:@"重置失败，请稍后再试"];
                 }
             } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [SVProgressHUD showErrorWithStatus:@"网络出错"];
+                [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
             }];
         }];
     }
@@ -176,7 +176,7 @@ static const NSInteger pageSize = 50;
         }
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.tableView.header endRefreshing];
-        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
 
     }];
 
@@ -212,7 +212,7 @@ static const NSInteger pageSize = 50;
         }
         
     } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [SVProgressHUD showErrorWithStatus:@"网络出错了"];
+        [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅了"];
         [self.tableView.footer endRefreshing];
         
     }];
@@ -326,7 +326,7 @@ static const NSInteger pageSize = 50;
 
             }
         } FailHandler:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [SVProgressHUD showErrorWithStatus:@"网络出错"];
+            [SVProgressHUD showErrorWithStatus:@"网络开小差了，请检查网络是否通畅"];
         }];
     }
 }
