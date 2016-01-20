@@ -145,6 +145,38 @@
 
 #pragma mark - Touch Events
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    
+    switch (self.orientation) {
+        case Vertical:
+            if (!(point.y < 0) && !(point.y > self.frame.size.height)) {
+                [self changeStarForegroundViewWithPoint:point];
+            }
+            break;
+            //        case Horizontal:
+            //            if (!(point.x < 0) && !(point.x > self.frame.size.width)) {
+            //                [self changeStarForegroundViewWithPoint:point];
+            //            }
+            //            break;
+            
+        case Horizontal:
+            if (!(point.x < self.handleView.bounds.size.width / 2) && !(point.x > self.frame.size.width - self.handleView.bounds.size.width / 2 )) {
+                [self changeStarForegroundViewWithPoint:point];
+            }
+            break;
+        default:
+            break;
+    }
+    
+//    if ((point.x >= 0) && point.x <= self.frame.size.width-handleWidth) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(sliderValueChanged:)]) {
+            [self.delegate sliderValueChanged:self];
+        }
+//    }
+
+}
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
@@ -235,6 +267,9 @@
             }
             
             self.value = p.x / self.frame.size.width;
+//            NSLog(@"value = %f",self.value);
+            [self.delegate sliderValueChanged:self]; // or use sliderValueChangeEnded method
+
             self.foregroundView.frame = CGRectMake(0, 0, p.x, self.frame.size.height);
             
             if (!isHandleHidden) {
