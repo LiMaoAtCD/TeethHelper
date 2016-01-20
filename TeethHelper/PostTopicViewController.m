@@ -444,6 +444,11 @@
             [NetworkManager publishTextContent:self.textView.text withImages:array WithCompletionHandler:^(AFHTTPRequestOperation *operation, id responseObject) {
                 if ([responseObject[@"status"] integerValue] == 2000) {
                     [SVProgressHUD showSuccessWithStatus:@"发布成功"];
+                    
+                    if ([self.delegate respondsToSelector:@selector(refreshTableView)]) {
+                        [self.delegate refreshTableView];
+                    }
+
                     [self.navigationController popViewControllerAnimated:YES];
                 } else if([responseObject[@"status"] integerValue] == 1004){
                     [SVProgressHUD showErrorWithStatus:@"服务器内部错误"];
