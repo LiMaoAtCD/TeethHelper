@@ -17,10 +17,10 @@
 
 #import "Utils.h"
 
-#import "SuggestGentleViewController.h"
+//#import "SuggestGentleViewController.h"
 #import "SuggestionKeepViewController.h"
-#import "SuggestSuspendViewController.h"
-#import "SuggestStanstardViewController.h"
+//#import "SuggestSuspendViewController.h"
+//#import "SuggestStanstardViewController.h"
 
 #import "MessageConfigureFile.h"
 #import <Appirater.h>

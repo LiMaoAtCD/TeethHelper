@@ -286,23 +286,23 @@
             [MeiBaiConfigFile setCureTimesEachDay:times];
             
 //A标准计划B加强计划C温柔计划D自定义计划E保持计划F咨询医生PAUSE暂停
-            NSString *planType = plan[@"plantype"];
-            
-            if ([planType isEqualToString:@"E"]) {
-                [MeiBaiConfigFile setCurrentProject:KEEP];
-            } else if ([planType isEqualToString:@"A"]){
-                [MeiBaiConfigFile setCurrentProject:STANDARD];
-            }else if ([planType isEqualToString:@"B"]){
-                [MeiBaiConfigFile setCurrentProject:ENHANCE];
-            }else if ([planType isEqualToString:@"C"]){
-                [MeiBaiConfigFile setCurrentProject:GENTLE];
-            }else if ([planType isEqualToString:@"F"] || [planType isEqualToString:@"PAUSE"]){
-                [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
-            }else{
-                //自定义计划
-                [MeiBaiConfigFile setCurrentProject:USER_DEFINED];
-                
-            }
+//            NSString *planType = plan[@"plantype"];
+//            
+//            if ([planType isEqualToString:@"E"]) {
+//                [MeiBaiConfigFile setCurrentProject:KEEP];
+//            } else if ([planType isEqualToString:@"A"]){
+//                [MeiBaiConfigFile setCurrentProject:STANDARD];
+//            }else if ([planType isEqualToString:@"B"]){
+//                [MeiBaiConfigFile setCurrentProject:ENHANCE];
+//            }else if ([planType isEqualToString:@"C"]){
+//                [MeiBaiConfigFile setCurrentProject:GENTLE];
+//            }else if ([planType isEqualToString:@"F"] || [planType isEqualToString:@"PAUSE"]){
+//                [MeiBaiConfigFile setCurrentProject:GENTLE_NoNotification];
+//            }else{
+//                //自定义计划
+//                [MeiBaiConfigFile setCurrentProject:USER_DEFINED];
+//                
+//            }
             
             if ([MeiBaiConfigFile getCurrentProject] != KEEP) {
                 //如果是治疗阶段
