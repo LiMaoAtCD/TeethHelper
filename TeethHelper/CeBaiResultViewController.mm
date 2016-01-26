@@ -28,7 +28,6 @@
 @interface CeBaiResultViewController ()<ShareToSocialDelegate>
 
 
-@property (nonatomic, assign) NSInteger Level;
 
 @end
 
@@ -42,32 +41,17 @@
     self.navigationController.navigationBar.translucent = YES;
     [self configRightNavigationItem];
     
-    //TODO:通过SDK获得白度值
     
-    NSString  *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
-    
-    [UIImageJPEGRepresentation(self.imageForTesting,1.0) writeToFile:imagePath atomically:YES];
-    
-//    UIImageWriteToSavedPhotosAlbum(self.imageForTesting, nil, nil, nil);
-
-
-    NSString  *imageCodePathFile = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
-    
-//    NSString *imageForTesting = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"jpg"];
+//    NSString  *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
+//    [UIImageJPEGRepresentation(self.imageForTesting,1.0) writeToFile:imagePath atomically:YES];
+//    NSString  *imageCodePathFile = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
+//    const char *codePathFile = [imageCodePathFile UTF8String];
 //    
-//    const char *codePathFile = [imageForTesting UTF8String];
-
-    const char *codePathFile = [imageCodePathFile UTF8String];
-    
-    IplImage *imageCode = cvLoadImage(codePathFile,1);
-    
-    int matchIndex = ToothColorMatch(imageCode);
-    
-    
-//    IplImage *inputImage = cvLoadImage()
-//    int level = ToothProcess();
-    
-    self.Level = matchIndex;
+//    IplImage *imageCode = cvLoadImage(codePathFile,1);
+//    
+//    int matchIndex = ToothColorMatch(imageCode);
+//    
+//    self.Level = matchIndex;
 
     if (![AccountManager isCompletedFirstCeBai]|| [AccountManager NeedResetFirstCeBai]) {
         

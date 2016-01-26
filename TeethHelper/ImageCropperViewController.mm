@@ -10,6 +10,10 @@
 #import "Utils.h"
 #import <Masonry.h>
 #import "CeBaiResultViewController.h"
+
+#import "ToothProcess.h"
+#import "Global.h"
+
 @interface ImageCropperViewController ()<RSKImageCropViewControllerDelegate>
 
 @end
@@ -117,7 +121,7 @@
     
     
     CeBaiResultViewController *resultVC = [[CeBaiResultViewController alloc] initWithNibName:@"CeBaiResultViewController" bundle:nil];
-    resultVC.imageForTesting= croppedImage;
+//    resultVC.imageForTesting= croppedImage;
 //    resultVC.imageForDisplay = image2;
 
     [self.navigationController pushViewController:resultVC animated:YES];
@@ -126,10 +130,33 @@
 
 - (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage CropedImage2:(UIImage*)image2 usingCropRect:(CGRect)cropRect{
     
-    CeBaiResultViewController *resultVC = [[CeBaiResultViewController alloc] initWithNibName:@"CeBaiResultViewController" bundle:nil];
-    resultVC.imageForTesting= croppedImage;
-    resultVC.imageForDisplay = image2;
-    [self.navigationController pushViewController:resultVC animated:YES];
+    
+    NSString  *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
+    [UIImageJPEGRepresentation(croppedImage,1.0) writeToFile:imagePath atomically:YES];
+    NSString  *imageCodePathFile = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/temp.jpg"];
+    const char *codePathFile = [imageCodePathFile UTF8String];
+    
+    IplImage *imageCode = cvLoadImage(codePathFile,1);
+    
+    int matchIndex = ToothColorMatch(imageCode);
+    
+
+    if (matchIndex == -1) {
+        [Utils showAlertMessage:@"未能测出正确的牙齿白度,请重新拍摄并选取正确的牙齿图片" onViewController: self withCompletionHandler:^(){
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+    } else {
+        
+        CeBaiResultViewController *resultVC = [[CeBaiResultViewController alloc] initWithNibName:@"CeBaiResultViewController" bundle:nil];
+//        resultVC.imageForTesting= croppedImage;
+        resultVC.Level = matchIndex;
+        resultVC.imageForDisplay = image2;
+        [self.navigationController pushViewController:resultVC animated:YES];
+    }
+    
+//    +(void)showAlertMessage:(NSString*)message onViewController:(UIViewController *)viewController withCompletionHandler:(alertBlock)handler;
+
+   
 
 }
 
