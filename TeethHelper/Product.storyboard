@@ -1386,9 +1386,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="60" y="16" width="252" height="47"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>

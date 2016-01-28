@@ -60,7 +60,7 @@
     cell.indexLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
     cell.contentLabel.text = self.items[indexPath.row];
     
-    
+    [cell updateConstraintsIfNeeded];
     
     return cell;
 }
