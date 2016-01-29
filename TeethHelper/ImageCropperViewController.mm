@@ -13,6 +13,7 @@
 
 #import "ToothProcess.h"
 #import "Global.h"
+#import "AccountManager.h"
 
 @interface ImageCropperViewController ()<RSKImageCropViewControllerDelegate>
 
@@ -142,9 +143,42 @@
     
 
     if (matchIndex == -1) {
-        [Utils showAlertMessage:@"未能测出正确的牙齿白度,请重新拍摄并选取正确的牙齿图片" onViewController: self withCompletionHandler:^(){
+//        [Utils showAlertMessage:@"未能测出正确的牙齿白度,请重新拍摄并选取正确的牙齿图片" onViewController: self withCompletionHandler:^(){
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }];
+//        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"未能测出正确的牙齿白度,请重新拍摄并选取正确的牙齿图片" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"返回重测" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self.navigationController popViewControllerAnimated:YES];
+
         }];
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"暂且跳过" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            [self.navigationController popViewControllerAnimated:YES];
+            
+            if (![AccountManager isCompletedFirstCeBai]|| [AccountManager NeedResetFirstCeBai]) {
+                [AccountManager setCompletedFirstCeBai:YES];
+                [AccountManager NeedResetFirstCeBai:NO];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"QuestionsCompleted" object:nil];
+            } else {
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"kNeedSwitchToOne" object:nil];
+            }
+            
+
+           
+
+        }];
+        
+        [alertController addAction:action1];
+        [alertController addAction:action2];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+
+        
+        
     } else {
         
         CeBaiResultViewController *resultVC = [[CeBaiResultViewController alloc] initWithNibName:@"CeBaiResultViewController" bundle:nil];
