@@ -23,6 +23,7 @@
     // Do any additional setup after loading the view from its nib.
     [Utils ConfigNavigationBarWithTitle:@"测白" onViewController:self];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{

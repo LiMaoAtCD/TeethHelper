@@ -286,10 +286,11 @@
             [MeiBaiConfigFile setCureTimesEachDay:times];
             
 //A标准计划B加强计划C温柔计划D自定义计划E保持计划F咨询医生PAUSE暂停
-//            NSString *planType = plan[@"plantype"];
-//            
-//            if ([planType isEqualToString:@"E"]) {
-//                [MeiBaiConfigFile setCurrentProject:KEEP];
+            NSString *planType = plan[@"plantype"];
+//
+            if ([planType isEqualToString:@"E"]) {
+                [MeiBaiConfigFile setCurrentProject:KEEP];
+            }
 //            } else if ([planType isEqualToString:@"A"]){
 //                [MeiBaiConfigFile setCurrentProject:STANDARD];
 //            }else if ([planType isEqualToString:@"B"]){
