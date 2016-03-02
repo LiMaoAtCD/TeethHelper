@@ -24,4 +24,5 @@ typedef void(^alertBlock)(void);
 +(void)showAlertMessage:(NSString*)message onViewController:(UIViewController *)viewController withCompletionHandler:(alertBlock)handler;
 
 
+
 @end

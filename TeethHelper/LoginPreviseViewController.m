@@ -10,6 +10,7 @@
 #import "SplashViewController.h"
 @interface LoginPreviseViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @end
 
 @implementation LoginPreviseViewController
@@ -23,6 +24,26 @@
         
         
         [self addSplashView];
+    }
+
+    if ([UIScreen mainScreen].bounds.size.width == 320) {
+        
+        
+        self.imageView.image = [UIImage imageNamed:@"login_5"];
+        self.imageView.frame = CGRectMake(0, 0, 320, 864.0 / 2);
+        
+        
+    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+        
+        self.imageView.image = [UIImage imageNamed:@"login_6"];
+        self.imageView.frame = CGRectMake(0, 0, 375, 1062.0 / 2);
+    } else {
+        
+        
+        self.imageView.image = [UIImage imageNamed:@"login_7"];
+        self.imageView.frame = CGRectMake(0, 0, 1242. / 3, 1800.0 / 3);
+
+        
     }
     
     

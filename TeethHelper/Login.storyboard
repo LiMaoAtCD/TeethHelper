@@ -1806,7 +1806,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_previse" translatesAutoresizingMaskIntoConstraints="NO" id="QHK-zv-HPA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_5" translatesAutoresizingMaskIntoConstraints="NO" id="QHK-zv-HPA">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJb-xd-WXG">
@@ -1986,6 +1986,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="ISm-qn-2HR"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="QHK-zv-HPA" id="O1C-R4-spI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjs-xK-c1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2006,7 +2009,7 @@
         <image name="btn_login_pressed" width="260" height="37"/>
         <image name="btn_next_normal" width="260" height="37"/>
         <image name="forgetPassword" width="178" height="64"/>
-        <image name="login_previse" width="355" height="480"/>
+        <image name="login_5" width="640" height="864"/>
         <image name="logo" width="124" height="31"/>
         <image name="reg1" width="112" height="34"/>
         <image name="register" width="130" height="50"/>
