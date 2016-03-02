@@ -10,6 +10,7 @@
 #import "CameraViewController.h"
 #import "ImageEditViewController.h"
 #import "Utils.h"
+#import "SecondHelpViewController.h"
 
 
 @interface FirstCeBaiViewController ()
@@ -24,6 +25,21 @@
     [Utils ConfigNavigationBarWithTitle:@"测白" onViewController:self];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIView new]];
     
+    UIButton *rightHelpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [rightHelpButton setTitle:@"帮助" forState:UIControlStateNormal];
+    
+    [rightHelpButton addTarget:self action:@selector(help) forControlEvents:UIControlEventTouchUpInside];
+    
+    rightHelpButton.frame = CGRectMake(0, 0, 60, 35);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightHelpButton];
+    
+}
+
+-(void)help{
+    SecondHelpViewController *second = [[SecondHelpViewController alloc] initWithNibName:@"SecondHelpViewController" bundle:nil];
+    second.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:second animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

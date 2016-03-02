@@ -499,7 +499,7 @@
     }
     
     WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+    ext.webpageUrl = @"http://itunes.apple.com/cn/app/id1080893987";
     
     message.mediaObject = ext;
     message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
@@ -538,7 +538,7 @@
 
     
     WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+    ext.webpageUrl = @"http://itunes.apple.com/cn/app/id1080893987";
     
     message.mediaObject = ext;
     message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
@@ -577,7 +577,7 @@
     
     
     WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+    ext.webpageUrl = @"http://itunes.apple.com/cn/app/id1080893987";
     
     message.mediaObject = ext;
     message.mediaTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
