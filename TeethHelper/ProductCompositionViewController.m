@@ -24,6 +24,11 @@
 @property (strong, nonatomic) NSArray *Detailitems;
 
 
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) UIScrollView *scrollView;
+
+
+
 @end
 
 @implementation ProductCompositionViewController
@@ -42,6 +47,38 @@
                          @"使用时套在去除皇冠头的美白胶管头部，便于将胶均匀的涂刷至牙齿表面。",
                          @"美白时用挂绳方便的将电源控制器悬挂使用",
                          @"旅行时便于携带全套美白组件"];
+    
+    
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64.0)];
+    
+    [self.view addSubview:_scrollView];
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [self.scrollView addSubview:_imageView];
+    
+    if ([UIScreen mainScreen].bounds.size.width == 320) {
+        self.scrollView.contentSize = CGSizeMake(320, 1462.0 / 2);
+        
+        
+        self.imageView.image = [UIImage imageNamed:@"zucheng_5"];
+        self.imageView.frame = CGRectMake(0, 0, 320, 1462.0 / 2);
+        
+        
+    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+//        self.scrollView.contentSize = CGSizeMake(375, (1713.0 + 100) / 2);
+        self.scrollView.contentSize = CGSizeMake(375, 1713.0 / 2);
+
+        self.imageView.image = [UIImage imageNamed:@"zucheng_6"];
+        self.imageView.frame = CGRectMake(0, 0, 375, 1713.0 / 2);
+        
+    } else {
+        
+        self.scrollView.contentSize = CGSizeMake(1242.0 / 3, 2837.0 / 3);
+        
+        self.imageView.image = [UIImage imageNamed:@"zucheng_7"];
+        self.imageView.frame = CGRectMake(0, 0, 1242.0 /3, 2837.0 / 3);
+    }
+
 
 }
 

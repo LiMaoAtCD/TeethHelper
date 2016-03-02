@@ -18,7 +18,11 @@
 
 @property (nonatomic,strong) MPMoviePlayerViewController *moviePlayerViewController;
 
-@property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
+
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) UIScrollView *scrollView;
+
+
 
 @end
 
@@ -29,8 +33,37 @@
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"新手指南" onViewController:self];
     
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64)];
     
-//    [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getProductGuideSourceThumb]] placeholderImage:[UIImage imageNamed:@"bg_video"]];
+    [self.view addSubview:_scrollView];
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [self.scrollView addSubview:_imageView];
+    
+    if ([UIScreen mainScreen].bounds.size.width == 320) {
+        self.scrollView.contentSize = CGSizeMake(320, 1679.0 / 2);
+        
+        
+        self.imageView.image = [UIImage imageNamed:@"new_5"];
+        self.imageView.frame = CGRectMake(0, 0, 320, 1679.0 / 2);
+        
+        
+    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+        self.scrollView.contentSize = CGSizeMake(375, 1967.0 / 2);
+        
+        self.imageView.image = [UIImage imageNamed:@"new_6"];
+        self.imageView.frame = CGRectMake(0, 0, 375, 1967.0 / 2);
+        
+    } else {
+        
+        self.scrollView.contentSize = CGSizeMake(1242.0 / 3,  3258.0 / 3);
+        
+        self.imageView.image = [UIImage imageNamed:@"new_7"];
+        self.imageView.frame = CGRectMake(0, 0, 1242.0 /3, 3258.0 / 3);
+        
+    }
+
+
 }
 
 -(void)pop{

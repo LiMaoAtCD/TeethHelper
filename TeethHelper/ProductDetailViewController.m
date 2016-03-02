@@ -17,6 +17,10 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) UIScrollView *scrollView;
+
+
 @end
 
 @implementation ProductDetailViewController
@@ -25,8 +29,37 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [Utils ConfigNavigationBarWithTitle:@"产品介绍" onViewController:self];
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64)];
     
-//    [self.thumbImageView sd_setImageWithURL:[NSURL URLWithString:[ProductConfigFile getProductIntroduceSourceThumb]] placeholderImage:[UIImage imageNamed:@"bg_video"]];
+    [self.view addSubview:_scrollView];
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [self.scrollView addSubview:_imageView];
+    
+    if ([UIScreen mainScreen].bounds.size.width == 320) {
+        self.scrollView.contentSize = CGSizeMake(320, 1136. / 2);
+        
+        
+        self.imageView.image = [UIImage imageNamed:@"jieshao_5"];
+        self.imageView.frame = CGRectMake(0, 0, 320, 1136. / 2);
+        
+        
+    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+        self.scrollView.contentSize = CGSizeMake(375, 1334. / 2);
+        
+        self.imageView.image = [UIImage imageNamed:@"jieshao_6"];
+        self.imageView.frame = CGRectMake(0, 0, 375, 1334. / 2);
+        
+    } else {
+        
+        self.scrollView.contentSize = CGSizeMake(1242.0 / 3,  2280. / 3);
+        
+        self.imageView.image = [UIImage imageNamed:@"jieshao_7"];
+        self.imageView.frame = CGRectMake(0, 0, 1242.0 /3, 2280. / 3);
+        
+    }
+    
+    
 }
 
 -(void)pop{
