@@ -14,6 +14,7 @@
 
 
 @interface FirstCeBaiViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -34,6 +35,25 @@
     rightHelpButton.frame = CGRectMake(0, 0, 60, 35);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightHelpButton];
     
+    if ([UIScreen mainScreen].bounds.size.width == 320) {
+        
+        
+        self.imageView.image = [UIImage imageNamed:@"cebai_5"];
+        self.imageView.frame = CGRectMake(0, 0, 320, 820.0 / 2);
+        
+        
+    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+        
+        self.imageView.image = [UIImage imageNamed:@"cebai_6"];
+        self.imageView.frame = CGRectMake(0, 0, 375, 1018.0 / 2);
+    } else {
+        
+        
+        self.imageView.image = [UIImage imageNamed:@"cebai_7"];
+        self.imageView.frame = CGRectMake(0, 0, 1242. / 3, 1734.0 / 3);
+        
+        
+    }
 }
 
 -(void)help{
