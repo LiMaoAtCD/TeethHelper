@@ -70,8 +70,11 @@
 ////        self.view.transform = CGAffineTransformMakeScale(2.0, 2.0);
 //        self.view.alpha = 0.5;
 //    } completion:^(BOOL finished) {
-        [self dismissViewControllerAnimated:NO completion:nil];
+//        [self dismissViewControllerAnimated:NO completion:nil];
+    
 //    }];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"login_vc" object:nil];
     
 }
 

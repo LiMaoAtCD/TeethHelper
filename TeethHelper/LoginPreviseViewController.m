@@ -11,6 +11,8 @@
 @interface LoginPreviseViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (strong, nonatomic) SplashViewController *splashVC;
 @end
 
 @implementation LoginPreviseViewController
@@ -18,43 +20,68 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"_first_launch"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         
         [self addSplashView];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if ([UIScreen mainScreen].bounds.size.width == 320) {
+                
+                
+                self.imageView.image = [UIImage imageNamed:@"login_5"];
+                self.imageView.frame = CGRectMake(0, 0, 320, 864.0 / 2);
+                
+                
+            } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+                
+                self.imageView.image = [UIImage imageNamed:@"login_6"];
+                self.imageView.frame = CGRectMake(0, 0, 375, 1062.0 / 2);
+            } else {
+                
+                
+                self.imageView.image = [UIImage imageNamed:@"login_7"];
+                self.imageView.frame = CGRectMake(0, 0, 1242. / 3, 1800.0 / 3);
+            }
+            
+        });
     }
+    
+        if ([UIScreen mainScreen].bounds.size.width == 320) {
+            
+            
+            self.imageView.image = [UIImage imageNamed:@"login_5"];
+            self.imageView.frame = CGRectMake(0, 0, 320, 864.0 / 2);
+            
+            
+        } else if ([UIScreen mainScreen].bounds.size.width == 375) {
+            
+            self.imageView.image = [UIImage imageNamed:@"login_6"];
+            self.imageView.frame = CGRectMake(0, 0, 375, 1062.0 / 2);
+        } else {
+            
+            
+            self.imageView.image = [UIImage imageNamed:@"login_7"];
+            self.imageView.frame = CGRectMake(0, 0, 1242. / 3, 1800.0 / 3);
+            
+            
+        }
+        
+    
 
-    if ([UIScreen mainScreen].bounds.size.width == 320) {
-        
-        
-        self.imageView.image = [UIImage imageNamed:@"login_5"];
-        self.imageView.frame = CGRectMake(0, 0, 320, 864.0 / 2);
-        
-        
-    } else if ([UIScreen mainScreen].bounds.size.width == 375) {
-        
-        self.imageView.image = [UIImage imageNamed:@"login_6"];
-        self.imageView.frame = CGRectMake(0, 0, 375, 1062.0 / 2);
-    } else {
-        
-        
-        self.imageView.image = [UIImage imageNamed:@"login_7"];
-        self.imageView.frame = CGRectMake(0, 0, 1242. / 3, 1800.0 / 3);
+    
+    
 
-        
-    }
     
     
 
 }
 
 -(void)addSplashView{
-    
-    SplashViewController *splashVC = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
-    
-    [self presentViewController:splashVC animated:NO completion:^{
+    [self presentViewController:self.splashVC animated:NO completion:^{
         
     }];
     

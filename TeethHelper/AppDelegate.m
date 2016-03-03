@@ -26,7 +26,7 @@
 #import "WXApi.h"
 
 #import "ProductConfigFile.h"
-
+#import "SplashViewController.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 //@interface AppDelegate ()
@@ -35,6 +35,7 @@
 @property (nonatomic, strong) MainTabBarController *tabarController;
 @property (nonatomic, strong) LoginNavigationController *loginVC;
 @property (nonatomic, strong) InitialNavigationController *questionsVC;
+@property (strong, nonatomic) SplashViewController *splashVC;
 
 @end
 
@@ -60,16 +61,31 @@
     _tabarController = [sb instantiateViewControllerWithIdentifier:@"MainTabBarController"];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(QuestionsCompleted:) name:@"QuestionsCompleted" object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(login_vc) name:@"login_vc" object:nil];
 
     //检查是否登录
     BOOL isLogin = [AccountManager isLogin];
     if (!isLogin) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-        _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
-       
+        
+        
+        _splashVC = [[SplashViewController alloc] initWithNibName:@"SplashViewController" bundle:nil];
 
-        self.window.rootViewController = _loginVC;
-        [self.window makeKeyAndVisible];
+        if (![[NSUserDefaults standardUserDefaults] boolForKey:@"_first_launch"]) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"_first_launch"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            self.window.rootViewController = _splashVC;
+            [self.window makeKeyAndVisible];
+        } else {
+            UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+            _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+            
+            
+            self.window.rootViewController = _loginVC;
+            [self.window makeKeyAndVisible];
+
+        }
+        
         
     } else {
         //登录成功了
@@ -83,6 +99,15 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess:) name:@"LoginSuccess" object:nil];
     
     return YES;
+}
+
+-(void)login_vc{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    _loginVC = [sb instantiateViewControllerWithIdentifier:@"LoginNavigationController"];
+    
+    
+    self.window.rootViewController = _loginVC;
+    [self.window makeKeyAndVisible];
 }
 
 -(void)QuestionsCompleted:(id)sender{
